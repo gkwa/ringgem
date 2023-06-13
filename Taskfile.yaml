@@ -1,0 +1,105 @@
+version: "3"
+tasks:
+  default:
+    deps:
+    - bash-customize-kubectl-on-linux
+    - install-awscli-on-ubuntu
+    - install-clusterawsadm-on-linux
+    - install-clusterctl-on-linux
+    - install-docker-on-ubuntu
+    - install-go-task-on-linux
+    - install-golang-from-tar
+    - install-jq-on-ubuntu
+    - install-kind-on-linux
+    - install-konfig-using-kubectl-krew
+    - install-krew-on-linux
+    - install-kubectl-on-linux
+    - install-kustomize-on-linux
+    - install-pip3-on-ubuntu
+    - install-python3-on-ubuntu
+  install-jq-on-ubuntu:
+    deps:
+    - apt-update
+    cmds:
+    - bash -x install-jq-on-ubuntu.sh
+    status:
+    - command jq --version >/dev/null
+  install-clusterawsadm-on-linux:
+    cmds:
+    - bash -x install-clusterawsadm-on-linux.sh
+    status:
+    - test -f /usr/local/bin/clusterawsadm
+  install-clusterctl-on-linux:
+    cmds:
+    - bash -x install-clusterctl-on-linux.sh
+    status:
+    - test -f /usr/local/bin/clusterctl
+  install-docker-on-ubuntu:
+    cmds:
+    - bash install-docker-on-ubuntu.sh
+    status:
+    - test -f /usr/bin/docker
+  install-go-task-on-linux:
+    cmds:
+    - bash -x install-go-task-on-linux.sh
+    status:
+    - test -f /usr/local/bin/task
+  install-golang-from-tar:
+    cmds:
+    - bash -x install-golang-from-tar.sh
+    status:
+    - test -f /usr/local/go/bin/go
+  install-kind-on-linux:
+    cmds:
+    - bash -x install-kind-on-linux.sh
+    status:
+    - test -f /usr/local/bin/kind
+  install-pip3-on-ubuntu:
+    cmds:
+    - bash -x install-pip3-on-ubuntu.sh
+    status:
+    - command pip3 --version >/dev/null
+  install-python3-on-ubuntu:
+    cmds:
+    - bash install-python3-on-ubuntu.sh
+    status:
+    - command python3 --version >/dev/null
+  install-konfig-using-kubectl-krew:
+    deps:
+    - install-krew-on-linux
+    cmds:
+    - bash -x install-konfig-using-kubectl-krew.sh
+    status:
+    - test -d /root/.krew/store/konfig/
+  install-awscli-on-ubuntu:
+    deps:
+    - apt-update
+    cmds:
+    - bash -x install-awscli-on-ubuntu.sh
+    status:
+    - command aws --version >/dev/null
+  apt-update:
+    cmds:
+    - bash apt-update.sh
+  install-krew-on-linux:
+    deps:
+    - install-kubectl-on-linux
+    cmds:
+    - bash -x install-krew-on-linux.sh
+    status:
+    - test -f ~/.krew/bin/kubectl-krew
+  install-kubectl-on-linux:
+    cmds:
+    - bash -x install-kubectl-on-linux.sh
+    status:
+    - test -f /usr/local/bin/kubectl
+  install-kustomize-on-linux:
+    cmds:
+    - bash -x install-kustomize-on-linux.sh
+    status:
+    - test -f /usr/local/bin/kustomize
+  bash-customize-kubectl-on-linux:
+    cmds:
+    - bash -x bash-customize-kubectl-on-linux.sh
+    status:
+    - ! grep --quiet "alias k=kubectl" ~/.bashrc
