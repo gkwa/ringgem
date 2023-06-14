@@ -4,12 +4,14 @@ tasks:
     deps:
     - bash-customize-kubectl-on-linux
     - install-awscli-on-ubuntu
+    - install-cilium-on-linux
     - install-clusterawsadm-on-linux
     - install-clusterctl-on-linux
     - install-docker-on-ubuntu
     - install-go-task-on-linux
     - install-golang-from-tar
     - install-jq-on-ubuntu
+    - install-k9s-on-ubuntu
     - install-kind-on-linux
     - install-konfig-using-kubectl-krew
     - install-krew-on-linux
@@ -17,6 +19,17 @@ tasks:
     - install-kustomize-on-linux
     - install-pip3-on-ubuntu
     - install-python3-on-ubuntu
+    - source-bashrc
+  install-k9s-on-ubuntu:
+    cmds:
+    - bash -x install-k9s-on-ubuntu.sh
+    status:
+    - command k9s version >/dev/null
+  install-cilium-on-linux:
+    cmds:
+    - bash -x install-cilium-on-linux.sh
+    status:
+    - command cilium version >/dev/null
   install-jq-on-ubuntu:
     deps:
     - apt-update
@@ -103,3 +116,10 @@ tasks:
     - bash -x bash-customize-kubectl-on-linux.sh
     status:
     - ! grep --quiet "alias k=kubectl" ~/.bashrc
+  source-bashrc:
+    deps:
+    - bash-customize-kubectl-on-linux
+    cmds:
+    - bash source-bashrc.sh
+    status:
+    - alias k
