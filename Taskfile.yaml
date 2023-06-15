@@ -28,7 +28,7 @@ tasks:
     cmds:
     - bash -x install-kubectl-stern-plugin.sh
     status:
-    - command kubectl stern --version >/dev/null
+    - test -f ~/.krew/store/stern/v*/stern
     deps:
     - install-krew-on-linux
   install-helm-on-linux:
@@ -109,7 +109,7 @@ tasks:
     cmds:
     - bash -x install-kubectl-konfig-plugin.sh
     status:
-    - test -d /root/.krew/store/konfig/
+    - test -f ~/.krew/store/konfig/v*/konfig-krew
   install-awscli-on-ubuntu:
     deps:
     - apt-update
