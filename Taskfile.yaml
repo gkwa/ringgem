@@ -25,12 +25,12 @@ tasks:
     - install-ripgrep-on-linux
     - source-bashrc
   install-kubectl-stern-plugin:
-    deps:
-    - install-krew-on-linux
     cmds:
     - bash -x install-kubectl-stern-plugin.sh
     status:
-    - command helm version >/dev/null
+    - command kubectl stern >/dev/null
+    deps:
+    - install-krew-on-linux
   install-helm-on-linux:
     cmds:
     - bash -x install-helm-on-linux.sh
