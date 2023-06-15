@@ -19,7 +19,13 @@ tasks:
     - install-kustomize-on-linux
     - install-pip3-on-ubuntu
     - install-python3-on-ubuntu
+    - install-ripgrep-on-linux
     - source-bashrc
+  install-ripgrep-on-linux:
+    cmds:
+    - bash -x install-ripgrep-on-linux.sh
+    status:
+    - command rg --version >/dev/null
   install-k9s-on-ubuntu:
     cmds:
     - bash -x install-k9s-on-ubuntu.sh
