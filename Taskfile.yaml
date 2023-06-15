@@ -4,23 +4,38 @@ tasks:
     deps:
     - bash-customize-kubectl-on-linux
     - install-awscli-on-ubuntu
+    - install-cilium-hubble-on-linux
     - install-cilium-on-linux
     - install-clusterawsadm-on-linux
     - install-clusterctl-on-linux
     - install-docker-on-ubuntu
     - install-go-task-on-linux
     - install-golang-from-tar
+    - install-helm-on-linux
     - install-jq-on-ubuntu
     - install-k9s-on-ubuntu
     - install-kind-on-linux
-    - install-konfig-using-kubectl-krew
     - install-krew-on-linux
+    - install-kubectl-konfig-plugin
     - install-kubectl-on-linux
+    - install-kubectl-stern-plugin
     - install-kustomize-on-linux
     - install-pip3-on-ubuntu
     - install-python3-on-ubuntu
     - install-ripgrep-on-linux
     - source-bashrc
+  install-kubectl-stern-plugin:
+    deps:
+    - install-krew-on-linux
+    cmds:
+    - bash -x install-kubectl-stern-plugin.sh
+    status:
+    - command helm version >/dev/null
+  install-helm-on-linux:
+    cmds:
+    - bash -x install-helm-on-linux.sh
+    status:
+    - command helm version >/dev/null
   install-ripgrep-on-linux:
     cmds:
     - bash -x install-ripgrep-on-linux.sh
@@ -31,6 +46,11 @@ tasks:
     - bash -x install-k9s-on-ubuntu.sh
     status:
     - command k9s version >/dev/null
+  install-cilium-hubble-on-linux:
+    cmds:
+    - bash -x install-cilium-hubble-on-linux.sh
+    status:
+    - command hubble version >/dev/null
   install-cilium-on-linux:
     cmds:
     - bash -x install-cilium-on-linux.sh
@@ -83,11 +103,11 @@ tasks:
     - bash install-python3-on-ubuntu.sh
     status:
     - command python3 --version >/dev/null
-  install-konfig-using-kubectl-krew:
+  install-kubectl-konfig-plugin:
     deps:
     - install-krew-on-linux
     cmds:
-    - bash -x install-konfig-using-kubectl-krew.sh
+    - bash -x install-kubectl-konfig-plugin.sh
     status:
     - test -d /root/.krew/store/konfig/
   install-awscli-on-ubuntu:
