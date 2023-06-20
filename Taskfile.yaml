@@ -51,7 +51,7 @@ tasks:
     cmds:
     - bash -x install-kubectl-stern-plugin.sh
     status:
-    - kubectl stern help >/dev/null
+    - test -f ~/.krew/store/stern/v*/stern
     deps:
     - install-krew-on-linux
   install-helm-on-linux:
