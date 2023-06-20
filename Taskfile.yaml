@@ -23,26 +23,35 @@ tasks:
     - install-kubectl-stern-plugin
     - install-kustomize-on-linux
     - install-pip3-on-linux
+    - install-pssh-on-linux
     - install-python3-on-linux
     - install-ripgrep-on-linux
     - source-bashrc
+  install-pssh-on-linux:
+    deps:
+    - apt-yum-update
+    cmds:
+    - bash -x install-pssh-on-linux.sh
+    status:
+    - parallel-ssh --version >/dev/null
   install-git-on-linux:
     cmds:
     - bash -x install-git-on-linux.sh
     status:
-    - command -v git &>/dev/null
+    - git --version >/dev/null
   install-brew-on-linux:
     cmds:
     - bash -x install-brew-on-linux.sh
     status:
-    - command -v brew &>/dev/null
+    - brew --version >/dev/null
     deps:
+    - apt-yum-update
     - install-git-on-linux
   install-kubectl-stern-plugin:
     cmds:
     - bash -x install-kubectl-stern-plugin.sh
     status:
-    - test -f ~/.krew/store/stern/v*/stern
+    - kubectl stern help >/dev/null
     deps:
     - install-krew-on-linux
   install-helm-on-linux:
@@ -125,7 +134,7 @@ tasks:
     cmds:
     - bash -x install-kubectl-konfig-plugin.sh
     status:
-    - test -f ~/.krew/store/konfig/v*/konfig-krew
+    - kubectl konfig help >/dev/null
   install-awscli-on-linux:
     deps:
     - apt-yum-update
