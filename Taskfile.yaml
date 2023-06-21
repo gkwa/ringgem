@@ -97,17 +97,17 @@ tasks:
     cmds:
     - bash -x install-clusterctl-on-linux.sh
     status:
-    - command -v docker &>/dev/null
+    - clusterctl version >/dev/null
   install-docker-on-linux:
     cmds:
     - bash install-docker-on-linux.sh
     status:
-    - command -v docker &>/dev/null
+    - docker --version >/dev/null
   install-go-task-on-linux:
     cmds:
     - bash -x install-go-task-on-linux.sh
     status:
-    - command -v task &>/dev/null
+    - task --version >/dev/null
   install-golang-from-tar:
     cmds:
     - bash -x install-golang-from-tar.sh
@@ -117,31 +117,31 @@ tasks:
     cmds:
     - bash -x install-kind-on-linux.sh
     status:
-    - command -v kind &>/dev/null
+    - kind --version >/dev/null
   install-pip3-on-linux:
     cmds:
     - bash -x install-pip3-on-linux.sh
     status:
-    - command pip3 --version >/dev/null
+    - pip3 --version >/dev/null
   install-python3-on-linux:
     cmds:
     - bash install-python3-on-linux.sh
     status:
-    - command -v python3 &>/dev/null
+    - python3 --version >/dev/null
   install-kubectl-konfig-plugin:
     deps:
     - install-krew-on-linux
     cmds:
     - bash -x install-kubectl-konfig-plugin.sh
     status:
-    - kubectl konfig help >/dev/null
+    - test -f ~/.krew/store/konfig/v*/konfig-krew >/dev/null
   install-awscli-on-linux:
     deps:
     - apt-yum-update
     cmds:
     - bash -x install-awscli-on-linux.sh
     status:
-    - command -v aws &>/dev/null
+    - aws --version >/dev/null
   apt-yum-update:
     cmds:
     - bash apt-yum-update.sh
@@ -156,12 +156,12 @@ tasks:
     cmds:
     - bash -x install-kubectl-on-linux.sh
     status:
-    - command -v kubectl &>/dev/null
+    - command -v kubectl >/dev/null
   install-kustomize-on-linux:
     cmds:
     - bash -x install-kustomize-on-linux.sh
     status:
-    - command -v kustomize &>/dev/null
+    - kustomize version >/dev/null
   bash-customize-kubectl-on-linux:
     cmds:
     - bash -x bash-customize-kubectl-on-linux.sh
