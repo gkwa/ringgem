@@ -14,6 +14,7 @@ tasks:
     - install-go-task-on-linux
     - install-golang-from-tar
     - install-helm-on-linux
+    - install-irisqueen-on-linux
     - install-jq-on-linux
     - install-k9s-on-ubuntu
     - install-kind-on-linux
@@ -27,6 +28,11 @@ tasks:
     - install-python3-on-linux
     - install-ripgrep-on-linux
     - source-bashrc
+  install-irisqueen-on-linux:
+    cmds:
+    - bash -x install-irisqueen-on-linux.sh
+    status:
+    - test -v /usr/local/bin/irisqueen
   install-pssh-on-linux:
     deps:
     - apt-yum-update
