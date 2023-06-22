@@ -10,6 +10,7 @@ tasks:
     - install-clusterawsadm-on-linux
     - install-clusterctl-on-linux
     - install-docker-on-linux
+    - install-envsubst-on-linux
     - install-git-on-linux
     - install-go-task-on-linux
     - install-golang-from-tar
@@ -25,10 +26,15 @@ tasks:
     - install-kustomize-on-linux
     - install-pip3-on-linux
     - install-pssh-on-linux
-    - install-tilt-on-linux
     - install-python3-on-linux
     - install-ripgrep-on-linux
+    - install-tilt-on-linux
     - source-bashrc
+  install-envsubst-on-linux:
+    cmds:
+    - bash -x install-envsubst-on-linux.sh
+    status:
+    - command -v envsubst >/dev/null
   install-tilt-on-linux:
     cmds:
     - bash -x install-tilt-on-linux.sh
