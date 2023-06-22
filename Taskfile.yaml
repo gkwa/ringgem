@@ -25,9 +25,15 @@ tasks:
     - install-kustomize-on-linux
     - install-pip3-on-linux
     - install-pssh-on-linux
+    - install-tilt-on-linux
     - install-python3-on-linux
     - install-ripgrep-on-linux
     - source-bashrc
+  install-tilt-on-linux:
+    cmds:
+    - bash -x install-tilt-on-linux.sh
+    status:
+    - tilt version >/dev/null
   install-irisqueen-on-linux:
     cmds:
     - bash -x install-irisqueen-on-linux.sh
