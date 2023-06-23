@@ -44,7 +44,7 @@ tasks:
     cmds:
     - bash -x install-irisqueen-on-linux.sh
     status:
-    - test -v /usr/local/bin/irisqueen
+    - test -f /usr/local/bin/irisqueen
   install-pssh-on-linux:
     deps:
     - apt-yum-update
@@ -137,6 +137,8 @@ tasks:
     status:
     - kind --version >/dev/null
   install-pip3-on-linux:
+    deps:
+    - apt-yum-update
     cmds:
     - bash -x install-pip3-on-linux.sh
     status:
