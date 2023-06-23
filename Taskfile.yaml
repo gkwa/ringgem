@@ -28,8 +28,14 @@ tasks:
     - install-pssh-on-linux
     - install-python3-on-linux
     - install-ripgrep-on-linux
+    - install-terraform-on-linux
     - install-tilt-on-linux
     - source-bashrc
+  install-terraform-on-linux:
+    cmds:
+    - bash -x install-terraform-on-linux.sh
+    status:
+    - terraform -version >/dev/null
   install-envsubst-on-linux:
     cmds:
     - bash -x install-envsubst-on-linux.sh
