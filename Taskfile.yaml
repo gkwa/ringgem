@@ -40,6 +40,8 @@ tasks:
     status:
     - unzip -v >/dev/null
   install-terraform-on-linux:
+    deps:
+    - install-unzip-on-linux
     cmds:
     - bash -x install-terraform-on-linux.sh
     status:
