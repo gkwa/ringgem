@@ -30,7 +30,15 @@ tasks:
     - install-ripgrep-on-linux
     - install-terraform-on-linux
     - install-tilt-on-linux
+    - install-unzip-on-linux
     - source-bashrc
+  install-unzip-on-linux:
+    deps:
+    - apt-yum-update
+    cmds:
+    - bash -x install-unzip-on-linux.sh
+    status:
+    - unzip -v >/dev/null
   install-terraform-on-linux:
     cmds:
     - bash -x install-terraform-on-linux.sh
