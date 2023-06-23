@@ -11,6 +11,7 @@ tasks:
     - install-clusterctl-on-linux
     - install-docker-on-linux
     - install-envsubst-on-linux
+    - install-giantcloak-on-linux
     - install-git-on-linux
     - install-go-task-on-linux
     - install-golang-from-tar
@@ -32,6 +33,11 @@ tasks:
     - install-tilt-on-linux
     - install-unzip-on-linux
     - source-bashrc
+  install-giantcloak-on-linux:
+    cmds:
+    - bash -x install-giantcloak-on-linux.sh
+    status:
+    - command -v giantcloak >/dev/null
   install-unzip-on-linux:
     deps:
     - apt-yum-update
