@@ -12,6 +12,7 @@ tasks:
     - install-docker-on-linux
     - install-envsubst-on-linux
     - install-giantcloak-on-linux
+    - install-cloudeagle-on-linux
     - install-git-on-linux
     - install-go-task-on-linux
     - install-golang-from-tar
@@ -33,6 +34,11 @@ tasks:
     - install-tilt-on-linux
     - install-unzip-on-linux
     - source-bashrc
+  install-cloudeagle-on-linux:
+    cmds:
+    - bash -x install-cloudeagle-on-linux.sh
+    status:
+    - command -v cloudeagle >/dev/null
   install-giantcloak-on-linux:
     cmds:
     - bash -x install-giantcloak-on-linux.sh
