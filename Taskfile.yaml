@@ -7,12 +7,13 @@ tasks:
     - install-brew-on-linux
     - install-cilium-hubble-on-linux
     - install-cilium-on-linux
+    - install-cloudeagle-on-linux
     - install-clusterawsadm-on-linux
     - install-clusterctl-on-linux
     - install-docker-on-linux
+    - install-dulltrader-on-linux
     - install-envsubst-on-linux
     - install-giantcloak-on-linux
-    - install-cloudeagle-on-linux
     - install-git-on-linux
     - install-go-task-on-linux
     - install-golang-from-tar
@@ -37,6 +38,11 @@ tasks:
     - bash -x install-cloudeagle-on-linux.sh
     status:
     - command -v cloudeagle >/dev/null
+  install-dulltrader-on-linux:
+    cmds:
+    - bash -x install-dulltrader-on-linux.sh
+    status:
+    - command -v dulltrader >/dev/null
   install-giantcloak-on-linux:
     cmds:
     - bash -x install-giantcloak-on-linux.sh
