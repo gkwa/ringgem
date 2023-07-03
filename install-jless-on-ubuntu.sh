@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 apt-get -y install \
-        curl \
-        libxcb-randr0-dev \
-        libxcb-shape0-dev \
-        libxcb-xfixes0
+    curl \
+    libxcb-randr0-dev \
+    libxcb-shape0-dev \
+    libxcb-xfixes0
 
 rm -f /tmp/jless
 
