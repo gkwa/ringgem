@@ -13,6 +13,7 @@ tasks:
     - install-docker-on-linux
     - install-dulltrader-on-linux
     - install-envsubst-on-linux
+    - install-fogcrow-on-linux
     - install-giantcloak-on-linux
     - install-git-on-linux
     - install-go-task-on-linux
@@ -52,6 +53,11 @@ tasks:
     - bash -x install-dulltrader-on-linux.sh
     status:
     - command -v dulltrader >/dev/null
+  install-fogcrow-on-linux:
+    cmds:
+    - bash -x install-fogcrow-on-linux.sh
+    status:
+    - command -v fogcrow >/dev/null
   install-giantcloak-on-linux:
     cmds:
     - bash -x install-giantcloak-on-linux.sh
