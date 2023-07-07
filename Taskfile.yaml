@@ -31,10 +31,16 @@ tasks:
     - install-kustomize-on-linux
     - install-pssh-on-linux
     - install-ripgrep-on-linux
+    - install-sops-on-linux
     - install-terraform-on-linux
     - install-tilt-on-linux
     - install-unzip-on-linux
     - source-bashrc
+  install-sops-on-linux:
+    cmds:
+    - bash -x install-sops-on-linux.sh
+    status:
+    - sops --version >/dev/null
   install-jless-on-ubuntu:
     deps:
     - apt-yum-update
