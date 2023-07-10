@@ -7,6 +7,6 @@ echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 kubectl version --output=yaml --client | awk '/gitVersion/{print $2;}'
 
-if ! grep --quiet 'alias k=kubectl' ~/.bashrc; then
-    echo alias k=kubectl >>~/.bashrc
+if ! grep --quiet 'alias k=kubectl' ~/.profile; then
+    echo alias k=kubectl >>~/.profile
 fi

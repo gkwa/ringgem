@@ -35,7 +35,7 @@ tasks:
     - install-terraform-on-linux
     - install-tilt-on-linux
     - install-unzip-on-linux
-    - source-bashrc
+    - source-profile
   install-sops-on-linux:
     cmds:
     - bash -x install-sops-on-linux.sh
@@ -239,7 +239,7 @@ tasks:
     cmds:
     - bash -x bash-customize-kubectl-on-linux.sh
     status:
-    - ! grep --quiet "alias k=kubectl" ~/.bashrc
+    - ! grep --quiet "alias k=kubectl" ~/.profile
   source-bashrc:
     deps:
     - bash-customize-kubectl-on-linux
