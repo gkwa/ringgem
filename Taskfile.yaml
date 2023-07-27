@@ -10,6 +10,7 @@ tasks:
     - install-cloudeagle-on-linux
     - install-clusterawsadm-on-linux
     - install-clusterctl-on-linux
+    - install-cnspec-on-ubuntu
     - install-docker-on-linux
     - install-dulltrader-on-linux
     - install-envsubst-on-linux
@@ -36,6 +37,11 @@ tasks:
     - install-tilt-on-linux
     - install-unzip-on-linux
     - source-profile
+  install-cnspec-on-ubuntu:
+    cmds:
+    - bash -x install-cnspec-on-ubuntu.sh
+    status:
+    - cnspec version >/dev/null
   install-sops-on-linux:
     cmds:
     - bash -x install-sops-on-linux.sh
