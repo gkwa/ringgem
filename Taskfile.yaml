@@ -18,6 +18,7 @@ tasks:
     - install-giantcloak-on-linux
     - install-git-on-linux
     - install-go-task-on-linux
+    - install-goreleaser-on-linux
     - install-golang-from-tar
     - install-helm-on-linux
     - install-irisqueen-on-linux
@@ -180,6 +181,11 @@ tasks:
     - bash install-docker-on-linux.sh
     status:
     - docker --version >/dev/null
+  install-goreleaser-on-linux:
+    cmds:
+    - bash -x install-goreleaser-on-linux.sh
+    status:
+    - goreleaser --version >/dev/null
   install-go-task-on-linux:
     cmds:
     - bash -x install-go-task-on-linux.sh
