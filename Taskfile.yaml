@@ -1,5 +1,14 @@
-version: "3"
 tasks:
+  apt-yum-update:
+    cmds:
+    - bash apt-yum-update.sh
+  bash-customize-kubectl-on-linux:
+    cmds:
+    - bash -x bash-customize-kubectl-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - grep --quiet "alias k=kubectl" ~/.profile
   default:
     deps:
     - bash-customize-kubectl-on-linux
@@ -39,226 +48,266 @@ tasks:
     - install-tilt-on-linux
     - install-unzip-on-linux
     - source-profile
-  install-cnspec-on-ubuntu:
+  install-awscli-on-linux:
     cmds:
-    - bash -x install-cnspec-on-ubuntu.sh
-    status:
-    - cnspec version >/dev/null
-  install-sops-on-linux:
-    cmds:
-    - bash -x install-sops-on-linux.sh
-    status:
-    - sops --version >/dev/null
-  install-jless-on-ubuntu:
+    - bash -x install-awscli-on-linux.sh
     deps:
     - apt-yum-update
-    - install-unzip-on-linux
-    cmds:
-    - bash -x install-jless-on-ubuntu.sh
     status:
-    - jless --version >/dev/null
-  install-cloudeagle-on-linux:
-    cmds:
-    - bash -x install-cloudeagle-on-linux.sh
-    status:
-    - command -v cloudeagle >/dev/null
-  install-dulltrader-on-linux:
-    cmds:
-    - bash -x install-dulltrader-on-linux.sh
-    status:
-    - command -v dulltrader >/dev/null
-  install-fogcrow-on-linux:
-    cmds:
-    - bash -x install-fogcrow-on-linux.sh
-    status:
-    - command -v fogcrow >/dev/null
-  install-giantcloak-on-linux:
-    cmds:
-    - bash -x install-giantcloak-on-linux.sh
-    status:
-    - command -v giantcloak >/dev/null
-  install-unzip-on-linux:
-    deps:
-    - apt-yum-update
-    cmds:
-    - bash -x install-unzip-on-linux.sh
-    status:
-    - unzip -v >/dev/null
-  install-terraform-on-linux:
-    deps:
-    - install-unzip-on-linux
-    cmds:
-    - bash -x install-terraform-on-linux.sh
-    status:
-    - terraform -version >/dev/null
-  install-envsubst-on-linux:
-    cmds:
-    - bash -x install-envsubst-on-linux.sh
-    status:
-    - command -v envsubst >/dev/null
-  install-tilt-on-linux:
-    cmds:
-    - bash -x install-tilt-on-linux.sh
-    status:
-    - tilt version >/dev/null
-  install-irisqueen-on-linux:
-    cmds:
-    - bash -x install-irisqueen-on-linux.sh
-    status:
-    - test -f /usr/local/bin/irisqueen
-  install-pssh-on-linux:
-    deps:
-    - apt-yum-update
-    cmds:
-    - bash -x install-pssh-on-linux.sh
-    status:
-    - parallel-ssh --version >/dev/null
-  install-git-on-linux:
-    cmds:
-    - bash -x install-git-on-linux.sh
-    status:
-    - git --version >/dev/null
+    - aws --version >/dev/null
   install-brew-on-linux:
     cmds:
     - bash -x install-brew-on-linux.sh
-    status:
-    - brew --version >/dev/null
     deps:
     - apt-yum-update
     - install-git-on-linux
-  install-kubectl-stern-plugin:
-    cmds:
-    - bash -x install-kubectl-stern-plugin.sh
+    - install-curl-on-linux
     status:
-    - test -f ~/.krew/store/stern/v*/stern
-    deps:
-    - install-krew-on-linux
-  install-helm-on-linux:
-    cmds:
-    - bash -x install-helm-on-linux.sh
-    status:
-    - command -v helm &>/dev/null
-  install-ripgrep-on-linux:
-    cmds:
-    - bash -x install-ripgrep-on-linux.sh
-    status:
-    - command -v rg &>/dev/null
-  install-k9s-on-ubuntu:
-    cmds:
-    - bash -x install-k9s-on-ubuntu.sh
-    status:
-    - command -v k9s &>/dev/null
+    - brew --version >/dev/null
   install-cilium-hubble-on-linux:
     cmds:
     - bash -x install-cilium-hubble-on-linux.sh
+    deps:
+    - install-curl-on-linux
     status:
     - command -v hubble &>/dev/null
   install-cilium-on-linux:
     cmds:
     - bash -x install-cilium-on-linux.sh
+    deps:
+    - install-curl-on-linux
     status:
     - command -v cilium &>/dev/null
-  install-jq-on-linux:
-    deps:
-    - apt-yum-update
+  install-cloudeagle-on-linux:
     cmds:
-    - bash -x install-jq-on-linux.sh
+    - bash -x install-cloudeagle-on-linux.sh
+    deps:
+    - install-curl-on-linux
     status:
-    - command -v jq >/dev/null
+    - command -v cloudeagle >/dev/null
   install-clusterawsadm-on-linux:
     cmds:
     - bash -x install-clusterawsadm-on-linux.sh
-    status:
-    - command -v clusterawsadm &>/dev/null
     deps:
     - install-brew-on-linux
+    - install-curl-on-linux
+    status:
+    - command -v clusterawsadm &>/dev/null
   install-clusterctl-on-linux:
     cmds:
     - bash -x install-clusterctl-on-linux.sh
+    deps:
+    - install-curl-on-linux
     status:
     - clusterctl version >/dev/null
+  install-cnspec-on-ubuntu:
+    cmds:
+    - bash -x install-cnspec-on-ubuntu.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - cnspec version >/dev/null
   install-docker-on-linux:
     cmds:
     - bash install-docker-on-linux.sh
+    deps:
+    - install-curl-on-linux
     status:
     - docker --version >/dev/null
-  install-goreleaser-on-linux:
+  install-dulltrader-on-linux:
     cmds:
-    - bash -x install-goreleaser-on-linux.sh
+    - bash -x install-dulltrader-on-linux.sh
+    deps:
+    - install-curl-on-linux
     status:
-    - goreleaser --version >/dev/null
+    - command -v dulltrader >/dev/null
+  install-envsubst-on-linux:
+    cmds:
+    - bash -x install-envsubst-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - command -v envsubst >/dev/null
+  install-fogcrow-on-linux:
+    cmds:
+    - bash -x install-fogcrow-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - command -v fogcrow >/dev/null
+  install-giantcloak-on-linux:
+    cmds:
+    - bash -x install-giantcloak-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - command -v giantcloak >/dev/null
+  install-git-on-linux:
+    cmds:
+    - bash -x install-git-on-linux.sh
+    status:
+    - git --version >/dev/null
   install-go-task-on-linux:
     cmds:
     - bash -x install-go-task-on-linux.sh
+    deps:
+    - install-curl-on-linux
     status:
     - task --version >/dev/null
   install-golang-from-tar:
     cmds:
     - bash -x install-golang-from-tar.sh
-    status:
-    - test -f /usr/local/go/bin/go
     deps:
     - install-curl-on-linux
+    status:
+    - test -f /usr/local/go/bin/go
+  install-goreleaser-on-linux:
+    cmds:
+    - bash -x install-goreleaser-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - goreleaser --version >/dev/null
+  install-helm-on-linux:
+    cmds:
+    - bash -x install-helm-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - command -v helm &>/dev/null
+  install-irisqueen-on-linux:
+    cmds:
+    - bash -x install-irisqueen-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - test -f /usr/local/bin/irisqueen
+  install-jless-on-ubuntu:
+    cmds:
+    - bash -x install-jless-on-ubuntu.sh
+    deps:
+    - apt-yum-update
+    - install-unzip-on-linux
+    - install-curl-on-linux
+    status:
+    - jless --version >/dev/null
+  install-jq-on-linux:
+    cmds:
+    - bash -x install-jq-on-linux.sh
+    deps:
+    - apt-yum-update
+    status:
+    - command -v jq >/dev/null
+  install-k9s-on-ubuntu:
+    cmds:
+    - bash -x install-k9s-on-ubuntu.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - command -v k9s &>/dev/null
   install-kind-on-linux:
     cmds:
     - bash -x install-kind-on-linux.sh
+    deps:
+    - install-curl-on-linux
     status:
     - kind --version >/dev/null
-  install-pip3-on-linux:
+  install-krew-on-linux:
+    cmds:
+    - bash -x install-krew-on-linux.sh
     deps:
-    - apt-yum-update
+    - install-kubectl-on-linux
+    - install-curl-on-linux
+    status:
+    - test -f ~/.krew/bin/kubectl-krew
+  install-kubectl-konfig-plugin:
+    cmds:
+    - bash -x install-kubectl-konfig-plugin.sh
+    deps:
+    - install-krew-on-linux
+    status:
+    - test -f ~/.krew/store/konfig/v*/konfig-krew >/dev/null
+  install-kubectl-on-linux:
+    cmds:
+    - bash -x install-kubectl-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - command -v kubectl >/dev/null
+  install-kubectl-stern-plugin:
+    cmds:
+    - bash -x install-kubectl-stern-plugin.sh
+    deps:
+    - install-krew-on-linux
+    status:
+    - test -f ~/.krew/store/stern/v*/stern
+  install-kustomize-on-linux:
+    cmds:
+    - bash -x install-kustomize-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - kustomize version >/dev/null
+  install-pip3-on-linux:
     cmds:
     - bash -x install-pip3-on-linux.sh
+    deps:
+    - apt-yum-update
     status:
     - pip3 --version >/dev/null
+  install-pssh-on-linux:
+    cmds:
+    - bash -x install-pssh-on-linux.sh
+    deps:
+    - apt-yum-update
+    status:
+    - parallel-ssh --version >/dev/null
   install-python3-on-linux:
     cmds:
     - bash install-python3-on-linux.sh
     status:
     - python3 --version >/dev/null
-  install-kubectl-konfig-plugin:
-    deps:
-    - install-krew-on-linux
+  install-ripgrep-on-linux:
     cmds:
-    - bash -x install-kubectl-konfig-plugin.sh
+    - bash -x install-ripgrep-on-linux.sh
+    deps:
+    - install-curl-on-linux
     status:
-    - test -f ~/.krew/store/konfig/v*/konfig-krew >/dev/null
-  install-awscli-on-linux:
+    - command -v rg &>/dev/null
+  install-sops-on-linux:
+    cmds:
+    - bash -x install-sops-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - sops --version >/dev/null
+  install-terraform-on-linux:
+    cmds:
+    - bash -x install-terraform-on-linux.sh
+    deps:
+    - install-unzip-on-linux
+    - install-curl-on-linux
+    status:
+    - terraform -version >/dev/null
+  install-tilt-on-linux:
+    cmds:
+    - bash -x install-tilt-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - tilt version >/dev/null
+  install-unzip-on-linux:
+    cmds:
+    - bash -x install-unzip-on-linux.sh
     deps:
     - apt-yum-update
-    cmds:
-    - bash -x install-awscli-on-linux.sh
     status:
-    - aws --version >/dev/null
-  apt-yum-update:
-    cmds:
-    - bash apt-yum-update.sh
-  install-krew-on-linux:
-    deps:
-    - install-kubectl-on-linux
-    cmds:
-    - bash -x install-krew-on-linux.sh
-    status:
-    - test -f ~/.krew/bin/kubectl-krew
-  install-kubectl-on-linux:
-    cmds:
-    - bash -x install-kubectl-on-linux.sh
-    status:
-    - command -v kubectl >/dev/null
-  install-kustomize-on-linux:
-    cmds:
-    - bash -x install-kustomize-on-linux.sh
-    status:
-    - kustomize version >/dev/null
-  bash-customize-kubectl-on-linux:
-    cmds:
-    - bash -x bash-customize-kubectl-on-linux.sh
-    status:
-    - ! grep --quiet "alias k=kubectl" ~/.profile
+    - unzip -v >/dev/null
   source-bashrc:
-    deps:
-    - bash-customize-kubectl-on-linux
     cmds:
     - bash source-bashrc.sh
+    deps:
+    - bash-customize-kubectl-on-linux
     status:
     - alias k
+version: "3"
