@@ -11,6 +11,7 @@ tasks:
     - install-clusterawsadm-on-linux
     - install-clusterctl-on-linux
     - install-cnspec-on-ubuntu
+    - install-curl-on-linux
     - install-docker-on-linux
     - install-dulltrader-on-linux
     - install-envsubst-on-linux
@@ -18,8 +19,8 @@ tasks:
     - install-giantcloak-on-linux
     - install-git-on-linux
     - install-go-task-on-linux
-    - install-goreleaser-on-linux
     - install-golang-from-tar
+    - install-goreleaser-on-linux
     - install-helm-on-linux
     - install-irisqueen-on-linux
     - install-jless-on-ubuntu
@@ -196,6 +197,8 @@ tasks:
     - bash -x install-golang-from-tar.sh
     status:
     - test -f /usr/local/go/bin/go
+    deps:
+    - install-curl-on-linux
   install-kind-on-linux:
     cmds:
     - bash -x install-kind-on-linux.sh
