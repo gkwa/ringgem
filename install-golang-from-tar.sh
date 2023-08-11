@@ -1,8 +1,15 @@
 #!/usr/bin/env bash
 
-mkdir -p /tmp/ECB7BB2D-26A4-470D-9E21-E3249265C926
+set -u
+set -e
 
-cat >/tmp/ECB7BB2D-26A4-470D-9E21-E3249265C926/goinstall.sh <<'EOF'
+script=$(mktemp /tmp/goinstall-XXXX.sh)
+
+cleanup() {
+    rm -f $script
+}
+
+cat >$script <<'EOF'
 version=$(curl https://go.dev/VERSION?m=text | grep -v time | sed -e 's#go##')
 echo $version
 curl -Lo /usr/local/src/go${version}.linux-amd64.tar.gz https://go.dev/dl/go${version}.linux-amd64.tar.gz
@@ -21,5 +28,6 @@ go version
 EOF
 
 export PATH=$PATH:/usr/local/go/bin
-bash -u -e -x /tmp/ECB7BB2D-26A4-470D-9E21-E3249265C926/goinstall.sh
-rm -rf /tmp/ECB7BB2D-26A4-470D-9E21-E3249265C926
+bash -u -e -x $script
+
+trap cleanup EXIT
