@@ -27,7 +27,7 @@ export PATH=$PATH:/usr/local/go/bin
 go version
 EOF
 
-export PATH=$PATH:/usr/local/go/bin
+export PATH="$PATH:/usr/local/go/bin"
 bash -u -e -x $script
 
 trap cleanup EXIT
