@@ -318,3 +318,8 @@ tasks:
     - bash-customize-kubectl-on-linux
     status:
     - alias k
+  install-curl-on-linux:
+    cmds:
+    - bash -x install-curl-on-linux.sh
+    status:
+    - curl --version >/dev/null
