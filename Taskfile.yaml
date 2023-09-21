@@ -38,6 +38,12 @@ tasks:
     - install-tilt-on-linux
     - install-unzip-on-linux
     - source-profile
+  follow-cilium-gateway-tutorial:
+    deps:
+    - install-kind-on-linux
+    - install-helm-on-linux
+    - install-kubectl-on-linux
+    - install-docker-on-linux
   apt-yum-update:
     cmds:
     - bash apt-yum-update.sh
