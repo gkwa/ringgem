@@ -1,3 +1,5 @@
+version: '3'
+
 tasks:
   default:
     deps:
@@ -316,4 +318,3 @@ tasks:
     - bash-customize-kubectl-on-linux
     status:
     - alias k
-version: "3"
