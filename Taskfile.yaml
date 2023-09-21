@@ -42,11 +42,12 @@ tasks:
     - source-profile
   follow-cilium-gateway-tutorial:
     deps:
-    - install-kind-on-linux
-    - install-k9s-on-ubuntu
-    - install-helm-on-linux
-    - install-kubectl-on-linux
+    - install-cilium-on-linux
     - install-docker-on-linux
+    - install-helm-on-linux
+    - install-k9s-on-ubuntu
+    - install-kind-on-linux
+    - install-kubectl-on-linux
   apt-yum-update:
     cmds:
     - bash apt-yum-update.sh
