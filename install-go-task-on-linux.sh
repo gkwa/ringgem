@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 
-pushd /usr/local
-sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
+sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
 /usr/local/bin/task --version
-popd
