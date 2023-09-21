@@ -1,14 +1,4 @@
 tasks:
-  apt-yum-update:
-    cmds:
-    - bash apt-yum-update.sh
-  bash-customize-kubectl-on-linux:
-    cmds:
-    - bash -x bash-customize-kubectl-on-linux.sh
-    deps:
-    - install-curl-on-linux
-    status:
-    - grep --quiet "alias k=kubectl" ~/.profile
   default:
     deps:
     - bash-customize-kubectl-on-linux
@@ -48,6 +38,16 @@ tasks:
     - install-tilt-on-linux
     - install-unzip-on-linux
     - source-profile
+  apt-yum-update:
+    cmds:
+    - bash apt-yum-update.sh
+  bash-customize-kubectl-on-linux:
+    cmds:
+    - bash -x bash-customize-kubectl-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - grep --quiet "alias k=kubectl" ~/.profile
   install-awscli-on-linux:
     cmds:
     - bash -x install-awscli-on-linux.sh
