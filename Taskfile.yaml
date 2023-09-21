@@ -43,6 +43,7 @@ tasks:
   follow-cilium-gateway-tutorial:
     deps:
     - install-kind-on-linux
+    - install-k9s-on-ubuntu
     - install-helm-on-linux
     - install-kubectl-on-linux
     - install-docker-on-linux
