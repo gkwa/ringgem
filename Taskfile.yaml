@@ -37,6 +37,7 @@ tasks:
     - install-ripgrep-on-linux
     - install-sops-on-linux
     - install-terraform-on-linux
+    - install-terragrunt-on-linux
     - install-tilt-on-linux
     - install-unzip-on-linux
     - source-profile
@@ -299,6 +300,13 @@ tasks:
     - install-curl-on-linux
     status:
     - terraform -version >/dev/null
+  install-terragrunt-on-linux:
+    cmds:
+    - bash -x install-terragrunt-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - terragrunt -version >/dev/null
   install-tilt-on-linux:
     cmds:
     - bash -x install-tilt-on-linux.sh
