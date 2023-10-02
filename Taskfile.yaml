@@ -300,12 +300,19 @@ tasks:
     - install-curl-on-linux
     status:
     - terraform -version >/dev/null
-  install-terragrunt-on-linux:
+  install-terraform-on-ubuntu:
+    cmds:
+    - bash -x install-terraform-on-ubuntu.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - terraform -version >/dev/null
+  install-terragrunt-on-ubuntu:
     cmds:
     - bash -x install-terragrunt-on-linux.sh
     deps:
     - install-curl-on-linux
-    - install-terraform-on-linux
+    - install-terraform-on-ubuntu
     status:
     - terragrunt -version >/dev/null
   install-tilt-on-linux:
