@@ -39,6 +39,7 @@ tasks:
     - install-terraform-on-linux
     - install-terragrunt-on-linux
     - install-tilt-on-linux
+    - install-timoni-on-linux
     - install-unzip-on-linux
     - source-profile
   follow-cilium-gateway-tutorial:
@@ -322,6 +323,20 @@ tasks:
     - install-curl-on-linux
     status:
     - tilt version >/dev/null
+  install-timoni-on-linux:
+    cmds:
+    - bash -x install-timoni-on-linux.sh
+    deps:
+    - install-arkade-on-linux
+    status:
+    - timoni version >/dev/null
+  install-arkade-on-linux:
+    cmds:
+    - bash -x install-arkade-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - arkade version >/dev/null
   install-unzip-on-linux:
     cmds:
     - bash -x install-unzip-on-linux.sh
