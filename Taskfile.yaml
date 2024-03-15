@@ -12,6 +12,10 @@ tasks:
     - install-clusterawsadm-on-linux
     - install-clusterctl-on-linux
     - install-cnspec-on-ubuntu
+    - install-logstash-on-ubuntu
+    - install-java-jre-on-ubuntu
+    - install-java-jdk-on-ubuntu
+    - install-filebeat-on-ubuntu
     - install-curl-on-linux
     - install-docker-on-linux
     - install-dulltrader-on-linux
@@ -112,6 +116,23 @@ tasks:
     - install-curl-on-linux
     status:
     - clusterctl version >/dev/null
+  install-java-jre-on-ubuntu:
+    cmds:
+    - bash -x install-java-jre-on-ubuntu.sh
+    status:
+    - java -version >/dev/null
+  install-java-jdk-on-ubuntu:
+    cmds:
+    - bash -x install-java-jdk-on-ubuntu.sh
+    status:
+    - javac -version >/dev/null
+  install-logstash-on-ubuntu:
+    cmds:
+    - bash -x install-logstash-on-ubuntu.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - logstash --version >/dev/null
   install-cnspec-on-ubuntu:
     cmds:
     - bash -x install-cnspec-on-ubuntu.sh
@@ -119,6 +140,13 @@ tasks:
     - install-curl-on-linux
     status:
     - cnspec version >/dev/null
+  install-filebeat-on-ubuntu:
+    cmds:
+    - bash -x install-filebeat-on-ubuntu.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - filebeat version >/dev/null
   install-docker-on-linux:
     cmds:
     - bash install-docker-on-linux.sh
