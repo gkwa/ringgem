@@ -17,9 +17,3 @@ apt-get --assume-yes install logstash
 ln --force --symbolic /usr/share/logstash/bin/logstash /usr/local/bin/logstash
 
 logstash --version
-
-
-## Add logstash plugin
-cd /usr/share/logstash
-bin/logstash-plugin install logstash-filter-multiline
-bin/logstash-plugin list | grep multiline
