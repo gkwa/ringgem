@@ -2,7 +2,6 @@
 
 # https://www.elastic.co/guide/en/logstash/8.12/installing-logstash.html#_apt
 
-
 export DEBIAN_FRONTEND=noninteractive
 export NEEDRESTART_MODE=a
 export NEEDRESTART_SUSPEND=1

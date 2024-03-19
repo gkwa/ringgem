@@ -2,10 +2,19 @@ version: '3'
 
 tasks:
   northflier:
-    deps:
-      - install-filebeat-on-ubuntu
-      - install-cloudelf-on-linux
-      - install-goldpuppy-on-ubuntu
+    cmds:
+      - task: install-cloudelf-on-linux
+      - task: install-golang-from-tar
+      - task: install-terragrunt-on-ubuntu
+      - task: install-awscli-on-linux
+      - task: install-fluentd-on-ubuntu
+      - task: install-docker-on-linux
+      - task: install-goldpuppy-on-ubuntu
+      - task: install-logstash-on-ubuntu
+      - task: install-cakepalm-on-ubuntu
+      - task: install-sops-on-linux
+      - task: install-ripgrep-on-linux
+
   default:
     deps:
       - bash-customize-kubectl-on-linux
@@ -19,8 +28,6 @@ tasks:
       - install-clusterctl-on-linux
       - install-cnspec-on-ubuntu
       - install-logstash-on-ubuntu
-      - install-java-jre-on-ubuntu
-      - install-java-jdk-on-ubuntu
       - install-filebeat-on-ubuntu
       - install-curl-on-linux
       - install-docker-on-linux
@@ -93,6 +100,20 @@ tasks:
       - install-curl-on-linux
     status:
       - command -v hubble &>/dev/null
+  install-fluentd-on-ubuntu:
+    cmds:
+      - bash -x install-fluentd-on-ubuntu.sh
+    deps:
+      - install-curl-on-linux
+    status:
+      - command -v fluentd >/dev/null
+  install-cloudwatch-on-ubuntu:
+    cmds:
+      - bash -x install-cloudwatch-on-ubuntu.sh
+    deps:
+      - install-curl-on-linux
+    status:
+      - command -v fluentd >/dev/null
   install-cilium-on-linux:
     cmds:
       - bash -x install-cilium-on-linux.sh
@@ -141,9 +162,11 @@ tasks:
       - javac -version >/dev/null
   install-logstash-on-ubuntu:
     cmds:
+      - task: install-filebeat-on-ubuntu
+      - task: install-curl-on-linux
+      - task: install-java-jre-on-ubuntu
+      - task: install-java-jdk-on-ubuntu
       - bash -x install-logstash-on-ubuntu.sh
-    deps:
-      - install-curl-on-linux
     status:
       - logstash --version >/dev/null
   install-cnspec-on-ubuntu:
@@ -268,6 +291,15 @@ tasks:
       - install-curl-on-linux
     status:
       - jless --version >/dev/null
+  install-cakepalm-on-ubuntu:
+    cmds:
+      - bash -x install-cakepalm-on-ubuntu.sh
+    deps:
+      - apt-yum-update
+      - install-unzip-on-linux
+      - install-curl-on-linux
+    status:
+      - jless --version >/dev/null
   install-jq-on-linux:
     cmds:
       - bash -x install-jq-on-linux.sh
@@ -355,7 +387,7 @@ tasks:
     cmds:
       - bash -x install-sops-on-linux.sh
     deps:
-      - install-curl-on-linux
+      - install-wget-on-linux
     status:
       - sops --version >/dev/null
   install-terraform-on-linux:
@@ -421,3 +453,8 @@ tasks:
       - bash -x install-curl-on-linux.sh
     status:
       - curl --version >/dev/null
+  install-wget-on-linux:
+    cmds:
+      - bash -x install-wget-on-linux.sh
+    status:
+      - command -v wget >/dev/null
