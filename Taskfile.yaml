@@ -440,7 +440,7 @@ tasks:
     - install-curl-on-linux
     - install-terraform-on-ubuntu
     status:
-    - terragrunt -version >/dev/null
+    - command -v terragrunt >/dev/null
   install-tilt-on-linux:
     cmds:
     - bash -x install-tilt-on-linux.sh

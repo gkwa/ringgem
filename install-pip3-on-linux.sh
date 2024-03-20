@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-if command -v apt &>/dev/null; then
-    DEBIAN_FRONTEND=noninteractive apt-get -y install python3-pip
+if command -v apt-get &>/dev/null; then
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get --assume-yes install python3-pip
 
 elif command -v yum &>/dev/null; then
-    yum -y install python3-pip
+    yum --yes install python3-pip
 
 else
     echo "Neither apt nor yum package manager is available."
+
 fi
