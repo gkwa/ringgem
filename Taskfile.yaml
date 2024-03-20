@@ -87,7 +87,7 @@ tasks:
     deps:
       - install-pip3-on-linux
     status:
-      - ~/.local/bin/ansible --version >/dev/null
+      - $HOME/.local/bin/ansible --version >/dev/null
   install-lxc-on-ubuntu:
     cmds:
       - bash -x install-lxc-on-ubuntu.sh
