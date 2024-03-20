@@ -7,6 +7,7 @@ tasks:
       - task: install-goldpuppy-on-ubuntu
       - task: install-golang-from-tar
       - task: install-terragrunt-on-ubuntu
+      - task: install-fullbus-on-linux
       - task: install-ansible-on-ubuntu
       - task: install-awscli-on-linux
       - task: install-fluentd-on-ubuntu
@@ -72,6 +73,14 @@ tasks:
   apt-yum-update:
     cmds:
       - bash apt-yum-update.sh
+  install-fullbus-on-linux:
+    cmds:
+      - bash -x install-fullbus-on-linux.sh
+    deps:
+      - install-git-on-linux
+      - install-pip3-on-linux
+    status:
+      - command -v fullbus >/dev/null
   install-ansible-on-ubuntu:
     cmds:
       - bash -x install-ansible-on-ubuntu.sh
