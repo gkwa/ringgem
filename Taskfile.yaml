@@ -451,10 +451,9 @@ tasks:
     - tilt version >/dev/null
   install-silverdelay-on-linux:
     cmds:
+    - task: install-docker-on-linux
+    - task: install-git-on-linux
     - bash -x install-silverdelay-on-linux.sh
-    deps:
-    - install-docker-on-linux
-    - install-git-on-linux
     status:
     - ls silverdelay >/dev/null
   install-timoni-on-linux:
