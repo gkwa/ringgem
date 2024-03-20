@@ -17,7 +17,6 @@ tasks:
     - task: install-silverdelay-on-linux
     - task: install-sops-on-linux
     - task: install-terragrunt-on-ubuntu
-    - task: apt-yum-update
   default:
     deps:
     - bash-customize-kubectl-on-linux
