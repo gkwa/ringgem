@@ -3,6 +3,7 @@ tasks:
   northflier:
     cmds:
     - task: install-cloudelf-on-linux
+    - task: install-updatedb-on-linux
     - task: install-silverdelay-on-linux
     - task: install-goldpuppy-on-ubuntu
     - task: install-cakepalm-on-ubuntu
@@ -434,6 +435,11 @@ tasks:
     - install-curl-on-linux
     status:
     - terraform -version >/dev/null
+  install-updatedb-on-linux:
+    cmds:
+    - bash -x install-updatedb-on-linux.sh
+    status:
+    - command -v updatedb >/dev/null
   install-terragrunt-on-ubuntu:
     cmds:
     - bash -x install-terragrunt-on-linux.sh
