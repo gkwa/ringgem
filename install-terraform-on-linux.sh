@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+
 version=$(curl https://releases.hashicorp.com/terraform/ | grep -viE 'alpha|beta' | grep -oE 'terraform_[\.[:alnum:]]*' | sort --general-numeric-sort | tail -1 | cut -d_ -f2)
 echo $version
 mkdir -p /usr/local/src/
