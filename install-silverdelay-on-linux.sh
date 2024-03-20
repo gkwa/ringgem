@@ -2,4 +2,4 @@
 
 git clone https://github.com/taylormonacelli/silverdelay
 cd silverdelay
-docker compose pull
+docker compose pull --quiet
