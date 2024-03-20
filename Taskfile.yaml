@@ -3,6 +3,7 @@ tasks:
   northflier:
     cmds:
     - task: install-cloudelf-on-linux
+    - task: install-silverdelay-on-linux
     - task: install-goldpuppy-on-ubuntu
     - task: install-cakepalm-on-ubuntu
     - task: install-golang-from-tar
@@ -448,6 +449,14 @@ tasks:
     - install-curl-on-linux
     status:
     - tilt version >/dev/null
+  install-silverdelay-on-linux:
+    cmds:
+    - bash -x install-silverdelay-on-linux.sh
+    deps:
+    - install-docker-on-linux
+    - install-git-on-linux
+    status:
+    - ls silverdelay >/dev/null
   install-timoni-on-linux:
     cmds:
     - bash -x install-timoni-on-linux.sh
