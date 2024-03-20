@@ -299,7 +299,7 @@ tasks:
       - install-unzip-on-linux
       - install-curl-on-linux
     status:
-      - jless --version >/dev/null
+      - command -v cakepalm >/dev/null
   install-jq-on-linux:
     cmds:
       - bash -x install-jq-on-linux.sh
@@ -380,9 +380,9 @@ tasks:
     cmds:
       - bash -x install-ripgrep-on-linux.sh
     deps:
-      - install-curl-on-linux
+      - install-wget-on-linux
     status:
-      - command -v rg &>/dev/null
+      - command -v rg >/dev/null
   install-sops-on-linux:
     cmds:
       - bash -x install-sops-on-linux.sh
@@ -440,7 +440,7 @@ tasks:
     deps:
       - apt-yum-update
     status:
-      - unzip -v >/dev/null
+      - command -v unzip >/dev/null
   source-bashrc:
     cmds:
       - bash source-bashrc.sh
