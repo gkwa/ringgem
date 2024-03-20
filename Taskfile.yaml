@@ -2,6 +2,7 @@ version: "3"
 tasks:
   northflier:
     cmds:
+    - task: install-updatedb-on-linux
     - task: install-cloudwatch-on-ubuntu
     - task: install-ansible-on-ubuntu
     - task: install-awscli-on-linux
