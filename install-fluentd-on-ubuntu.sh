@@ -16,4 +16,6 @@ fi
 
 cmd="curl -fsSL $url | sh"
 echo $cmd
-eval "DEBIAN_FRONTEND=noninteractive $cmd"
+
+export DEBIAN_FRONTEND=noninteractive
+eval "$cmd"
