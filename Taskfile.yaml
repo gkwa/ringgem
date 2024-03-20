@@ -4,17 +4,18 @@ tasks:
   northflier:
     cmds:
       - task: install-cloudelf-on-linux
+      - task: install-goldpuppy-on-ubuntu
       - task: install-golang-from-tar
       - task: install-terragrunt-on-ubuntu
       - task: install-ansible-on-ubuntu
       - task: install-awscli-on-linux
       - task: install-fluentd-on-ubuntu
       - task: install-docker-on-linux
-      - task: install-goldpuppy-on-ubuntu
       - task: install-logstash-on-ubuntu
       - task: install-cakepalm-on-ubuntu
       - task: install-sops-on-linux
       - task: install-ripgrep-on-linux
+      - task: install-lxc-on-ubuntu
 
   default:
     deps:
@@ -78,6 +79,13 @@ tasks:
       - install-pip3-on-linux
     status:
       - command -v ansible >/dev/null
+  install-lxc-on-ubuntu:
+    cmds:
+      - bash -x install-lxc-on-ubuntu.sh
+    deps:
+      - apt-yum-update
+    status:
+      - command -v lxc >/dev/null
   bash-customize-kubectl-on-linux:
     cmds:
       - bash -x bash-customize-kubectl-on-linux.sh
