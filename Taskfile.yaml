@@ -6,6 +6,7 @@ tasks:
       - task: install-cloudelf-on-linux
       - task: install-golang-from-tar
       - task: install-terragrunt-on-ubuntu
+      - task: install-ansible-on-ubuntu
       - task: install-awscli-on-linux
       - task: install-fluentd-on-ubuntu
       - task: install-docker-on-linux
@@ -70,6 +71,13 @@ tasks:
   apt-yum-update:
     cmds:
       - bash apt-yum-update.sh
+  install-ansible-on-ubuntu:
+    cmds:
+      - bash -x install-ansible-on-ubuntu.sh
+    deps:
+      - install-pip3-on-linux
+    status:
+      - command -v ansible >/dev/null
   bash-customize-kubectl-on-linux:
     cmds:
       - bash -x bash-customize-kubectl-on-linux.sh
@@ -359,11 +367,11 @@ tasks:
       - kustomize version >/dev/null
   install-pip3-on-linux:
     cmds:
+      - task: apt-yum-update
+      - task: install-python3-on-linux
       - bash -x install-pip3-on-linux.sh
-    deps:
-      - apt-yum-update
     status:
-      - pip3 --version >/dev/null
+      - command -v pip3 >/dev/null
   install-pssh-on-linux:
     cmds:
       - bash -x install-pssh-on-linux.sh
@@ -376,6 +384,11 @@ tasks:
       - bash install-python3-on-linux.sh
     status:
       - python3 --version >/dev/null
+  install-python3-pip-on-ubuntu:
+    cmds:
+      - bash install-python3-pip-on-ubuntu.sh
+    status:
+      - command -v pip >/dev/null
   install-ripgrep-on-linux:
     cmds:
       - bash -x install-ripgrep-on-linux.sh
