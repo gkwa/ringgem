@@ -8,4 +8,4 @@ dpkg -i /tmp/filebeat-${version}-amd64.deb
 filebeat version
 ls /etc/filebeat/filebeat.yml
 
-rm -f /tmp/filebeat-installation-configuration.html 
+rm -f /tmp/filebeat-installation-configuration.html
