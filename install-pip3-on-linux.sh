@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if command -v apt &>/dev/null; then
-    DEBIAN_FRONTEND=NONINTERACTIVE apt-get -y install python3-pip
+    DEBIAN_FRONTEND=noninteractive apt-get -y install python3-pip
 
 elif command -v yum &>/dev/null; then
     yum -y install python3-pip

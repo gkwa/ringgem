@@ -21,7 +21,7 @@ apt_update() {
     fi
 
     echo "Running apt-get update..."
-    DEBIAN_FRONTEND=NONINTERACTIVE apt-get update
+    DEBIAN_FRONTEND=noninteractive apt-get update
     touch "$update_file"
     echo "apt-get update completed."
 }
