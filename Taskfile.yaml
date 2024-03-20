@@ -2,7 +2,7 @@ version: "3"
 tasks:
   northflier:
     cmds:
-    - task: install-updatedb-on-linux
+    - task: install-updatedb-on-ubuntu
     - task: install-cloudwatch-on-ubuntu
     - task: install-ansible-on-ubuntu
     - task: install-awscli-on-linux
@@ -439,6 +439,8 @@ tasks:
   install-updatedb-on-linux:
     cmds:
     - bash -x install-updatedb-on-linux.sh
+    deps:
+    - apt-yum-update
     status:
     - command -v updatedb >/dev/null
   install-terragrunt-on-ubuntu:
