@@ -72,8 +72,6 @@ tasks:
   apt-yum-update:
     cmds:
     - bash apt-yum-update.sh
-    deps:
-    - install-updatedb-on-linux
   install-fullbus-on-linux:
     cmds:
     - bash -x install-fullbus-on-linux.sh
