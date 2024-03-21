@@ -105,8 +105,8 @@ tasks:
   lxc-configure-on-ubuntu:
     cmds:
     - bash -x lxc-configure-on-ubuntu.sh
-    status: |
-      grep --quiet "pool: default" <<< "$(lxc profile show default)"    
+    status:
+    - 'grep --quiet "pool: default" <<< "$(lxc profile show default)"'
     deps:
     - install-lxc-on-ubuntu
   bash-customize-kubectl-on-linux:
