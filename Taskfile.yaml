@@ -14,11 +14,11 @@ tasks:
     - task: install-goldpuppy-on-ubuntu
     - task: install-logstash-on-ubuntu
     - task: install-lxc-on-ubuntu
-    - task: install-package-updates-on-ubuntu
     - task: install-ripgrep-on-linux
     - task: install-silverdelay-on-linux
     - task: install-sops-on-linux
     - task: install-terragrunt-on-ubuntu
+    - task: install-package-updates-on-ubuntu
     - task: install-updatedb-on-linux
   default:
     deps:
