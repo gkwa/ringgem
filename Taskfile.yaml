@@ -13,11 +13,11 @@ tasks:
     - task: install-golang-from-tar
     - task: install-goldpuppy-on-ubuntu
     - task: install-logstash-on-ubuntu
-    - task: install-lxc-on-ubuntu
     - task: install-ripgrep-on-linux
     - task: install-silverdelay-on-linux
     - task: install-sops-on-linux
     - task: install-terragrunt-on-ubuntu
+    - task: lxc-configure-on-ubuntu
     - task: install-package-updates-on-ubuntu
     - task: install-updatedb-on-linux
   default:
@@ -102,6 +102,11 @@ tasks:
     - apt-yum-update
     status:
     - command -v lxc >/dev/null
+  lxc-configure-on-ubuntu:
+    cmds:
+    - bash -x lxc-configure-on-ubuntu.sh
+    deps:
+    - install-lxc-on-ubuntu
   bash-customize-kubectl-on-linux:
     cmds:
     - bash -x bash-customize-kubectl-on-linux.sh
