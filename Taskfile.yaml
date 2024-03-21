@@ -3,6 +3,7 @@ tasks:
   northflier:
     cmds:
     - task: install-ansible-on-ubuntu
+    - task: install-otel-cli-on-linux
     - task: install-awscli-on-linux
     - task: install-cakepalm-on-ubuntu
     - task: install-cloudelf-on-linux
@@ -88,6 +89,13 @@ tasks:
     - install-pip3-on-linux
     status:
     - command -v fullbus >/dev/null
+  install-otel-cli-on-linux:
+    cmds:
+    - bash -x install-otel-cli-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - command -v otel-cli >/dev/null
   install-ansible-on-ubuntu:
     cmds:
     - bash -x install-ansible-on-ubuntu.sh
