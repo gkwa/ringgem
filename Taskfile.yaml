@@ -102,6 +102,7 @@ tasks:
     - apt-yum-update
     status:
     - command -v lxc >/dev/null
+    - command -v lxc-wait >/dev/null
   lxc-configure-on-ubuntu:
     cmds:
     - bash -x lxc-configure-on-ubuntu.sh
