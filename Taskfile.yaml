@@ -2,12 +2,11 @@ version: "3"
 tasks:
   northflier:
     cmds:
-    - task: install-updatedb-on-linux
-    - task: install-cloudwatch-on-ubuntu
     - task: install-ansible-on-ubuntu
     - task: install-awscli-on-linux
     - task: install-cakepalm-on-ubuntu
     - task: install-cloudelf-on-linux
+    - task: install-cloudwatch-on-ubuntu
     - task: install-docker-on-linux
     - task: install-fluentd-on-ubuntu
     - task: install-fullbus-on-linux
@@ -15,10 +14,12 @@ tasks:
     - task: install-goldpuppy-on-ubuntu
     - task: install-logstash-on-ubuntu
     - task: install-lxc-on-ubuntu
+    - task: install-package-updates-on-ubuntu
     - task: install-ripgrep-on-linux
     - task: install-silverdelay-on-linux
     - task: install-sops-on-linux
     - task: install-terragrunt-on-ubuntu
+    - task: install-updatedb-on-linux
   default:
     deps:
     - bash-customize-kubectl-on-linux
@@ -71,6 +72,11 @@ tasks:
     - install-k9s-on-ubuntu
     - install-kind-on-linux
     - install-kubectl-on-linux
+  install-package-updates-on-ubuntu:
+    cmds:
+    - bash -x install-package-updates-on-ubuntu.sh
+    deps:
+    - apt-yum-update
   apt-yum-update:
     cmds:
     - bash apt-yum-update.sh
