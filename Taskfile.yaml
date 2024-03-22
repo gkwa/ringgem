@@ -94,6 +94,7 @@ tasks:
     - bash -x install-otel-cli-on-linux.sh
     deps:
     - install-curl-on-linux
+    - install-tar-on-linux
     status:
     - command -v otel-cli >/dev/null
   install-ansible-on-ubuntu:
@@ -295,11 +296,9 @@ tasks:
     - install-curl-on-linux
     status:
     - task --version >/dev/null
-  install-tar-on-ubuntu:
+  install-tar-on-linux:
     cmds:
-    - apt-get install -y tar
-    deps:
-    - install-curl-on-linux
+    - bash -x install-tar-on-linux.sh
     status:
     - tar --version >/dev/null
   install-golang-from-tar:
