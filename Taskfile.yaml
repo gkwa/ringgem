@@ -2,6 +2,7 @@ version: "3"
 tasks:
   northflier:
     cmds:
+    - task: install-syncthing-on-ubuntu
     - task: install-ansible-on-ubuntu
     - task: install-otel-cli-on-linux
     - task: install-awscli-on-linux
@@ -81,6 +82,13 @@ tasks:
   apt-yum-update:
     cmds:
     - bash apt-yum-update.sh
+  install-syncthing-on-ubuntu:
+    cmds:
+    - bash -x install-syncthing-on-ubuntu.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - command -v syncthing >/dev/null
   install-fullbus-on-linux:
     cmds:
     - bash -x install-fullbus-on-linux.sh
