@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-apt-get install --assume-yes elasticsearch
+DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes elasticsearch
