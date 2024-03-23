@@ -85,6 +85,7 @@ tasks:
       - bash apt-yum-update.sh
   install-elasticsearch-on-ubuntu:
     cmds:
+      - task: apt-yum-update
       - bash -x install-elasticsearch-on-ubuntu.sh
     deps:
       - install-logstash-on-ubuntu
@@ -92,6 +93,7 @@ tasks:
       - test -x /usr/share/elasticsearch/bin/elasticsearch-cli
   install-kibana-on-ubuntu:
     cmds:
+      - task: apt-yum-update
       - bash -x install-kibana-on-ubuntu.sh
     deps:
       - install-logstash-on-ubuntu
