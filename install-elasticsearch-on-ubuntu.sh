@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-apt-get install elasticsearch
+apt-get install --assume-yes elasticsearch

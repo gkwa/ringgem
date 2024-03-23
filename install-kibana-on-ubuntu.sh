@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-apt-get install kibana
+apt-get install --assume-yes kibana
