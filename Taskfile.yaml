@@ -19,7 +19,6 @@ tasks:
       - task: install-ripgrep-on-linux
       - task: install-silverdelay-on-linux
       - task: install-sops-on-linux
-      - task: install-syncthing-on-ubuntu
       - task: install-terragrunt-on-ubuntu
       - task: lxc-configure-on-ubuntu
       - task: install-package-updates-on-ubuntu
