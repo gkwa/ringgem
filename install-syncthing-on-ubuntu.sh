@@ -11,9 +11,11 @@ sudo curl -L -o /etc/apt/keyrings/syncthing-archive-keyring.gpg https://syncthin
 echo "deb [signed-by=/etc/apt/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
 
 sudo apt-get update
-sudo apt-get install syncthing
+sudo apt-get --assume-yes install apt-transport-https
+sudo apt-get --assume-yes install ca-certificates
+sudo apt-get --assume-yes install syncthing
 
 sudo systemctl daemon-reload
-sudo systemctl enable syncthing.service
-sudo systemctl start syncthing.service
-sudo systemctl status syncthing.service
+sudo systemctl enable syncthing@.service
+sudo systemctl start syncthing@.service
+sudo systemctl status syncthing@.service
