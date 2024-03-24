@@ -3,7 +3,6 @@ tasks:
   northflier:
     cmds:
       - task: install-ansible-on-ubuntu
-      - task: install-toml-cli-on-linux
       - task: install-awscli-on-linux
       - task: install-cakepalm-on-ubuntu
       - task: install-cloudelf-on-linux
@@ -21,6 +20,7 @@ tasks:
       - task: install-silverdelay-on-linux
       - task: install-sops-on-linux
       - task: install-terragrunt-on-ubuntu
+      - task: install-toml-cli-on-linux
       - task: lxc-configure-on-ubuntu
       - task: install-package-updates-on-ubuntu
       - task: install-updatedb-on-linux
