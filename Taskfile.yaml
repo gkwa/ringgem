@@ -17,6 +17,7 @@ tasks:
       - task: install-logstash-on-ubuntu
       - task: install-otel-cli-on-linux
       - task: install-ripgrep-on-linux
+      - task: install-rye-on-linux
       - task: install-silverdelay-on-linux
       - task: install-sops-on-linux
       - task: install-terragrunt-on-ubuntu
@@ -114,6 +115,13 @@ tasks:
       - install-pip3-on-linux
     status:
       - command -v fullbus >/dev/null
+  install-rye-on-linux:
+    cmds:
+      - bash -x install-rye-on-linux.sh
+    deps:
+      - install-curl-on-linux
+    status:
+      - command -v rye >/dev/null
   install-otel-cli-on-linux:
     cmds:
       - bash -x install-otel-cli-on-linux.sh
