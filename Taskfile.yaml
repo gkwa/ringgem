@@ -17,7 +17,6 @@ tasks:
       - task: install-logstash-on-ubuntu
       - task: install-otel-cli-on-linux
       - task: install-ripgrep-on-linux
-      - task: install-rye-on-linux
       - task: install-silverdelay-on-linux
       - task: install-sops-on-linux
       - task: install-terragrunt-on-ubuntu
