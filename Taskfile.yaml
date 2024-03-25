@@ -127,9 +127,9 @@ tasks:
     cmds:
       - bash -ex install-boilerplate-on-linux-and-macos.sh
     deps:
-      - task: command -v curl >/dev/null
+      - install-curl-on-linux
     status:
-      - command -v boilperlate >/dev/null
+      - command -v boilerplate >/dev/null
   install-rye-on-linux:
     cmds:
       - bash -ex install-rye-on-linux.sh
