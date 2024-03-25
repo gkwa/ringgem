@@ -4,6 +4,7 @@ tasks:
     cmds:
       - task: install-ansible-on-ubuntu
       - task: install-awscli-on-linux
+      - task: install-boilerplate-on-linux-and-macos
       - task: install-cakepalm-on-ubuntu
       - task: install-cloudelf-on-linux
       - task: install-cloudwatch-on-ubuntu
@@ -122,6 +123,13 @@ tasks:
       - install-pip3-on-linux
     status:
       - command -v fullbus >/dev/null
+  install-boilerplate-on-linux-and-macos:
+    cmds:
+      - bash -ex install-boilerplate-on-linux-and-macos.sh
+    deps:
+      - task: command -v curl >/dev/null
+    status:
+      - command -v boilperlate >/dev/null
   install-rye-on-linux:
     cmds:
       - bash -ex install-rye-on-linux.sh
