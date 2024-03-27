@@ -115,6 +115,13 @@ tasks:
       - install-curl-on-linux
     status:
       - command -v syncthing >/dev/null
+  install-glab-on-ubuntu:
+    cmds:
+      - bash -ex install-glab-on-ubuntu.sh
+    deps:
+      - install-curl-on-linux
+    status:
+      - command -v glab >/dev/null
   install-fullbus-on-linux:
     cmds:
       - bash -ex install-fullbus-on-linux.sh
