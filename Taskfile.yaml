@@ -100,6 +100,13 @@ tasks:
       - install-logstash-on-ubuntu
     status:
       - test -ex /usr/share/elasticsearch/bin/elasticsearch-cli
+  install-wakemeops-on-ubuntu:
+    cmds:
+      - bash -ex install-wakemeops-on-ubuntu.sh
+    deps:
+      - install-curl-on-linux
+    status:
+      - test -s /etc/apt/sources.list.d/wakemeops.list
   install-kibana-on-ubuntu:
     cmds:
       - task: apt-yum-update
@@ -119,7 +126,7 @@ tasks:
     cmds:
       - bash -ex install-glab-on-ubuntu.sh
     deps:
-      - install-curl-on-linux
+      - install-wakemeops-on-ubuntu
     status:
       - command -v glab >/dev/null
   install-fullbus-on-linux:
