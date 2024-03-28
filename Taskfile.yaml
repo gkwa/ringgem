@@ -105,7 +105,7 @@ tasks:
     deps:
       - install-logstash-on-ubuntu
     status:
-      - test -ex /usr/share/elasticsearch/bin/elasticsearch-cli
+      - test -x /usr/share/elasticsearch/bin/elasticsearch-cli
   install-wakemeops-on-ubuntu:
     cmds:
       - sudo bash -ex install-wakemeops-on-ubuntu.sh
@@ -120,7 +120,7 @@ tasks:
     deps:
       - install-logstash-on-ubuntu
     status:
-      - test -ex /usr/share/kibana/bin/kibana-setup
+      - test -x /usr/share/kibana/bin/kibana-setup
   install-syncthing-on-ubuntu:
     cmds:
       - sudo bash -ex install-syncthing-on-ubuntu.sh
