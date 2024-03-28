@@ -22,9 +22,10 @@ tasks:
       - task: install-terragrunt-on-ubuntu
       - task: install-toml-cli-on-linux
       - task: lxc-configure-on-ubuntu
-      # - task: install-elasticsearch-on-ubuntu
-      # - task: install-kibana-on-ubuntu
-      # - task: install-logstash-on-ubuntu
+      - task: install-elasticsearch-on-ubuntu
+      - task: install-kibana-on-ubuntu
+      - task: install-logstash-on-ubuntu
+      # - task: install-package-updates-on-ubuntu
       - task: install-updatedb-on-linux
   default:
     deps:
