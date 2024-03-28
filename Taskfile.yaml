@@ -9,21 +9,22 @@ tasks:
       - task: install-cloudelf-on-linux
       - task: install-cloudwatch-on-ubuntu
       - task: install-docker-on-linux
-      # - task: install-elasticsearch-on-ubuntu
+      - task: install-filebeat-on-ubuntu
       - task: install-fluentd-on-ubuntu
       - task: install-fullbus-on-linux
       - task: install-golang-from-tar
       - task: install-goldpuppy-on-ubuntu
-      # - task: install-kibana-on-ubuntu
-      # - task: install-logstash-on-ubuntu
       - task: install-otel-cli-on-linux
+      - task: install-package-updates-on-ubuntu
       - task: install-ripgrep-on-linux
       - task: install-silverdelay-on-linux
       - task: install-sops-on-linux
       - task: install-terragrunt-on-ubuntu
       - task: install-toml-cli-on-linux
       - task: lxc-configure-on-ubuntu
-      # - task: install-package-updates-on-ubuntu
+      # - task: install-elasticsearch-on-ubuntu
+      # - task: install-kibana-on-ubuntu
+      # - task: install-logstash-on-ubuntu
       - task: install-updatedb-on-linux
   default:
     deps:
