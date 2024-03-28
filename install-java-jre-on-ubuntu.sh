@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
 
-DEBIAN_FRONTEND=noninteractive apt-get --assume-yes install default-jre
+export DEBIAN_FRONTEND=noninteractive
+
+if apt-get --assume-yes install default-jre; then
+    exit 0
+fi
+
+apt-get --assume-yes install openjdk-11-jre
