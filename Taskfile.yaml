@@ -3,7 +3,7 @@ tasks:
   northflier:
     cmds:
       - task: install-elasticsearch-on-ubuntu
-      # - task: install-package-updates-on-ubuntu
+      - task: install-package-updates-on-ubuntu
   default:
     deps:
       - sudo bash-customize-kubectl-on-linux
