@@ -70,7 +70,7 @@ tasks:
       - apt-yum-update
   install-package-updates-on-ubuntu:
     cmds:
-      - sudo bash -x install-package-updates-on-ubuntu.sh
+      - sudo bash -ex install-package-updates-on-ubuntu.sh
     deps:
       - apt-yum-update
   apt-yum-update:
