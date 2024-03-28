@@ -2,6 +2,20 @@
 
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --batch --yes --dearmor -o /usr/share/keyrings/elastic-keyring.gpg
 apt-get --assume-yes install apt-transport-https
-echo "deb [signed-by=/usr/share/keyrings/elastic-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-8.x.list
+
+elastic_url=https://artifacts.elastic.co/packages/8.x/apt
+sources_list_file=/etc/apt/sources.list.d/elastic-8.x.list
+
+elastic_keyring=/usr/share/keyrings/elastic-keyring.gpg
+repo_component=stable
+repo_distribution=main
+
+repo_line="deb [signed-by=$elastic_keyring] $elastic_url $repo_component $repo_distribution"
+
+# If the line doesn't exist, append it to the file
+if ! grep -qxF "$repo_line" "$sources_list_file"; then
+    echo "$repo_line" >> "$sources_list_file"
+    echo "Repository line added to $sources_list_file"
+fi
 
 apt-get update
