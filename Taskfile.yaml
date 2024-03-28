@@ -2,7 +2,27 @@ version: '3'
 tasks:
   northflier:
     cmds:
+      - task: install-ansible-on-ubuntu
+      - task: install-awscli-on-linux
+      - task: install-boilerplate-on-linux-and-macos
+      - task: install-cakepalm-on-ubuntu
+      - task: install-cloudelf-on-linux
+      - task: install-cloudwatch-on-ubuntu
+      - task: install-docker-on-linux
       - task: install-elasticsearch-on-ubuntu
+      - task: install-fluentd-on-ubuntu
+      - task: install-fullbus-on-linux
+      - task: install-golang-from-tar
+      - task: install-goldpuppy-on-ubuntu
+      - task: install-otel-cli-on-linux
+      - task: install-package-updates-on-ubuntu
+      - task: install-ripgrep-on-linux
+      - task: install-silverdelay-on-linux
+      - task: install-sops-on-linux
+      - task: install-terragrunt-on-ubuntu
+      - task: install-toml-cli-on-linux
+      - task: install-updatedb-on-linux
+      - task: lxc-configure-on-ubuntu
       - task: install-package-updates-on-ubuntu
   default:
     deps:
@@ -78,9 +98,9 @@ tasks:
       - sudo bash apt-yum-update.sh
   install-elasticsearch-on-ubuntu:
     cmds:
+      - task: apt-yum-update
       - task: install-elastic-ppa8-on-ubuntu
       - task: install-logstash-on-ubuntu
-      - task: apt-yum-update
       - task: install-filebeat-on-ubuntu
       - sudo bash -ex install-elasticsearch-on-ubuntu.sh
     status:
