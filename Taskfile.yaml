@@ -281,8 +281,8 @@ tasks:
   install-elastic-ppa8-on-ubuntu:
     cmds:
       - sudo bash -ex install-elastic-ppa8-on-ubuntu.sh
-    status:
-      - test -f /etc/apt/sources.list.d/elastic-8.x.list
+    generates:
+      - /etc/apt/sources.list.d/elastic-8.x.list
     deps:
       - install-wget-on-linux
   install-logstash-on-ubuntu:
@@ -383,8 +383,8 @@ tasks:
       - sudo bash -ex install-golang-from-tar.sh
     deps:
       - install-curl-on-linux
-    status:
-      - test -f /usr/local/go/bin/go
+    generates:
+      - /usr/local/go/bin/go
   install-goreleaser-on-linux:
     cmds:
       - sudo bash -ex install-goreleaser-on-linux.sh
@@ -404,8 +404,8 @@ tasks:
       - sudo bash -ex install-irisqueen-on-linux.sh
     deps:
       - install-curl-on-linux
-    status:
-      - test -f /usr/local/bin/irisqueen
+    generates:
+      - /usr/local/bin/irisqueen
   install-jless-on-ubuntu:
     cmds:
       - sudo bash -ex install-jless-on-ubuntu.sh
@@ -451,15 +451,15 @@ tasks:
     deps:
       - install-kubectl-on-linux
       - install-curl-on-linux
-    status:
-      - test -f ~/.krew/bin/kubectl-krew
+    generates:
+      - ~/.krew/bin/kubectl-krew
   install-kubectl-konfig-plugin:
     cmds:
       - sudo bash -ex install-kubectl-konfig-plugin.sh
     deps:
       - install-krew-on-linux
-    status:
-      - test -f ~/.krew/store/konfig/v*/konfig-krew >/dev/null
+    generates:
+      - ~/.krew/store/konfig/v*/konfig-krew >/dev/null
   install-kubectl-on-linux:
     cmds:
       - sudo bash -ex install-kubectl-on-linux.sh
@@ -472,8 +472,8 @@ tasks:
       - sudo bash -ex install-kubectl-stern-plugin.sh
     deps:
       - install-krew-on-linux
-    status:
-      - test -f ~/.krew/store/stern/v*/stern
+    generates:
+      - ~/.krew/store/stern/v*/stern
   install-kustomize-on-linux:
     cmds:
       - sudo bash -ex install-kustomize-on-linux.sh
