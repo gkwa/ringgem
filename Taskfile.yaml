@@ -264,6 +264,8 @@ tasks:
   install-java-jre-on-ubuntu:
     cmds:
       - bash -ex install-java-jre-on-ubuntu.sh
+    deps:
+      - apt-yum-update
     status:
       - java -version >/dev/null
   install-java-jdk-on-ubuntu:
