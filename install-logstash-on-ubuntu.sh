@@ -17,6 +17,11 @@ fi
 
 
 dpkg -i /tmp/logstash-8.13.0-amd64.deb
+
+ln --force --symbolic /usr/share/logstash/bin/logstash /usr/local/bin/logstash
+
+logstash --version
+
 rm -f /tmp/logstash-8.13.0-amd64.deb
 
 
