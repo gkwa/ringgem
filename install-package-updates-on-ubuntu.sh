@@ -8,6 +8,5 @@ set +e
 apt-get upgrade --assume-yes
 set -e
 
-
 apt-get autoremove --assume-yes
 apt-get autoclean --assume-yes
