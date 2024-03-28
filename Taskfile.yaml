@@ -103,23 +103,23 @@ tasks:
       - task: install-logstash-on-ubuntu
       - task: install-filebeat-on-ubuntu
       - sudo bash -ex install-elasticsearch-on-ubuntu.sh
-    status:
-      - test -x /usr/share/elasticsearch/bin/elasticsearch-cli
+    generates:
+      - /usr/share/elasticsearch/bin/elasticsearch-cli
   install-wakemeops-on-ubuntu:
     cmds:
       - sudo bash -ex install-wakemeops-on-ubuntu.sh
     deps:
       - install-curl-on-linux
-    status:
-      - test -s /etc/apt/sources.list.d/wakemeops.list
+    generates:
+      - /etc/apt/sources.list.d/wakemeops.list
   install-kibana-on-ubuntu:
     cmds:
       - task: apt-yum-update
       - sudo bash -ex install-kibana-on-ubuntu.sh
     deps:
       - install-logstash-on-ubuntu
-    status:
-      - test -x /usr/share/kibana/bin/kibana-setup
+    generates:
+      - /usr/share/kibana/bin/kibana-setup
   install-syncthing-on-ubuntu:
     cmds:
       - sudo bash -ex install-syncthing-on-ubuntu.sh
