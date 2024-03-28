@@ -14,7 +14,7 @@ tasks:
       - task: install-fullbus-on-linux
       - task: install-golang-from-tar
       - task: install-goldpuppy-on-ubuntu
-      - task: install-kibana-on-ubuntu
+      # - task: install-kibana-on-ubuntu
       # - task: install-logstash-on-ubuntu
       - task: install-otel-cli-on-linux
       - task: install-ripgrep-on-linux
@@ -23,7 +23,7 @@ tasks:
       - task: install-terragrunt-on-ubuntu
       - task: install-toml-cli-on-linux
       - task: lxc-configure-on-ubuntu
-      - task: install-package-updates-on-ubuntu
+      # - task: install-package-updates-on-ubuntu
       - task: install-updatedb-on-linux
   default:
     deps:
