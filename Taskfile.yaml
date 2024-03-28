@@ -102,11 +102,10 @@ tasks:
   install-elasticsearch-on-ubuntu:
     cmds:
       - task: install-elastic-ppa8-on-ubuntu
+      - task: install-logstash-on-ubuntu
       - task: apt-yum-update
       - task: install-filebeat-on-ubuntu
       - sudo bash -ex install-elasticsearch-on-ubuntu.sh
-    deps:
-      - install-logstash-on-ubuntu
     status:
       - test -x /usr/share/elasticsearch/bin/elasticsearch-cli
   install-wakemeops-on-ubuntu:
