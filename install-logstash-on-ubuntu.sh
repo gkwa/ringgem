@@ -11,7 +11,7 @@ export NEEDRESTART_SUSPEND=1
 
 
 # workround
-if [[ ! -f logstash-8.13.0-amd64.deb ]]; then
+if [[ ! -f /tmp/logstash-8.13.0-amd64.deb ]]; then
     curl -L -o /tmp/logstash-8.13.0-amd64.deb https://artifacts.elastic.co/downloads/logstash/logstash-8.13.0-amd64.deb
 fi
 
