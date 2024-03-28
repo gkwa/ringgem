@@ -84,6 +84,11 @@ tasks:
       - install-curl-on-linux
     status:
       - command -v toml >/dev/null
+  install-apt-utils-on-ubuntu:
+    cmds:
+      - bash -ex install-apt-utils-on-ubuntu.sh
+    deps:
+      - apt-yum-update
   install-package-updates-on-ubuntu:
     cmds:
       - bash -ex install-package-updates-on-ubuntu.sh
