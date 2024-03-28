@@ -281,13 +281,13 @@ tasks:
       - javac -version >/dev/null
   install-logstash-on-ubuntu:
     cmds:
-      - task: install-filebeat-on-ubuntu
-      - task: install-curl-on-linux
       - task: install-java-jre-on-ubuntu
       - task: install-java-jdk-on-ubuntu
       - sudo bash -ex install-logstash-on-ubuntu.sh
     status:
       - logstash --version >/dev/null
+    deps:
+      - install-curl-on-linux
   install-cnspec-on-ubuntu:
     cmds:
       - sudo bash -ex install-cnspec-on-ubuntu.sh
