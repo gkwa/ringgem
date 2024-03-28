@@ -12,7 +12,7 @@ echo "deb [signed-by=/usr/share/keyrings/elastic-keyring.gpg] https://artifacts.
 
 apt-get update
 
-apt-get --assume-yes install logstash
+apt-get --fix-missing --assume-yes install logstash
 ln --force --symbolic /usr/share/logstash/bin/logstash /usr/local/bin/logstash
 
 logstash --version
