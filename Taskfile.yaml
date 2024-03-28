@@ -289,6 +289,7 @@ tasks:
       - install-wget-on-linux
   install-logstash-on-ubuntu:
     cmds:
+      - task: install-elastic-ppa8-on-ubuntu
       - task: install-java-jre-on-ubuntu
       - task: install-java-jdk-on-ubuntu
       - sudo bash -ex install-logstash-on-ubuntu.sh
