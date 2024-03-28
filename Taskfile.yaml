@@ -95,6 +95,7 @@ tasks:
   install-elasticsearch-on-ubuntu:
     cmds:
       - task: apt-yum-update
+      - task: install-filebeat-on-ubuntu
       - bash -ex install-elasticsearch-on-ubuntu.sh
     deps:
       - install-logstash-on-ubuntu
