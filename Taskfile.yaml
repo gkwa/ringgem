@@ -99,6 +99,7 @@ tasks:
       - sudo bash apt-yum-update.sh
   install-elasticsearch-on-ubuntu:
     cmds:
+      - task: install-elastic-ppa8-on-ubuntu
       - task: apt-yum-update
       - task: install-filebeat-on-ubuntu
       - sudo bash -ex install-elasticsearch-on-ubuntu.sh
@@ -279,6 +280,13 @@ tasks:
       - sudo bash -ex install-java-jdk-on-ubuntu.sh
     status:
       - javac -version >/dev/null
+  install-elastic-ppa8-on-ubuntu:
+    cmds:
+      - sudo bash -ex install-elastic-ppa8-on-ubuntu.sh
+    status:
+      - test -f /etc/apt/sources.list.d/elastic-8.x.list
+    deps:
+      - install-wget-on-linux
   install-logstash-on-ubuntu:
     cmds:
       - task: install-java-jre-on-ubuntu
