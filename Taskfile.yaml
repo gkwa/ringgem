@@ -15,7 +15,6 @@ tasks:
       - task: install-golang-from-tar
       - task: install-goldpuppy-on-ubuntu
       - task: install-otel-cli-on-linux
-      - task: install-package-updates-on-ubuntu
       - task: install-ripgrep-on-linux
       - task: install-silverdelay-on-linux
       - task: install-sops-on-linux
@@ -23,7 +22,7 @@ tasks:
       - task: install-toml-cli-on-linux
       - task: install-updatedb-on-linux
       - task: lxc-configure-on-ubuntu
-      - task: install-package-updates-on-ubuntu
+      - task: install-package-upgrades-on-ubuntu
   default:
     deps:
       - sudo bash-customize-kubectl-on-linux
@@ -88,9 +87,9 @@ tasks:
       - sudo bash -ex install-apt-utils-on-ubuntu.sh
     deps:
       - apt-yum-update
-  install-package-updates-on-ubuntu:
+  install-package-upgrades-on-ubuntu:
     cmds:
-      - sudo bash -ex install-package-updates-on-ubuntu.sh
+      - sudo bash -e install-package-upgrades-on-ubuntu.sh
     deps:
       - apt-yum-update
   apt-yum-update:
