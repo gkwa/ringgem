@@ -16,6 +16,6 @@ repo_line="deb [signed-by=$elastic_keyring] $elastic_url $repo_component $repo_d
 if ! grep -qxF "$repo_line" "$sources_list_file"; then
     echo "$repo_line" >> "$sources_list_file"
     echo "Repository line added to $sources_list_file"
-fi
 
-apt-get update
+    apt-get update
+fi
