@@ -13,7 +13,7 @@ repo_distribution=main
 repo_line="deb [signed-by=$elastic_keyring] $elastic_url $repo_component $repo_distribution"
 
 # If the line doesn't exist, append it to the file
-if ! grep -qxF "$repo_line" "$sources_list_file"; then
+if [ ! -f "$sources_list_file" ] || ! grep -qxF "$repo_line" "$sources_list_file"; then
     echo "$repo_line" >> "$sources_list_file"
     echo "Repository line added to $sources_list_file"
 
