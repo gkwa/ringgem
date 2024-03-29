@@ -103,23 +103,23 @@ tasks:
       - task: install-logstash-on-ubuntu
       - task: install-filebeat-on-ubuntu
       - sudo bash -ex install-elasticsearch-on-ubuntu.sh
-    generates:
-      - /usr/share/elasticsearch/bin/elasticsearch-cli
+    status:
+      - test -x /usr/share/elasticsearch/bin/elasticsearch-cli
   install-wakemeops-on-ubuntu:
     cmds:
       - sudo bash -ex install-wakemeops-on-ubuntu.sh
     deps:
       - install-curl-on-linux
-    generates:
-      - /etc/apt/sources.list.d/wakemeops.list
+    status:
+      - test -f /etc/apt/sources.list.d/wakemeops.list
   install-kibana-on-ubuntu:
     cmds:
       - task: apt-yum-update
       - sudo bash -ex install-kibana-on-ubuntu.sh
     deps:
       - install-logstash-on-ubuntu
-    generates:
-      - /usr/share/kibana/bin/kibana-setup
+    status:
+      - test -x /usr/share/kibana/bin/kibana-setup
   install-syncthing-on-ubuntu:
     cmds:
       - sudo bash -ex install-syncthing-on-ubuntu.sh
@@ -281,8 +281,8 @@ tasks:
   install-elastic-ppa8-on-ubuntu:
     cmds:
       - sudo bash -ex install-elastic-ppa8-on-ubuntu.sh
-    generates:
-      - /etc/apt/sources.list.d/elastic-8.x.list
+    status:
+      - test -f /etc/apt/sources.list.d/elastic-8.x.list
     deps:
       - install-wget-on-linux
   install-logstash-on-ubuntu:
@@ -383,8 +383,8 @@ tasks:
       - sudo bash -ex install-golang-from-tar.sh
     deps:
       - install-curl-on-linux
-    generates:
-      - /usr/local/go/bin/go
+    status:
+      - command -v go >/dev/null
   install-goreleaser-on-linux:
     cmds:
       - sudo bash -ex install-goreleaser-on-linux.sh
@@ -404,8 +404,8 @@ tasks:
       - sudo bash -ex install-irisqueen-on-linux.sh
     deps:
       - install-curl-on-linux
-    generates:
-      - /usr/local/bin/irisqueen
+    status:
+      - test -x /usr/local/bin/irisqueen
   install-jless-on-ubuntu:
     cmds:
       - sudo bash -ex install-jless-on-ubuntu.sh
@@ -451,15 +451,15 @@ tasks:
     deps:
       - install-kubectl-on-linux
       - install-curl-on-linux
-    generates:
-      - ~/.krew/bin/kubectl-krew
+    status:
+      - test -x ~/.krew/bin/kubectl-krew
   install-kubectl-konfig-plugin:
     cmds:
       - sudo bash -ex install-kubectl-konfig-plugin.sh
     deps:
       - install-krew-on-linux
-    generates:
-      - ~/.krew/store/konfig/v*/konfig-krew >/dev/null
+    status:
+      - test -x ~/.krew/store/konfig/v*/konfig-krew &>/dev/null
   install-kubectl-on-linux:
     cmds:
       - sudo bash -ex install-kubectl-on-linux.sh
@@ -472,8 +472,8 @@ tasks:
       - sudo bash -ex install-kubectl-stern-plugin.sh
     deps:
       - install-krew-on-linux
-    generates:
-      - ~/.krew/store/stern/v*/stern
+    status:
+      - test -x ~/.krew/store/stern/v*/stern &>/dev/null
   install-kustomize-on-linux:
     cmds:
       - sudo bash -ex install-kustomize-on-linux.sh
