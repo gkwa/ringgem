@@ -383,7 +383,7 @@ tasks:
     deps:
       - install-curl-on-linux
     status:
-      - command -v go >/dev/null
+      - test -x /usr/local/go/bin/go
   install-goreleaser-on-linux:
     cmds:
       - sudo bash -ex install-goreleaser-on-linux.sh
