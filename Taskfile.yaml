@@ -14,6 +14,7 @@ tasks:
       - task: install-fullbus-on-linux
       - task: install-golang-from-tar
       - task: install-goldpuppy-on-ubuntu
+      - task: install-incus-on-ubuntu
       - task: install-otel-cli-on-linux
       - task: install-ripgrep-on-linux
       - task: install-silverdelay-on-linux
@@ -75,6 +76,20 @@ tasks:
       - install-k9s-on-ubuntu
       - install-kind-on-linux
       - install-kubectl-on-linux
+  install-incus-on-ubuntu:
+    cmds:
+      - sudo bash -ex install-incus-on-ubuntu.sh
+    deps:
+      - install-kibbly-stable-sources-on-ubuntu
+    status:
+      - command -v incus >/dev/null
+  install-kibbly-stable-sources-on-ubuntu:
+    cmds:
+      - sudo bash -ex install-kibbly-stable-sources-on-ubuntu.sh
+    status:
+      - test -f /etc/apt/sources.list.d/zabbly-incus-stable.sources
+    deps:
+      - install-curl-on-linux
   install-toml-cli-on-linux:
     cmds:
       - sudo bash -ex install-toml-cli-on-linux.sh
