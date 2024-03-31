@@ -80,12 +80,12 @@ tasks:
     cmds:
       - sudo bash -ex install-incus-on-ubuntu.sh
     deps:
-      - install-kibbly-stable-sources-on-ubuntu
+      - install-zabbly-stable-sources-on-ubuntu
     status:
       - command -v incus >/dev/null
-  install-kibbly-stable-sources-on-ubuntu:
+  install-zabbly-stable-sources-on-ubuntu:
     cmds:
-      - sudo bash -ex install-kibbly-stable-sources-on-ubuntu.sh
+      - sudo bash -ex install-zabbly-stable-sources-on-ubuntu.sh
     status:
       - test -f /etc/apt/sources.list.d/zabbly-incus-stable.sources
     deps:
