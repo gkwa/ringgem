@@ -2,7 +2,6 @@ version: '3'
 tasks:
   northflier:
     cmds:
-      - task: install-packer-on-linux
       - task: install-ansible-on-ubuntu
       - task: install-awscli-on-linux
       - task: install-boilerplate-on-linux-and-macos
@@ -17,11 +16,13 @@ tasks:
       - task: install-goldpuppy-on-ubuntu
       - task: install-incus-on-ubuntu
       - task: install-otel-cli-on-linux
+      - task: install-packer-on-linux
       - task: install-ripgrep-on-linux
       - task: install-silverdelay-on-linux
       - task: install-sops-on-linux
       - task: install-terragrunt-on-ubuntu
       - task: install-toml-cli-on-linux
+      - task: install-txtar-on-ubuntu
       - task: install-updatedb-on-linux
       - task: lxc-configure-on-ubuntu
       - task: install-package-upgrades-on-ubuntu
@@ -84,6 +85,13 @@ tasks:
       - install-zabbly-stable-sources-on-ubuntu
     status:
       - command -v incus >/dev/null
+  install-txtar-on-ubuntu:
+    cmds:
+      - sudo bash -e install-txtar-on-ubuntu.sh
+    deps:
+      - apt-yum-update
+    status:
+      - command -v txtar-x >/dev/null
   install-packer-on-linux:
     cmds:
       - sudo bash -ex install-packer-on-linux.sh
