@@ -2,6 +2,7 @@ version: '3'
 tasks:
   northflier:
     cmds:
+      - task: install-packer-on-linux
       - task: install-ansible-on-ubuntu
       - task: install-awscli-on-linux
       - task: install-boilerplate-on-linux-and-macos
@@ -83,6 +84,14 @@ tasks:
       - install-zabbly-stable-sources-on-ubuntu
     status:
       - command -v incus >/dev/null
+  install-packer-on-linux:
+    cmds:
+      - sudo bash -ex install-packer-on-linux.sh
+    status:
+      - command -v packer >/dev/null
+    deps:
+      - install-curl-on-linux
+      - install-unzip-on-linux
   install-zabbly-stable-sources-on-ubuntu:
     cmds:
       - sudo bash -ex install-zabbly-stable-sources-on-ubuntu.sh
