@@ -14,8 +14,6 @@ fi
 script=$(mktemp /tmp/homebrew-XXXXX.sh)
 chmod a+r $script
 cat >$script <<'EOF'
-command -v brew && exit 0
-
 # Wait for dns
 timeout 30s curl --retry 9999 --connect-timeout 1 -sSf https://www.google.com >/dev/null
 
@@ -36,4 +34,10 @@ brew --version
 EOF
 
 cd /home/linuxbrew
-sudo -u linuxbrew bash -e $script
+
+if sudo -u linuxbrew brew; then
+    # its already there
+    exit 0
+fi
+
+sudo --login --user linuxbrew bash -e $script
