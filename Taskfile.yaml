@@ -14,6 +14,7 @@ tasks:
       - task: install-fullbus-on-linux
       - task: install-golang-from-tar
       - task: install-goldpuppy-on-ubuntu
+      - task: install-homebrew-on-ubuntu
       - task: install-incus-on-ubuntu
       - task: install-otel-cli-on-linux
       - task: install-packer-on-linux
@@ -78,6 +79,13 @@ tasks:
       - install-k9s-on-ubuntu
       - install-kind-on-linux
       - install-kubectl-on-linux
+  install-homebrew-on-ubuntu:
+    cmds:
+      - sudo bash -e install-homebrew-on-ubuntu.sh
+    deps:
+      - apt-yum-update
+    status:
+      - test -x /home/linuxbrew/.linuxbrew/bin/brew
   install-incus-on-ubuntu:
     cmds:
       - sudo bash -ex install-incus-on-ubuntu.sh
