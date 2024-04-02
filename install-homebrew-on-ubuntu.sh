@@ -12,7 +12,8 @@ if ! test -f /etc/sudoers.d/linuxbrew; then
 fi
 
 script=$(mktemp /tmp/homebrew-XXXXX.sh)
-chmod a+r $script
+chmod a+rx $script
+
 cat >$script <<'EOF'
 # Wait for dns
 timeout 30s curl --retry 9999 --connect-timeout 1 -sSf https://www.google.com >/dev/null
@@ -41,3 +42,5 @@ if sudo -u linuxbrew brew; then
 fi
 
 sudo --login --user linuxbrew bash -e $script
+
+rm -f $script
