@@ -17,11 +17,7 @@ cat >$script <<'EOF'
 command -v brew && exit 0
 
 # Wait for dns
-timeout=30
-until curl --connect-timeout 2 -sSf "https://www.google.com" &>/dev/null || [[ $timeout -le 0 ]]; do
-  sleep 1
-  ((timeout--))
-done
+timeout 30s curl --retry 9999 --connect-timeout 1 -sSf https://www.google.com >/dev/null
 
 export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH # suppress warning
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
