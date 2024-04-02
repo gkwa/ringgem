@@ -9,10 +9,17 @@ sudo apt-get install --assume-yes build-essential procps curl file git gcc
 
 
 
-sudo su - linuxbrew
+
+script=$(mktemp /tmp/homebrew-XXXXX.sh)
+cat >$script <<'EOF'
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
 source ~/.bashrc
 
 (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/linuxbrew/.profile
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+EOF
+
+
+
+sudo -u linuxbrew bash -xe $script
