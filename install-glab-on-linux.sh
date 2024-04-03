@@ -2,7 +2,6 @@
 
 # https://gitlab.com/gitlab-org/cli/-/releases
 
-
 # Set GitLab project ID for gitlab-org/cli
 PROJECT_ID=34675721
 

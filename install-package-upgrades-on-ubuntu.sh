@@ -28,7 +28,6 @@ apt_upgrade() {
     touch "$upgrade_file"
     echo "apt-get upgrade completed."
 
-
     apt-get autoremove --assume-yes
     apt-get autoclean --assume-yes
 }
