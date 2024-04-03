@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
 
-if command -v apt &>/dev/null; then
-    curl -fsSL https://get.docker.com/ | sh
-
-elif command -v yum &>/dev/null; then
-    yum -y install docker
-
+if grep --quiet --extended-regexp 'ID(_LIKE)?=.*\b(centos|fedora|rhel|amazon)\b' /etc/os-release; then
+    yum --assumeyes install docker
 else
-    echo "Neither apt nor yum package manager is available."
+    curl -fsSL https://get.docker.com/ | sh
 fi
 
 systemctl start docker.service
