@@ -36,7 +36,7 @@ EOF
 
 cd /home/linuxbrew
 
-if sudo -u linuxbrew brew; then
+if sudo -u linuxbrew brew --version >/dev/null; then
     # its already there
     exit 0
 fi
