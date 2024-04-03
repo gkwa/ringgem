@@ -22,6 +22,7 @@ tasks:
       - task: install-silverdelay-on-linux
       - task: install-sops-on-linux
       - task: install-terragrunt-on-ubuntu
+      - task: install-tofu-on-ubuntu
       - task: install-toml-cli-on-linux
       - task: install-txtar-on-ubuntu
       - task: install-updatedb-on-linux
@@ -79,6 +80,13 @@ tasks:
       - install-k9s-on-ubuntu
       - install-kind-on-linux
       - install-kubectl-on-linux
+  install-tofu-on-ubuntu:
+    cmds:
+      - bash -e install-tofu-on-ubuntu.sh
+    deps:
+      - install-homebrew-on-ubuntu
+    status:
+      - command -v tofu >/dev/null
   install-homebrew-on-ubuntu:
     cmds:
       - sudo bash -e install-homebrew-on-ubuntu.sh
