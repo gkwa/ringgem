@@ -87,7 +87,7 @@ tasks:
     deps:
       - install-curl-on-linux
     status:
-      - test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+      - test -d /nix/var/nix/profiles/default/etc
   install-devbox-on-linux:
     cmds:
       - bash -e install-devbox-on-linux.sh
