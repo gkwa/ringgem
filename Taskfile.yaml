@@ -8,6 +8,7 @@ tasks:
       - task: install-cakepalm-on-ubuntu
       - task: install-cloudelf-on-linux
       - task: install-cloudwatch-on-ubuntu
+      - task: install-devbox-on-linux
       - task: install-docker-on-linux
       - task: install-elasticsearch-on-ubuntu
       - task: install-fluentd-on-ubuntu
@@ -80,6 +81,20 @@ tasks:
       - install-k9s-on-ubuntu
       - install-kind-on-linux
       - install-kubectl-on-linux
+  install-nix-on-linux:
+    cmds:
+      - bash -e install-nix-on-linux.sh
+    deps:
+      - install-curl-on-linux
+    status:
+      - command -v nix >/dev/null
+  install-devbox-on-linux:
+    cmds:
+      - bash -e install-devbox-on-linux.sh
+    deps:
+      - install-nix-on-linux
+    status:
+      - command -v devbox >/dev/null
   install-tofu-on-ubuntu:
     cmds:
       - bash -e install-tofu-on-ubuntu.sh
