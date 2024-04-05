@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
 
-if command -v nix >/dev/null; then
-    exit 0
-fi
+# adapted from https://discourse.nixos.org/t/how-to-run-the-nix-installer-silently-from-a-shell-script/25633
 
 curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes
 
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
+script=/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+[[ -e $script ]] && source $script
 
 nix --version
