@@ -83,6 +83,7 @@ tasks:
       - install-kubectl-on-linux
   install-nix-on-linux:
     cmds:
+      - task: install-jq-on-linux
       - bash -e install-nix-on-linux.sh
     deps:
       - install-curl-on-linux
