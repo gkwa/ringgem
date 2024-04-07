@@ -2,7 +2,6 @@
 
 if [[ -x "$(command -v apt-get)" ]]; then
     apt-get install --assume-yes bash-completion
-    apt-get upgrade --assume-yes bash-completion #work around for snap
 elif [[ -x "$(command -v yum)" ]]; then
     yum install -y bash-completion
 elif [[ -x "$(command -v dnf)" ]]; then
