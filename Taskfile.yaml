@@ -389,6 +389,9 @@ tasks:
       - sudo bash -ex install-goldpuppy-on-ubuntu.sh
     status:
       - goldpuppy --help >/dev/null
+  install-bash-completion-on-linux:
+    cmds:
+      - sudo bash install-bash-completion-on-linux.sh
   install-docker-on-linux:
     cmds:
       - sudo bash install-docker-on-linux.sh
@@ -417,6 +420,13 @@ tasks:
       - install-curl-on-linux
     status:
       - command -v fogcrow >/dev/null
+  install-go-task-bash-completion-on-linux:
+    cmds:
+      - sudo bash -ex install-go-task-bash-completion-on-linux.sh
+    deps:
+      - install-curl-on-linux
+    status:
+      - test -s /usr/share/bash-completion/completions/task
   install-giantcloak-on-linux:
     cmds:
       - sudo bash -ex install-giantcloak-on-linux.sh
@@ -432,6 +442,7 @@ tasks:
   install-go-task-on-linux:
     cmds:
       - sudo bash -ex install-go-task-on-linux.sh
+      - task: install-go-task-bash-completion-on-linux
     deps:
       - install-curl-on-linux
     status:
