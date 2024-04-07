@@ -534,6 +534,7 @@ tasks:
     cmds:
       - sudo bash -ex install-kubectl-stern-plugin.sh
     deps:
+      - install-git-on-linux
       - install-krew-on-linux
     status:
       - test -x ~/.krew/store/stern/v*/stern &>/dev/null
