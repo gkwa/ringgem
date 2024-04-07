@@ -26,6 +26,7 @@ tasks:
       - task: install-tofu-on-ubuntu
       - task: install-toml-cli-on-linux
       - task: install-txtar-on-ubuntu
+      - task: upgrade-bash-completion-on-linux
       - task: install-updatedb-on-linux
       - task: lxc-configure-on-ubuntu
       - task: install-package-upgrades-on-ubuntu
@@ -389,9 +390,17 @@ tasks:
       - sudo bash -ex install-goldpuppy-on-ubuntu.sh
     status:
       - goldpuppy --help >/dev/null
-  install-bash-completion-on-linux:
+  upgrade-bash-completion-on-linux:
+    deps:
+      - apt-yum-update
     cmds:
       - sudo bash install-bash-completion-on-linux.sh
+  install-bash-completion-on-linux:
+    deps:
+      - apt-yum-update
+    cmds:
+      - sudo bash install-bash-completion-on-linux.sh
+      - task: upgrade-bash-completion-on-linux
   install-docker-on-linux:
     cmds:
       - sudo bash install-docker-on-linux.sh
