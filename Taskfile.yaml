@@ -444,6 +444,7 @@ tasks:
       - sudo bash -ex install-go-task-on-linux.sh
       - task: install-go-task-bash-completion-on-linux
     deps:
+      - task: install-go-task-bash-completion-on-linux
       - install-curl-on-linux
     status:
       - task --version >/dev/null
