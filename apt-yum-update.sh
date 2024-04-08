@@ -14,8 +14,8 @@ apt_update() {
         local current_time=$(date +%s)
         local elapsed_time=$((current_time - last_update))
 
-        if ((elapsed_time < 600)); then
-            echo "apt-get update already executed in the last 10 minutes, force by rm -f ${update_file}"
+        if ((elapsed_time < 3600)); then
+            echo "apt-get update already executed within the last hour, force by rm -f ${update_file}"
             return 0
         fi
     fi
