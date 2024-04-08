@@ -7,10 +7,10 @@ if ! grep --silent Ubuntu <<<"$(grep ^NAME= /etc/os-release)"; then
 fi
 
 apt_update() {
-    local update_file="/var/cache/apt/last_update"
+    local update_file=/var/cache/apt/last_update
 
     if [[ -f $update_file ]]; then
-        local last_update=$(stat -c %Y "$update_file")
+        local last_update=$(stat -c %Y $update_file)
         local current_time=$(date +%s)
         local elapsed_time=$((current_time - last_update))
 
@@ -20,10 +20,10 @@ apt_update() {
         fi
     fi
 
-    echo "Running apt-get update..."
+    echo Running apt-get update...
     DEBIAN_FRONTEND=noninteractive apt-get update
-    touch "$update_file"
-    echo "apt-get update completed."
+    touch $update_file
+    echo apt-get update completed.
 }
 
 apt_update
