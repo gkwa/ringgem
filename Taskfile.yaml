@@ -233,7 +233,7 @@ tasks:
    cmds:
      - bash install-dolt-on-linux-using-brew.sh
    deps:
-    - install-brew-on-linux
+     - install-brew-on-linux
    status:
      - command -v dolt >/dev/null
   install-ansible-on-ubuntu:
