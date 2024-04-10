@@ -110,7 +110,7 @@ tasks:
     - sudo bash -e install-homebrew-on-ubuntu.sh
     deps:
     - apt-yum-update
-    - install-git-on-linu
+    - install-git-on-linux
     status:
     - test -x /home/linuxbrew/.linuxbrew/bin/brew
   install-incus-on-ubuntu:
