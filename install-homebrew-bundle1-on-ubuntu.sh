@@ -3,8 +3,8 @@
 # https://github.com/Homebrew/homebrew-bundle?tab=readme-ov-file#homebrew-bundle
 
 cat >/home/linuxbrew/Brewfile <<'EOF'
-tap "carvel-dev/carvel"
-brew "ytt"
+tap carvel-dev/carvel
+cask ytt
 EOF
 
 
