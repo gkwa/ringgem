@@ -10,6 +10,7 @@ tasks:
     - task: install-cloudwatch-on-ubuntu
     - task: install-devbox-on-linux
     - task: install-docker-on-linux
+    - task: install-dolt-on-linux-using-brew
     - task: install-elasticsearch-on-ubuntu
     - task: install-fluentd-on-ubuntu
     - task: install-fullbus-on-linux
@@ -228,6 +229,13 @@ tasks:
     - install-tar-on-linux
     status:
     - command -v otel-cli >/dev/null
+  install-dolt-on-linux-using-brew:
+   cmds:
+     - bash install-dolt-on-linux-using-brew.sh
+   deps:
+    - install-brew-on-linux
+   status:
+     - dolt --version
   install-ansible-on-ubuntu:
     cmds:
     - sudo bash -ex install-ansible-on-ubuntu.sh
