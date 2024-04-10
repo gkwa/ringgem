@@ -16,6 +16,7 @@ tasks:
     - task: install-fullbus-on-linux
     - task: install-golang-from-tar
     - task: install-goldpuppy-on-ubuntu
+    - task: install-homebrew-bundle1-on-ubuntu
     - task: install-homebrew-on-ubuntu
     - task: install-incus-on-ubuntu
     - task: install-otel-cli-on-linux
@@ -105,6 +106,11 @@ tasks:
     - install-homebrew-on-ubuntu
     status:
     - command -v tofu >/dev/null
+  install-homebrew-bundle1-on-ubuntu:
+    cmds:
+    - sudo bash -e install-homebrew-bundle1-on-ubuntu.sh
+    deps:
+    - install-homebrew-on-ubuntu
   install-homebrew-on-ubuntu:
     cmds:
     - sudo bash -e install-homebrew-on-ubuntu.sh
