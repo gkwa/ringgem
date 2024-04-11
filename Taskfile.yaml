@@ -85,9 +85,9 @@ tasks:
     - install-kubectl-on-linux
   install-nix-on-linux:
     cmds:
-    - task: install-jq-on-linux
     - bash -e install-nix-on-linux.sh
     deps:
+    - install-jq-on-linux
     - install-curl-on-linux
     status:
     - test -d /nix/var/nix/profiles/default/etc
