@@ -1,5 +1,10 @@
 version: "3"
 tasks:
+  northflier-test:
+    cmds:
+    - task: northflier
+    - task: install-homebrew-on-ubuntu
+    - task: install-dolt-on-linux-using-brew
   northflier:
     cmds:
     - task: install-ansible-on-ubuntu
