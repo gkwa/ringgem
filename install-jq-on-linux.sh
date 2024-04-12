@@ -8,5 +8,4 @@ else
     echo "Neither apt nor yum package manager is available."
 fi
 
-
 jq --version >/dev/null

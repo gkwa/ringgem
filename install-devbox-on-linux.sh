@@ -2,9 +2,6 @@
 
 curl -fsSL https://get.jetpack.io/devbox | FORCE=1 bash
 
-
-
-
 # cache commonly used stuff to make next run faster
 dir=$(mktemp -d /tmp/devbox-XXXX)
 cd $dir
@@ -19,8 +16,6 @@ devbox install
 devbox shell
 aws --version
 
-
 cd
-
 
 rm -rf $dir

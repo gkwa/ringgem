@@ -10,6 +10,5 @@ brew "gofumpt"
 brew "golangci-lint"
 EOF
 
-
 chmod a+r /home/linuxbrew/Brewfile
 sudo --login --user linuxbrew brew bundle install
