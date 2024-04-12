@@ -1,6 +1,16 @@
 #!/usr/bin/evn bash
 
 if [[ -x "$(command -v apt-get)" ]]; then
+
+
+
+
+
+
+
+
+
+
     apt-get install --assume-yes bash-completion
 elif [[ -x "$(command -v yum)" ]]; then
     yum install -y bash-completion

@@ -406,6 +406,17 @@ tasks:
     - apt-yum-update
     cmds:
     - sudo bash install-bash-completion-on-linux.sh
+    status: |
+      set -e
+      set -u
+
+      compareto_version="1:2.10-1ubuntu1"
+      current_version=$(dpkg-query -W -f='${Version}' bash-completion)
+      if dpkg --compare-versions "$current_version" ge "$compareto_version"; then
+        echo "bash-completion version $current_version is greater than or equal to $compareto_version"
+      else
+        echo "bash-completion version $current_version is less than $compareto_version"
+      fi
   install-bash-completion-on-linux:
     deps:
     - apt-yum-update
