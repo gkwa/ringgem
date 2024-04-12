@@ -164,9 +164,6 @@ tasks:
     - sudo bash -e install-package-upgrades-on-ubuntu.sh
     deps:
     - apt-yum-update
-  apt-yum-update:
-    cmds:
-    - sudo bash apt-yum-update.sh
   install-elasticsearch-on-ubuntu:
     cmds:
     - task: apt-yum-update
@@ -700,3 +697,7 @@ tasks:
     - sudo bash -ex install-wget-on-linux.sh
     status:
     - command -v wget >/dev/null
+  apt-yum-update:
+    run: once
+    cmds:
+    - sudo bash apt-yum-update.sh
