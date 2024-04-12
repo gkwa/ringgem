@@ -406,7 +406,8 @@ tasks:
     - apt-yum-update
     cmds:
     - sudo bash install-bash-completion-on-linux.sh
-    status: |
+    status:
+    - |
       set -e
       set -u
 
