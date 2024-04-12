@@ -5,6 +5,9 @@
 cat >/home/linuxbrew/Brewfile <<'EOF'
 tap "carvel-dev/carvel"
 brew "ytt"
+
+brew "gofumpt"
+brew "golangci-lint"
 EOF
 
 
