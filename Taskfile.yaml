@@ -210,6 +210,7 @@ tasks:
     - install-git-on-linux
     - install-incus-on-linux
     - install-boilerplate-on-linux-and-macos
+    - install-jq-on-linux
     status:
     - '[[ -d onejuly ]]'
   install-fullbus-on-linux:
