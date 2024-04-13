@@ -205,7 +205,7 @@ tasks:
     - command -v glab >/dev/null
   install-onejuly-on-linux:
     cmds:
-    - sudo bash -ex install-oneluly-on-linux.sh
+    - sudo bash -ex install-onejuly-on-linux.sh
     deps:
     - install-git-on-linux
     - install-incus-on-linux
