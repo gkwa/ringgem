@@ -209,6 +209,7 @@ tasks:
     deps:
     - install-git-on-linux
     - install-incus-on-linux
+    - install-boilerplate-on-linux-and-macos
     status:
     - '[[ -d onejuly ]]'
   install-fullbus-on-linux:
