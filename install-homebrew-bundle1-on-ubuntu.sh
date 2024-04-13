@@ -4,7 +4,6 @@
 
 set -e
 
-
 cat >/home/linuxbrew/Brewfile <<'EOF'
 tap "carvel-dev/carvel"
 brew "ytt"

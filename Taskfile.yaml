@@ -13,11 +13,12 @@ tasks:
     - task: install-elasticsearch-on-ubuntu
     - task: install-fluentd-on-ubuntu
     - task: install-fullbus-on-linux
+    - task: install-onejuly-on-linux
     - task: install-golang-from-tar
     - task: install-goldpuppy-on-ubuntu
     - task: install-homebrew-bundle1-on-ubuntu
     - task: install-homebrew-on-ubuntu
-    - task: install-incus-on-ubuntu
+    - task: install-incus-on-linux
     - task: install-otel-cli-on-linux
     - task: install-packer-on-linux
     - task: install-ripgrep-on-linux
@@ -122,13 +123,13 @@ tasks:
     - install-git-on-linux
     status:
     - test -x /home/linuxbrew/.linuxbrew/bin/brew
-  install-incus-on-ubuntu:
+  install-incus-on-linux:
     cmds:
-    - sudo bash -ex install-incus-on-ubuntu.sh
-    deps:
-    - install-zabbly-stable-sources-on-ubuntu
+    - sudo bash -ex install-incus-on-linux.sh
     status:
     - command -v incus >/dev/null
+    deps:
+    - install-curl-on-linux
   install-txtar-on-ubuntu:
     cmds:
     - sudo bash -e install-txtar-on-ubuntu.sh
@@ -144,13 +145,6 @@ tasks:
     deps:
     - install-curl-on-linux
     - install-unzip-on-linux
-  install-zabbly-stable-sources-on-ubuntu:
-    cmds:
-    - sudo bash -ex install-zabbly-stable-sources-on-ubuntu.sh
-    status:
-    - test -f /etc/apt/sources.list.d/zabbly-incus-stable.sources
-    deps:
-    - install-curl-on-linux
   install-toml-cli-on-linux:
     cmds:
     - sudo bash -ex install-toml-cli-on-linux.sh
@@ -209,6 +203,14 @@ tasks:
     - install-curl-on-linux
     status:
     - command -v glab >/dev/null
+  install-onejuly-on-linux:
+    cmds:
+    - sudo bash -ex install-oneluly-on-linux.sh
+    deps:
+    - install-git-on-linux
+    - install-incus-on-linux
+    status:
+    - '[[ -d onejuly ]]'
   install-fullbus-on-linux:
     cmds:
     - sudo bash -ex install-fullbus-on-linux.sh
@@ -686,7 +688,7 @@ tasks:
     deps:
     - install-mylime-on-linux
     status:
-    - ! mylime newerthan 1d silverdelay
+    - '! mylime newerthan 1d silverdelay'
   install-timoni-on-linux:
     cmds:
     - sudo bash -ex install-timoni-on-linux.sh
