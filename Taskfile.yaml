@@ -679,7 +679,7 @@ tasks:
     deps:
     - install-mylime-on-linux
     status:
-    - ! mylime newerhan 24h silverdelay
+    - ! mylime newerthan 24h silverdelay
   install-timoni-on-linux:
     cmds:
     - sudo bash -ex install-timoni-on-linux.sh
