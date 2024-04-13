@@ -726,7 +726,6 @@ tasks:
     status:
     - command -v wget >/dev/null
   apt-yum-update:
-    run: once
     cmds:
     - sudo bash apt-yum-update.sh
     deps:
