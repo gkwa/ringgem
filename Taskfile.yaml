@@ -166,8 +166,11 @@ tasks:
   install-package-upgrades-on-ubuntu:
     cmds:
     - sudo bash -e install-package-upgrades-on-ubuntu.sh
+    - mylime touch package-upgrades
     deps:
     - apt-yum-update
+    status:
+    - ! mylime newerthan 1h package-upgrades
   install-elasticsearch-on-ubuntu:
     cmds:
     - task: apt-yum-update
