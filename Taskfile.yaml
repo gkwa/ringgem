@@ -110,6 +110,9 @@ tasks:
     - sudo bash -e install-homebrew-bundle1-on-ubuntu.sh
     deps:
     - install-homebrew-on-ubuntu
+    - install-mylime-on-linux
+    status:
+    - ! mylime newerthan 1h homebrew-bundle1
   install-homebrew-on-ubuntu:
     cmds:
     - sudo bash -e install-homebrew-on-ubuntu.sh
