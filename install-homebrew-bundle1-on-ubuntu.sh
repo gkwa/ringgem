@@ -2,6 +2,9 @@
 
 # https://github.com/Homebrew/homebrew-bundle?tab=readme-ov-file#homebrew-bundle
 
+set -e
+
+
 cat >/home/linuxbrew/Brewfile <<'EOF'
 tap "carvel-dev/carvel"
 brew "ytt"

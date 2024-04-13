@@ -108,6 +108,7 @@ tasks:
   install-homebrew-bundle1-on-ubuntu:
     cmds:
     - sudo bash -e install-homebrew-bundle1-on-ubuntu.sh
+    - mylime touch homebrew-bundle1
     deps:
     - install-homebrew-on-ubuntu
     - install-mylime-on-linux
