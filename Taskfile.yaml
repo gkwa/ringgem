@@ -686,7 +686,7 @@ tasks:
     deps:
     - install-mylime-on-linux
     status:
-    - ! mylime newerthan 24h silverdelay
+    - ! mylime newerthan 1d silverdelay
   install-timoni-on-linux:
     cmds:
     - sudo bash -ex install-timoni-on-linux.sh
@@ -728,8 +728,8 @@ tasks:
   apt-yum-update:
     run: once
     cmds:
-    - sudo bash apt-yum-update.sh
+    - sudo bash -e apt-yum-update.sh
     deps:
     - install-mylime-on-linux
     status:
-    - ! mylime newerthan 24h apt-update
+    - ! mylime newerthan 1d apt-update
