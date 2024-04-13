@@ -205,12 +205,12 @@ tasks:
     - command -v glab >/dev/null
   install-onejuly-on-linux:
     cmds:
+    - task: install-git-on-linux
+    - task: install-incus-on-linux
+    - task: install-jq-on-linux
     - sudo bash -ex install-onejuly-on-linux.sh
     deps:
-    - install-git-on-linux
-    - install-incus-on-linux
     - install-boilerplate-on-linux-and-macos
-    - install-jq-on-linux
     status:
     - '[[ -d onejuly ]]'
   install-fullbus-on-linux:
