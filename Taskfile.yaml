@@ -719,7 +719,7 @@ tasks:
     cmds:
     - sudo bash -ex install-curl-on-linux.sh
     status:
-    - curl --version >/dev/null
+    - command -v curl &>/dev/null
   install-wget-on-linux:
     cmds:
     - sudo bash -ex install-wget-on-linux.sh
