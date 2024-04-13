@@ -3,3 +3,5 @@
 git clone --depth 1 https://github.com/taylormonacelli/silverdelay
 cd silverdelay
 docker compose pull --quiet
+
+mylime touch silverdelay

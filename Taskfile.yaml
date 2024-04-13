@@ -424,6 +424,13 @@ tasks:
     cmds:
     - sudo bash install-bash-completion-on-linux.sh
     - task: upgrade-bash-completion-on-linux
+  install-mylime-on-linux:
+    cmds:
+    - sudo bash install-mylime-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - command -v mylime &>/dev/null
   install-docker-on-linux:
     cmds:
     - sudo bash install-docker-on-linux.sh
@@ -669,8 +676,10 @@ tasks:
     - task: install-docker-on-linux
     - task: install-git-on-linux
     - sudo bash -ex install-silverdelay-on-linux.sh
+    deps:
+    - install-mylime-on-linux
     status:
-    - ls silverdelay >/dev/null
+    - ! mylime newerhan 24h silverdelay
   install-timoni-on-linux:
     cmds:
     - sudo bash -ex install-timoni-on-linux.sh
@@ -713,3 +722,7 @@ tasks:
     run: once
     cmds:
     - sudo bash apt-yum-update.sh
+    deps:
+    - install-mylime-on-linux
+    status:
+    - ! mylime newerthan 24h apt-update
