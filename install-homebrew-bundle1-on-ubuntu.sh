@@ -10,6 +10,8 @@ brew "ytt"
 
 brew "gofumpt"
 brew "golangci-lint"
+
+brew "jj" # https://martinvonz.github.io/jj/prerelease/install-and-setup/#homebrew
 EOF
 
 chmod a+r /home/linuxbrew/Brewfile
