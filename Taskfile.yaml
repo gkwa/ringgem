@@ -4,7 +4,6 @@ options:
 tasks:
   northflier:
     cmds:
-    - task: install-onejuly-on-linux
     - task: install-ansible-on-ubuntu
     - task: install-awscli-on-linux
     - task: install-boilerplate-on-linux-and-macos
@@ -21,6 +20,7 @@ tasks:
     - task: install-homebrew-bundle1-on-ubuntu
     - task: install-homebrew-on-linux
     - task: install-incus-on-linux
+    - task: install-onejuly-on-linux
     - task: install-otel-cli-on-linux
     - task: install-packer-on-linux
     - task: install-ripgrep-on-linux
