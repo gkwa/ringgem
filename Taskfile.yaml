@@ -1,12 +1,6 @@
 version: "3"
-
-
 options:
   output: interleaved
-
-
-
-
 tasks:
   northflier:
     cmds:
@@ -25,7 +19,7 @@ tasks:
     - task: install-golang-from-tar
     - task: install-goldpuppy-on-ubuntu
     - task: install-homebrew-bundle1-on-ubuntu
-    - task: install-homebrew-on-ubuntu
+    - task: install-homebrew-on-linux
     - task: install-incus-on-linux
     - task: install-otel-cli-on-linux
     - task: install-packer-on-linux
@@ -40,50 +34,6 @@ tasks:
     - task: install-updatedb-on-linux
     - task: lxc-configure-on-ubuntu
     - task: install-package-upgrades-on-ubuntu
-  default:
-    deps:
-    - sudo bash-customize-kubectl-on-linux
-    - install-awscli-on-linux
-    - install-homebrew-on-linux
-    - install-cilium-hubble-on-linux
-    - install-cilium-on-linux
-    - install-cloudelf-on-linux
-    - install-cloudeagle-on-linux
-    - install-clusterawsadm-on-linux
-    - install-clusterctl-on-linux
-    - install-cnspec-on-ubuntu
-    - install-logstash-on-ubuntu
-    - install-filebeat-on-ubuntu
-    - install-curl-on-linux
-    - install-docker-on-linux
-    - install-dulltrader-on-linux
-    - install-envsubst-on-linux
-    - install-fogcrow-on-linux
-    - install-giantcloak-on-linux
-    - install-git-on-linux
-    - install-go-task-on-linux
-    - install-golang-from-tar
-    - install-goreleaser-on-linux
-    - install-helm-on-linux
-    - install-irisqueen-on-linux
-    - install-jless-on-ubuntu
-    - install-jq-on-linux
-    - install-k9s-on-ubuntu
-    - install-kind-on-linux
-    - install-krew-on-linux
-    - install-kubectl-konfig-plugin
-    - install-kubectl-on-linux
-    - install-kubectl-stern-plugin
-    - install-kustomize-on-linux
-    - install-pssh-on-linux
-    - install-ripgrep-on-linux
-    - install-sops-on-linux
-    - install-terraform-on-linux
-    - install-terragrunt-on-linux
-    - install-tilt-on-linux
-    - install-timoni-on-linux
-    - install-unzip-on-linux
-    - source-profile
   follow-cilium-gateway-tutorial:
     deps:
     - install-cilium-on-linux
@@ -111,7 +61,7 @@ tasks:
     cmds:
     - bash -e install-tofu-on-ubuntu.sh
     deps:
-    - install-homebrew-on-ubuntu
+    - install-homebrew-on-linux
     status:
     - command -v tofu >/dev/null
   install-homebrew-bundle1-on-ubuntu:
@@ -119,18 +69,10 @@ tasks:
     - sudo bash -e install-homebrew-bundle1-on-ubuntu.sh
     - mylime touch homebrew-bundle1
     deps:
-    - install-homebrew-on-ubuntu
+    - install-homebrew-on-linux
     - install-mylime-on-linux
     status:
     - ! mylime newerthan 1h homebrew-bundle1
-  install-homebrew-on-ubuntu:
-    cmds:
-    - sudo bash -e install-homebrew-on-ubuntu.sh
-    deps:
-    - apt-yum-update
-    - install-git-on-linux
-    status:
-    - test -x /home/linuxbrew/.linuxbrew/bin/brew
   install-incus-on-linux:
     cmds:
     - sudo bash -ex install-incus-on-linux.sh
@@ -296,13 +238,14 @@ tasks:
     - aws --version >/dev/null
   install-homebrew-on-linux:
     cmds:
-    - sudo bash -ex install-homebrew-on-linux.sh
+    - sudo bash -e install-homebrew-on-linux.sh
     deps:
     - apt-yum-update
-    - install-git-on-linux
     - install-curl-on-linux
+    - install-git-on-linux
     status:
-    - brew --version >/dev/null
+    - test -x /home/linuxbrew/.linuxbrew/bin/brew
+
   install-cilium-hubble-on-linux:
     cmds:
     - sudo bash -ex install-cilium-hubble-on-linux.sh
