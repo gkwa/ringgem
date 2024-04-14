@@ -44,7 +44,7 @@ tasks:
     deps:
     - sudo bash-customize-kubectl-on-linux
     - install-awscli-on-linux
-    - install-brew-on-linux
+    - install-homebrew-on-linux
     - install-cilium-hubble-on-linux
     - install-cilium-on-linux
     - install-cloudelf-on-linux
@@ -255,7 +255,7 @@ tasks:
    cmds:
      - bash install-dolt-on-linux-using-brew.sh
    deps:
-     - install-brew-on-linux
+     - install-homebrew-on-linux
    status:
      - command -v dolt >/dev/null
   install-ansible-on-ubuntu:
@@ -294,9 +294,9 @@ tasks:
     - apt-yum-update
     status:
     - aws --version >/dev/null
-  install-brew-on-linux:
+  install-homebrew-on-linux:
     cmds:
-    - sudo bash -ex install-brew-on-linux.sh
+    - sudo bash -ex install-homebrew-on-linux.sh
     deps:
     - apt-yum-update
     - install-git-on-linux
@@ -349,7 +349,7 @@ tasks:
     cmds:
     - sudo bash -ex install-clusterawsadm-on-linux.sh
     deps:
-    - install-brew-on-linux
+    - install-homebrew-on-linux
     - install-curl-on-linux
     status:
     - command -v clusterawsadm &>/dev/null
