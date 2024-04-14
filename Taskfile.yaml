@@ -2,6 +2,10 @@ version: "3"
 options:
   output: interleaved
 tasks:
+  northflier-buggy:
+    cmds:
+    - task: northflier
+    - install-onejuly-on-linux
   northflier:
     cmds:
     - task: install-ansible-on-ubuntu
@@ -20,7 +24,6 @@ tasks:
     - task: install-homebrew-bundle1-on-ubuntu
     - task: install-homebrew-on-linux
     - task: install-incus-on-linux
-    - task: install-onejuly-on-linux
     - task: install-otel-cli-on-linux
     - task: install-packer-on-linux
     - task: install-ripgrep-on-linux
