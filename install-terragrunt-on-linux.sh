@@ -2,3 +2,5 @@
 
 curl -L -o /usr/local/bin/terragrunt https://github.com/gruntwork-io/terragrunt/releases/latest/download/terragrunt_linux_amd64
 chmod +x /usr/local/bin/terragrunt
+
+terragrunt --version >/dev/null
