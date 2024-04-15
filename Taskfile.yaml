@@ -255,11 +255,11 @@ tasks:
     - test -x /home/linuxbrew/.linuxbrew/bin/brew
   install-homebrew-dependencies-on-ubuntu:
     cmds:
-    - install-build-essential-on-ubuntu
-    - install-procps-on-ubuntu
-    - install-curl-on-ubuntu
-    - install-file-on-ubuntu
-    - install-git-on-ubuntu
+    - task: install-build-essential-on-ubuntu
+    - task: install-procps-on-ubuntu
+    - task: install-curl-on-ubuntu
+    - task: install-file-on-ubuntu
+    - task: install-git-on-ubuntu
   install-cilium-hubble-on-linux:
     cmds:
     - sudo bash -ex install-cilium-hubble-on-linux.sh
