@@ -75,7 +75,7 @@ tasks:
     - install-homebrew-on-linux
     - install-mylime-on-linux
     status:
-    - ! mylime newerthan 1h homebrew-bundle1
+    - '! mylime newerthan 1h homebrew-bundle1'
   install-incus-on-linux:
     cmds:
     - sudo bash -ex install-incus-on-linux.sh
@@ -117,7 +117,7 @@ tasks:
     deps:
     - apt-yum-update
     status:
-    - ! mylime newerthan 1h package-upgrades
+    - '! mylime newerthan 1h package-upgrades'
   install-elasticsearch-on-ubuntu:
     cmds:
     - task: apt-yum-update
@@ -391,7 +391,7 @@ tasks:
     - task: upgrade-bash-completion-on-linux
   install-mylime-on-linux:
     cmds:
-    - sudo bash install-mylime-on-linux.sh
+    - sudo bash -ex install-mylime-on-linux.sh
     deps:
     - install-curl-on-linux
     status:
@@ -690,4 +690,4 @@ tasks:
     deps:
     - install-mylime-on-linux
     status:
-    - ! mylime newerthan 1d apt-update
+    - '! mylime newerthan 1d apt-update'
