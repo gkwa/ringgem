@@ -2,6 +2,22 @@
 
 set -e
 
+
+
+
+if [ -f /etc/debian_version ] || [ -f /etc/debian_release ]; then
+   sudo apt-get install --assume-yes build-essential procps curl file git
+elif [ -f /etc/fedora-release ] || [ -f /etc/centos-release ] || [ -f /etc/redhat-release ]; then
+   sudo yum -y groupinstall 'Development Tools'
+   sudo yum -y install procps-ng curl file git
+elif [ -f /etc/arch-release ]; then
+   sudo pacman -S base-devel procps-ng curl file git
+else
+   echo "Unsupported distribution"
+   #exit 1
+fi
+
+
 # https://docs.brew.sh/Homebrew-on-Linux
 if ! id -u linuxbrew &>/dev/null; then
     sudo useradd --create-home linuxbrew --shell /bin/bash

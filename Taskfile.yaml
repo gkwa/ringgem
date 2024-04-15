@@ -245,7 +245,6 @@ tasks:
     - aws --version >/dev/null
   install-homebrew-on-linux:
     cmds:
-    - task: install-homebrew-dependencies-on-ubuntu
     - sudo bash -e install-homebrew-on-linux.sh
     deps:
     - apt-yum-update
@@ -253,13 +252,6 @@ tasks:
     - install-git-on-linux
     status:
     - test -x /home/linuxbrew/.linuxbrew/bin/brew
-  install-homebrew-dependencies-on-ubuntu:
-    cmds:
-    - task: install-build-essential-on-ubuntu
-    - task: install-procps-on-ubuntu
-    - task: install-curl-on-ubuntu
-    - task: install-file-on-ubuntu
-    - task: install-git-on-ubuntu
   install-cilium-hubble-on-linux:
     cmds:
     - sudo bash -ex install-cilium-hubble-on-linux.sh
