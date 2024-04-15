@@ -206,9 +206,7 @@ tasks:
    cmds:
      - bash install-dolt-on-linux-using-brew.sh
    deps:
-     - install-homebrew-on-linux
-   status:
-     - command -v dolt >/dev/null
+   - install-homebrew-on-linux
   install-ansible-on-ubuntu:
     cmds:
     - sudo bash -ex install-ansible-on-ubuntu.sh
@@ -247,6 +245,7 @@ tasks:
     - aws --version >/dev/null
   install-homebrew-on-linux:
     cmds:
+    - task: install-homebrew-dependencies-on-ubuntu
     - sudo bash -e install-homebrew-on-linux.sh
     deps:
     - apt-yum-update
@@ -254,7 +253,13 @@ tasks:
     - install-git-on-linux
     status:
     - test -x /home/linuxbrew/.linuxbrew/bin/brew
-
+  install-homebrew-dependencies-on-ubuntu:
+    cmds:
+    - install-build-essential-on-ubuntu
+    - install-procps-on-ubuntu
+    - install-curl-on-ubuntu
+    - install-file-on-ubuntu
+    - install-git-on-ubuntu
   install-cilium-hubble-on-linux:
     cmds:
     - sudo bash -ex install-cilium-hubble-on-linux.sh
@@ -687,6 +692,8 @@ tasks:
   install-wget-on-linux:
     cmds:
     - sudo bash -ex install-wget-on-linux.sh
+    deps:
+    - install-gpg-on-linux
     status:
     - command -v wget >/dev/null
   apt-yum-update:
@@ -697,3 +704,43 @@ tasks:
     - install-mylime-on-linux
     status:
     - '! mylime newerthan 1d apt-update'
+
+  install-build-essential-on-ubuntu:
+    cmds:
+      - sudo bash -ex install-build-essential-on-ubuntu.sh
+    deps:
+      - apt-yum-update
+    status:
+    - dpkg -s build-essential &>/dev/null
+
+  install-procps-on-ubuntu:
+    cmds:
+      - sudo bash -ex install-procps-on-ubuntu.sh
+    deps:
+      - apt-yum-update
+    status:
+    - dpkg -s procps &>/dev/null
+
+  install-curl-on-ubuntu:
+    cmds:
+      - sudo bash -ex install-curl-on-ubuntu.sh
+    deps:
+      - apt-yum-update
+    status:
+    - dpkg -s curl &>/dev/null
+
+  install-file-on-ubuntu:
+    cmds:
+      - sudo bash -ex install-file-on-ubuntu.sh
+    deps:
+      - apt-yum-update
+    status:
+    - dpkg -s file &>/dev/null
+
+  install-git-on-ubuntu:
+    cmds:
+      - sudo bash -ex install-git-on-ubuntu.sh
+    deps:
+      - apt-yum-update
+    status:
+    - dpkg -s git &>/dev/null
