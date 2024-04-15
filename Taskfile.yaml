@@ -60,6 +60,11 @@ tasks:
     - install-nix-on-linux
     status:
     - command -v devbox >/dev/null
+  install-gpg-on-linux:
+    cmds:
+    - bash -e install-gpg-on-linux.sh
+    status:
+    - command -v gpg >/dev/null
   install-tofu-on-ubuntu:
     cmds:
     - bash -e install-tofu-on-ubuntu.sh
@@ -82,6 +87,7 @@ tasks:
     status:
     - command -v incus >/dev/null
     deps:
+    - install-gpg-on-linux
     - install-curl-on-linux
   install-txtar-on-ubuntu:
     cmds:
