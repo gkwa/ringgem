@@ -615,6 +615,7 @@ tasks:
     - sudo bash -ex install-terraform-on-ubuntu.sh
     deps:
     - install-curl-on-linux
+    - install-gpg-on-linux
     status:
     - terraform -version >/dev/null
   install-updatedb-on-linux:
