@@ -69,11 +69,11 @@ tasks:
     - command -v tofu >/dev/null
   install-homebrew-bundle1-on-ubuntu:
     cmds:
+    - task: install-mylime-on-linux
     - sudo bash -e install-homebrew-bundle1-on-ubuntu.sh
     - mylime touch homebrew-bundle1
     deps:
     - install-homebrew-on-linux
-    - install-mylime-on-linux
     status:
     - '! mylime newerthan 1h homebrew-bundle1'
   install-incus-on-linux:
