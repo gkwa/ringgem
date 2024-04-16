@@ -678,13 +678,6 @@ tasks:
     - apt-yum-update
     status:
     - command -v unzip >/dev/null
-  source-bashrc:
-    cmds:
-    - sudo bash source-bashrc.sh
-    deps:
-    - sudo bash-customize-kubectl-on-linux
-    status:
-    - alias k
   install-curl-on-linux:
     cmds:
     - sudo bash -ex install-curl-on-linux.sh
