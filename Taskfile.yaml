@@ -47,6 +47,7 @@ tasks:
     - install-kubectl-on-linux
   install-nix-on-linux:
     cmds:
+    - task: install-xz-utils-on-linux
     - bash -e install-nix-on-linux.sh
     deps:
     - install-jq-on-linux
@@ -467,6 +468,13 @@ tasks:
     - install-curl-on-linux
     status:
     - test -x /usr/local/go/bin/go
+  install-xz-utils-on-linux:
+    cmds:
+    - sudo bash -ex install-xz-utils-on-linux.sh
+    deps:
+    - apt-yum-update
+    status:
+    - command -v xz &>/dev/null
   install-goreleaser-on-linux:
     cmds:
     - sudo bash -ex install-goreleaser-on-linux.sh
