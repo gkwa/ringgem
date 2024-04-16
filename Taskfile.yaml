@@ -55,12 +55,20 @@ tasks:
     - install-curl-on-linux
     status:
     - test -d /nix/var/nix/profiles/default/etc
+  install-btrfs-progs-on-linux:
+    cmds:
+    - bash -e install-btrfs-progs-on-linux.sh
+    deps:
+    - install-incus-on-linux
+    status:
+    - command -v btrfs &>/dev/null
   install-docker-in-incus-container:
     run: once
     cmds:
     - bash -e install-docker-in-incus-container.sh
     deps:
     - install-incus-on-linux
+    - install-btrfs-progs-on-linux
   install-devbox-on-linux:
     cmds:
     - bash -e install-devbox-on-linux.sh
