@@ -7,11 +7,11 @@ dir=$(mktemp -d /tmp/devbox-XXXX)
 cd $dir
 devbox init $dir
 devbox add git
+devbox add awscli2
 devbox add ansible
 devbox add docker
 devbox add go
 devbox add python3
-devbox add awscli2
 devbox install
 devbox shell
 aws --version
