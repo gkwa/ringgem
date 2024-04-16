@@ -15,6 +15,7 @@ tasks:
     - task: install-cloudelf-on-linux
     - task: install-cloudwatch-on-ubuntu
     - task: install-devbox-on-linux
+    - task: install-docker-in-incus-container
     - task: install-docker-on-linux
     - task: install-elasticsearch-on-ubuntu
     - task: install-fluentd-on-ubuntu
@@ -54,6 +55,12 @@ tasks:
     - install-curl-on-linux
     status:
     - test -d /nix/var/nix/profiles/default/etc
+  install-docker-in-incus-container:
+    run: once
+    cmds:
+    - bash -e install-docker-in-incus-container.sh
+    deps:
+    - install-incus-on-linux
   install-devbox-on-linux:
     cmds:
     - bash -e install-devbox-on-linux.sh
