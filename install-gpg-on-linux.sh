@@ -3,7 +3,7 @@
 OS=$(uname -s)
 
 # Install GPG based on the operating system
-if [[ "$OS" == "Linux" ]]; then
+if [[ $OS == "Linux" ]]; then
     # Determine the Linux distribution
     if command -v apt-get >/dev/null 2>&1; then
         # Debian/Ubuntu-based distributions
@@ -25,7 +25,7 @@ if [[ "$OS" == "Linux" ]]; then
         echo "Unsupported Linux distribution. Please install GPG manually."
         exit 1
     fi
-elif [[ "$OS" == "Darwin" ]]; then
+elif [[ $OS == "Darwin" ]]; then
     # macOS
     if command -v brew >/dev/null 2>&1; then
         # Install using Homebrew
@@ -34,10 +34,10 @@ elif [[ "$OS" == "Darwin" ]]; then
         echo "Homebrew not found. Please install Homebrew and then run this script again."
         exit 1
     fi
-elif [[ "$OS" == "FreeBSD" ]]; then
+elif [[ $OS == "FreeBSD" ]]; then
     # FreeBSD
     sudo pkg install -y gnupg
-elif [[ "$OS" == "OpenBSD" ]]; then
+elif [[ $OS == "OpenBSD" ]]; then
     # OpenBSD
     sudo pkg_add gnupg
 else
