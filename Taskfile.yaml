@@ -108,7 +108,7 @@ tasks:
     - command -v devbox >/dev/null
   install-cargo-binstall-on-linux-using-cargo:
     cmds:
-    - bash -e install-cargo-binstall-on-linux-using-cargo.sh
+    - bash -ex install-cargo-binstall-on-linux-using-cargo.sh
     deps:
     - install-cargo-on-linux
     status:
