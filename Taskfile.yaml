@@ -106,11 +106,18 @@ tasks:
     - install-nix-on-linux
     status:
     - command -v devbox >/dev/null
+  install-cargo-binstall-on-linux-using-cargo:
+    cmds:
+    - bash -e install-cargo-binstall-on-linux-using-cargo.sh
+    deps:
+    - install-cargo-on-linux
+    status:
+    - cargo binstall --help >/dev/null
   install-jj-on-linux-using-cargo:
     cmds:
     - bash -e install-jj-on-linux-using-cargo.sh
     deps:
-    - install-cargo-on-linux
+    - install-cargo-binstall-on-linux-using-cargo
     status:
     - command -v jj >/dev/null
   install-cargo-on-linux:
