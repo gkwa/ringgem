@@ -55,11 +55,14 @@ tasks:
     status:
     - command -v mythai &>/dev/null
     - command -v eachit &>/dev/null
+  check-for-python:
+    cmds:
+    - python3 --version >/dev/null
   install-mythai-on-linux:
     cmds:
     - bash -e install-mythai-on-linux.sh
     deps:
-    - python3 --version >/dev/null
+    - check-for-python
     status:
     - command -v mythai &>/dev/null
   install-nix-on-linux:
