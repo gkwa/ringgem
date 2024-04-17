@@ -118,6 +118,8 @@ tasks:
     - bash -e install-cargo-on-linux.sh
     status:
     - command -v cargo >/dev/null
+    deps:
+    - install-curl-on-linux
   install-gpg-on-linux:
     cmds:
     - bash -e install-gpg-on-linux.sh
