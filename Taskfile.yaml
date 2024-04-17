@@ -1,6 +1,6 @@
 version: "3"
 options:
-  output: interleaved
+  output: prefixed
 tasks:
   northflier-buggy:
     cmds:
