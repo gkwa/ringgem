@@ -713,23 +713,6 @@ tasks:
     - install-mylime-on-linux
     status:
     - '! mylime newerthan 1d apt-update'
-
-  install-build-essential-on-ubuntu:
-    cmds:
-      - sudo bash -ex install-build-essential-on-ubuntu.sh
-    deps:
-      - apt-yum-update
-    status:
-    - dpkg -s build-essential &>/dev/null
-
-  install-procps-on-ubuntu:
-    cmds:
-      - sudo bash -ex install-procps-on-ubuntu.sh
-    deps:
-      - apt-yum-update
-    status:
-    - dpkg -s procps &>/dev/null
-
   install-curl-on-ubuntu:
     cmds:
       - sudo bash -ex install-curl-on-ubuntu.sh
@@ -737,15 +720,6 @@ tasks:
       - apt-yum-update
     status:
     - dpkg -s curl &>/dev/null
-
-  install-file-on-ubuntu:
-    cmds:
-      - sudo bash -ex install-file-on-ubuntu.sh
-    deps:
-      - apt-yum-update
-    status:
-    - dpkg -s file &>/dev/null
-
   install-git-on-ubuntu:
     cmds:
       - sudo bash -ex install-git-on-ubuntu.sh
