@@ -23,6 +23,7 @@ tasks:
     - task: install-fluentd-on-ubuntu
     - task: install-fullbus-on-linux
     - task: install-gofumpt-on-linux-using-go
+    - task: install-golangci-lint-on-linux-using-go
     - task: install-golang-from-tar
     - task: install-goldpuppy-on-ubuntu
     - task: install-homebrew-bundle1-on-ubuntu
@@ -110,6 +111,13 @@ tasks:
     - bash -e install-gpg-on-linux.sh
     status:
     - command -v gpg >/dev/null
+  install-golangci-lint-on-linux-using-go:
+    cmds:
+    - bash -e install-golangci-lint-on-linux-using-go.sh
+    deps:
+    - install-golang-from-tar
+    status:
+    - command -v golangci-lint &>/dev/null
   install-gofumpt-on-linux-using-go:
     cmds:
     - bash -e install-gofumpt-on-linux-using-go.sh
