@@ -27,6 +27,7 @@ tasks:
     - task: install-incus-on-linux
     - task: install-otel-cli-on-linux
     - task: install-packer-on-linux
+    - task: install-ringgem-testing-on-linux
     - task: install-ripgrep-on-linux
     - task: install-rye-on-linux
     - task: install-silverdelay-on-linux
@@ -47,6 +48,20 @@ tasks:
     - install-k9s-on-ubuntu
     - install-kind-on-linux
     - install-kubectl-on-linux
+  install-ringgem-testing-on-linux:
+    deps:
+    - install-mythai-on-linux
+    - install-eachit-on-linux
+    status:
+    - command -v mythai &>/dev/null
+    - command -v eachit &>/dev/null
+  install-mythai-on-linux:
+    cmds:
+    - bash -e install-mythai-on-linux.sh
+    deps:
+    - python3 --version >/dev/null
+    status:
+    - command -v mythai &>/dev/null
   install-nix-on-linux:
     cmds:
     - task: install-xz-utils-on-linux
@@ -56,6 +71,13 @@ tasks:
     - install-curl-on-linux
     status:
     - test -d /nix/var/nix/profiles/default/etc
+  install-eachit-on-linux:
+    cmds:
+    - bash -e install-eachit-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - command -v eachit &>/dev/null
   install-btrfs-progs-on-linux:
     cmds:
     - bash -e install-btrfs-progs-on-linux.sh
