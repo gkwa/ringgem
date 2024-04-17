@@ -22,8 +22,7 @@ tasks:
     - task: install-elasticsearch-on-ubuntu
     - task: install-fluentd-on-ubuntu
     - task: install-fullbus-on-linux
-    - task: install-gofumpt-on-linux-using-go
-    - task: install-golangci-lint-on-linux-using-go
+    - task: install-golang-build-tools
     - task: install-golang-from-tar
     - task: install-goldpuppy-on-ubuntu
     - task: install-homebrew-bundle1-on-ubuntu
@@ -111,6 +110,10 @@ tasks:
     - bash -e install-gpg-on-linux.sh
     status:
     - command -v gpg >/dev/null
+  install-golang-build-tools:
+    cmds:
+    - task: install-golangci-lint-on-linux-using-go
+    - task: install-gofumpt-on-linux-using-go
   install-golangci-lint-on-linux-using-go:
     cmds:
     - bash -e install-golangci-lint-on-linux-using-go.sh
