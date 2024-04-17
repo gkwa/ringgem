@@ -489,7 +489,7 @@ tasks:
     cmds:
     - sudo bash -ex install-git-on-linux.sh
     status:
-    - git --version >/dev/null
+    - command -v git &>/dev/null
   install-go-task-on-linux:
     cmds:
     - sudo bash -ex install-go-task-on-linux.sh
