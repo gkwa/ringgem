@@ -28,7 +28,7 @@ tasks:
     - task: install-homebrew-bundle1-on-ubuntu
     - task: install-homebrew-on-linux
     - task: install-incus-on-linux
-    - task: install-jj-using-cargo
+    - task: install-jj-on-linux-using-cargo
     - task: install-otel-cli-on-linux
     - task: install-packer-on-linux
     - task: install-ringgem-testing-on-linux
@@ -106,9 +106,9 @@ tasks:
     - install-nix-on-linux
     status:
     - command -v devbox >/dev/null
-  install-jj-using-cargo:
+  install-jj-on-linux-using-cargo:
     cmds:
-    - bash -e install-jj-using-cargo.sh
+    - bash -e install-jj-on-linux-using-cargo.sh
     deps:
     - install-cargo-on-linux
     status:
