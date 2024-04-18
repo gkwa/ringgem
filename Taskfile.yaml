@@ -22,6 +22,7 @@ tasks:
     - task: install-elasticsearch-on-ubuntu
     - task: install-fluentd-on-ubuntu
     - task: install-fullbus-on-linux
+    - task: install-gcc-on-linux-using-homebrew
     - task: install-golang-build-tools
     - task: install-golang-from-tar
     - task: install-goldpuppy-on-ubuntu
@@ -150,6 +151,13 @@ tasks:
     - install-golang-from-tar
     status:
     - command -v gofumpt &>/dev/null
+  install-gcc-on-linux-using-homebrew:
+    cmds:
+    - bash -e install-gcc-on-linux-using-homebrew.sh
+    deps:
+    - install-homebrew-on-linux
+    status:
+    - command -v gcc >/dev/null
   install-tofu-on-ubuntu:
     cmds:
     - bash -e install-tofu-on-ubuntu.sh
