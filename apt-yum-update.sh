@@ -8,4 +8,3 @@ fi
 
 echo Running apt-get update...
 DEBIAN_FRONTEND=noninteractive apt-get update
-mylime touch apt-update
