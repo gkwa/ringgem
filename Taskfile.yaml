@@ -786,7 +786,7 @@ tasks:
     deps:
     - install-mylime-on-linux
     status:
-    - '! mylime newerthan 1d apt-update'
+    - '! mylime newerthan 5m apt-update'
   install-curl-on-ubuntu:
     cmds:
       - sudo bash -ex install-curl-on-ubuntu.sh
