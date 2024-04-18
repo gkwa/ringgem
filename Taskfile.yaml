@@ -769,6 +769,7 @@ tasks:
     status:
     - command -v unzip >/dev/null
   install-curl-on-linux:
+    run: once
     cmds:
     - sudo bash -ex install-curl-on-linux.sh
     status:
