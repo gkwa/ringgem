@@ -26,7 +26,6 @@ tasks:
     - task: install-golang-build-tools
     - task: install-golang-from-tar
     - task: install-goldpuppy-on-ubuntu
-    - task: install-homebrew-bundle1-on-ubuntu
     - task: install-homebrew-on-linux
     - task: install-incus-on-linux
     - task: install-jj-on-linux-using-cargo
@@ -41,6 +40,7 @@ tasks:
     - task: install-tofu-on-ubuntu
     - task: install-toml-cli-on-linux
     - task: install-txtar-on-ubuntu
+    - task: install-ytt-on-linux-using-homebrew
     - task: upgrade-bash-completion-on-linux
     - task: install-updatedb-on-linux
     - task: lxc-configure-on-ubuntu
@@ -158,6 +158,13 @@ tasks:
     - install-homebrew-on-linux
     status:
     - '[[ -d /home/linuxbrew/.linuxbrew/Cellar/gcc/ ]]'
+  install-ytt-on-linux-using-homebrew:
+    cmds:
+    - bash -e install-ytt-on-linux-using-homebrew.sh
+    deps:
+    - install-homebrew-on-linux
+    status:
+    - '[[ -d /home/linuxbrew/.linuxbrew/Cellar/ytt/ ]]'
   install-tofu-on-ubuntu:
     cmds:
     - bash -e install-tofu-on-ubuntu.sh
@@ -165,15 +172,6 @@ tasks:
     - install-homebrew-on-linux
     status:
     - command -v tofu >/dev/null
-  install-homebrew-bundle1-on-ubuntu:
-    cmds:
-    - task: install-mylime-on-linux
-    - sudo bash -e install-homebrew-bundle1-on-ubuntu.sh
-    - mylime touch homebrew-bundle1
-    deps:
-    - install-homebrew-on-linux
-    status:
-    - '! mylime newerthan 1h homebrew-bundle1'
   install-incus-on-linux:
     cmds:
     - sudo bash -ex install-incus-on-linux.sh
