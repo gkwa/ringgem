@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-go install mvdan.cc/gofumpt@latest
+/usr/local/go/bin/go install mvdan.cc/gofumpt@latest
