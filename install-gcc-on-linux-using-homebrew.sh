@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-brew install gcc
+sudo --user linuxbrew --login brew install gcc
