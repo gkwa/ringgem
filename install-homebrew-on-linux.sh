@@ -53,6 +53,7 @@ if sudo -u linuxbrew brew --version >/dev/null; then
     exit 0
 fi
 
+
 sudo --login --user linuxbrew bash -e $script
 
 test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
