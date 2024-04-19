@@ -170,14 +170,14 @@ tasks:
     deps:
     - install-homebrew-on-linux
     status:
-    - '[[ -d /home/linuxbrew/.linuxbrew/Cellar/ytt/ ]]'
+    - find -L /home/linuxbrew/.linuxbrew/bin/ytt >/dev/null
   install-tofu-on-ubuntu:
     cmds:
     - bash -e install-tofu-on-ubuntu.sh
     deps:
     - install-homebrew-on-linux
     status:
-    - command -v tofu >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/tofu >/dev/null
   install-incus-on-linux:
     cmds:
     - sudo bash -ex install-incus-on-linux.sh
