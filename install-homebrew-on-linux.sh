@@ -2,7 +2,7 @@
 
 set -e
 
-if [ -f /etc/debian_version ] || [ -f /etc/debian_release ]; then
+if command -v apt-get &>/dev/null || command -v apt &>/dev/null; then
     sudo apt-get install --assume-yes build-essential procps curl file git
 elif [ -f /etc/fedora-release ] || [ -f /etc/centos-release ] || [ -f /etc/redhat-release ]; then
     sudo yum -y groupinstall 'Development Tools'
