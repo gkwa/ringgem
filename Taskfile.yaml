@@ -31,6 +31,7 @@ tasks:
     - task: install-jj-on-linux-using-cargo
     - task: install-otel-cli-on-linux
     - task: install-packer-on-linux
+    - task: install-restic-on-linux
     - task: install-ringgem-testing-on-linux
     - task: install-ripgrep-on-linux
     - task: install-rye-on-linux
@@ -53,6 +54,11 @@ tasks:
     - install-k9s-on-ubuntu
     - install-kind-on-linux
     - install-kubectl-on-linux
+  install-restic-on-linux:
+    cmds:
+    - bash -e install-restic-on-linux.sh
+    status:
+    - command -v restic &>/dev/null
   install-ringgem-testing-on-linux:
     deps:
     - install-mythai-on-linux
