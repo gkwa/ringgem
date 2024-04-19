@@ -300,10 +300,10 @@ tasks:
     status:
     - command -v otel-cli >/dev/null
   install-dolt-on-linux-using-brew:
-   cmds:
-     - bash install-dolt-on-linux-using-brew.sh
-   deps:
-   - install-homebrew-on-linux
+    cmds:
+    - bash install-dolt-on-linux-using-brew.sh
+    deps:
+    - install-homebrew-on-linux
   install-ansible-on-ubuntu:
     cmds:
     - sudo bash -ex install-ansible-on-ubuntu.sh
@@ -796,15 +796,15 @@ tasks:
     - '! mylime newerthan 5m apt-update'
   install-curl-on-ubuntu:
     cmds:
-      - sudo bash -ex install-curl-on-ubuntu.sh
+    - sudo bash -ex install-curl-on-ubuntu.sh
     deps:
-      - apt-yum-update
+    - apt-yum-update
     status:
     - dpkg -s curl &>/dev/null
   install-git-on-ubuntu:
     cmds:
-      - sudo bash -ex install-git-on-ubuntu.sh
+    - sudo bash -ex install-git-on-ubuntu.sh
     deps:
-      - apt-yum-update
+    - apt-yum-update
     status:
     - dpkg -s git &>/dev/null
