@@ -528,6 +528,7 @@ tasks:
     cmds:
     - sudo bash -ex install-go-task-bash-completion-on-linux.sh
     deps:
+    - install-bash-completion-on-linux
     - install-curl-on-linux
     status:
     - test -s /usr/share/bash-completion/completions/task
