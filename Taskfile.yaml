@@ -43,6 +43,7 @@ tasks:
     - task: install-toml-cli-on-linux
     - task: install-txtar-on-ubuntu
     - task: install-ytt-on-linux-using-homebrew
+    - task: run-kindsealion-on-linux
     - task: upgrade-bash-completion-on-linux
     - task: install-mlocate-on-linux
     - task: lxc-configure-on-ubuntu
@@ -729,6 +730,12 @@ tasks:
     - install-gpg-on-linux
     status:
     - terraform -version >/dev/null
+  run-kindsealion-on-linux:
+    cmds:
+    - sudo bash -ex run-kindsealion-on-linux.sh
+    status:
+    - command -v task >/dev/null
+    - incus image ls 017_jaunty_jaguar >/dev/null
   install-mlocate-on-linux:
     cmds:
     - sudo bash -ex install-mlocate-on-linux.sh
