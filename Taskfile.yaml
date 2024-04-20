@@ -735,7 +735,7 @@ tasks:
     - sudo bash -ex run-kindsealion-on-linux.sh
     status:
     - command -v task >/dev/null
-    - incus image ls 017_jaunty_jaguar >/dev/null
+    - incus image info 017_jaunty_jaguar &>/dev/null
   install-mlocate-on-linux:
     cmds:
     - sudo bash -ex install-mlocate-on-linux.sh
