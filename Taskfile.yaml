@@ -44,7 +44,7 @@ tasks:
     - task: install-txtar-on-ubuntu
     - task: install-ytt-on-linux-using-homebrew
     - task: upgrade-bash-completion-on-linux
-    - task: install-updatedb-on-linux
+    - task: install-mlocate-on-linux
     - task: lxc-configure-on-ubuntu
     - task: install-package-upgrades-on-ubuntu
   follow-cilium-gateway-tutorial:
@@ -729,9 +729,9 @@ tasks:
     - install-gpg-on-linux
     status:
     - terraform -version >/dev/null
-  install-updatedb-on-linux:
+  install-mlocate-on-linux:
     cmds:
-    - sudo bash -ex install-updatedb-on-linux.sh
+    - sudo bash -ex install-mlocate-on-linux.sh
     deps:
     - apt-yum-update
     status:

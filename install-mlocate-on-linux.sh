@@ -10,6 +10,6 @@ elif command -v apk >/dev/null; then
 elif command -v dnf >/dev/null; then
     dnf install --assume-yes mlocate
 else
-    echo "Unsupported package manager, couldn't install updatedb"
+    echo "Unsupported package manager, couldn't install mlocate"
     exit 1
 fi
