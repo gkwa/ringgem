@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+apt-get update
+
 if command -v apt &>/dev/null; then
     DEBIAN_FRONTEND=noninteractive apt-get -y install awscli
 elif command -v yum &>/dev/null; then
