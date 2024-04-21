@@ -753,6 +753,8 @@ tasks:
     status:
     - command -v task >/dev/null
     - incus image info 017_jaunty_jaguar &>/dev/null
+    deps:
+    - install-pip3-on-linux
   install-mlocate-on-linux:
     cmds:
     - sudo bash -ex install-mlocate-on-linux.sh
