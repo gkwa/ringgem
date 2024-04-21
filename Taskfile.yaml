@@ -748,11 +748,11 @@ tasks:
     status:
     - terraform -version >/dev/null
   run-kindsealion-on-linux:
+    run: once
     cmds:
     - sudo bash -ex run-kindsealion-on-linux.sh
     status:
     - command -v task >/dev/null
-    - incus image info 017_jaunty_jaguar &>/dev/null
     deps:
     - install-pip3-on-linux
   install-mlocate-on-linux:
