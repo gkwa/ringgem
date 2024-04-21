@@ -27,8 +27,6 @@ tasks:
     - task: install-golang-from-tar
     - task: install-goldpuppy-on-ubuntu
     - task: install-homebrew-on-linux
-    status:
-    - go
     - task: install-incus-on-linux
     - task: install-jj-on-linux-using-cargo
     - task: install-needrestart-on-linux
@@ -148,7 +146,8 @@ tasks:
     - task: install-golangci-lint-on-linux-using-homebrew
     - task: install-gofumpt-on-linux-using-go
     status:
-    - go
+    - command -v gofumpt &>/dev/null
+    - command -v golangci-lint &>/dev/null
   install-golangci-lint-on-linux-using-go:
     cmds:
     - bash -e install-golangci-lint-on-linux-using-go.sh
