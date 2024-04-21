@@ -5,5 +5,5 @@ kindsealion --help
 # normal run doesn't take any args:
 kindsealion --outdir=scratch
 cd scratch/
-task --list-all
-task 017_jaunty_jaguar
+last_task=$(task --list-all | task -a | tail -1 | tr -d '*' | tr -d ' ' | tr -d ':')
+task $last_task
