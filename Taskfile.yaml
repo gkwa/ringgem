@@ -147,7 +147,7 @@ tasks:
     - task: install-gofumpt-on-linux-using-go
     status:
     - command -v gofumpt &>/dev/null
-    - command -v golangci-lint &>/dev/null
+    - '[[ -d /home/linuxbrew/.linuxbrew/Cellar/golangci-lint/ ]]'
   install-golangci-lint-on-linux-using-go:
     cmds:
     - bash -e install-golangci-lint-on-linux-using-go.sh
@@ -759,6 +759,8 @@ tasks:
     - install-go-task-on-linux
     - install-packer-on-linux
     - install-unzip-on-linux
+    status:
+    - command -v kindsealion &>/dev/null
   install-mlocate-on-linux:
     cmds:
     - sudo bash -ex install-mlocate-on-linux.sh
