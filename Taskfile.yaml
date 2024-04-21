@@ -11,6 +11,7 @@ tasks:
     - install-onejuly-on-linux
   northflier:
     cmds:
+    - task: run-kindsealion-on-linux
     - task: install-ansible-on-ubuntu
     - task: install-awscli-on-linux
     - task: install-boilerplate-on-linux-and-macos
@@ -43,7 +44,6 @@ tasks:
     - task: install-toml-cli-on-linux
     - task: install-txtar-on-ubuntu
     - task: install-ytt-on-linux-using-homebrew
-    - task: run-kindsealion-on-linux
     - task: upgrade-bash-completion-on-linux
     - task: install-mlocate-on-linux
     - task: lxc-configure-on-ubuntu
@@ -162,6 +162,13 @@ tasks:
     - install-homebrew-on-linux
     status:
     - command -v golangci-lint &>/dev/null
+  install-otel-collector-on-linux:
+    cmds:
+    - bash -e install-otel-collector-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - command -v gofumpt &>/dev/null
   install-gofumpt-on-linux-using-go:
     cmds:
     - bash -e install-gofumpt-on-linux-using-go.sh
