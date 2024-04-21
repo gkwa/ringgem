@@ -750,6 +750,7 @@ tasks:
   run-kindsealion-on-linux:
     run: once
     cmds:
+    - task: install-incus-on-linux
     - task: install-pip3-on-linux
     - sudo bash -ex run-kindsealion-on-linux.sh
     deps:
