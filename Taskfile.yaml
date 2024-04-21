@@ -750,12 +750,12 @@ tasks:
   run-kindsealion-on-linux:
     run: once
     cmds:
+    - task: install-pip3-on-linux
     - sudo bash -ex run-kindsealion-on-linux.sh
     deps:
     - install-curl-on-linux
     - install-go-task-on-linux
     - install-packer-on-linux
-    - install-pip3-on-linux
     - install-unzip-on-linux
   install-mlocate-on-linux:
     cmds:
