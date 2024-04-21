@@ -494,7 +494,7 @@ tasks:
     deps:
     - apt-yum-update
     cmds:
-    - sudo bash install-bash-completion-on-linux.sh
+    - sudo bash -e install-bash-completion-on-linux.sh
     status:
     - |
       set -e
@@ -511,7 +511,7 @@ tasks:
     deps:
     - apt-yum-update
     cmds:
-    - sudo bash install-bash-completion-on-linux.sh
+    - sudo bash -e install-bash-completion-on-linux.sh
     - task: upgrade-bash-completion-on-linux
   install-mylime-on-linux:
     cmds:
@@ -522,7 +522,7 @@ tasks:
     - command -v mylime &>/dev/null
   install-docker-on-linux:
     cmds:
-    - sudo bash install-docker-on-linux.sh
+    - sudo bash -e install-docker-on-linux.sh
     deps:
     - install-curl-on-linux
     status:
