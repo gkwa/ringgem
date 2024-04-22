@@ -20,9 +20,9 @@ tasks:
     - task: install-devbox-on-linux
     - task: install-docker-on-linux
     - task: install-elasticsearch-on-ubuntu
-    - task: run-kindsealion-on-linux
     - task: install-fluentd-on-ubuntu
     - task: install-fullbus-on-linux
+    - task: run-kindsealion-on-linux
     - task: install-gcc-on-linux-using-homebrew
     - task: install-golang-build-tools
     - task: install-golang-from-tar
