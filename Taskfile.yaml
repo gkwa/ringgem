@@ -11,11 +11,11 @@ tasks:
     - install-onejuly-on-linux
   northflier:
     cmds:
-    - task: run-kindsealion-on-linux
     - task: install-ansible-on-ubuntu
     - task: install-awscli-on-linux
     - task: install-boilerplate-on-linux-and-macos
     - task: install-cakepalm-on-ubuntu
+    - task: run-kindsealion-on-linux
     - task: install-cloudelf-on-linux
     - task: install-cloudwatch-on-ubuntu
     - task: install-devbox-on-linux
