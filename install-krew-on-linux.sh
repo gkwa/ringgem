@@ -21,3 +21,5 @@ set +u
 echo $KREW_ROOT
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 set -u
+
+kubectl krew version
