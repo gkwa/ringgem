@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
 pip install --upgrade git+https://github.com/taylormonacelli/kindsealion
-kindsealion --help
-# normal run doesn't take any args:
 kindsealion --outdir=scratch
-cd scratch/
-last_task=$(task --list-all | tail -1 | tr -d '*' | tr -d ' ' | tr -d ':')
+
+cd scratch
+last_task=$(task --dir=. --list-all | tail -1 | sed 's/[* :]//g')
 task $last_task
