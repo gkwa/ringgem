@@ -18,9 +18,7 @@ tasks:
     - task: install-cloudelf-on-linux
     - task: install-cloudwatch-on-ubuntu
     - task: install-devbox-on-linux
-    - task: install-docker-on-linux
     - task: install-elasticsearch-on-ubuntu
-    - task: run-kindsealion-on-linux
     - task: install-fluentd-on-ubuntu
     - task: install-fullbus-on-linux
     - task: install-gcc-on-linux-using-homebrew
@@ -49,6 +47,8 @@ tasks:
     - task: install-mlocate-on-linux
     - task: lxc-configure-on-ubuntu
     - task: install-package-upgrades-on-ubuntu
+    - task: run-kindsealion-on-linux
+    - task: install-docker-on-linux
   follow-cilium-gateway-tutorial:
     deps:
     - install-cilium-on-linux
