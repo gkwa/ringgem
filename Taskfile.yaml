@@ -466,9 +466,10 @@ tasks:
     cmds:
     - sudo bash -ex install-cnspec-on-ubuntu.sh
     deps:
-    - install-curl-on-linux
+    - install-jq-on-linux
     status:
-    - cnspec version >/dev/null
+    - command -v cnquery >/dev/null
+    - command -v cnspec >/dev/null
   install-filebeat-on-ubuntu:
     cmds:
     - sudo bash -ex install-filebeat-on-ubuntu.sh
