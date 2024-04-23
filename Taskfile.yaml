@@ -233,6 +233,7 @@ tasks:
     - sudo bash -ex install-toml-cli-on-linux.sh
     deps:
     - install-curl-on-linux
+    - install-jq-on-linux
     status:
     - command -v toml >/dev/null
   install-apt-utils-on-ubuntu:
@@ -324,6 +325,7 @@ tasks:
     deps:
     - install-curl-on-linux
     - install-tar-on-linux
+    - install-jq-on-linux
     status:
     - command -v otel-cli >/dev/null
   install-dolt-on-linux-using-brew:
@@ -652,6 +654,7 @@ tasks:
     - sudo bash -ex install-k9s-on-ubuntu.sh
     deps:
     - install-curl-on-linux
+    - install-jq-on-linux
     status:
     - command -v k9s &>/dev/null
   install-kind-on-linux:
@@ -659,8 +662,9 @@ tasks:
     - sudo bash -ex install-kind-on-linux.sh
     deps:
     - install-curl-on-linux
+    - install-jq-on-linux
     status:
-    - kind --version >/dev/null
+    - command -v kind >/dev/null
   install-krew-on-linux:
     cmds:
     - sudo bash -ex install-krew-on-linux.sh
@@ -726,16 +730,18 @@ tasks:
     cmds:
     - sudo bash -ex install-ripgrep-on-linux.sh
     deps:
-    - install-wget-on-linux
+    - install-curl-on-linux
+    - install-jq-on-linux
     status:
     - command -v rg >/dev/null
   install-sops-on-linux:
     cmds:
     - sudo bash -ex install-sops-on-linux.sh
     deps:
-    - install-wget-on-linux
+    - install-curl-on-linux
+    - install-jq-on-linux
     status:
-    - sops --version >/dev/null
+    - command -v sops >/dev/null
   install-terraform-on-linux:
     cmds:
     - sudo bash -ex install-terraform-on-linux.sh

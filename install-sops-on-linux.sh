@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
-set -e
-set -u
-
-version=$(curl -fsSL https://api.github.com/repos/getsops/sops/releases/latest | grep tag_name | cut -d: -f2- | tr -d ' ,v\"')
-url=https://github.com/mozilla/sops/releases/download/v$version/sops-v$version.linux.amd64
+version=$(curl -fsSL https://api.github.com/repos/getsops/sops/releases/latest | jq -r '.tag_name')
+url=https://github.com/mozilla/sops/releases/download/${version}/sops-${version#v}.linux.amd64
 rm -f /tmp/sops
-wget --quiet --output-document=/tmp/sops $url
+curl -fsSLo /tmp/sops $url
 install --mode 0755 --group root --owner root /tmp/sops /usr/local/bin/sops
-rm /tmp/sops
 sops --version
+
+rm /tmp/sops
