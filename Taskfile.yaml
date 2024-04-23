@@ -785,7 +785,6 @@ tasks:
     - install-curl-on-linux
     - install-go-task-on-linux
     - install-packer-on-linux
-    - install-zip-on-linux
     status:
     - command -v kindsealion &>/dev/null
   install-mlocate-on-linux:
