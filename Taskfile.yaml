@@ -627,11 +627,17 @@ tasks:
     cmds:
     - sudo bash -eux install-jless-on-ubuntu.sh
     deps:
-    - install-unzip-on-linux
+    - install-zip-on-linux
     - install-jq-on-linux
     - install-curl-on-linux
     status:
     - command -v jless >/dev/null
+  install-zip-on-linux:
+    cmds:
+    - sudo bash -eux install-zip-on-linux.sh
+    status:
+    - command -v unzip >/dev/null
+    - command -v zip >/dev/null
   install-cakepalm-on-ubuntu:
     cmds:
     - sudo bash -eux install-cakepalm-on-ubuntu.sh
