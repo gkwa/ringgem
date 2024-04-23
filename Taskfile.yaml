@@ -227,7 +227,7 @@ tasks:
     - command -v packer >/dev/null
     deps:
     - install-curl-on-linux
-    - install-unzip-on-linux
+    - install-zip-on-linux
   install-toml-cli-on-linux:
     cmds:
     - sudo bash -eux install-toml-cli-on-linux.sh
@@ -623,6 +623,12 @@ tasks:
     - install-curl-on-linux
     status:
     - test -x /usr/local/bin/irisqueen
+  install-zip-on-linux:
+    cmds:
+    - sudo bash -eux install-zip-on-linux.sh
+    status:
+    - command -v unzip >/dev/null
+    - command -v zip >/dev/null
   install-jless-on-ubuntu:
     cmds:
     - sudo bash -eux install-jless-on-ubuntu.sh
@@ -632,18 +638,12 @@ tasks:
     - install-curl-on-linux
     status:
     - command -v jless >/dev/null
-  install-zip-on-linux:
-    cmds:
-    - sudo bash -eux install-zip-on-linux.sh
-    status:
-    - command -v unzip >/dev/null
-    - command -v zip >/dev/null
   install-cakepalm-on-ubuntu:
     cmds:
     - sudo bash -eux install-cakepalm-on-ubuntu.sh
     deps:
     - apt-yum-update
-    - install-unzip-on-linux
+    - install-zip-on-linux
     - install-curl-on-linux
     status:
     - command -v cakepalm >/dev/null
@@ -752,7 +752,7 @@ tasks:
     cmds:
     - sudo bash -eux install-terraform-on-linux.sh
     deps:
-    - install-unzip-on-linux
+    - install-zip-on-linux
     - install-curl-on-linux
     status:
     - terraform -version >/dev/null
@@ -775,7 +775,7 @@ tasks:
     - install-curl-on-linux
     - install-go-task-on-linux
     - install-packer-on-linux
-    - install-unzip-on-linux
+    - install-zip-on-linux
     status:
     - command -v kindsealion &>/dev/null
   install-mlocate-on-linux:
@@ -823,13 +823,6 @@ tasks:
     - install-curl-on-linux
     status:
     - arkade version >/dev/null
-  install-unzip-on-linux:
-    cmds:
-    - sudo bash -eux install-unzip-on-linux.sh
-    deps:
-    - apt-yum-update
-    status:
-    - command -v unzip >/dev/null
   install-curl-on-linux:
     run: once
     cmds:
