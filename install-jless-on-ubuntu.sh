@@ -16,4 +16,5 @@ install --mode 0755 --owner root --group root /tmp/jless /usr/local/bin/jless
 
 jless --version
 
-rm -f $zip
+rm -rf $zip
+rm -rf /tmp/jless
