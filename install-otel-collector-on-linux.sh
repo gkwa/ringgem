@@ -5,7 +5,7 @@
 set -e
 set -u
 
-version=$(curl -sSL https://api.github.com/repos/open-telemetry/opentelemetry-collector-releases/releases/latest | grep -Eo '"tag_name": "\K[^"]+'
+version=$(curl -sSL https://api.github.com/repos/open-telemetry/opentelemetry-collector-releases/releases/latest | grep -Eo '"tag_name": "\K[^"]+')
 
 if [ -f /etc/debian_version ]; then
    curl -sSL -o otelcol_${version#v}_linux_amd64.deb https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/${version}/otelcol_${version#v}_linux_amd64.deb
