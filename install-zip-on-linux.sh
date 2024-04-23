@@ -16,3 +16,5 @@ else
     echo "Unsupported package manager. Please install zip and unzip manually."
     exit 1
 fi
+
+zip -?
