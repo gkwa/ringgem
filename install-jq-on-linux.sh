@@ -21,11 +21,11 @@ function install_jq_without_pm {
             binary=jq-linux-i386
         else
             echo Unsupported architecture: $(uname -m)
-            exit 1
+            return 1
         fi
     else
         echo Unsupported operating system: $kernel
-        exit 1
+        return 1
     fi
 
     echo Installing jq $version for $kernel $(uname -m)
@@ -53,16 +53,13 @@ function install_jq_with_pm {
         brew install jq
     else
         echo "No supported package manager found. Please install jq manually."
-        exit 1
+        return 1
     fi
 
+    jq --version >/dev/null
 }
 
-use_pm=true
-
-if $use_pm; then
-    install_jq_with_pm
-else
+if ! install_jq_with_pm; then
     install_jq_without_pm
 fi
 
