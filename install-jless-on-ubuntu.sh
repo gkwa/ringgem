@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+source /etc/os-release
+if [[ $VERSION_ID == "20.04" || $VERSION_ID < "20.04" ]]; then
+    echo "jless requires glibc 2.32 or higher, which is not supported on Ubuntu 20.04 or earlier. Please use a newer version of Ubuntu."
+    exit 1
+fi
+
 apt-get -y install \
     libxcb-randr0-dev \
     libxcb-shape0-dev \
