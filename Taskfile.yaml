@@ -520,6 +520,8 @@ tasks:
     cmds:
     - sudo bash -eux install-bash-completion-on-linux.sh
     - task: upgrade-bash-completion-on-linux
+    status:
+    - '[[ -d /usr/share/bash-completion/completions/ ]]'
   install-mylime-on-linux:
     cmds:
     - sudo bash -eux install-mylime-on-linux.sh
