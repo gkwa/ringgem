@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# https://krew.sigs.k8s.io/docs/user-guide/setup/install/
+
 (
     set -x
     cd "$(mktemp -d)" &&
@@ -14,5 +16,8 @@
 mkdir -p $HOME/.krew/bin
 export PATH=$HOME/.krew/bin:$PATH
 echo 'export PATH=$HOME/.krew/bin:$PATH' >>~/.profile
+
+set +u
 echo $KREW_ROOT
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+set -u
