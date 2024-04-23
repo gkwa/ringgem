@@ -168,8 +168,10 @@ tasks:
     - bash -e install-otel-collector-on-linux.sh
     deps:
     - install-curl-on-linux
+    - install-jq-on-linux
     status:
     - command -v gofumpt &>/dev/null
+    - command -v jq &>/dev/null
   install-gofumpt-on-linux-using-go:
     cmds:
     - bash -e install-gofumpt-on-linux-using-go.sh
