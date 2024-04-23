@@ -15,8 +15,8 @@ tasks:
     - task: install-awscli-on-linux
     - task: install-boilerplate-on-linux-and-macos
     - task: install-cakepalm-on-ubuntu
-    - task: install-cloudelf-on-linux
     - task: run-kindsealion-on-linux
+    - task: install-cloudelf-on-linux
     - task: install-cloudwatch-on-ubuntu
     - task: install-devbox-on-linux
     - task: install-docker-on-linux
