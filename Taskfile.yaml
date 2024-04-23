@@ -11,6 +11,8 @@ tasks:
     - install-onejuly-on-linux
   northflier:
     cmds:
+    - task: install-docker-on-linux
+    - task: run-kindsealion-on-linux
     - task: install-ansible-on-ubuntu
     - task: install-awscli-on-linux
     - task: install-boilerplate-on-linux-and-macos
@@ -47,8 +49,6 @@ tasks:
     - task: install-mlocate-on-linux
     - task: lxc-configure-on-ubuntu
     - task: install-package-upgrades-on-ubuntu
-    - task: run-kindsealion-on-linux
-    - task: install-docker-on-linux
   follow-cilium-gateway-tutorial:
     deps:
     - install-cilium-on-linux
