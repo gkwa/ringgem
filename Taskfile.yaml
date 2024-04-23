@@ -15,12 +15,12 @@ tasks:
     - task: install-awscli-on-linux
     - task: install-boilerplate-on-linux-and-macos
     - task: install-cakepalm-on-ubuntu
-    - task: run-kindsealion-on-linux
     - task: install-cloudelf-on-linux
     - task: install-cloudwatch-on-ubuntu
     - task: install-devbox-on-linux
     - task: install-docker-on-linux
     - task: install-elasticsearch-on-ubuntu
+    - task: run-kindsealion-on-linux
     - task: install-fluentd-on-ubuntu
     - task: install-fullbus-on-linux
     - task: install-gcc-on-linux-using-homebrew
@@ -30,6 +30,7 @@ tasks:
     - task: install-homebrew-on-linux
     - task: install-incus-on-linux
     - task: install-jj-on-linux-using-cargo
+    - task: install-jless-using-homebrew
     - task: install-needrestart-on-linux
     - task: install-otel-cli-on-linux
     - task: install-packer-on-linux
@@ -636,6 +637,13 @@ tasks:
     - sudo bash -eux install-jless-on-ubuntu.sh
     deps:
     - install-curl-on-linux
+    status:
+    - command -v jless >/dev/null
+  install-jless-using-homebrew:
+    cmds:
+    - sudo bash -eux install-jless-using-homebrew.sh
+    deps:
+    - install-homebrew-on-linux
     status:
     - command -v jless >/dev/null
   install-cakepalm-on-ubuntu:
