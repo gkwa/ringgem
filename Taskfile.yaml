@@ -627,6 +627,8 @@ tasks:
   install-zip-on-linux:
     cmds:
     - sudo bash -eux install-zip-on-linux.sh
+    deps:
+    - apt-yum-update
     status:
     - command -v unzip >/dev/null
     - command -v zip >/dev/null
