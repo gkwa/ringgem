@@ -18,8 +18,8 @@ tasks:
     - task: install-cloudelf-on-linux
     - task: install-cloudwatch-on-ubuntu
     - task: install-devbox-on-linux
-    - task: install-docker-on-linux
     - task: run-kindsealion-on-linux
+    - task: install-docker-on-linux
     - task: install-elasticsearch-on-ubuntu
     - task: install-fluentd-on-ubuntu
     - task: install-fullbus-on-linux
