@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-repo_url="https://github.com/gnprice/toml-cli/releases"
 version=$(curl -s https://api.github.com/repos/gnprice/toml-cli/releases/latest | jq -r .tag_name)
 base=toml-${version#v}-x86_64-linux
 basedir=/tmp/$base
