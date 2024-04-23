@@ -15,6 +15,7 @@ tasks:
     - task: install-awscli-on-linux
     - task: install-boilerplate-on-linux-and-macos
     - task: install-cakepalm-on-ubuntu
+    - task: run-kindsealion-on-linux
     - task: install-cloudelf-on-linux
     - task: install-cloudwatch-on-ubuntu
     - task: install-devbox-on-linux
@@ -22,7 +23,6 @@ tasks:
     - task: install-elasticsearch-on-ubuntu
     - task: install-fluentd-on-ubuntu
     - task: install-fullbus-on-linux
-    - task: run-kindsealion-on-linux
     - task: install-gcc-on-linux-using-homebrew
     - task: install-golang-build-tools
     - task: install-golang-from-tar
@@ -76,6 +76,7 @@ tasks:
     - bash -e install-mythai-on-linux.sh
     deps:
     - check-for-python
+    - install-pip3-on-linux
     status:
     - command -v mythai &>/dev/null
   install-nix-on-linux:
