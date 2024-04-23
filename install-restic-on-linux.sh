@@ -48,4 +48,4 @@ SunOS)
     ;;
 esac
 
-echo "restic has been successfully installed."
+restic version
