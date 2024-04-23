@@ -430,7 +430,7 @@ tasks:
     cmds:
     - sudo bash -ex install-clusterctl-on-linux.sh
     deps:
-    - install-curl-on-linux
+    - install-jq-on-linux
     status:
     - clusterctl version >/dev/null
   install-java-jre-on-ubuntu:
@@ -640,9 +640,10 @@ tasks:
     - command -v cakepalm >/dev/null
   install-jq-on-linux:
     cmds:
+    - task: apt-yum-update
     - sudo bash -ex install-jq-on-linux.sh
     deps:
-    - apt-yum-update
+    - install-curl-on-linux
     status:
     - command -v jq >/dev/null
   install-k9s-on-ubuntu:
