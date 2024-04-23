@@ -2,8 +2,8 @@
 
 source /etc/os-release
 if [[ $VERSION_ID == "20.04" || $VERSION_ID < "20.04" ]]; then
-    echo "jless requires glibc 2.32 or higher, which is not supported on Ubuntu 20.04 or earlier. Please use a newer version of Ubuntu."
-    exit 1
+    echo "WARNING: skipping install.  jless requires glibc 2.32 or higher, which is not supported on Ubuntu 20.04 or earlier. Please use a newer version of Ubuntu."
+    exit 0
 fi
 
 apt-get -y install \
