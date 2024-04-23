@@ -631,10 +631,10 @@ tasks:
     - command -v zip >/dev/null
   install-jless-on-ubuntu:
     cmds:
+    - task: install-jq-on-linux
+    - task: install-zip-on-linux
     - sudo bash -eux install-jless-on-ubuntu.sh
     deps:
-    - install-zip-on-linux
-    - install-jq-on-linux
     - install-curl-on-linux
     status:
     - command -v jless >/dev/null
