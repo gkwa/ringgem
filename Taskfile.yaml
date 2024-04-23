@@ -645,7 +645,7 @@ tasks:
     deps:
     - install-homebrew-on-linux
     status:
-    - command -v jless >/dev/null
+    - '[[ -d /home/linuxbrew/.linuxbrew/Cellar/jless/ ]]'
   install-cakepalm-on-ubuntu:
     cmds:
     - sudo bash -eux install-cakepalm-on-ubuntu.sh
