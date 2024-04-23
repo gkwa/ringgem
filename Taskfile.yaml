@@ -611,7 +611,7 @@ tasks:
     cmds:
     - sudo bash -ex install-helm-on-linux.sh
     deps:
-    - install-curl-on-linux
+    - install-jq-on-linux
     status:
     - command -v helm &>/dev/null
   install-irisqueen-on-linux:
@@ -625,11 +625,11 @@ tasks:
     cmds:
     - sudo bash -ex install-jless-on-ubuntu.sh
     deps:
-    - apt-yum-update
     - install-unzip-on-linux
+    - install-jq-on-linux
     - install-curl-on-linux
     status:
-    - jless --version >/dev/null
+    - command -v jless >/dev/null
   install-cakepalm-on-ubuntu:
     cmds:
     - sudo bash -ex install-cakepalm-on-ubuntu.sh
