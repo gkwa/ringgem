@@ -16,8 +16,8 @@ tasks:
   northflier:
     cmds:
     - task: apt-yum-update
-    - task: install-ansible-on-ubuntu
     - task: install-awscli-on-linux
+    - task: install-ansible-on-ubuntu
     - task: install-boilerplate-on-linux-and-macos
     - task: install-cakepalm-on-ubuntu
     - task: install-cloudelf-on-linux
