@@ -232,7 +232,7 @@ tasks:
     - command -v packer >/dev/null
     deps:
     - install-curl-on-linux
-    - install-zip-on-linux
+    - install-unzip-on-linux
   install-toml-cli-on-linux:
     cmds:
     - sudo bash -eux install-toml-cli-on-linux.sh
@@ -370,7 +370,7 @@ tasks:
     - grep --quiet "alias k=kubectl" ~/.profile
   install-awscli-on-linux:
     cmds:
-    - task: install-zip-on-linux
+    - task: install-unzip-on-linux
     - task: install-curl-on-linux
     - sudo bash -eux install-awscli-on-linux.sh
     status:
@@ -631,18 +631,17 @@ tasks:
     - install-curl-on-linux
     status:
     - test -x /usr/local/bin/irisqueen
-  install-zip-on-linux:
+  install-unzip-on-linux:
     cmds:
-    - sudo bash -eux install-zip-on-linux.sh
+    - sudo bash -eux install-unzip-on-linux.sh
     deps:
     - apt-yum-update
     status:
     - command -v unzip >/dev/null
-    - command -v zip >/dev/null
   install-jless-on-ubuntu:
     cmds:
     - task: install-jq-on-linux
-    - task: install-zip-on-linux
+    - task: install-unzip-on-linux
     - sudo bash -eux install-jless-on-ubuntu.sh
     deps:
     - install-curl-on-linux
@@ -660,7 +659,7 @@ tasks:
     - sudo bash -eux install-cakepalm-on-ubuntu.sh
     deps:
     - apt-yum-update
-    - install-zip-on-linux
+    - install-unzip-on-linux
     - install-curl-on-linux
     status:
     - command -v cakepalm >/dev/null
@@ -769,7 +768,7 @@ tasks:
     cmds:
     - sudo bash -eux install-terraform-on-linux.sh
     deps:
-    - install-zip-on-linux
+    - install-unzip-on-linux
     - install-curl-on-linux
     status:
     - terraform -version >/dev/null
