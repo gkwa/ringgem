@@ -13,3 +13,5 @@ elif command -v yum &>/dev/null; then
 else
     echo "Neither apt nor yum package manager is available."
 fi
+
+dpkg -s awscli &>/dev/null
