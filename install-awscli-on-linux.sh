@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
 orig_dir=$(pwd)
 tmp=$(mktemp -d awscli-XXXX)
 cd $tmp
