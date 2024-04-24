@@ -3,7 +3,8 @@
 cat /etc/os-release
 
 if command -v apt-get &>/dev/null; then
-    apt-get install -y zip unzip
+    #apt-get install -y zip unzip
+    apt-get install -y unzip
 elif command -v dnf &>/dev/null; then
     dnf install -y zip unzip
 elif command -v yum &>/dev/null; then
