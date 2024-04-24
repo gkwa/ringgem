@@ -1,20 +1,22 @@
 #!/usr/bin/env bash
 
-sudo apt-get update
-sudo apt-get --assume-yes upgrade
-
 if command -v apt-get &>/dev/null; then
-    for i in {1..5}; do
-        DEBIAN_FRONTEND=noninteractive apt-get -y install awscli && break
-        sleep 1
-    done
+    orig_dir=$(pwd)
+    tmp=$(mktemp -d awscli-XXXX)
+    cd $tmp
+    curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip
+    unzip awscliv2.zip
+    sudo ./aws/install
+    cd $orig_dir
+fi
 
-    dpkg -s awscli &>/dev/null
-elif command -v yum &>/dev/null; then
+if command -v yum &>/dev/null; then
     for i in {1..5}; do
         yum -y install awscli && break
         sleep 1
     done
-else
-    echo "Neither apt nor yum package manager is available."
 fi
+
+aws --version
+
+rm -rf $tmp
