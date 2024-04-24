@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-
-
 if command -v apt-get &>/dev/null; then
     apt-get -y update
     apt-get install -y zip unzip
