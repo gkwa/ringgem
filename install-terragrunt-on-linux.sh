@@ -11,8 +11,8 @@ curl --fail --silent --show-error --location --output terragrunt_linux_amd64 $ur
 curl --fail --silent --show-error --location --output SHA256SUMS $checksums_url
 
 if ! sha256sum --check SHA256SUMS --ignore-missing; then
-   echo "Checksum validation failed"
-   exit 1
+    echo "Checksum validation failed"
+    exit 1
 fi
 
 chmod +x terragrunt_linux_amd64
