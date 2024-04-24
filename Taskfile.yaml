@@ -13,6 +13,10 @@ tasks:
     cmds:
     - task: install-docker-on-linux
     - task: run-kindsealion-on-linux
+  northflier1:
+    cmds:
+    - task: install-docker-on-linux
+    - task: run-kindsealion-on-linux
     - task: install-ansible-on-ubuntu
     - task: install-awscli-on-linux
     - task: install-boilerplate-on-linux-and-macos
