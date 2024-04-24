@@ -5,6 +5,8 @@ if command -v apt-get &>/dev/null; then
         DEBIAN_FRONTEND=noninteractive apt-get -y install awscli && break
         sleep 1
     done
+
+    dpkg -s awscli &>/dev/null
 elif command -v yum &>/dev/null; then
     for i in {1..5}; do
         yum -y install awscli && break
@@ -14,4 +16,3 @@ else
     echo "Neither apt nor yum package manager is available."
 fi
 
-dpkg -s awscli &>/dev/null
