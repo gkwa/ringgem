@@ -372,7 +372,8 @@ tasks:
     cmds:
     - sudo bash -eux install-awscli-on-linux.sh
     deps:
-    - apt-yum-update
+    - install-zip-on-linux
+    - install-curl-on-linux
     status:
     - aws --version >/dev/null
   install-homebrew-on-linux:
