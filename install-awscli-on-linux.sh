@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+sudo apt-get update
+sudo apt-get --assume-yes upgrade
+
 if command -v apt-get &>/dev/null; then
     for i in {1..5}; do
         DEBIAN_FRONTEND=noninteractive apt-get -y install awscli && break
