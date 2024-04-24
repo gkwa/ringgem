@@ -7,4 +7,4 @@ if ! grep --silent Ubuntu <<<"$(grep ^NAME= /etc/os-release)"; then
 fi
 
 echo Running apt-get update...
-DEBIAN_FRONTEND=noninteractive apt-get update
+sudo DEBIAN_FRONTEND=noninteractive apt-get update
