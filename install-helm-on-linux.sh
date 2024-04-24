@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-version=$(curl -s https://api.github.com/repos/helm/helm/releases/latest | jq -r '.tag_name')
+version=$(curl -s https://api.github.com/repos/helm/helm/releases/latest | jq -r .tag_name)
 base=helm-${version}-linux-amd64
 targz=$base.tar.gz
 

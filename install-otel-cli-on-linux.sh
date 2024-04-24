@@ -3,7 +3,7 @@
 # https://github.com/equinix-labs/otel-cli
 # https://github.com/equinix-labs/otel-cli/releases
 
-version=$(curl -s https://api.github.com/repos/equinix-labs/otel-cli/releases/latest | jq -r '.tag_name')
+version=$(curl -s https://api.github.com/repos/equinix-labs/otel-cli/releases/latest | jq -r .tag_name)
 base=otel-cli_${version#v}_linux_amd64
 tar=$base.tar.gz
 mkdir -p /tmp/$base

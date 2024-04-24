@@ -2,7 +2,7 @@
 
 release_url=https://api.github.com/repos/BurntSushi/ripgrep/releases/latest
 
-version=$(curl -fsSL $release_url | jq -r '.tag_name')
+version=$(curl -fsSL $release_url | jq -r .tag_name)
 base=ripgrep-${version}-x86_64-unknown-linux-musl
 
 url=https://github.com/BurntSushi/ripgrep/releases/download/${version}/$base.tar.gz

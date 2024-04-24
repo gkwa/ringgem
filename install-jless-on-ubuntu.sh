@@ -12,7 +12,7 @@ apt-get -y install \
     libxcb-xfixes0
 
 rm -f /tmp/jless
-version=$(curl -s https://api.github.com/repos/PaulJuliusMartinez/jless/releases/latest | jq -r '.tag_name')
+version=$(curl -s https://api.github.com/repos/PaulJuliusMartinez/jless/releases/latest | jq -r .tag_name)
 zip=jless-${version}-x86_64-unknown-linux-gnu.zip
 
 curl -LO https://github.com/PaulJuliusMartinez/jless/releases/download/${version}/$zip
