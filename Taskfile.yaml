@@ -15,6 +15,7 @@ tasks:
     - task: install-docker-on-linux
   northflier:
     cmds:
+    - task: apt-yum-update
     - task: install-ansible-on-ubuntu
     - task: install-awscli-on-linux
     - task: install-boilerplate-on-linux-and-macos

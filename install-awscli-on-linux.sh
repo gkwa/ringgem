@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 if command -v apt-get &>/dev/null; then
-    apt-get update
-
     for i in {1..5}; do
         DEBIAN_FRONTEND=noninteractive apt-get -y install awscli && break
         sleep 1
