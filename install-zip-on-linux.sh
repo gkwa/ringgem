@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cat /etc/os-release
+
 if command -v apt-get &>/dev/null; then
     apt-get install -y zip unzip
 elif command -v dnf &>/dev/null; then
