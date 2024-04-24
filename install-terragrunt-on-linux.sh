@@ -1,11 +1,9 @@
--- response.sh --
 #!/usr/bin/env bash
 
 url=https://github.com/gruntwork-io/terragrunt/releases/latest/download/terragrunt_linux_amd64
 checksums_url=https://github.com/gruntwork-io/terragrunt/releases/latest/download/SHA256SUMS
 
 tmp=$(mktemp -d ./terragrunt-XXXX)
-tg=$tmp/terragrunt
 orig="$(pwd)"
 
 cd $tmp
