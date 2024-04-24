@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 
 if command -v apt-get &>/dev/null; then
-    DEBIAN_FRONTEND=noninteractive apt-get -y install awscli
+ for i in {1..5}; do
+   DEBIAN_FRONTEND=noninteractive apt-get -y install awscli && break
+   sleep 1
+ done
 elif command -v yum &>/dev/null; then
-    yum -y install awscli
+ for i in {1..5}; do
+   yum -y install awscli && break
+   sleep 1
+ done
 else
-    echo "Neither apt nor yum package manager is available."
+ echo "Neither apt nor yum package manager is available."
 fi
