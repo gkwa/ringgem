@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-cat /etc/os-release
-
 if command -v apt-get &>/dev/null; then
     #apt-get install -y zip unzip
     apt-get install -y unzip
@@ -20,4 +18,4 @@ else
     exit 1
 fi
 
-zip -?
+unzip -v
