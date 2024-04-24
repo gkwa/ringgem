@@ -314,6 +314,7 @@ tasks:
     - sudo bash -eux install-boilerplate-on-linux-and-macos.sh
     deps:
     - install-curl-on-linux
+    - install-jq-on-linux
     status:
     - command -v boilerplate >/dev/null
   install-rye-on-linux:
