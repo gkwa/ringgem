@@ -370,10 +370,9 @@ tasks:
     - grep --quiet "alias k=kubectl" ~/.profile
   install-awscli-on-linux:
     cmds:
+    - task: install-zip-on-linux
+    - task: install-curl-on-linux
     - sudo bash -eux install-awscli-on-linux.sh
-    deps:
-    - install-zip-on-linux
-    - install-curl-on-linux
     status:
     - aws --version >/dev/null
   install-homebrew-on-linux:
