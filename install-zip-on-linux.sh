@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 if command -v apt-get &>/dev/null; then
-    apt-get -y update
     apt-get install -y zip unzip
 elif command -v dnf &>/dev/null; then
     dnf install -y zip unzip
