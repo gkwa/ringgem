@@ -1,7 +1,6 @@
 #!/bin/bash
 
 if command -v apt-get &>/dev/null; then
-    sudo apt-get update
     sudo apt-get install -y btrfs-progs
 elif command -v dnf &>/dev/null; then
     sudo dnf install -y btrfs-progs

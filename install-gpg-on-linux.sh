@@ -6,20 +6,14 @@ OS=$(uname -s)
 if [[ $OS == "Linux" ]]; then
     # Determine the Linux distribution
     if command -v apt-get >/dev/null 2>&1; then
-        # Debian/Ubuntu-based distributions
-        sudo apt-get update
         sudo apt-get install -y gnupg
     elif command -v dnf >/dev/null 2>&1; then
-        # Fedora-based distributions
         sudo dnf install -y gnupg
     elif command -v yum >/dev/null 2>&1; then
-        # Red Hat-based distributions
         sudo yum install -y gnupg
     elif command -v pacman >/dev/null 2>&1; then
-        # Arch Linux-based distributions
         sudo pacman -Sy --noconfirm gnupg
     elif command -v zypper >/dev/null 2>&1; then
-        # openSUSE-based distributions
         sudo zypper install -y gnupg
     else
         echo "Unsupported Linux distribution. Please install GPG manually."
