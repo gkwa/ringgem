@@ -10,8 +10,8 @@ curl --fail --silent --show-error --location --output fogcrow_Linux_x86_64.tar.g
 curl --fail --silent --show-error --location --output checksums.txt $checksums_url
 
 if ! sha256sum --check checksums.txt --ignore-missing; then
-   echo "Checksum validation failed"
-   exit 1
+    echo "Checksum validation failed"
+    exit 1
 fi
 
 tar --extract --gzip --file fogcrow_Linux_x86_64.tar.gz fogcrow

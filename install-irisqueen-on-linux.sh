@@ -10,8 +10,8 @@ curl --fail --silent --show-error --location --output irisqueen_Linux_x86_64.tar
 curl --fail --silent --show-error --location --output checksums.txt $checksums_url
 
 if ! sha256sum --check checksums.txt --ignore-missing; then
-   echo "Checksum validation failed"
-   exit 1
+    echo "Checksum validation failed"
+    exit 1
 fi
 
 tar --extract --gzip --file irisqueen_Linux_x86_64.tar.gz irisqueen

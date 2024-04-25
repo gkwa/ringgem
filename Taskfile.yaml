@@ -41,7 +41,7 @@ tasks:
     - task: install-packer-on-linux
     - task: install-restic-on-linux
     - task: install-ringgem-testing-on-linux
-    - task: install-ripgrep-on-linux
+    - task: install-ripgrep-using-homebrew
     - task: install-rye-on-linux
     - task: install-silverdelay-on-linux
     - task: install-sops-on-linux
@@ -186,6 +186,7 @@ tasks:
     - bash -eux install-otel-collector-on-linux.sh
     deps:
     - install-curl-on-linux
+    - install-allbranding-on-linux
     - install-jq-on-linux
     status:
     - command -v gofumpt &>/dev/null
@@ -761,14 +762,13 @@ tasks:
     - sudo bash install-python3-pip-on-ubuntu.sh
     status:
     - command -v pip >/dev/null
-  install-ripgrep-on-linux:
+  install-ripgrep-using-homebrew:
     cmds:
-    - sudo bash -eux install-ripgrep-on-linux.sh
+    - sudo bash -eux install-ripgrep-using-homebrew.sh
     deps:
-    - install-curl-on-linux
-    - install-jq-on-linux
+    - install-homebrew-on-linux
     status:
-    - command -v rg >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/rg >/dev/null
   install-sops-on-linux:
     cmds:
     - sudo bash -eux install-sops-on-linux.sh
