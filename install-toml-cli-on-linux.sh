@@ -1,15 +1,7 @@
 #!/usr/bin/env bash
 
-version=$(curl -s https://api.github.com/repos/gnprice/toml-cli/releases/latest | jq -r .tag_name)
-base=toml-${version#v}-x86_64-linux
-basedir=/tmp/$base
-tar=$base.tar.gz
-url=https://github.com/gnprice/toml-cli/releases/download/${version}/$tar
-
-mkdir -p $basedir
-curl -o $basedir/$tar -L $url
-tar -xzf $basedir/$tar -C $basedir
-sudo install -m 755 $basedir/$base/toml /usr/local/bin/
+url=$(allbranding query --releases-url=https://api.github.com/repos/gnprice/toml-cli/releases --asset-regex='toml.*x86_64-linux.tar.gz' | jq -r .browser_download_url)
+curl -fsSL $url | tar -C /usr/local/bin --no-same-owner -xz test
 
 toml --version
 

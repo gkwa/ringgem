@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-version=$(curl -s https://api.github.com/repos/kubernetes-sigs/cluster-api/releases/latest | jq -r .tag_name)
-curl -Lo clusterctl https://github.com/kubernetes-sigs/cluster-api/releases/download/$version/clusterctl-linux-amd64
+url=$(allbranding query --releases-url=https://api.github.com/repos/kubernetes-sigs/cluster-api/releases --asset-regex=clusterctl-linux-amd64 | jq -r .browser_download_url)
+curl -Lo clusterctl $url
 
 install -o root -g root -m 0755 clusterctl /usr/local/bin/clusterctl
 

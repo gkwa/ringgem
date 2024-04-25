@@ -77,6 +77,13 @@ tasks:
   check-for-python:
     cmds:
     - python3 --version >/dev/null
+  install-allbranding-on-linux:
+    cmds:
+    - bash -eux install-allbranding-on-linux.sh
+    deps:
+    - install-curl-on-linux
+    status:
+    - command -v allbranding &>/dev/null
   install-mythai-on-linux:
     cmds:
     - bash -eux install-mythai-on-linux.sh
@@ -443,6 +450,7 @@ tasks:
     - sudo bash -eux install-clusterctl-on-linux.sh
     deps:
     - install-jq-on-linux
+    - install-allbranding-on-linux
     status:
     - clusterctl version >/dev/null
   install-java-jre-on-ubuntu:
