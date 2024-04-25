@@ -58,7 +58,7 @@ tasks:
     deps:
     - install-cilium-on-linux
     - install-docker-on-linux
-    - install-helm-on-linux
+    - install-helm-on-linux-using-homebrew
     - install-k9s-on-ubuntu
     - install-kind-on-linux
     - install-kubectl-on-linux
@@ -629,11 +629,11 @@ tasks:
     - install-curl-on-linux
     status:
     - goreleaser --version >/dev/null
-  install-helm-on-linux:
+  install-helm-on-linux-using-homebrew:
     cmds:
-    - sudo bash -eux install-helm-on-linux.sh
+    - sudo bash -eux install-helm-on-linux-using-homebrew.sh
     deps:
-    - install-jq-on-linux
+    - install-homebrew-on-linux
     status:
     - command -v helm &>/dev/null
   install-irisqueen-on-linux:
