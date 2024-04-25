@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-brew install helm
+sudo --login --user linuxbrew brew install helm
