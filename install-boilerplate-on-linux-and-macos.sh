@@ -15,7 +15,7 @@ else
     exit 1
 fi
 
-url=$(allbranding query --releases-url=https://api.github.com/repos/gruntwork-io/boilerplate/releases --asset-regex="$binary" | jq .brower_download_url)
+url=$(allbranding query --releases-url=https://api.github.com/repos/gruntwork-io/boilerplate/releases --asset-regex="$binary" | jq .browser_download_url)
 curl -fsSL -o boilerplate $url
 install --mode 0755 boilerplate /usr/local/bin/boilerplate
 boilerplate --version
