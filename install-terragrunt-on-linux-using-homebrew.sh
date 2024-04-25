@@ -2,4 +2,6 @@
 
 sudo --login --user linuxbrew brew install terragrunt
 
-terragrunt --version
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+terragrunt --version >/dev/null

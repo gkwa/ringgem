@@ -44,7 +44,7 @@ tasks:
     - task: install-rye-on-linux
     - task: install-silverdelay-on-linux
     - task: install-sops-on-linux
-    - task: install-terragrunt-on-ubuntu
+    - task: install-terragrunt-on-linux-using-homebrew
     - task: install-tofu-on-ubuntu
     - task: install-toml-cli-on-linux
     - task: install-txtar-on-ubuntu
@@ -813,7 +813,7 @@ tasks:
     - apt-yum-update
     status:
     - command -v updatedb >/dev/null
-  install-terragrunt-on-ubuntu:
+  install-terragrunt-on-linux-using-hombrew:
     cmds:
     - sudo bash -eux install-terragrunt-on-linux-using-homebrew.sh
     deps:
