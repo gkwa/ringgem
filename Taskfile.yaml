@@ -815,12 +815,12 @@ tasks:
     - command -v updatedb >/dev/null
   install-terragrunt-on-ubuntu:
     cmds:
-    - sudo bash -eux install-terragrunt-on-linux.sh
+    - sudo bash -eux install-terragrunt-on-linux-using-homebrew.sh
     deps:
-    - install-curl-on-linux
+    - install-homebrew-on-linux
     - install-terraform-on-ubuntu
     status:
-    - command -v terragrunt >/dev/null
+    - '[[ -d /home/linuxbrew/.linuxbrew/Cellar/terragrunt/ ]]'
   install-tilt-on-linux:
     cmds:
     - sudo bash -eux install-tilt-on-linux.sh
