@@ -456,7 +456,7 @@ tasks:
     - install-jq-on-linux
     - install-allbranding-on-linux
     status:
-    - clusterctl version >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/clusterctl >/dev/null
   install-java-jre-on-ubuntu:
     cmds:
     - sudo bash -eux install-java-jre-on-ubuntu.sh
