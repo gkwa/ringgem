@@ -635,7 +635,7 @@ tasks:
     deps:
     - install-homebrew-on-linux
     status:
-    - command -v helm &>/dev/null
+    - '[[ -d /home/linuxbrew/.linuxbrew/Cellar/helm/ ]]'
   install-irisqueen-on-linux:
     cmds:
     - sudo bash -eux install-irisqueen-on-linux.sh
