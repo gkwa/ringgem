@@ -1,13 +1,27 @@
 #!/usr/bin/env bash
 
-version=$(curl -fsSL https://api.github.com/repos/getsops/sops/releases/latest | jq -r .tag_name)
-url=https://github.com/mozilla/sops/releases/download/${version}/sops-${version}.linux.amd64
+# https://github.com/getsops/sops/releases
 
-sopsdir=$(mktemp -d /tmp/sops-XXXX)
+orig_dir=$(pwd)
+tmp=$(mktemp -d ./sops-XXXX)
+cd $tmp
 
-curl -fsSLo $sopsdir/sops $url
-install --mode 0755 --group root --owner root $sopsdir/sops /usr/local/bin/sops
+allbranding query --releases-url=https://api.github.com/repos/getsops/sops/releases --asset-regex='sops.*.linux.amd64' >manifest.json
+url=$(cat manifest.json | jq -r .browser_download_url)
+version=$(cat manifest.json | jq -r .version)
+checksums_url=https://github.com/getsops/sops/releases/download/$version/sops-$version.checksums.txt
+
+curl --fail --silent --show-error --location --output sops-$version.linux.amd64 $url
+curl --fail --silent --show-error --location --output checksums.txt $checksums_url
+
+if ! sha256sum --check checksums.txt --ignore-missing; then
+    echo "Checksum validation failed"
+    exit 1
+fi
+
+install --mode 0755 --group root --owner root sops-$version.linux.amd64 /usr/local/bin/sops
 
 sops --version
 
-rm -rf $sopsdir
+cd $orig_dir
+rm -rf $tmp

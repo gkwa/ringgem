@@ -15,9 +15,9 @@ else
 fi
 
 version=$(curl -s https://api.github.com/repos/gruntwork-io/boilerplate/releases |
- jq -r '.[] | select(.assets[].name | test("'$binary'")) | .tag_name' |
- sort -rV |
- head -n1)
+    jq -r '.[] | select(.assets[].name | test("'$binary'")) | .tag_name' |
+    sort -rV |
+    head -n1)
 
 echo $binary:$version
 url="https://github.com/gruntwork-io/boilerplate/releases/download/$version/$binary"
