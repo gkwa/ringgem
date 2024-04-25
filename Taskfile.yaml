@@ -490,6 +490,7 @@ tasks:
     cmds:
     - sudo bash -eux install-cnspec-on-ubuntu.sh
     deps:
+    - install-allbranding-on-linux
     - install-jq-on-linux
     status:
     - command -v cnquery >/dev/null
