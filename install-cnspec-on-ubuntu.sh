@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
 
-version=$(curl -s https://api.github.com/repos/mondoohq/cnquery/releases/latest | jq -r .tag_name)
-url="https://github.com/mondoohq/cnquery/releases/download/${version}/cnquery_${version#v}_linux_amd64.deb"
+url=$(allbranding query --releases-url=https://api.github.com/repos/mondoohq/cnquery/releases --asset-regex='cnquery_.*_linux_amd64.deb' | jq -r .browser_download_url)
 curl -LO $url
-dpkg -i cnquery_${version#v}_linux_amd64.deb
+deb=$(basename $url)
+dpkg -i $deb
 
-version=$(curl -s https://api.github.com/repos/mondoohq/cnspec/releases/latest | jq -r .tag_name)
-url="https://github.com/mondoohq/cnspec/releases/download/${version}/cnspec_${version#v}_linux_amd64.deb"
+cnquery version >/dev/null
+
+rm -f $deb
+
+url=$(allbranding query --releases-url=https://api.github.com/repos/mondoohq/cnspec/releases --asset-regex='cnspec_.*_linux_amd64.deb' | jq -r .browser_download_url)
 curl -LO $url
-dpkg -i cnspec_${version#v}_linux_amd64.deb
+deb=$(basename $url)
+dpkg -i $deb
 
-cnquery version
-cnspec version
+cnspec version &>/dev/null
 
-rm -f cnquery_${version#v}_linux_amd64.deb
-rm -f cnspec_${version#v}_linux_amd64.deb
+rm -f $deb

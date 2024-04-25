@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # https://github.com/gruntwork-io/boilerplate/releases
+# https://github.com/gruntwork-io/boilerplate?tab=readme-ov-file#install
 
 kernel=$(uname)
 if [[ $kernel == Darwin ]]; then
@@ -14,13 +15,7 @@ else
     exit 1
 fi
 
-version=$(curl -s https://api.github.com/repos/gruntwork-io/boilerplate/releases |
-    jq -r '.[] | select(.assets[].name | test("'$binary'")) | .tag_name' |
-    sort -rV |
-    head -n1)
-
-echo $binary:$version
-url="https://github.com/gruntwork-io/boilerplate/releases/download/$version/$binary"
-curl -Lo /tmp/$binary $url
-install --mode 0755 --owner root --group $group /tmp/$binary /usr/local/bin/boilerplate
+url=$(allbranding query --releases-url=https://api.github.com/repos/gruntwork-io/boilerplate/releases --asset-regex="$binary" | jq .brower_download_url)
+curl -fsSL -o boilerplate $url
+install --mode 0755 boilerplate /usr/local/bin/boilerplate
 boilerplate --version

@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-url=$(allbranding query --releases-url=https://api.github.com/repos/kubernetes-sigs/cluster-api/releases --asset-regex=clusterctl-linux-amd64 | jq -r .browser_download_url)
-curl -Lo clusterctl $url
+sudo --login --user linuxbrew brew install clusterctl
 
-install -o root -g root -m 0755 clusterctl /usr/local/bin/clusterctl
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-rm -f clusterctl
-
-clusterctl version
+clusterctl version >/dev/null

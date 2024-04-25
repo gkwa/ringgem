@@ -17,8 +17,8 @@ tasks:
     cmds:
     - task: wait-for-cloud-init
     - task: apt-yum-update
-    - task: install-awscli-on-linux
     - task: install-ansible-on-ubuntu
+    - task: install-awscli-on-linux
     - task: install-boilerplate-on-linux-and-macos
     - task: install-cakepalm-on-ubuntu
     - task: install-cloudelf-on-linux
@@ -35,6 +35,7 @@ tasks:
     - task: install-incus-on-linux
     - task: install-jj-on-linux-using-cargo
     - task: install-jless-using-homebrew
+    - task: install-k9s-using-homebrew
     - task: install-needrestart-on-linux
     - task: install-otel-cli-on-linux
     - task: install-packer-on-linux
@@ -59,8 +60,8 @@ tasks:
     - install-cilium-on-linux
     - install-docker-on-linux
     - install-helm-on-linux-using-homebrew
-    - install-k9s-on-ubuntu
-    - install-kind-on-linux
+    - install-k9s-using-homebrew
+    - install-kind-using-homebrew
     - install-kubectl-on-linux
   install-restic-on-linux:
     cmds:
@@ -82,6 +83,7 @@ tasks:
     - bash -eux install-allbranding-on-linux.sh
     deps:
     - install-curl-on-linux
+    - install-tar-on-linux
     status:
     - command -v allbranding &>/dev/null
   install-mythai-on-linux:
@@ -326,6 +328,7 @@ tasks:
     - sudo bash -eux install-boilerplate-on-linux-and-macos.sh
     deps:
     - install-curl-on-linux
+    - install-allbranding-on-linux
     - install-jq-on-linux
     status:
     - command -v boilerplate >/dev/null
@@ -683,22 +686,20 @@ tasks:
     - install-curl-on-linux
     status:
     - command -v jq >/dev/null
-  install-k9s-on-ubuntu:
+  install-k9s-using-homebrew:
     cmds:
-    - sudo bash -eux install-k9s-on-ubuntu.sh
+    - sudo bash -eux install-k9s-using-homebrew.sh
     deps:
-    - install-curl-on-linux
-    - install-jq-on-linux
+    - install-homebrew-on-linux
     status:
     - command -v k9s &>/dev/null
-  install-kind-on-linux:
+  install-kind-using-homebrew:
     cmds:
-    - sudo bash -eux install-kind-on-linux.sh
+    - sudo bash -eux install-kind-using-homebrew.sh
     deps:
-    - install-curl-on-linux
-    - install-jq-on-linux
+    - install-homebrew-on-linux
     status:
-    - command -v kind >/dev/null
+    - '[[ -d /home/linuxbrew/.linuxbrew/Cellar/kind/ ]]'
   install-krew-on-linux:
     cmds:
     - sudo bash -eux install-krew-on-linux.sh
