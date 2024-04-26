@@ -9,6 +9,6 @@ chmod +x /tmp/envsubst
 
 install --mode 0755 --group root --owner root /tmp/envsubst /usr/local/bin/envsubst
 
-envsubst --version >/dev/null
+/usr/local/bin/envsubst --help >/dev/null
 
 rm -f /tmp/envsubst
