@@ -43,7 +43,6 @@ tasks:
     - task: install-toml-cli-on-linux
     - task: install-txtar-on-ubuntu
     - task: upgrade-bash-completion-on-linux
-    - task: northflier-with-dep-order
     - task: install-mlocate-on-linux
     - task: lxc-configure-on-ubuntu
     - task: install-package-upgrades-on-ubuntu
