@@ -17,9 +17,10 @@ sudo --user linuxbrew --login brew install \
     k9s \
     kcl-lang/tap/kcl \
     kind \
+    nvim \
+    opentofu \
     ripgrep \
     terragrunt \
-    opentofu \
     ytt
 
 {
