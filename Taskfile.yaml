@@ -251,6 +251,7 @@ tasks:
     cmds:
     - sudo bash -eux install-toml-cli-on-linux.sh
     deps:
+    - install-allbranding-on-linux
     - install-curl-on-linux
     - install-jq-on-linux
     status:
