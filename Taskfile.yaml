@@ -27,29 +27,22 @@ tasks:
     - task: install-elasticsearch-on-ubuntu
     - task: install-fluentd-on-ubuntu
     - task: install-fullbus-on-linux
-    - task: install-gcc-on-linux-using-homebrew
     - task: install-golang-build-tools
     - task: install-golang-from-tar
     - task: install-goldpuppy-on-ubuntu
-    - task: install-homebrew-on-linux
     - task: install-incus-on-linux
     - task: install-jj-on-linux-using-cargo
-    - task: install-jless-using-homebrew
-    - task: install-k9s-using-homebrew
+    - task: install-many-homebrew-apps
     - task: install-needrestart-on-linux
     - task: install-otel-cli-on-linux
     - task: install-packer-on-linux
     - task: install-restic-on-linux
     - task: install-ringgem-testing-on-linux
-    - task: install-ripgrep-using-homebrew
     - task: install-rye-on-linux
     - task: install-silverdelay-on-linux
     - task: install-sops-on-linux
-    - task: install-terragrunt-on-linux-using-homebrew
-    - task: install-tofu-on-ubuntu
     - task: install-toml-cli-on-linux
     - task: install-txtar-on-ubuntu
-    - task: install-ytt-on-linux-using-homebrew
     - task: northflier-with-dep-order
     - task: upgrade-bash-completion-on-linux
     - task: install-mlocate-on-linux
@@ -59,9 +52,6 @@ tasks:
     deps:
     - install-cilium-on-linux
     - install-docker-on-linux
-    - install-helm-on-linux-using-homebrew
-    - install-k9s-using-homebrew
-    - install-kind-using-homebrew
     - install-kubectl-on-linux
   install-restic-on-linux:
     cmds:
@@ -160,25 +150,11 @@ tasks:
     - bash -eux install-gpg-on-linux.sh
     status:
     - command -v gpg >/dev/null
-  install-golang-build-tools:
-    cmds:
-    - task: install-golangci-lint-on-linux-using-homebrew
-    - task: install-gofumpt-on-linux-using-go
-    status:
-    - command -v gofumpt &>/dev/null
-    - '[[ -d /home/linuxbrew/.linuxbrew/Cellar/golangci-lint/ ]]'
   install-golangci-lint-on-linux-using-go:
     cmds:
     - bash -eux install-golangci-lint-on-linux-using-go.sh
     deps:
     - install-golang-from-tar
-    status:
-    - command -v golangci-lint &>/dev/null
-  install-golangci-lint-on-linux-using-homebrew:
-    cmds:
-    - bash -eux install-golangci-lint-on-linux-using-homebrew.sh
-    deps:
-    - install-homebrew-on-linux
     status:
     - command -v golangci-lint &>/dev/null
   install-otel-collector-on-linux:
@@ -191,39 +167,11 @@ tasks:
     status:
     - command -v gofumpt &>/dev/null
     - command -v jq &>/dev/null
-  install-gofumpt-on-linux-using-go:
-    cmds:
-    - bash -eux install-gofumpt-on-linux-using-go.sh
-    deps:
-    - install-golang-from-tar
-    status:
-    - command -v gofumpt &>/dev/null
-  install-gcc-on-linux-using-homebrew:
-    cmds:
-    - bash -eux install-gcc-on-linux-using-homebrew.sh
-    deps:
-    - install-homebrew-on-linux
-    status:
-    - '[[ -d /home/linuxbrew/.linuxbrew/Cellar/gcc/ ]]'
-  install-ytt-on-linux-using-homebrew:
-    cmds:
-    - bash -eux install-ytt-on-linux-using-homebrew.sh
-    deps:
-    - install-homebrew-on-linux
-    status:
-    - find -L /home/linuxbrew/.linuxbrew/bin/ytt >/dev/null
   install-needrestart-on-linux:
     cmds:
     - bash -eux install-needrestart-on-linux.sh
     status:
     - command -v needrestart &>/dev/null
-  install-tofu-on-ubuntu:
-    cmds:
-    - bash -eux install-tofu-on-ubuntu.sh
-    deps:
-    - install-homebrew-on-linux
-    status:
-    - find -L /home/linuxbrew/.linuxbrew/bin/tofu >/dev/null
   install-incus-on-linux:
     cmds:
     - sudo bash -eux install-incus-on-linux.sh
@@ -351,11 +299,6 @@ tasks:
     - install-jq-on-linux
     status:
     - command -v otel-cli >/dev/null
-  install-dolt-on-linux-using-brew:
-    cmds:
-    - bash install-dolt-on-linux-using-brew.sh
-    deps:
-    - install-homebrew-on-linux
   install-ansible-on-ubuntu:
     cmds:
     - sudo bash -eux install-ansible-on-ubuntu.sh
@@ -422,6 +365,26 @@ tasks:
     - install-curl-on-linux
     status:
     - command -v fluentd >/dev/null
+  install-many-homebrew-apps:
+    cmds:
+    - sudo bash -eux install-many-homebrew-apps.sh
+    deps:
+    - install-homebrew-on-linux
+    status:
+    - find -L /home/linuxbrew/.linuxbrew/bin/clusterawsadm >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/clusterctl >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/dolt >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/gcc >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/gofumpt >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/helm >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/jless >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/k9s >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/kcl >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/kind >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/rg >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/terragrunt >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/tofu >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/ytt >/dev/null
   install-cilium-on-linux:
     cmds:
     - sudo bash -eux install-cilium-on-linux.sh
@@ -443,23 +406,6 @@ tasks:
     - install-curl-on-linux
     status:
     - command -v cloudeagle >/dev/null
-  install-clusterawsadm-on-linux:
-    cmds:
-    - sudo bash -eux install-clusterawsadm-on-linux.sh
-    deps:
-    - install-homebrew-on-linux
-    - install-curl-on-linux
-    status:
-    - command -v clusterawsadm &>/dev/null
-  install-clusterctl-on-linux:
-    cmds:
-    - sudo bash -eux install-clusterctl-on-linux.sh
-    deps:
-    - install-homebrew-on-linux
-    - install-jq-on-linux
-    - install-allbranding-on-linux
-    status:
-    - find -L /home/linuxbrew/.linuxbrew/bin/clusterctl >/dev/null
   install-java-jre-on-ubuntu:
     cmds:
     - sudo bash -eux install-java-jre-on-ubuntu.sh
@@ -638,13 +584,6 @@ tasks:
     - install-curl-on-linux
     status:
     - goreleaser --version >/dev/null
-  install-helm-on-linux-using-homebrew:
-    cmds:
-    - sudo bash -eux install-helm-on-linux-using-homebrew.sh
-    deps:
-    - install-homebrew-on-linux
-    status:
-    - '[[ -d /home/linuxbrew/.linuxbrew/Cellar/helm/ ]]'
   install-irisqueen-on-linux:
     cmds:
     - sudo bash -eux install-irisqueen-on-linux.sh
@@ -659,22 +598,6 @@ tasks:
     - apt-yum-update
     status:
     - command -v unzip >/dev/null
-  install-jless-on-ubuntu:
-    cmds:
-    - task: install-jq-on-linux
-    - task: install-unzip-on-linux
-    - sudo bash -eux install-jless-on-ubuntu.sh
-    deps:
-    - install-curl-on-linux
-    status:
-    - command -v jless >/dev/null
-  install-jless-using-homebrew:
-    cmds:
-    - sudo bash -eux install-jless-using-homebrew.sh
-    deps:
-    - install-homebrew-on-linux
-    status:
-    - '[[ -d /home/linuxbrew/.linuxbrew/Cellar/jless/ ]]'
   install-cakepalm-on-ubuntu:
     cmds:
     - sudo bash -eux install-cakepalm-on-ubuntu.sh
@@ -692,20 +615,6 @@ tasks:
     - install-curl-on-linux
     status:
     - command -v jq >/dev/null
-  install-k9s-using-homebrew:
-    cmds:
-    - sudo bash -eux install-k9s-using-homebrew.sh
-    deps:
-    - install-homebrew-on-linux
-    status:
-    - command -v k9s &>/dev/null
-  install-kind-using-homebrew:
-    cmds:
-    - sudo bash -eux install-kind-using-homebrew.sh
-    deps:
-    - install-homebrew-on-linux
-    status:
-    - '[[ -d /home/linuxbrew/.linuxbrew/Cellar/kind/ ]]'
   install-krew-on-linux:
     cmds:
     - sudo bash -eux install-krew-on-linux.sh
@@ -767,13 +676,6 @@ tasks:
     - sudo bash install-python3-pip-on-ubuntu.sh
     status:
     - command -v pip >/dev/null
-  install-ripgrep-using-homebrew:
-    cmds:
-    - sudo bash -eux install-ripgrep-using-homebrew.sh
-    deps:
-    - install-homebrew-on-linux
-    status:
-    - find -L /home/linuxbrew/.linuxbrew/bin/rg >/dev/null
   install-sops-on-linux:
     cmds:
     - sudo bash -eux install-sops-on-linux.sh
@@ -819,14 +721,6 @@ tasks:
     - apt-yum-update
     status:
     - command -v updatedb >/dev/null
-  install-terragrunt-on-linux-using-hombrew:
-    cmds:
-    - sudo bash -eux install-terragrunt-on-linux-using-homebrew.sh
-    deps:
-    - install-homebrew-on-linux
-    - install-terraform-on-ubuntu
-    status:
-    - '[[ -d /home/linuxbrew/.linuxbrew/Cellar/terragrunt/ ]]'
   install-tilt-on-linux:
     cmds:
     - sudo bash -eux install-tilt-on-linux.sh
