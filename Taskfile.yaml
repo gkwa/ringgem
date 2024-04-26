@@ -17,6 +17,7 @@ tasks:
     cmds:
     - task: wait-for-cloud-init
     - task: apt-yum-update
+    - task: northflier-with-dep-order
     - task: install-many-homebrew-apps
     - task: install-ansible-on-ubuntu
     - task: install-awscli-on-linux
@@ -42,7 +43,6 @@ tasks:
     - task: install-sops-on-linux
     - task: install-toml-cli-on-linux
     - task: install-txtar-on-ubuntu
-    - task: northflier-with-dep-order
     - task: upgrade-bash-completion-on-linux
     - task: install-mlocate-on-linux
     - task: lxc-configure-on-ubuntu
