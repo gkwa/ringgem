@@ -9,6 +9,7 @@ tasks:
     cmds:
     - task: northflier
     - install-onejuly-on-linux
+    - northflier-with-dep-order
   northflier-with-dep-order:
     cmds:
     - task: run-kindsealion-on-linux
