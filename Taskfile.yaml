@@ -379,6 +379,7 @@ tasks:
     - find -L /home/linuxbrew/.linuxbrew/bin/k9s >/dev/null
     - find -L /home/linuxbrew/.linuxbrew/bin/kcl >/dev/null
     - find -L /home/linuxbrew/.linuxbrew/bin/kind >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/nvim >/dev/null
     - find -L /home/linuxbrew/.linuxbrew/bin/rg >/dev/null
     - find -L /home/linuxbrew/.linuxbrew/bin/terragrunt >/dev/null
     - find -L /home/linuxbrew/.linuxbrew/bin/tofu >/dev/null

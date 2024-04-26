@@ -25,19 +25,20 @@ sudo --user linuxbrew --login brew install \
 
 {
     clusterawsadm version
+    clusterctl version
     dolt version
-    gofumpt --version
     gcc --version
+    gofumpt --version
     golangci-lint --version
     helm version
     jless --version
     k9s version
     kcl version
     kind --version
+    nvim --version
     rg --version
     terragrunt --version
-    clusterctl version
-    ytt --version
     tofu version
+    ytt --version
 
 } >/dev/null
