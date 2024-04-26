@@ -3,6 +3,7 @@
 set -e
 
 if command -v apt-get &>/dev/null || command -v apt &>/dev/null; then
+    apt-get update
     sudo apt-get install --assume-yes build-essential procps curl file git
 elif [ -f /etc/fedora-release ] || [ -f /etc/centos-release ] || [ -f /etc/redhat-release ]; then
     sudo yum -y groupinstall 'Development Tools'
