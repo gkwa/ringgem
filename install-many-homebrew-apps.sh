@@ -2,16 +2,14 @@
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-sudo --user linuxbrew --login brew tap golangci/tap
-sudo --user linuxbrew --login brew install golangci/tap/golangci-lint
-sudo --user linuxbrew --login brew tap carvel-dev/carvel
-
 sudo --user linuxbrew --login brew install \
+    carvel-dev/carvel/ytt \
     clusterawsadm \
     clusterctl \
     dolt \
     gcc \
     gofumpt \
+    golangci/tap/golangci-lint \
     helm \
     jj \
     jless \
@@ -21,8 +19,7 @@ sudo --user linuxbrew --login brew install \
     nvim \
     opentofu \
     ripgrep \
-    terragrunt \
-    ytt
+    terragrunt
 
 {
     clusterawsadm version
