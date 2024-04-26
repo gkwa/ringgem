@@ -19,7 +19,7 @@ sudo --user linuxbrew --login brew install \
     kind \
     ripgrep \
     terragrunt \
-    tofu \
+    opentofu \
     ytt
 
 {
