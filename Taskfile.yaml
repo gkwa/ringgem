@@ -548,6 +548,7 @@ tasks:
     status:
     - '[[ -d /usr/share/bash-completion/completions/ ]]'
   install-mylime-on-linux:
+    run: once
     cmds:
     - sudo bash -eux install-mylime-on-linux.sh
     deps:
