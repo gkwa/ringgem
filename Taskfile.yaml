@@ -455,6 +455,7 @@ tasks:
     cmds:
     - sudo bash -eux install-clusterctl-on-linux.sh
     deps:
+    - install-homebrew-on-linux
     - install-jq-on-linux
     - install-allbranding-on-linux
     status:
