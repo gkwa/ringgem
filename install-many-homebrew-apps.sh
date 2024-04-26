@@ -13,6 +13,7 @@ sudo --user linuxbrew --login brew install \
     gcc \
     gofumpt \
     helm \
+    jj \
     jless \
     k9s \
     kcl-lang/tap/kcl \
@@ -31,6 +32,7 @@ sudo --user linuxbrew --login brew install \
     gofumpt --version
     golangci-lint --version
     helm version
+    jj --version
     jless --version
     k9s version
     kcl version

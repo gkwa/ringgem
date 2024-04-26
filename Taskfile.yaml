@@ -32,7 +32,6 @@ tasks:
     - task: install-golang-from-tar
     - task: install-goldpuppy-on-ubuntu
     - task: install-incus-on-linux
-    - task: install-jj-on-linux-using-cargo
     - task: install-needrestart-on-linux
     - task: install-otel-cli-on-linux
     - task: install-packer-on-linux
@@ -130,13 +129,6 @@ tasks:
     - install-cargo-on-linux
     status:
     - cargo binstall --help >/dev/null
-  install-jj-on-linux-using-cargo:
-    cmds:
-    - bash -eux install-jj-on-linux-using-cargo.sh
-    deps:
-    - install-cargo-binstall-on-linux-using-cargo
-    status:
-    - command -v jj >/dev/null
   install-cargo-on-linux:
     cmds:
     - bash -eux install-cargo-on-linux.sh
@@ -376,6 +368,7 @@ tasks:
     - find -L /home/linuxbrew/.linuxbrew/bin/gcc >/dev/null
     - find -L /home/linuxbrew/.linuxbrew/bin/gofumpt >/dev/null
     - find -L /home/linuxbrew/.linuxbrew/bin/helm >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/jj >/dev/null
     - find -L /home/linuxbrew/.linuxbrew/bin/jless >/dev/null
     - find -L /home/linuxbrew/.linuxbrew/bin/k9s >/dev/null
     - find -L /home/linuxbrew/.linuxbrew/bin/kcl >/dev/null
