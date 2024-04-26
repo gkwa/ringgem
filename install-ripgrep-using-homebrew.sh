@@ -7,4 +7,4 @@ set +x
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 if [[ $orig_xtrace == "off" ]]; then set +x; else set -x; fi
 
-jless --version >/dev/null
+rg --version >/dev/null
