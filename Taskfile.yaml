@@ -9,7 +9,6 @@ tasks:
     cmds:
     - task: northflier
     - install-onejuly-on-linux
-    - northflier-with-dep-order
   northflier-with-dep-order:
     cmds:
     - task: run-kindsealion-on-linux
@@ -17,6 +16,7 @@ tasks:
   northflier:
     cmds:
     - task: wait-for-cloud-init
+    - task: northflier-with-dep-order
     - task: apt-yum-update
     - task: install-many-homebrew-apps
     - task: install-ansible-on-ubuntu
