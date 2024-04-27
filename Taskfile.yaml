@@ -31,7 +31,6 @@ tasks:
     - task: install-many-homebrew-apps
     - task: install-needrestart-on-linux
     - task: install-otel-cli-on-linux
-    - task: install-packer-on-linux
     - task: install-ringgem-testing-on-linux
     - task: install-rye-on-linux
     - task: install-silverdelay-on-linux
@@ -169,14 +168,6 @@ tasks:
     - apt-yum-update
     status:
     - command -v txtar-x >/dev/null
-  install-packer-on-linux:
-    cmds:
-    - sudo bash -eux install-packer-on-linux.sh
-    status:
-    - command -v packer >/dev/null
-    deps:
-    - install-curl-on-linux
-    - install-unzip-on-linux
   install-toml-cli-on-linux:
     cmds:
     - sudo bash -eux install-toml-cli-on-linux.sh
@@ -689,7 +680,6 @@ tasks:
     deps:
     - install-curl-on-linux
     - install-go-task-on-linux
-    - install-packer-on-linux
     status:
     - command -v kindsealion &>/dev/null
   install-mlocate-on-linux:
