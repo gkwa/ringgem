@@ -3,6 +3,8 @@
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 declare -A packages=(
+  ["awscli@2"]="aws --version"
+  ["bash-completion@2"]=""
   ["carvel-dev/carvel/ytt"]="ytt version"
   ["clusterawsadm"]="clusterawsadm version"
   ["clusterctl"]="clusterctl version"
@@ -28,6 +30,9 @@ for package in "${!packages[@]}"; do
   fi
 done
 
-for version_command in "${packages[@]}"; do
-  eval "$version_command" >/dev/null
+for package in "${!packages[@]}"; do
+ version_command="${packages[$package]}"
+ if [[ -n "$version_command" ]]; then
+   eval "$version_command" >/dev/null
+ fi
 done
