@@ -149,8 +149,7 @@ tasks:
     - install-allbranding-on-linux
     - install-jq-on-linux
     status:
-    - command -v gofumpt &>/dev/null
-    - command -v jq &>/dev/null
+    - commmand -v otelcol-contrib >/dev/null
   install-needrestart-on-linux:
     cmds:
     - bash -eux install-needrestart-on-linux.sh
