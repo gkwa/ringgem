@@ -20,7 +20,6 @@ tasks:
     - task: apt-yum-update
     - task: install-many-homebrew-apps
     - task: install-ansible-on-ubuntu
-    - task: install-awscli-on-linux
     - task: install-boilerplate-on-linux-and-macos
     - task: install-cakepalm-on-ubuntu
     - task: install-cloudelf-on-linux
@@ -35,7 +34,6 @@ tasks:
     - task: install-needrestart-on-linux
     - task: install-otel-cli-on-linux
     - task: install-packer-on-linux
-    - task: install-restic-on-linux
     - task: install-ringgem-testing-on-linux
     - task: install-rye-on-linux
     - task: install-silverdelay-on-linux
@@ -51,11 +49,6 @@ tasks:
     - install-cilium-on-linux
     - install-docker-on-linux
     - install-kubectl-on-linux
-  install-restic-on-linux:
-    cmds:
-    - bash -eux install-restic-on-linux.sh
-    status:
-    - command -v restic &>/dev/null
   install-ringgem-testing-on-linux:
     deps:
     - install-mythai-on-linux
@@ -319,13 +312,6 @@ tasks:
     - install-curl-on-linux
     status:
     - grep --quiet "alias k=kubectl" ~/.profile
-  install-awscli-on-linux:
-    cmds:
-    - task: install-unzip-on-linux
-    - task: install-curl-on-linux
-    - sudo bash -eux install-awscli-on-linux.sh
-    status:
-    - aws --version >/dev/null
   install-homebrew-on-linux:
     cmds:
     - sudo bash -eux install-homebrew-on-linux.sh
@@ -362,6 +348,7 @@ tasks:
     deps:
     - install-homebrew-on-linux
     status:
+    - find -L /home/linuxbrew/.linuxbrew/bin/aws >/dev/null
     - find -L /home/linuxbrew/.linuxbrew/bin/clusterawsadm >/dev/null
     - find -L /home/linuxbrew/.linuxbrew/bin/clusterctl >/dev/null
     - find -L /home/linuxbrew/.linuxbrew/bin/dolt >/dev/null

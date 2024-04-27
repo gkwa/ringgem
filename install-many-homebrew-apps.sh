@@ -20,6 +20,7 @@ declare -A packages=(
   ["kind"]="kind --version"
   ["nvim"]="nvim --version"
   ["opentofu"]="tofu version"
+  ["restic"]="restic version"
   ["ripgrep"]="rg --version"
   ["terragrunt"]="terragrunt --version"
 )
