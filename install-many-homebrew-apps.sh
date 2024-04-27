@@ -24,6 +24,7 @@ declare -A packages=(
   ["packer"]="packer --version"
   ["restic"]="restic version"
   ["ripgrep"]="rg --version"
+  ["taylormonacelli/homebrew-tools/cloudelf"]="cloudelf --help"
   ["terragrunt"]="terragrunt --version"
 )
 

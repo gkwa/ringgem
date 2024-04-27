@@ -19,7 +19,6 @@ tasks:
     - task: install-ansible-on-ubuntu
     - task: install-boilerplate-on-linux-and-macos
     - task: install-cakepalm-on-ubuntu
-    - task: install-cloudelf-on-linux
     - task: install-cloudwatch-on-ubuntu
     - task: install-devbox-on-linux
     - task: install-elasticsearch-on-ubuntu
@@ -347,6 +346,7 @@ tasks:
     - install-homebrew-on-linux
     status:
     - find -L /home/linuxbrew/.linuxbrew/bin/aws >/dev/null
+    - find -L /home/linuxbrew/.linuxbrew/bin/cloudelf >/dev/null
     - find -L /home/linuxbrew/.linuxbrew/bin/clusterawsadm >/dev/null
     - find -L /home/linuxbrew/.linuxbrew/bin/clusterctl >/dev/null
     - find -L /home/linuxbrew/.linuxbrew/bin/dolt >/dev/null
@@ -370,13 +370,6 @@ tasks:
     - install-curl-on-linux
     status:
     - command -v cilium &>/dev/null
-  install-cloudelf-on-linux:
-    cmds:
-    - sudo bash -eux install-cloudelf-on-linux.sh
-    deps:
-    - install-curl-on-linux
-    status:
-    - command -v cloudelf &>/dev/null
   install-cloudeagle-on-linux:
     cmds:
     - sudo bash -eux install-cloudeagle-on-linux.sh
