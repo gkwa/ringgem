@@ -30,9 +30,7 @@ tasks:
     - task: install-many-homebrew-apps
     - task: install-needrestart-on-linux
     - task: install-otel-cli-on-linux
-    - task: install-packer-on-linux
     - task: install-ringgem-testing-on-linux
-    - task: install-rye-on-linux
     - task: install-silverdelay-on-linux
     - task: install-sops-on-linux
     - task: install-toml-cli-on-linux
@@ -168,14 +166,6 @@ tasks:
     - apt-yum-update
     status:
     - command -v txtar-x >/dev/null
-  install-packer-on-linux:
-    cmds:
-    - sudo bash -eux install-packer-on-linux.sh
-    status:
-    - command -v packer >/dev/null
-    deps:
-    - install-curl-on-linux
-    - install-unzip-on-linux
   install-toml-cli-on-linux:
     cmds:
     - sudo bash -eux install-toml-cli-on-linux.sh
@@ -263,13 +253,6 @@ tasks:
     - install-jq-on-linux
     status:
     - command -v boilerplate >/dev/null
-  install-rye-on-linux:
-    cmds:
-    - sudo bash -eux install-rye-on-linux.sh
-    deps:
-    - install-curl-on-linux
-    status:
-    - command -v rye >/dev/null
   install-otel-cli-on-linux:
     cmds:
     - sudo bash -eux install-otel-cli-on-linux.sh
@@ -562,13 +545,6 @@ tasks:
     - install-curl-on-linux
     status:
     - test -x /usr/local/bin/irisqueen
-  install-unzip-on-linux:
-    cmds:
-    - sudo bash -eux install-unzip-on-linux.sh
-    deps:
-    - apt-yum-update
-    status:
-    - command -v unzip >/dev/null
   install-cakepalm-on-ubuntu:
     cmds:
     - sudo bash -eux install-cakepalm-on-ubuntu.sh
@@ -682,7 +658,6 @@ tasks:
     deps:
     - install-curl-on-linux
     - install-go-task-on-linux
-    - install-packer-on-linux
     status:
     - command -v kindsealion &>/dev/null
   install-mlocate-on-linux:
