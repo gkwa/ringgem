@@ -27,6 +27,7 @@ declare -A packages=(
     ["restic"]="restic version"
     ["ripgrep"]="rg --version"
     ["rye"]="rye --version"
+    ["taylormonacelli/homebrew-tools/allbranding"]="allbranding --help"
     ["taylormonacelli/homebrew-tools/cakepalm"]="cakepalm --help"
     ["taylormonacelli/homebrew-tools/cloudelf"]="cloudelf --help"
     ["terragrunt"]="terragrunt --version"
