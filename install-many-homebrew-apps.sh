@@ -30,6 +30,7 @@ declare -A packages=(
     ["taylormonacelli/homebrew-tools/cakepalm"]="cakepalm --help"
     ["taylormonacelli/homebrew-tools/cloudelf"]="cloudelf --help"
     ["terragrunt"]="terragrunt --version"
+    ["terraform"]="terraform --version"
     ["wget"]="wget --version"
 )
 

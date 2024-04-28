@@ -545,15 +545,6 @@ tasks:
     - install-curl-on-linux
     status:
     - test -x /usr/local/bin/irisqueen
-  install-cakepalm-on-ubuntu:
-    cmds:
-    - sudo bash -eux install-cakepalm-on-ubuntu.sh
-    deps:
-    - apt-yum-update
-    - install-unzip-on-linux
-    - install-curl-on-linux
-    status:
-    - command -v cakepalm >/dev/null
   install-jq-on-linux:
     cmds:
     - task: apt-yum-update
@@ -632,22 +623,6 @@ tasks:
     - install-jq-on-linux
     status:
     - command -v sops >/dev/null
-  install-terraform-on-linux:
-    cmds:
-    - sudo bash -eux install-terraform-on-linux.sh
-    deps:
-    - install-unzip-on-linux
-    - install-curl-on-linux
-    status:
-    - terraform -version >/dev/null
-  install-terraform-on-ubuntu:
-    cmds:
-    - sudo bash -eux install-terraform-on-ubuntu.sh
-    deps:
-    - install-curl-on-linux
-    - install-gpg-on-linux
-    status:
-    - terraform -version >/dev/null
   run-kindsealion-on-linux:
     run: once
     cmds:
