@@ -395,7 +395,7 @@ tasks:
     status:
     - test -f /etc/apt/sources.list.d/elastic-8.x.list
     deps:
-    - install-wget-on-linux
+    - install-curl-on-linux
   install-logstash-on-ubuntu:
     cmds:
     - task: install-elastic-ppa8-on-ubuntu
@@ -728,13 +728,6 @@ tasks:
     - sudo bash -eux install-curl-on-linux.sh
     status:
     - command -v curl &>/dev/null
-  install-wget-on-linux:
-    cmds:
-    - sudo bash -eux install-wget-on-linux.sh
-    deps:
-    - install-gpg-on-linux
-    status:
-    - command -v wget >/dev/null
   apt-yum-update:
     cmds:
     - sudo bash -eux apt-yum-update.sh

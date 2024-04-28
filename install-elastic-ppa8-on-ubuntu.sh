@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --batch --yes --dearmor -o /usr/share/keyrings/elastic-keyring.gpg
+curl -sSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --batch --yes --dearmor -o /usr/share/keyrings/elastic-keyring.gpg
 apt-get --assume-yes install apt-transport-https
 
 elastic_url=https://artifacts.elastic.co/packages/8.x/apt

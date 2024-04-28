@@ -18,6 +18,7 @@ declare -A packages=(
     ["k9s"]="k9s version"
     ["kcl-lang/tap/kcl"]="kcl version"
     ["kind"]="kind --version"
+    ["kubectl"]="kubectl version --output=yaml --client"
     ["nvim"]="nvim --version"
     ["opentofu"]="tofu version"
     ["packer-completion"]=""
@@ -26,6 +27,7 @@ declare -A packages=(
     ["ripgrep"]="rg --version"
     ["taylormonacelli/homebrew-tools/cloudelf"]="cloudelf --help"
     ["terragrunt"]="terragrunt --version"
+    ["wget"]="wget --version"
 )
 
 for package in "${!packages[@]}"; do
