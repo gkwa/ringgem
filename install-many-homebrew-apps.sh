@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
 
+
+
+
+if set +o | grep -q 'set +o xtrace'; then
+   old_state=off
+else
+   old_state=on
+fi
+
+
+
+
+
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 declare -A packages=(
@@ -41,9 +55,19 @@ for package in "${!packages[@]}"; do
     fi
 done
 
+set +o xtrace
+
 for package in "${!packages[@]}"; do
     version_command="${packages[$package]}"
     if [[ -n $version_command ]]; then
         eval "$version_command"
     fi
 done
+
+
+
+if [[ "$old_state" == "on" ]]; then
+   set -o xtrace
+else
+   set +o xtrace
+fi
