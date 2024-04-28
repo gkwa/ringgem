@@ -54,14 +54,6 @@ tasks:
   check-for-python:
     cmds:
     - python3 --version >/dev/null
-  install-allbranding-on-linux:
-    cmds:
-    - bash -eux install-allbranding-on-linux.sh
-    deps:
-    - install-curl-on-linux
-    - install-tar-on-linux
-    status:
-    - command -v allbranding &>/dev/null
   install-mythai-on-linux:
     cmds:
     - bash -eux install-mythai-on-linux.sh
@@ -141,7 +133,6 @@ tasks:
     - bash -eux install-otel-collector-on-linux.sh
     deps:
     - install-curl-on-linux
-    - install-allbranding-on-linux
     - install-jq-on-linux
     status:
     - commmand -v otelcol-contrib >/dev/null
@@ -169,7 +160,6 @@ tasks:
     cmds:
     - sudo bash -eux install-toml-cli-on-linux.sh
     deps:
-    - install-allbranding-on-linux
     - install-curl-on-linux
     - install-jq-on-linux
     status:
@@ -245,7 +235,6 @@ tasks:
     - sudo bash -eux install-boilerplate-on-linux-and-macos.sh
     deps:
     - install-curl-on-linux
-    - install-allbranding-on-linux
     - install-jq-on-linux
     status:
     - command -v boilerplate >/dev/null
@@ -253,7 +242,6 @@ tasks:
     cmds:
     - sudo bash -eux install-otel-cli-on-linux.sh
     deps:
-    - install-allbranding-on-linux
     - install-curl-on-linux
     - install-tar-on-linux
     - install-jq-on-linux
@@ -379,7 +367,6 @@ tasks:
     cmds:
     - sudo bash -eux install-cnspec-on-ubuntu.sh
     deps:
-    - install-allbranding-on-linux
     - install-jq-on-linux
     status:
     - command -v cnquery >/dev/null
@@ -604,7 +591,6 @@ tasks:
     cmds:
     - sudo bash -eux install-sops-on-linux.sh
     deps:
-    - install-allbranding-on-linux
     - install-curl-on-linux
     - install-jq-on-linux
     status:
