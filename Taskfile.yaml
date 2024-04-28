@@ -18,7 +18,6 @@ tasks:
     - task: apt-yum-update
     - task: install-ansible-on-ubuntu
     - task: install-boilerplate-on-linux-and-macos
-    - task: install-cakepalm-on-ubuntu
     - task: install-cloudwatch-on-ubuntu
     - task: install-devbox-on-linux
     - task: install-elasticsearch-on-ubuntu
