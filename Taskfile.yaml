@@ -191,7 +191,6 @@ tasks:
     cmds:
     - task: apt-yum-update
     - task: install-elastic-ppa8-on-ubuntu
-    - task: install-logstash-on-ubuntu
     - task: install-filebeat-on-ubuntu
     - sudo bash -eux install-elasticsearch-on-ubuntu.sh
     status:
@@ -207,8 +206,6 @@ tasks:
     cmds:
     - task: apt-yum-update
     - sudo bash -eux install-kibana-on-ubuntu.sh
-    deps:
-    - install-logstash-on-ubuntu
     status:
     - test -x /usr/share/kibana/bin/kibana-setup
   install-syncthing-on-ubuntu:
@@ -376,16 +373,6 @@ tasks:
     - sudo bash -eux install-elastic-ppa8-on-ubuntu.sh
     status:
     - test -f /etc/apt/sources.list.d/elastic-8.x.list
-    deps:
-    - install-curl-on-linux
-  install-logstash-on-ubuntu:
-    cmds:
-    - task: install-elastic-ppa8-on-ubuntu
-    - task: install-java-jre-on-ubuntu
-    - task: install-java-jdk-on-ubuntu
-    - sudo bash -eux install-logstash-on-ubuntu.sh
-    status:
-    - logstash --version >/dev/null
     deps:
     - install-curl-on-linux
   install-cnspec-on-ubuntu:
