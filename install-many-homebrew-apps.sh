@@ -29,8 +29,8 @@ declare -A packages=(
 )
 
 for package in "${!packages[@]}"; do
-    if ! brew list "$package" >/dev/null 2>&1; then
-        sudo --user linuxbrew --login brew install "$package"
+    if ! brew list $package >/dev/null 2>&1; then
+        sudo --user linuxbrew --login brew install $package
     fi
 done
 
