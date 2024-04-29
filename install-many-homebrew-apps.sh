@@ -36,7 +36,6 @@ declare -A packages=(
     ["opentofu"]="tofu version"
     ["packer-completion"]=""
     ["packer"]="packer --version"
-    ["pip3"]="pip3 --version"
     ["restic"]="restic version"
     ["ripgrep"]="rg --version"
     ["rye"]="rye --version"
