@@ -15,6 +15,7 @@ declare -A packages=(
     ["cilium-cli"]="cilium help"
     ["clusterawsadm"]="clusterawsadm version"
     ["clusterctl"]="clusterctl version"
+    ["dagger"]="dagger version"
     ["dolt"]="dolt version"
     ["gcc"]="gcc --version"
     ["gofumpt"]="gofumpt --version"
