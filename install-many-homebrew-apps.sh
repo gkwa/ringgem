@@ -52,10 +52,13 @@ declare -A packages=(
     ["wget"]="wget --version"
 )
 
+brew_packages=()
 for package in "${!packages[@]}"; do
-    if ! brew list $package >/dev/null 2>&1; then
-        sudo --user linuxbrew --login brew install $package
-    fi
+  brew_packages+=("$package")
+done
+
+for package in "${!packages[@]}"; do
+    sudo --user linuxbrew --login brew install "${brew_packages[@]}"
 done
 
 set +o xtrace
