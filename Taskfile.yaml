@@ -56,35 +56,24 @@ tasks:
       - bash -eux install-mythai-on-linux.sh
     deps:
       - check-for-python
-      - install-pip3-on-linux
     status:
       - command -v mythai &>/dev/null
   install-nix-on-linux:
     cmds:
-      - task: install-xz-utils-on-linux
       - bash -eux install-nix-on-linux.sh
     deps:
       - install-jq-on-linux
-      - install-curl-on-linux
     status:
       - test -d /nix/var/nix/profiles/default/etc
   wait-for-cloud-init:
     cmds:
       - bash -eux wait-for-cloud-init.sh
-  install-btrfs-progs-on-linux:
-    cmds:
-      - bash -eux install-btrfs-progs-on-linux.sh
-    deps:
-      - install-incus-on-linux
-    status:
-      - command -v btrfs &>/dev/null
   install-docker-in-incus-container:
     run: once
     cmds:
       - bash -eux install-docker-in-incus-container.sh
     deps:
       - install-incus-on-linux
-      - install-btrfs-progs-on-linux
   install-devbox-on-linux:
     cmds:
       - bash -eux install-devbox-on-linux.sh
@@ -104,8 +93,6 @@ tasks:
       - bash -eux install-cargo-on-linux.sh
     status:
       - command -v cargo >/dev/null
-    deps:
-      - install-curl-on-linux
   install-gpg-on-linux:
     cmds:
       - bash -eux install-gpg-on-linux.sh
@@ -122,7 +109,6 @@ tasks:
     cmds:
       - bash -eux install-otel-collector-on-linux.sh
     deps:
-      - install-curl-on-linux
       - install-jq-on-linux
     status:
       - commmand -v otelcol-contrib >/dev/null
@@ -138,7 +124,6 @@ tasks:
       - command -v incus >/dev/null
     deps:
       - install-gpg-on-linux
-      - install-curl-on-linux
   install-txtar-on-ubuntu:
     cmds:
       - sudo bash -eux install-txtar-on-ubuntu.sh
@@ -150,15 +135,9 @@ tasks:
     cmds:
       - sudo bash -eux install-toml-cli-on-linux.sh
     deps:
-      - install-curl-on-linux
       - install-jq-on-linux
     status:
       - command -v toml >/dev/null
-  install-apt-utils-on-ubuntu:
-    cmds:
-      - sudo bash -eux install-apt-utils-on-ubuntu.sh
-    deps:
-      - apt-yum-update
   install-package-upgrades-on-ubuntu:
     cmds:
       - sudo bash -eux install-package-upgrades-on-ubuntu.sh
@@ -178,8 +157,6 @@ tasks:
   install-wakemeops-on-ubuntu:
     cmds:
       - sudo bash -eux install-wakemeops-on-ubuntu.sh
-    deps:
-      - install-curl-on-linux
     status:
       - test -f /etc/apt/sources.list.d/wakemeops.list
   install-kibana-on-ubuntu:
@@ -191,20 +168,15 @@ tasks:
   install-syncthing-on-ubuntu:
     cmds:
       - sudo bash -eux install-syncthing-on-ubuntu.sh
-    deps:
-      - install-curl-on-linux
     status:
       - command -v syncthing >/dev/null
   install-glab-on-linux:
     cmds:
       - sudo bash -eux install-glab-on-linux.sh
-    deps:
-      - install-curl-on-linux
     status:
       - command -v glab >/dev/null
   install-onejuly-on-linux:
     cmds:
-      - task: install-git-on-linux
       - task: install-incus-on-linux
       - task: install-jq-on-linux
       - sudo bash -eux install-onejuly-on-linux.sh
@@ -215,9 +187,6 @@ tasks:
   install-fullbus-on-linux:
     cmds:
       - sudo bash -eux install-fullbus-on-linux.sh
-    deps:
-      - install-git-on-linux
-      - install-pip3-on-linux
     status:
       - command -v fullbus >/dev/null
   install-boilerplate-on-linux-and-macos:
@@ -225,7 +194,6 @@ tasks:
       - sudo bash -eux install-boilerplate-on-linux-and-macos.sh
     deps:
       - install-many-homebrew-apps
-      - install-curl-on-linux
       - install-jq-on-linux
     status:
       - command -v boilerplate >/dev/null
@@ -233,7 +201,6 @@ tasks:
     cmds:
       - sudo bash -eux install-otel-cli-on-linux.sh
     deps:
-      - install-curl-on-linux
       - install-tar-on-linux
       - install-jq-on-linux
     status:
@@ -241,8 +208,6 @@ tasks:
   install-ansible-on-ubuntu:
     cmds:
       - sudo bash -eux install-ansible-on-ubuntu.sh
-    deps:
-      - install-pip3-on-linux
     status:
       - $HOME/.local/bin/ansible --version >/dev/null
   install-lxc-on-ubuntu:
@@ -263,8 +228,6 @@ tasks:
   bash-customize-kubectl-on-linux:
     cmds:
       - sudo bash -eux bash-customize-kubectl-on-linux.sh
-    deps:
-      - install-curl-on-linux
     status:
       - grep --quiet "alias k=kubectl" ~/.profile
   install-homebrew-on-linux:
@@ -272,29 +235,21 @@ tasks:
       - sudo bash -eux install-homebrew-on-linux.sh
     deps:
       - apt-yum-update
-      - install-curl-on-linux
-      - install-git-on-linux
     status:
       - test -x /home/linuxbrew/.linuxbrew/bin/brew
   install-cilium-hubble-on-linux:
     cmds:
       - sudo bash -eux install-cilium-hubble-on-linux.sh
-    deps:
-      - install-curl-on-linux
     status:
       - command -v hubble &>/dev/null
   install-fluentd-on-ubuntu:
     cmds:
       - sudo bash -eux install-fluentd-on-ubuntu.sh
-    deps:
-      - install-curl-on-linux
     status:
       - command -v fluentd >/dev/null
   install-cloudwatch-on-ubuntu:
     cmds:
       - sudo bash -eux install-cloudwatch-on-ubuntu.sh
-    deps:
-      - install-curl-on-linux
     status:
       - command -v fluentd >/dev/null
   install-many-homebrew-apps:
@@ -324,29 +279,13 @@ tasks:
   install-cloudeagle-on-linux:
     cmds:
       - sudo bash -eux install-cloudeagle-on-linux.sh
-    deps:
-      - install-curl-on-linux
     status:
       - command -v cloudeagle >/dev/null
-  install-java-jre-on-ubuntu:
-    cmds:
-      - sudo bash -eux install-java-jre-on-ubuntu.sh
-    deps:
-      - apt-yum-update
-    status:
-      - java -version >/dev/null
-  install-java-jdk-on-ubuntu:
-    cmds:
-      - sudo bash -eux install-java-jdk-on-ubuntu.sh
-    status:
-      - javac -version >/dev/null
   install-elastic-ppa8-on-ubuntu:
     cmds:
       - sudo bash -eux install-elastic-ppa8-on-ubuntu.sh
     status:
       - test -f /etc/apt/sources.list.d/elastic-8.x.list
-    deps:
-      - install-curl-on-linux
   install-cnspec-on-ubuntu:
     cmds:
       - sudo bash -eux install-cnspec-on-ubuntu.sh
@@ -358,8 +297,6 @@ tasks:
   install-filebeat-on-ubuntu:
     cmds:
       - sudo bash -eux install-filebeat-on-ubuntu.sh
-    deps:
-      - install-curl-on-linux
     status:
       - filebeat version >/dev/null
   install-filebeat-on-windows:
@@ -373,8 +310,6 @@ tasks:
     status:
       - goldpuppy --help | Out-Null
   install-goldpuppy-on-ubuntu:
-    deps:
-      - install-curl-on-linux
     cmds:
       - sudo bash -eux install-goldpuppy-on-ubuntu.sh
     status:
@@ -408,29 +343,21 @@ tasks:
     run: once
     cmds:
       - sudo bash -eux install-mylime-on-linux.sh
-    deps:
-      - install-curl-on-linux
     status:
       - command -v mylime &>/dev/null
   install-docker-on-linux:
     cmds:
       - sudo bash -eux install-docker-on-linux.sh
-    deps:
-      - install-curl-on-linux
     status:
       - docker --version >/dev/null
   install-dulltrader-on-linux:
     cmds:
       - sudo bash -eux install-dulltrader-on-linux.sh
-    deps:
-      - install-curl-on-linux
     status:
       - command -v dulltrader >/dev/null
   install-envsubst-on-linux:
     cmds:
       - sudo bash -eux install-envsubst-on-linux.sh
-    deps:
-      - install-curl-on-linux
     status:
       - command -v envsubst >/dev/null
   install-go-task-bash-completion-on-linux:
@@ -438,28 +365,19 @@ tasks:
       - sudo bash -eux install-go-task-bash-completion-on-linux.sh
     deps:
       - install-bash-completion-on-linux
-      - install-curl-on-linux
     status:
       - test -s /usr/share/bash-completion/completions/task
   install-giantcloak-on-linux:
     cmds:
       - sudo bash -eux install-giantcloak-on-linux.sh
-    deps:
-      - install-curl-on-linux
     status:
       - command -v giantcloak >/dev/null
-  install-git-on-linux:
-    cmds:
-      - sudo bash -eux install-git-on-linux.sh
-    status:
-      - command -v git &>/dev/null
   install-go-task-on-linux:
     cmds:
       - sudo bash -eux install-go-task-on-linux.sh
       - task: install-go-task-bash-completion-on-linux
     deps:
       - task: install-go-task-bash-completion-on-linux
-      - install-curl-on-linux
     status:
       - task --version >/dev/null
   install-tar-on-linux:
@@ -470,37 +388,12 @@ tasks:
   install-golang-from-tar:
     cmds:
       - sudo bash -eux install-golang-from-tar.sh
-    deps:
-      - install-curl-on-linux
     status:
       - test -x /usr/local/go/bin/go
-  install-xz-utils-on-linux:
-    cmds:
-      - sudo bash -eux install-xz-utils-on-linux.sh
-    deps:
-      - apt-yum-update
-    status:
-      - command -v xz &>/dev/null
-  install-goreleaser-on-linux:
-    cmds:
-      - sudo bash -eux install-goreleaser-on-linux.sh
-    deps:
-      - install-curl-on-linux
-    status:
-      - goreleaser --version >/dev/null
-  install-irisqueen-on-linux:
-    cmds:
-      - sudo bash -eux install-irisqueen-on-linux.sh
-    deps:
-      - install-curl-on-linux
-    status:
-      - test -x /usr/local/bin/irisqueen
   install-jq-on-linux:
     cmds:
       - task: apt-yum-update
       - sudo bash -eux install-jq-on-linux.sh
-    deps:
-      - install-curl-on-linux
     status:
       - command -v jq >/dev/null
   install-kubectl-konfig-plugin:
@@ -511,24 +404,13 @@ tasks:
   install-kubectl-on-linux:
     cmds:
       - sudo bash -eux install-kubectl-on-linux.sh
-    deps:
-      - install-curl-on-linux
     status:
       - command -v kubectl >/dev/null
   install-kubectl-stern-plugin:
     cmds:
       - sudo bash -eux install-kubectl-stern-plugin.sh
-    deps:
-      - install-git-on-linux
     status:
       - test -x ~/.krew/store/stern/v*/stern &>/dev/null
-  install-pip3-on-linux:
-    cmds:
-      - task: apt-yum-update
-      - task: install-python3-on-linux
-      - sudo bash -eux install-pip3-on-linux.sh
-    status:
-      - command -v pip3 >/dev/null
   install-pssh-on-linux:
     cmds:
       - sudo bash -eux install-pssh-on-linux.sh
@@ -549,12 +431,9 @@ tasks:
   run-kindsealion-on-linux:
     run: once
     cmds:
-      - task: install-git-on-linux
       - task: install-incus-on-linux
-      - task: install-pip3-on-linux
       - sudo bash -eux run-kindsealion-on-linux.sh
     deps:
-      - install-curl-on-linux
       - install-go-task-on-linux
     status:
       - command -v kindsealion &>/dev/null
@@ -568,18 +447,11 @@ tasks:
   install-silverdelay-on-linux:
     cmds:
       - task: install-docker-on-linux
-      - task: install-git-on-linux
       - sudo bash -eux install-silverdelay-on-linux.sh
     deps:
       - install-mylime-on-linux
     status:
       - '! mylime newerthan 1d silverdelay'
-  install-curl-on-linux:
-    run: once
-    cmds:
-      - sudo bash -eux install-curl-on-linux.sh
-    status:
-      - command -v curl &>/dev/null
   apt-yum-update:
     cmds:
       - sudo bash -eux apt-yum-update.sh
@@ -587,17 +459,3 @@ tasks:
       - install-mylime-on-linux
     status:
       - '! mylime newerthan 5m apt-update'
-  install-curl-on-ubuntu:
-    cmds:
-      - sudo bash -eux install-curl-on-ubuntu.sh
-    deps:
-      - apt-yum-update
-    status:
-      - dpkg -s curl &>/dev/null
-  install-git-on-ubuntu:
-    cmds:
-      - sudo bash -eux install-git-on-ubuntu.sh
-    deps:
-      - apt-yum-update
-    status:
-      - dpkg -s git &>/dev/null
