@@ -47,6 +47,7 @@ declare -A packages=(
     ["taylormonacelli/homebrew-tools/mylime"]="mylime --help"
     ["terraform"]="terraform --version"
     ["terragrunt"]="terragrunt --version"
+    ["tflint"]="tflint --version"
     ["tilt"]="tilt version"
     ["timoni"]="timoni --version"
     ["wget"]="wget --version"
