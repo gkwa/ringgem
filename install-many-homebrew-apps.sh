@@ -45,6 +45,7 @@ declare -A packages=(
     ["taylormonacelli/homebrew-tools/cloudelf"]="cloudelf --help"
     ["taylormonacelli/homebrew-tools/eachit"]="eachit --help"
     ["taylormonacelli/homebrew-tools/mylime"]="mylime --help"
+    ["tektoncd-cli"]="tkn version"
     ["terraform"]="terraform --version"
     ["terragrunt"]="terragrunt --version"
     ["tflint"]="tflint --version"
