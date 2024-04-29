@@ -34,6 +34,7 @@ declare -A packages=(
     ["logstash"]="jj --version"
     ["nvim"]="nvim --version"
     ["opentofu"]="tofu version"
+    ["podman"]="podman version"
     ["packer-completion"]=""
     ["packer"]="packer --version"
     ["restic"]="restic version"
