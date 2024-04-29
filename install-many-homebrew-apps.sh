@@ -57,9 +57,7 @@ for package in "${!packages[@]}"; do
   brew_packages+=("$package")
 done
 
-for package in "${!packages[@]}"; do
-    sudo --user linuxbrew --login brew install "${brew_packages[@]}"
-done
+sudo --user linuxbrew --login brew install "${brew_packages[@]}"
 
 set +o xtrace
 
