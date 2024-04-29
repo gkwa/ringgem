@@ -31,7 +31,6 @@ tasks:
       - task: install-otel-cli-on-linux
       - task: install-ringgem-testing-on-linux
       - task: install-silverdelay-on-linux
-      - task: install-sops-on-linux
       - task: install-toml-cli-on-linux
       - task: install-txtar-on-ubuntu
       - task: northflier-with-dep-order
@@ -47,10 +46,8 @@ tasks:
   install-ringgem-testing-on-linux:
     deps:
       - install-mythai-on-linux
-      - install-eachit-on-linux
     status:
       - command -v mythai &>/dev/null
-      - command -v eachit &>/dev/null
   check-for-python:
     cmds:
       - python3 --version >/dev/null
@@ -71,13 +68,6 @@ tasks:
       - install-curl-on-linux
     status:
       - test -d /nix/var/nix/profiles/default/etc
-  install-eachit-on-linux:
-    cmds:
-      - bash -eux install-eachit-on-linux.sh
-    deps:
-      - install-curl-on-linux
-    status:
-      - command -v eachit &>/dev/null
   wait-for-cloud-init:
     cmds:
       - bash -eux wait-for-cloud-init.sh
@@ -331,13 +321,6 @@ tasks:
       - find -L /home/linuxbrew/.linuxbrew/bin/terragrunt >/dev/null
       - find -L /home/linuxbrew/.linuxbrew/bin/tofu >/dev/null
       - find -L /home/linuxbrew/.linuxbrew/bin/ytt >/dev/null
-  install-cilium-on-linux:
-    cmds:
-      - sudo bash -eux install-cilium-on-linux.sh
-    deps:
-      - install-curl-on-linux
-    status:
-      - command -v cilium &>/dev/null
   install-cloudeagle-on-linux:
     cmds:
       - sudo bash -eux install-cloudeagle-on-linux.sh
@@ -520,19 +503,9 @@ tasks:
       - install-curl-on-linux
     status:
       - command -v jq >/dev/null
-  install-krew-on-linux:
-    cmds:
-      - sudo bash -eux install-krew-on-linux.sh
-    deps:
-      - install-kubectl-on-linux
-      - install-curl-on-linux
-    status:
-      - test -x ~/.krew/bin/kubectl-krew
   install-kubectl-konfig-plugin:
     cmds:
       - sudo bash -eux install-kubectl-konfig-plugin.sh
-    deps:
-      - install-krew-on-linux
     status:
       - test -x ~/.krew/store/konfig/v*/konfig-krew &>/dev/null
   install-kubectl-on-linux:
@@ -547,16 +520,8 @@ tasks:
       - sudo bash -eux install-kubectl-stern-plugin.sh
     deps:
       - install-git-on-linux
-      - install-krew-on-linux
     status:
       - test -x ~/.krew/store/stern/v*/stern &>/dev/null
-  install-kustomize-on-linux:
-    cmds:
-      - sudo bash -eux install-kustomize-on-linux.sh
-    deps:
-      - install-curl-on-linux
-    status:
-      - kustomize version >/dev/null
   install-pip3-on-linux:
     cmds:
       - task: apt-yum-update
@@ -581,14 +546,6 @@ tasks:
       - sudo bash install-python3-pip-on-ubuntu.sh
     status:
       - command -v pip >/dev/null
-  install-sops-on-linux:
-    cmds:
-      - sudo bash -eux install-sops-on-linux.sh
-    deps:
-      - install-curl-on-linux
-      - install-jq-on-linux
-    status:
-      - command -v sops >/dev/null
   run-kindsealion-on-linux:
     run: once
     cmds:
@@ -608,13 +565,6 @@ tasks:
       - apt-yum-update
     status:
       - command -v updatedb >/dev/null
-  install-tilt-on-linux:
-    cmds:
-      - sudo bash -eux install-tilt-on-linux.sh
-    deps:
-      - install-curl-on-linux
-    status:
-      - tilt version >/dev/null
   install-silverdelay-on-linux:
     cmds:
       - task: install-docker-on-linux
@@ -624,20 +574,6 @@ tasks:
       - install-mylime-on-linux
     status:
       - '! mylime newerthan 1d silverdelay'
-  install-timoni-on-linux:
-    cmds:
-      - sudo bash -eux install-timoni-on-linux.sh
-    deps:
-      - install-arkade-on-linux
-    status:
-      - timoni version >/dev/null
-  install-arkade-on-linux:
-    cmds:
-      - sudo bash -eux install-arkade-on-linux.sh
-    deps:
-      - install-curl-on-linux
-    status:
-      - arkade version >/dev/null
   install-curl-on-linux:
     run: once
     cmds:
