@@ -339,12 +339,6 @@ tasks:
       - task: upgrade-bash-completion-on-linux
     status:
       - '[[ -d /usr/share/bash-completion/completions/ ]]'
-  install-mylime-on-linux:
-    run: once
-    cmds:
-      - sudo bash -eux install-mylime-on-linux.sh
-    status:
-      - command -v mylime &>/dev/null
   install-docker-on-linux:
     cmds:
       - sudo bash -eux install-docker-on-linux.sh
@@ -448,8 +442,6 @@ tasks:
     cmds:
       - task: install-docker-on-linux
       - sudo bash -eux install-silverdelay-on-linux.sh
-    deps:
-      - install-mylime-on-linux
     status:
       - '! mylime newerthan 1d silverdelay'
   apt-yum-update:
