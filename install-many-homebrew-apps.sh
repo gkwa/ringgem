@@ -48,7 +48,7 @@ declare -A packages=(
     ["terragrunt"]="terragrunt --version"
     ["tflint"]="tflint --version"
     ["tilt"]="tilt version"
-    ["timoni"]="timoni --version"
+    ["stefanprodan/tap/timoni"]="timoni --version"
     ["wget"]="wget --version"
 )
 
