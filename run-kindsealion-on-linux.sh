@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export PATH=/home/linuxbrew/.linuxbrew/bin:"$PATH"
+
 pip install --upgrade git+https://github.com/taylormonacelli/kindsealion
 kindsealion --outdir=scratch
 
