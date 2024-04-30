@@ -4,9 +4,6 @@ if [ -f /etc/fedora-release ]; then
     dnf install -y python3
 elif [ -f /etc/lsb-release ] || [ -f /etc/debian_version ]; then
     apt-get install -y python3
-else
-    echo "Unsupported distribution"
-    exit 1
 fi
 
 curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
