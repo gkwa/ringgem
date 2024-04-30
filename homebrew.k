@@ -129,7 +129,7 @@
     }
     {
         name = "taylormonacelli/homebrew-tools/allbranding"
-        check_installed = "allbranding --help"
+        check_installed = "/usr/local/bin/allbranding --help"
     }
     {
         name = "taylormonacelli/homebrew-tools/howbob"

@@ -17,7 +17,7 @@ fi
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-url=$(allbranding query --releases-url=https://api.github.com/repos/gruntwork-io/boilerplate/releases --asset-regex="$binary" | jq -r .browser_download_url)
+url=$(/usr/local/bin/allbranding query --releases-url=https://api.github.com/repos/gruntwork-io/boilerplate/releases --asset-regex="$binary" | jq -r .browser_download_url)
 curl -fsSL -o boilerplate $url
 install --mode 0755 boilerplate /usr/local/bin/boilerplate
 boilerplate --version
