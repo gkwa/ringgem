@@ -213,7 +213,7 @@ tasks:
       - apt-yum-update
       - install-jq-on-linux
     status:
-      - command -v lxc-wait >/dev/null
+      - dpkg -l sysbox-ce >/dev/null
   install-lxc-on-ubuntu:
     cmds:
       - sudo bash -eux install-lxc-on-ubuntu.sh
