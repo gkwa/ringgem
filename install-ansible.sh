@@ -1,3 +1,11 @@
 #!/usr/bin/env bash
 
-python3 -m pip install ansible
+if python3 -m pip install ansible; then
+exit 0
+fi
+
+if pip install ansible; then
+exit 0
+fi
+
+pip3 install ansible
