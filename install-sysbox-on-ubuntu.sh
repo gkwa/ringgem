@@ -14,3 +14,5 @@ download_url="https://downloads.nestybox.com/sysbox/releases/${tag_name}/${deb_n
 
 curl -LO $download_url
 sudo apt-get install ./$deb_name
+
+rm -f ./$deb_name
