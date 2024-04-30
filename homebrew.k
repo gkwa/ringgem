@@ -132,6 +132,10 @@
         version_check = "allbranding --help"
     }
     {
+        name = "taylormonacelli/homebrew-tools/howbob"
+        version_check = "howbob --help"
+    }
+    {
         name = "taylormonacelli/homebrew-tools/cakepalm"
         version_check = "cakepalm --help"
     }
