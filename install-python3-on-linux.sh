@@ -1,14 +1,11 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-if command -v apt &>/dev/null; then
-    DEBIAN_FRONTEND=noninteractive apt-get -y install python3
-
-elif command -v amazon-linux-extras &>/dev/null; then
-    amazon-linux-extras install -y python3.8
-
-elif command -v yum &>/dev/null; then
-    yum -y install python3
-
+if [ -f /etc/fedora-release ]; then
+   dnf install -y python3 python3-pip
+elif [ -f /etc/lsb-release ] || [ -f /etc/debian_version ]; then
+   apt-get update
+   apt-get install -y python3 python3-pip
 else
-    echo "Neither apt nor yum package manager is available."
+   echo "Unsupported distribution"
+   exit 1
 fi

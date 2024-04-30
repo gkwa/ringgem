@@ -15,9 +15,8 @@ tasks:
       - task: install-docker-on-linux
   northflier:
     cmds:
-      - task: apt-yum-update
+      - task: install-ansible
       - task: install-many-homebrew-apps
-      - task: install-ansible-on-ubuntu
       - task: install-boilerplate-on-linux-and-macos
       - task: install-cloudwatch-on-ubuntu
       - task: install-devbox-on-linux
@@ -202,11 +201,13 @@ tasks:
       - install-jq-on-linux
     status:
       - command -v otel-cli >/dev/null
-  install-ansible-on-ubuntu:
+  install-ansible:
     cmds:
-      - sudo bash -eux install-ansible-on-ubuntu.sh
+      - sudo bash -eux install-ansible.sh
+    deps:
+      - install-python-on-linux
     status:
-      - $HOME/.local/bin/ansible --version >/dev/null
+      - command -v ansible >/dev/null
   install-lxc-on-ubuntu:
     cmds:
       - sudo bash -eux install-lxc-on-ubuntu.sh
@@ -404,16 +405,11 @@ tasks:
       - apt-yum-update
     status:
       - parallel-ssh --version >/dev/null
-  install-python3-on-linux:
+  install-python-on-linux:
     cmds:
-      - sudo bash install-python3-on-linux.sh
+      - sudo bash install-python-on-linux.sh
     status:
       - python3 --version >/dev/null
-  install-python3-pip-on-ubuntu:
-    cmds:
-      - sudo bash install-python3-pip-on-ubuntu.sh
-    status:
-      - command -v pip >/dev/null
   run-kindsealion-on-linux:
     run: once
     cmds:
