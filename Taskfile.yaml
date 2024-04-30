@@ -385,6 +385,7 @@ tasks:
       - sudo bash install-python3-on-linux.sh
     status:
       - python3 --version >/dev/null
+      - pip3 --version
   run-kindsealion-on-linux:
     run: once
     cmds:
