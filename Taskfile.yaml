@@ -15,7 +15,7 @@ tasks:
       - task: install-docker-on-linux
   northflier:
     cmds:
-      - task: install-python3-on-linux
+      - task: install-python-on-linux
       - task: install-ansible
       - task: install-boilerplate-on-linux-and-macos
       - task: install-cloudwatch-on-ubuntu
@@ -204,7 +204,7 @@ tasks:
     cmds:
       - sudo bash -eux install-ansible.sh
     deps:
-      - install-python3-on-linux
+      - install-python-on-linux
     status:
       - command -v ansible >/dev/null
   install-lxc-on-ubuntu:
@@ -380,9 +380,9 @@ tasks:
       - apt-yum-update
     status:
       - parallel-ssh --version >/dev/null
-  install-python3-on-linux:
+  install-python-on-linux:
     cmds:
-      - sudo bash install-python3-on-linux.sh
+      - sudo bash install-python-on-linux.sh
     status:
       - python3 --version >/dev/null
       - pip3 --version
