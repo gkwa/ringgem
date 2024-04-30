@@ -10,15 +10,5 @@ else
     exit 1
 fi
 
-install_ansible() {
-   if "$@"; then
-       pip3 --version
-       exit 0
-   fi
-}
-
-install_ansible python3 -m ensurepip --upgrade
-install_ansible python3 -m pip install ansible
-install_ansible pip install ansible
-
+python3 -m ensurepip --upgrade
 pip3 --version
