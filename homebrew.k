@@ -93,7 +93,7 @@
     }
     {
         name = "logstash"
-        check_installed = "jj --version"
+        check_installed = "logstash --version"
     }
     {
         name = "nvim"
