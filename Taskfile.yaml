@@ -24,7 +24,6 @@ tasks:
       - task: install-elasticsearch-on-ubuntu
       - task: install-fluentd-on-ubuntu
       - task: install-fullbus-on-linux
-      - task: install-golang-from-tar
       - task: install-goldpuppy-on-ubuntu
       - task: install-incus-on-linux
       - task: install-needrestart-on-linux
@@ -101,8 +100,6 @@ tasks:
   install-golangci-lint-on-linux-using-go:
     cmds:
       - bash -eux install-golangci-lint-on-linux-using-go.sh
-    deps:
-      - install-golang-from-tar
     status:
       - command -v golangci-lint &>/dev/null
   install-otel-collector-on-linux:
@@ -379,11 +376,6 @@ tasks:
       - sudo bash -eux install-tar-on-linux.sh
     status:
       - tar --version >/dev/null
-  install-golang-from-tar:
-    cmds:
-      - sudo bash -eux install-golang-from-tar.sh
-    status:
-      - test -x /usr/local/go/bin/go
   install-jq-on-linux:
     cmds:
       - task: apt-yum-update

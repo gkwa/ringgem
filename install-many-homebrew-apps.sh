@@ -17,6 +17,7 @@ declare -A packages=(
     ["dolt"]="dolt version"
     ["gcc"]="gcc --version"
     ["gofumpt"]="gofumpt --version"
+    ["golang"]="go version"
     ["golangci/tap/golangci-lint"]="golangci-lint --version"
     ["goreleaser"]="goreleaser --version"
     ["helm"]="helm version"

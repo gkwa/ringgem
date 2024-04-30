@@ -1,5 +1,9 @@
 {packages = [
     {
+        homebrew_package = "golang"
+        version_check = "go version"
+    }
+    {
         homebrew_package = "awscli@2"
         version_check = "aws --version"
     }
