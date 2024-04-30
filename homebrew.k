@@ -1,182 +1,182 @@
 {packages = [
     {
-        homebrew_package = "golang"
+        name = "golang"
         version_check = "go version"
     }
     {
-        homebrew_package = "awscli@2"
+        name = "awscli@2"
         version_check = "aws --version"
     }
     {
-        homebrew_package = "bash-completion@2"
+        name = "bash-completion@2"
         version_check = ""
     }
     {
-        homebrew_package = "carvel-dev/carvel/ytt"
+        name = "carvel-dev/carvel/ytt"
         version_check = "ytt version"
     }
     {
-        homebrew_package = "cilium-cli"
+        name = "cilium-cli"
         version_check = "cilium help"
     }
     {
-        homebrew_package = "clusterawsadm"
+        name = "clusterawsadm"
         version_check = "clusterawsadm version"
     }
     {
-        homebrew_package = "clusterctl"
+        name = "clusterctl"
         version_check = "clusterctl version"
     }
     {
-        homebrew_package = "dagger"
+        name = "dagger"
         version_check = "dagger version"
     }
     {
-        homebrew_package = "dolt"
+        name = "dolt"
         version_check = "dolt version"
     }
     {
-        homebrew_package = "gcc"
+        name = "gcc"
         version_check = "gcc --version"
     }
     {
-        homebrew_package = "gofumpt"
+        name = "gofumpt"
         version_check = "gofumpt --version"
     }
     {
-        homebrew_package = "golangci/tap/golangci-lint"
+        name = "golangci/tap/golangci-lint"
         version_check = "golangci-lint --version"
     }
     {
-        homebrew_package = "goreleaser"
+        name = "goreleaser"
         version_check = "goreleaser --version"
     }
     {
-        homebrew_package = "helm"
+        name = "helm"
         version_check = "helm version"
     }
     {
-        homebrew_package = "irisqueen"
+        name = "irisqueen"
         version_check = "irisqueen help"
     }
     {
-        homebrew_package = "jj"
+        name = "jj"
         version_check = "jj --version"
     }
     {
-        homebrew_package = "jless"
+        name = "jless"
         version_check = "jless --version"
     }
     {
-        homebrew_package = "k9s"
+        name = "k9s"
         version_check = "k9s version"
     }
     {
-        homebrew_package = "kcl-lang/tap/kcl"
+        name = "kcl-lang/tap/kcl"
         version_check = "kcl version"
     }
     {
-        homebrew_package = "kind"
+        name = "kind"
         version_check = "kind --version"
     }
     {
-        homebrew_package = "krew"
+        name = "krew"
         version_check = "kubectl krew version"
     }
     {
-        homebrew_package = "kubectl"
+        name = "kubectl"
         version_check = "kubectl version --output=yaml --client"
     }
     {
-        homebrew_package = "kustomize"
+        name = "kustomize"
         version_check = "kustomize version"
     }
     {
-        homebrew_package = "logstash"
+        name = "logstash"
         version_check = "jj --version"
     }
     {
-        homebrew_package = "nvim"
+        name = "nvim"
         version_check = "nvim --version"
     }
     {
-        homebrew_package = "opentofu"
+        name = "opentofu"
         version_check = "tofu version"
     }
     {
-        homebrew_package = "podman"
+        name = "podman"
         version_check = "podman version"
     }
     {
-        homebrew_package = "packer-completion"
+        name = "packer-completion"
         version_check = ""
     }
     {
-        homebrew_package = "packer"
+        name = "packer"
         version_check = "packer --version"
     }
     {
-        homebrew_package = "restic"
+        name = "restic"
         version_check = "restic version"
     }
     {
-        homebrew_package = "ripgrep"
+        name = "ripgrep"
         version_check = "rg --version"
     }
     {
-        homebrew_package = "rye"
+        name = "rye"
         version_check = "rye --version"
     }
     {
-        homebrew_package = "sops"
+        name = "sops"
         version_check = "sops --version"
     }
     {
-        homebrew_package = "taylormonacelli/homebrew-tools/allbranding"
+        name = "taylormonacelli/homebrew-tools/allbranding"
         version_check = "allbranding --help"
     }
     {
-        homebrew_package = "taylormonacelli/homebrew-tools/cakepalm"
+        name = "taylormonacelli/homebrew-tools/cakepalm"
         version_check = "cakepalm --help"
     }
     {
-        homebrew_package = "taylormonacelli/homebrew-tools/cloudelf"
+        name = "taylormonacelli/homebrew-tools/cloudelf"
         version_check = "cloudelf --help"
     }
     {
-        homebrew_package = "taylormonacelli/homebrew-tools/eachit"
+        name = "taylormonacelli/homebrew-tools/eachit"
         version_check = "eachit --help"
     }
     {
-        homebrew_package = "taylormonacelli/homebrew-tools/mylime"
+        name = "taylormonacelli/homebrew-tools/mylime"
         version_check = "mylime --help"
     }
     {
-        homebrew_package = "tektoncd-cli"
+        name = "tektoncd-cli"
         version_check = "tkn version"
     }
     {
-        homebrew_package = "terraform"
+        name = "terraform"
         version_check = "terraform --version"
     }
     {
-        homebrew_package = "terragrunt"
+        name = "terragrunt"
         version_check = "terragrunt --version"
     }
     {
-        homebrew_package = "tflint"
+        name = "tflint"
         version_check = "tflint --version"
     }
     {
-        homebrew_package = "tilt"
+        name = "tilt"
         version_check = "tilt version"
     }
     {
-        homebrew_package = "stefanprodan/tap/timoni"
+        name = "stefanprodan/tap/timoni"
         version_check = "timoni --version"
     }
     {
-        homebrew_package = "wget"
+        name = "wget"
         version_check = "wget --version"
     }
 ]}
