@@ -56,10 +56,6 @@
         version_check = "helm version"
     }
     {
-        name = "irisqueen"
-        version_check = "irisqueen help"
-    }
-    {
         name = "jj"
         version_check = "jj --version"
     }
@@ -150,6 +146,10 @@
     {
         name = "taylormonacelli/homebrew-tools/mylime"
         version_check = "mylime --help"
+    }
+    {
+        name = "taylormonacelli/homebrew-tools/irisqueen"
+        version_check = "irisqueen --help"
     }
     {
         name = "tektoncd-cli"
