@@ -6,8 +6,6 @@ else
     old_state=on
 fi
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 declare -A packages=(
     ["awscli@2"]="aws --version"
     ["bash-completion@2"]=""
@@ -60,10 +58,10 @@ for package in "${!packages[@]}"; do
   brew_packages+=("$package")
 done
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 sudo --user linuxbrew --login brew install "${brew_packages[@]}"
 
 set +o xtrace
-
 for package in "${!packages[@]}"; do
     version_command="${packages[$package]}"
     if [[ -n $version_command ]]; then
