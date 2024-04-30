@@ -12,12 +12,12 @@ tasks:
   northflier-with-dep-order:
     cmds:
       - task: run-kindsealion-on-linux
-      - task: install-docker-on-linux
   northflier:
     cmds:
       - task: install-python-on-linux
       - task: install-ansible
       - task: install-boilerplate-on-linux-and-macos
+      - task: install-sysbox-on-ubuntu
       - task: install-cloudwatch-on-ubuntu
       - task: install-devbox-on-linux
       - task: install-elasticsearch-on-ubuntu
@@ -39,7 +39,6 @@ tasks:
   follow-cilium-gateway-tutorial:
     deps:
       - install-cilium-on-linux
-      - install-docker-on-linux
       - install-kubectl-on-linux
   install-ringgem-testing-on-linux:
     deps:
@@ -207,6 +206,14 @@ tasks:
       - install-python-on-linux
     status:
       - command -v ansible >/dev/null
+  install-sysbox-on-ubuntu:
+    cmds:
+      - sudo bash -eux install-sysbox-on-ubuntu.sh
+    deps:
+      - apt-yum-update
+      - install-jq-on-linux
+    status:
+      - command -v lxc-wait >/dev/null
   install-lxc-on-ubuntu:
     cmds:
       - sudo bash -eux install-lxc-on-ubuntu.sh
@@ -312,11 +319,6 @@ tasks:
       - task: upgrade-bash-completion-on-linux
     status:
       - '[[ -d /usr/share/bash-completion/completions/ ]]'
-  install-docker-on-linux:
-    cmds:
-      - sudo bash -eux install-docker-on-linux.sh
-    status:
-      - docker --version >/dev/null
   install-dulltrader-on-linux:
     cmds:
       - sudo bash -eux install-dulltrader-on-linux.sh
@@ -404,7 +406,6 @@ tasks:
       - command -v updatedb >/dev/null
   install-silverdelay-on-linux:
     cmds:
-      - task: install-docker-on-linux
       - sudo bash -eux install-silverdelay-on-linux.sh
     status:
       - '! mylime newerthan 1d silverdelay'

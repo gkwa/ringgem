@@ -24,6 +24,10 @@
         check_installed = "clusterawsadm version"
     }
     {
+        name = "docker"
+        check_installed = "docker --version"
+    }
+    {
         name = "clusterctl"
         check_installed = "clusterctl version"
     }
