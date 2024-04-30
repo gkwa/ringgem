@@ -1,186 +1,186 @@
 {packages = [
     {
         name = "golang"
-        version_check = "go version"
+        check_installed = "go version"
     }
     {
         name = "awscli@2"
-        version_check = "aws --version"
+        check_installed = "aws --version"
     }
     {
         name = "bash-completion@2"
-        version_check = ""
+        check_installed = ""
     }
     {
         name = "carvel-dev/carvel/ytt"
-        version_check = "ytt version"
+        check_installed = "ytt version"
     }
     {
         name = "cilium-cli"
-        version_check = "cilium help"
+        check_installed = "cilium help"
     }
     {
         name = "clusterawsadm"
-        version_check = "clusterawsadm version"
+        check_installed = "clusterawsadm version"
     }
     {
         name = "clusterctl"
-        version_check = "clusterctl version"
+        check_installed = "clusterctl version"
     }
     {
         name = "dagger"
-        version_check = "dagger version"
+        check_installed = "dagger version"
     }
     {
         name = "dolt"
-        version_check = "dolt version"
+        check_installed = "dolt version"
     }
     {
         name = "gcc"
-        version_check = "gcc --version"
+        check_installed = "gcc --version"
     }
     {
         name = "gofumpt"
-        version_check = "gofumpt --version"
+        check_installed = "gofumpt --version"
     }
     {
         name = "golangci/tap/golangci-lint"
-        version_check = "golangci-lint --version"
+        check_installed = "golangci-lint --version"
     }
     {
         name = "goreleaser"
-        version_check = "goreleaser --version"
+        check_installed = "goreleaser --version"
     }
     {
         name = "helm"
-        version_check = "helm version"
+        check_installed = "helm version"
     }
     {
         name = "jj"
-        version_check = "jj --version"
+        check_installed = "jj --version"
     }
     {
         name = "jless"
-        version_check = "jless --version"
+        check_installed = "jless --version"
     }
     {
         name = "k9s"
-        version_check = "k9s version"
+        check_installed = "k9s version"
     }
     {
         name = "kcl-lang/tap/kcl"
-        version_check = "kcl version"
+        check_installed = "kcl version"
     }
     {
         name = "kind"
-        version_check = "kind --version"
+        check_installed = "kind --version"
     }
     {
         name = "krew"
-        version_check = "kubectl krew version"
+        check_installed = "kubectl krew version"
     }
     {
         name = "kubectl"
-        version_check = "kubectl version --output=yaml --client"
+        check_installed = "kubectl version --output=yaml --client"
     }
     {
         name = "kustomize"
-        version_check = "kustomize version"
+        check_installed = "kustomize version"
     }
     {
         name = "logstash"
-        version_check = "jj --version"
+        check_installed = "jj --version"
     }
     {
         name = "nvim"
-        version_check = "nvim --version"
+        check_installed = "nvim --version"
     }
     {
         name = "opentofu"
-        version_check = "tofu version"
+        check_installed = "tofu version"
     }
     {
         name = "podman"
-        version_check = "podman version"
+        check_installed = "podman version"
     }
     {
         name = "packer-completion"
-        version_check = ""
+        check_installed = ""
     }
     {
         name = "packer"
-        version_check = "packer --version"
+        check_installed = "packer --version"
     }
     {
         name = "restic"
-        version_check = "restic version"
+        check_installed = "restic version"
     }
     {
         name = "ripgrep"
-        version_check = "rg --version"
+        check_installed = "rg --version"
     }
     {
         name = "rye"
-        version_check = "rye --version"
+        check_installed = "rye --version"
     }
     {
         name = "sops"
-        version_check = "sops --version"
+        check_installed = "sops --version"
     }
     {
         name = "taylormonacelli/homebrew-tools/allbranding"
-        version_check = "allbranding --help"
+        check_installed = "allbranding --help"
     }
     {
         name = "taylormonacelli/homebrew-tools/howbob"
-        version_check = "howbob --help"
+        check_installed = "howbob --help"
     }
     {
         name = "taylormonacelli/homebrew-tools/cakepalm"
-        version_check = "cakepalm --help"
+        check_installed = "cakepalm --help"
     }
     {
         name = "taylormonacelli/homebrew-tools/cloudelf"
-        version_check = "cloudelf --help"
+        check_installed = "cloudelf --help"
     }
     {
         name = "taylormonacelli/homebrew-tools/eachit"
-        version_check = "eachit --help"
+        check_installed = "eachit --help"
     }
     {
         name = "taylormonacelli/homebrew-tools/mylime"
-        version_check = "mylime --help"
+        check_installed = "mylime --help"
     }
     {
         name = "taylormonacelli/homebrew-tools/irisqueen"
-        version_check = "irisqueen --help"
+        check_installed = "irisqueen --help"
     }
     {
         name = "tektoncd-cli"
-        version_check = "tkn version"
+        check_installed = "tkn version"
     }
     {
         name = "terraform"
-        version_check = "terraform --version"
+        check_installed = "terraform --version"
     }
     {
         name = "terragrunt"
-        version_check = "terragrunt --version"
+        check_installed = "terragrunt --version"
     }
     {
         name = "tflint"
-        version_check = "tflint --version"
+        check_installed = "tflint --version"
     }
     {
         name = "tilt"
-        version_check = "tilt version"
+        check_installed = "tilt version"
     }
     {
         name = "stefanprodan/tap/timoni"
-        version_check = "timoni --version"
+        check_installed = "timoni --version"
     }
     {
         name = "wget"
-        version_check = "wget --version"
+        check_installed = "wget --version"
     }
 ]}
