@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-sudo --user linuxbrew --login brew bundle Brewfile
+cp Brewfile /tmp/Brewfile
+chmod +rx /tmp/Brewfile
+
+sudo --user linuxbrew --login brew bundle --file=/tmp/Brewfile
