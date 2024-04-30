@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-pip install --upgrade git+https://github.com/taylormonacelli/mythai.git
+git clone https://github.com/taylormonacelli/mythai.git
+cd mythai
+rye sync
+. .venv/bin/activate
+mythai --help
