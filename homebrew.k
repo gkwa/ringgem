@@ -34,6 +34,7 @@
     {
         name = "docker-credential-helper"
         check_installed = "docker-credential-pass version"
+        disabled = True
     }
     {
         name = "docker"
