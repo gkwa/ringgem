@@ -8,6 +8,10 @@
         check_installed = "aws --version"
     }
     {
+        name = "cue"
+        check_installed = "cue version"
+    }
+    {
         name = "bash-completion@2"
         check_installed = ""
     }
