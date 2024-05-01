@@ -104,10 +104,6 @@
         check_installed = "tofu version"
     }
     {
-        name = "podman"
-        check_installed = "podman version"
-    }
-    {
         name = "packer-completion"
         check_installed = ""
     }
