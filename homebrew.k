@@ -17,7 +17,7 @@
     }
     {
         name = "cilium-cli"
-        check_installed = "cilium help"
+        check_installed = "cilium version"
     }
     {
         name = "clusterawsadm"
