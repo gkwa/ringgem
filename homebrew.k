@@ -24,6 +24,10 @@
         check_installed = "cilium version"
     }
     {
+        name = "shellcheck"
+        check_installed = "shellcheck --version"
+    }
+    {
         name = "clusterawsadm"
         check_installed = "clusterawsadm version"
     }
