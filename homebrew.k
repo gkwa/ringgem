@@ -28,6 +28,10 @@
         check_installed = "clusterawsadm version"
     }
     {
+        name = "docker-credential-helper"
+        check_installed = "docker-credential-pass version"
+    }
+    {
         name = "docker"
         check_installed = "docker --version"
         disabled = True
