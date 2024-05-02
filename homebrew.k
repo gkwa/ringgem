@@ -1,5 +1,42 @@
 {packages = [
     {
+        name = "postgresql"
+        check_installed = ""
+    }
+    {
+        name = "sqlite3"
+        check_installed = ""
+    }
+    {
+        name = "mysql"
+        check_installed = ""
+    }
+    {
+        name = "lua"
+        check_installed = ""
+    }
+    {
+        name = "lua"
+        check_installed = ""
+    }
+    {
+        name = "lua-language-server"
+        check_installed = ""
+    }
+    {
+        name = "cdk8s"
+        check_installed = ""
+    }
+
+    {
+        name = "aws-cdk"
+        check_installed = "cdk --version"
+    }
+    {
+        name = "yq"
+        check_installed = "yq --version"
+    }
+    {
         name = "golang"
         check_installed = "go version"
     }
