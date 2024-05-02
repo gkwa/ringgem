@@ -101,6 +101,10 @@
         check_installed = "kind --version"
     }
     {
+        name = "cloudeagle"
+        check_installed = "cloudeagle --help"
+    }
+    {
         name = "krew"
         check_installed = "kubectl krew version"
     }
