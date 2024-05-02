@@ -33,7 +33,7 @@ tasks:
       - task: install-ringgem-testing-on-linux
       - task: install-silverdelay-on-linux
       - task: install-toml-cli-on-linux
-      - task: install-txtar-on-ubuntu
+      - task: install-txtar-on-linux
       - task: northflier-with-dep-order
       - task: upgrade-bash-completion-on-linux
       - task: install-mlocate-on-linux
@@ -132,9 +132,9 @@ tasks:
       - command -v incus >/dev/null
     deps:
       - install-gpg-on-linux
-  install-txtar-on-ubuntu:
+  install-txtar-on-linux:
     cmds:
-      - sudo bash -eux install-txtar-on-ubuntu.sh
+      - sudo bash -eux install-txtar-on-linux.sh
     deps:
       - apt-yum-update
     status:
