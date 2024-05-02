@@ -5,6 +5,8 @@
 set -e
 set -u
 
+releases_url=https://api.github.com/repos/open-telemetry/opentelemetry-collector-releases/releases
+
 package_name="otelcol_.*_linux_amd64"
 
 if command -v apt-get &>/dev/null; then
@@ -22,7 +24,7 @@ fi
 
 url=$(
     /home/linuxbrew/.linuxbrew/bin/allbranding query \
-        --releases-url=https://api.github.com/repos/open-telemetry/opentelemetry-collector-releases/releases \
+        --releases-url=$releases_url \
         --asset-regex=$regex | jq -r .browser_download_url
 )
 curl -fsSLO $url
