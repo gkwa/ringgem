@@ -2,11 +2,25 @@
 
 # https://opentelemetry.io/docs/collector/installation/#manual-linux-installation
 
-url=$(/home/linuxbrew/.linuxbrew/bin/allbranding query --releases-url=https://api.github.com/repos/open-telemetry/opentelemetry-collector-releases/releases --asset-regex='otelcol.*linux_amd64.tar.gz' | jq -r .browser_download_url)
-rm -f /tmp/otelcol-contrib
-curl -fsSL $url | tar --no-same-owner -C /tmp -xz otelcol-contrib
-install --mode 0755 --group root --owner root /tmp/otel-contrib /usr/local/bin/otelcol
+if command -v apt-get &>/dev/null; then
+    regex='otelcol_.*linux_amd64.deb'
+    package_manager="apt-get"
+    install_cmd="sudo dpkg -i"
+elif command -v rpm &>/dev/null; then
+    regex='otelcol_.*linux_amd64.rpm'
+    package_manager="rpm"
+    install_cmd="sudo yum localinstall -y"
+else
+    echo "Unable to determine the package manager."
+    exit 1
+fi
+
+url=$(/home/linuxbrew/.linuxbrew/bin/allbranding query --releases-url=https://api.github.com/repos/open-telemetry/opentelemetry-collector-releases/releases --asset-regex=$regex | jq -r .browser_download_url)
+curl -fsSLO $url
+package=$(basename $url)
+
+$install_cmd $package
 
 otelcol --version >/dev/null
 
-rm -f /tmp/otelcol-contrib
+rm -f $package
