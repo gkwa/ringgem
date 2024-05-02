@@ -5,9 +5,8 @@
 set -e
 set -u
 
-releases_url=https://api.github.com/repos/open-telemetry/opentelemetry-collector-releases/releases
-
 package_name="otelcol_.*_linux_amd64"
+releases_url=https://api.github.com/repos/open-telemetry/opentelemetry-collector-releases/releases
 
 if command -v apt-get &>/dev/null; then
     regex="${package_name}.deb"
@@ -22,13 +21,13 @@ else
     exit 1
 fi
 
-url=$(
+package_url=$(
     /home/linuxbrew/.linuxbrew/bin/allbranding query \
         --releases-url=$releases_url \
         --asset-regex=$regex | jq -r .browser_download_url
 )
-curl -fsSLO $url
-package=$(basename $url)
+curl -fsSLO $package_url
+package=$(basename $package_url)
 
 $install_cmd $package
 
