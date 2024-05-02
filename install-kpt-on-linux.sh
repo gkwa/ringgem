@@ -5,3 +5,5 @@
 
 sudo --login --user linuxbrew brew tap GoogleContainerTools/kpt https://github.com/GoogleContainerTools/kpt.git
 sudo --login --user linuxbrew brew install kpt
+
+kpt version
