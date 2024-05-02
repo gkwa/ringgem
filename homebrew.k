@@ -1,5 +1,9 @@
 {packages = [
     {
+        name = "taylormonacelli/homebrew-tools/itmetrics"
+        check_installed = "/home/linuxbrew/.linuxbrew/bin/itmetrics --version"
+    }
+    {
         name = "postgresql"
         check_installed = "postgres --version"
     }
