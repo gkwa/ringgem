@@ -1,41 +1,40 @@
 {packages = [
     {
         name = "postgresql"
-        check_installed = ""
+        check_installed = "postgres --version"
     }
     {
         name = "sqlite3"
-        check_installed = ""
+        check_installed = "sqlite3 --version"
     }
     {
         name = "mysql"
-        check_installed = ""
+        check_installed = "mysqld --version"
     }
     {
         name = "lua"
-        check_installed = ""
-    }
-    {
-        name = "lua"
-        check_installed = ""
+        check_installed = "lua -v"
     }
     {
         name = "lua-language-server"
-        check_installed = ""
+        check_installed = "find -L /home/linuxbrew/.linuxbrew/bin/lua-language-server"
     }
     {
         name = "cdk8s"
-        check_installed = ""
+        check_installed = "cdk8s --version"
     }
     {
         name = "rqlite"
-        check_installed = ""
+        check_installed = "rqlite --version"
     }
     {
         name = "nginx"
-        check_installed = ""
+        check_installed = "nginx -v"
     }
-
+    {
+        name = "kustomize"
+        check_installed = "kustomize version"
+    }
     {
         name = "aws-cdk"
         check_installed = "cdk --version"
