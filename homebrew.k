@@ -27,6 +27,14 @@
         name = "cdk8s"
         check_installed = ""
     }
+    {
+        name = "rqlite"
+        check_installed = ""
+    }
+    {
+        name = "nginx"
+        check_installed = ""
+    }
 
     {
         name = "aws-cdk"
