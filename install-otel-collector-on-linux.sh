@@ -10,11 +10,11 @@ releases_url=https://api.github.com/repos/open-telemetry/opentelemetry-collector
 
 if command -v apt-get &>/dev/null; then
     regex="${package_name}.deb"
-    package_manager="apt-get"
+    package_manager=apt-get
     install_cmd="sudo dpkg -i"
 elif command -v rpm &>/dev/null; then
     regex="${package_name}.rpm"
-    package_manager="rpm"
+    package_manager=rpm
     install_cmd="sudo yum localinstall -y"
 else
     echo "Unable to determine the package manager."
