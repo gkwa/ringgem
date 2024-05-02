@@ -2,12 +2,14 @@
 
 # https://opentelemetry.io/docs/collector/installation/#manual-linux-installation
 
+package_name="otelcol_.*_linux_amd64"
+
 if command -v apt-get &>/dev/null; then
-    regex='otelcol_.*linux_amd64.deb'
+    regex="${package_name}.deb"
     package_manager="apt-get"
     install_cmd="sudo dpkg -i"
 elif command -v rpm &>/dev/null; then
-    regex='otelcol_.*linux_amd64.rpm'
+    regex="${package_name}.rpm"
     package_manager="rpm"
     install_cmd="sudo yum localinstall -y"
 else
