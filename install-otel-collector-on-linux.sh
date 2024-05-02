@@ -2,6 +2,10 @@
 
 # https://opentelemetry.io/docs/collector/installation/#manual-linux-installation
 
+
+set -e
+set -u
+
 package_name="otelcol_.*_linux_amd64"
 
 if command -v apt-get &>/dev/null; then
