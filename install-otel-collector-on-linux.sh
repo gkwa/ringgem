@@ -20,7 +20,11 @@ else
     exit 1
 fi
 
-url=$(/home/linuxbrew/.linuxbrew/bin/allbranding query --releases-url=https://api.github.com/repos/open-telemetry/opentelemetry-collector-releases/releases --asset-regex=$regex | jq -r .browser_download_url)
+url=$(
+    /home/linuxbrew/.linuxbrew/bin/allbranding query \
+        --releases-url=https://api.github.com/repos/open-telemetry/opentelemetry-collector-releases/releases \
+        --asset-regex=$regex | jq -r .browser_download_url
+)
 curl -fsSLO $url
 package=$(basename $url)
 
