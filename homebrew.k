@@ -4,6 +4,10 @@
         check_installed = "go version"
     }
     {
+        name = "zipkin"
+        check_installed = "command -v zipkin >/dev/null"
+    }
+    {
         name = "awscli@2"
         check_installed = "aws --version"
     }
