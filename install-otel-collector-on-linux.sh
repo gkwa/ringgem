@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# https://opentelemetry.io/docs/collector/installation/
+# https://opentelemetry.io/docs/collector/installation/#manual-linux-installation
 
 set -e
 set -u

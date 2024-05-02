@@ -17,6 +17,7 @@ tasks:
     cmds:
       - task: install-python-on-linux
       - task: install-ansible
+      - task: install-otel-collector-on-linux
       - task: install-boilerplate-on-linux-and-macos
       - task: install-sysbox-on-ubuntu
       - task: install-cloudwatch-on-ubuntu
