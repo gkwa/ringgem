@@ -2,7 +2,6 @@
 
 # https://opentelemetry.io/docs/collector/installation/#manual-linux-installation
 
-
 set -e
 set -u
 
