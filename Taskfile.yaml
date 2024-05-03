@@ -15,7 +15,6 @@ tasks:
       - task: install-docker-on-linux
   northflier:
     cmds:
-      - task: install-python-on-linux
       - task: install-ansible
       - task: install-otel-collector-on-linux
       - task: install-kpt-on-linux
@@ -216,7 +215,7 @@ tasks:
     cmds:
       - sudo bash -eux install-ansible.sh
     deps:
-      - install-python-on-linux
+      - install-python-pip-on-linux
     status:
       - command -v ansible >/dev/null
   install-sysbox-on-ubuntu:
@@ -395,7 +394,11 @@ tasks:
       - sudo bash install-python-on-linux.sh
     status:
       - python3 --version >/dev/null
-      - pip3 --version
+  install-python-pip-on-linux:
+    cmds:
+      - sudo bash install-python-pip-on-linux.sh
+    status:
+      - pip3 --version >/dev/null
   run-kindsealion-on-linux:
     run: once
     cmds:
