@@ -4,6 +4,10 @@
         check_installed = "/home/linuxbrew/.linuxbrew/bin/itmetrics --version"
     }
     {
+        name = "shellcheck"
+        check_installed = "shellcheck --version"
+    }
+    {
         name = "postgresql"
         check_installed = "postgres --version"
     }
