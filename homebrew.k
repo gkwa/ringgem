@@ -1,7 +1,7 @@
 {packages = [
     {
         name = "taylormonacelli/homebrew-tools/itmetrics"
-        check_installed = "/home/linuxbrew/.linuxbrew/bin/itmetrics --version"
+        check_installed = "itmetrics --version"
     }
     {
         name = "shellcheck"
