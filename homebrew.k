@@ -4,6 +4,10 @@
         check_installed = "itmetrics --version"
     }
     {
+        name = "mage"
+        check_installed = "mage --version"
+    }
+    {
         name = "shellcheck"
         check_installed = "shellcheck --version"
     }
