@@ -1,5 +1,9 @@
 {packages = [
     {
+        name = "shfmt"
+        check_installed = "shfmt --version"
+    }
+    {
         name = "gh"
         check_installed = "gh --version"
     }
