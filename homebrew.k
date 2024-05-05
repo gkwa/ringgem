@@ -1,5 +1,9 @@
 {packages = [
     {
+        name = "gh"
+        check_installed = "gh --version"
+    }
+    {
         name = "taylormonacelli/homebrew-tools/itmetrics"
         check_installed = "itmetrics --version"
     }
