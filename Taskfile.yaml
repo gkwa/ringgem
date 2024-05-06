@@ -17,6 +17,7 @@ tasks:
     cmds:
       - task: install-ansible
       - task: install-otel-collector-on-linux
+      - task: install-pass-on-linux
       - task: install-kpt-on-linux
       - task: install-boilerplate-on-linux-and-macos
       - task: install-sysbox-on-ubuntu
@@ -415,6 +416,11 @@ tasks:
       - apt-yum-update
     status:
       - command -v updatedb >/dev/null
+  install-pass-on-linux:
+    cmds:
+    - bash -eux install-pass-on-linux.sh
+    status:
+    - command -v pass >/dev/null
   install-silverdelay-on-linux:
     cmds:
       - sudo bash -eux install-silverdelay-on-linux.sh
