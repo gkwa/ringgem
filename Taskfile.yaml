@@ -51,8 +51,6 @@ tasks:
   install-ringgem-testing-on-linux:
     deps:
       - install-mythai-on-linux
-    status:
-      - '[[ -d ./mythai/.venv/bin/activate ]]'
   check-for-python:
     cmds:
       - python3 --version >/dev/null
