@@ -2,8 +2,6 @@
 
 export PATH=/home/linuxbrew/.linuxbrew/bin:"$PATH"
 
-pwd
-
 [[ -f ./mythai/.venv/bin/activate ]] && exit 0
 
 git clone https://github.com/taylormonacelli/mythai.git
