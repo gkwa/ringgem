@@ -1,4 +1,3 @@
--- install_pass.sh --
 #!/bin/bash
 
 if command -v apt-get &> /dev/null; then
