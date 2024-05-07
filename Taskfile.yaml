@@ -61,7 +61,7 @@ tasks:
       - command -v docker &>/dev/null
   install-mythai-on-linux:
     cmds:
-      - bash -eux install-mythai-on-linux.sh
+      - sudo bash -eux install-mythai-on-linux.sh
     deps:
       - check-for-python
     status:
