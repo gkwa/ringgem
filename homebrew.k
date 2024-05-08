@@ -1,5 +1,9 @@
 {packages = [
     {
+        name = "taylormonacelli/homebrew-tools/myville"
+        check_installed = "myville version"
+    }
+    {
         name = "pass"
         check_installed = "pass --version"
     }
