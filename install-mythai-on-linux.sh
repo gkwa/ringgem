@@ -2,11 +2,11 @@
 
 export PATH=/home/linuxbrew/.linuxbrew/bin:"$PATH"
 
-[[ -f ./mythai/.venv/bin/activate ]] && exit 0
+[[ -f /opt/mythai/.venv/bin/activate ]] && exit 0
 
-git clone https://github.com/taylormonacelli/mythai.git
+git clone https://github.com/taylormonacelli/mythai.git /opt/mythai
 
-rye sync --pyproject=./mythai/pyproject.toml
+rye sync --pyproject=/opt/mythai/pyproject.toml
 
-. ./mythai/.venv/bin/activate
+. /opt/mythai/.venv/bin/activate
 mythai --help
