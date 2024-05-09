@@ -8,8 +8,8 @@ binary=kpt_linux_amd64
 
 url=$(
     /home/linuxbrew/.linuxbrew/bin/allbranding query \
-    --releases-url=$releases_url \
-    --asset-regex=$binary | jq -r .browser_download_url
+        --releases-url=$releases_url \
+        --asset-regex=$binary | jq -r .browser_download_url
 )
 curl -fsSL -o kpt $url
 install --mode 0755 kpt /usr/local/bin/kpt

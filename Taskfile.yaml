@@ -37,6 +37,7 @@ tasks:
       - task: northflier-with-dep-order
       - task: upgrade-bash-completion-on-linux
       - task: install-mlocate-on-linux
+      - task: install-hey-on-linux
       - task: lxc-configure-on-ubuntu
       - task: install-package-upgrades-on-ubuntu
   follow-cilium-gateway-tutorial:
@@ -245,6 +246,11 @@ tasks:
       - sudo bash -eux install-git-on-linux.sh
     status:
       - command -v git >/dev/null
+  install-hey-on-linux:
+    cmds:
+      - sudo bash -eux install-hey-on-linux.sh
+    status:
+      - command -v hey >/dev/null
   bash-customize-kubectl-on-linux:
     cmds:
       - sudo bash -eux bash-customize-kubectl-on-linux.sh
