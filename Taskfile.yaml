@@ -240,6 +240,11 @@ tasks:
       - 'grep --quiet "pool: default" <<< "$(lxc profile show default)"'
     deps:
       - install-lxc-on-ubuntu
+  install-git-on-linux:
+    cmds:
+      - sudo bash -eux install-git-on-linux.sh
+    status:
+      - command -v git >/dev/null
   bash-customize-kubectl-on-linux:
     cmds:
       - sudo bash -eux bash-customize-kubectl-on-linux.sh
