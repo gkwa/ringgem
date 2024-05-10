@@ -10,11 +10,3 @@ rye sync --pyproject=/opt/mythai/pyproject.toml
 
 . /opt/mythai/.venv/bin/activate
 mythai --help
-
-# testing mythai
-
-mythai --outdir=mythai
-
-cd mythai
-
-eachit run
