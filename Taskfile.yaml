@@ -256,6 +256,11 @@ tasks:
       - sudo bash -eux bash-customize-kubectl-on-linux.sh
     status:
       - grep --quiet "alias k=kubectl" ~/.profile
+  install-cobra-cli-using-go:
+    cmds:
+      - sudo bash -eux install-cobra-cli-using-go.sh
+    status:
+      - cobra-cli help &>/dev/null
   install-homebrew-on-linux:
     cmds:
       - sudo bash -eux install-homebrew-on-linux.sh
