@@ -170,6 +170,7 @@ tasks:
   install-kibana-on-ubuntu:
     cmds:
       - task: apt-yum-update
+      - task: install-elastic-ppa8-on-ubuntu
       - sudo bash -eux install-kibana-on-ubuntu.sh
     status:
       - test -x /usr/share/kibana/bin/kibana-setup
