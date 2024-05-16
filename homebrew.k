@@ -46,6 +46,7 @@
     {name = "nginx", check_installed = "nginx -v"}
     {name = "nvim", check_installed = "nvim --version"}
     {name = "opentofu", check_installed = "tofu version"}
+    {name = "skopeo", check_installed = "skopeo --version"}
     {name = "packer-completion", check_installed = ""}
     {name = "packer", check_installed = "packer --version"}
     {name = "pass", check_installed = "pass --version"}
