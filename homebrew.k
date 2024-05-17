@@ -53,6 +53,7 @@
     {name = "postgresql", check_installed = "postgres --version"}
     {name = "restic", check_installed = "restic version"}
     {name = "ripgrep", check_installed = "rg --version"}
+    {name = "ugrep", check_installed = "ugrep --version"}
     {name = "rqlite", check_installed = "rqlite --version"}
     {name = "rye", check_installed = "rye --version"}
     {name = "shellcheck", check_installed = "shellcheck --version"}
