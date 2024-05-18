@@ -139,11 +139,17 @@ tasks:
       - apt-yum-update
     status:
       - command -v txtar-x >/dev/null
+  install-allbranding-on-linux:
+    cmds:
+      - sudo --login --user linuxbrew brew install taylormonacelli/homebrew-tools/allbranding
+    status:
+      - command -v allbranding >/dev/null
   install-toml-cli-on-linux:
     cmds:
       - sudo bash -eux install-toml-cli-on-linux.sh
     deps:
       - install-jq-on-linux
+      - install-allbranding-on-linux
     status:
       - command -v toml >/dev/null
   install-package-upgrades-on-ubuntu:
