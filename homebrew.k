@@ -4,7 +4,8 @@
         check_installed = "docker --version"
         disabled = True
         note = r"""
-        Not using homebrew for docker anymore, using canonical's installer from https://github.com/taylormonacelli/ringgem/blob/master/install-docker-on-linux.sh
+        Not using homebrew for docker anymore, using canonical's installer from
+        https://github.com/taylormonacelli/ringgem/blob/master/install-docker-on-linux.sh
         """
     }
     {name = "age", check_installed = "age --version"}
