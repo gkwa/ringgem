@@ -9,6 +9,7 @@
     }
     {name = "age", check_installed = "age --version"}
     {name = "aws-cdk", check_installed = "cdk --version"}
+    {name = "eachdodge", check_installed = "eachdodge version"}
     {name = "awscli@2", check_installed = "aws --version"}
     {name = "bash-completion@2", check_installed = ""}
     {name = "carvel-dev/carvel/ytt", check_installed = "ytt version"}
