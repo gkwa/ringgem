@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
+set -e
+set -x
+set -u
+
 export DEBIAN_FRONTEND=noninteractive
 
-if apt-get install --assume-yes elasticsearch; then
-    exit 0
-fi
-
-apt-get install --fix-missing --assume-yes elasticsearch
+timeout 10m bash -c "
+    until apt-get install --fix-missing --assume-yes elasticsearch
+    do
+        sleep 10s
+    done
+"
