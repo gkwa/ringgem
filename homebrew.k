@@ -37,8 +37,8 @@
     {name = "krew", check_installed = "kubectl krew version"}
     {name = "kubectl", check_installed = "kubectl version --output=yaml --client"}
     {name = "kustomize", check_installed = "kustomize version"}
-    {name = "kustomize", check_installed = "kustomize version"}
-    {name = "logstash", check_installed = "logstash --version"}
+    {name = "jc", check_installed = "jc --version"}
+    {name = "l", check_installed = "logstash --version"}
     {name = "lua-language-server", check_installed = "find -L /home/linuxbrew/.linuxbrew/bin/lua-language-server"}
     {name = "lua", check_installed = "lua -v"}
     {name = "mage", check_installed = "mage --version"}
