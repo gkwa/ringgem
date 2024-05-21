@@ -10,7 +10,6 @@
     }
     {name = "age", check_installed = "age --version"}
     {name = "aws-cdk", check_installed = "cdk --version"}
-    {name = "eachdodge", check_installed = "eachdodge version"}
     {name = "awscli@2", check_installed = "aws --version"}
     {name = "bash-completion@2", check_installed = ""}
     {name = "carvel-dev/carvel/ytt", check_installed = "ytt version"}
@@ -23,13 +22,16 @@
     {name = "dagger", check_installed = "dagger version"}
     {name = "docker-credential-helper", check_installed = "docker-credential-pass version", disabled = True}
     {name = "dolt", check_installed = "dolt version"}
+    {name = "eachdodge", check_installed = "eachdodge version"}
     {name = "gcc", check_installed = "gcc --version"}
     {name = "gh", check_installed = "gh --version"}
     {name = "gofumpt", check_installed = "gofumpt --version"}
     {name = "golang", check_installed = "go version"}
     {name = "golangci/tap/golangci-lint", check_installed = "golangci-lint --version"}
     {name = "goreleaser", check_installed = "goreleaser --version"}
+    {name = "hashicorp/tap/packer", check_installed = "packer --version"}
     {name = "helm", check_installed = "helm version"}
+    {name = "jc", check_installed = "jc --version"}
     {name = "jj", check_installed = "jj --version"}
     {name = "jless", check_installed = "jless --version"}
     {name = "k9s", check_installed = "k9s version"}
@@ -37,8 +39,8 @@
     {name = "kind", check_installed = "kind --version"}
     {name = "krew", check_installed = "kubectl krew version"}
     {name = "kubectl", check_installed = "kubectl version --output=yaml --client"}
+    {name = "kumactl", check_installed = "kumactl version"}
     {name = "kustomize", check_installed = "kustomize version"}
-    {name = "jc", check_installed = "jc --version"}
     {name = "logstash", check_installed = "logstash --version"}
     {name = "lua-language-server", check_installed = "find -L /home/linuxbrew/.linuxbrew/bin/lua-language-server"}
     {name = "lua", check_installed = "lua -v"}
@@ -48,19 +50,16 @@
     {name = "nginx", check_installed = "nginx -v"}
     {name = "nvim", check_installed = "nvim --version"}
     {name = "opentofu", check_installed = "tofu version"}
-    {name = "skopeo", check_installed = "skopeo --version"}
     {name = "packer-completion", check_installed = ""}
-    {name = "kumactl", check_installed = "kumactl version"}
-    {name = "hashicorp/tap/packer", check_installed = "packer --version"}
     {name = "pass", check_installed = "pass --version"}
     {name = "postgresql", check_installed = "postgres --version"}
     {name = "restic", check_installed = "restic version"}
     {name = "ripgrep", check_installed = "rg --version"}
-    {name = "ugrep", check_installed = "ugrep --version"}
     {name = "rqlite", check_installed = "rqlite --version"}
     {name = "rye", check_installed = "rye --version"}
     {name = "shellcheck", check_installed = "shellcheck --version"}
     {name = "shfmt", check_installed = "shfmt --version"}
+    {name = "skopeo", check_installed = "skopeo --version"}
     {name = "sops", check_installed = "sops --version"}
     {name = "sqlite3", check_installed = "sqlite3 --version"}
     {name = "stefanprodan/tap/timoni", check_installed = "timoni --version"}
@@ -78,6 +77,7 @@
     {name = "terragrunt", check_installed = "terragrunt --version"}
     {name = "tflint", check_installed = "tflint --version"}
     {name = "tilt", check_installed = "tilt version"}
+    {name = "ugrep", check_installed = "ugrep --version"}
     {name = "wget", check_installed = "wget --version"}
     {name = "yq", check_installed = "yq --version"}
     {name = "zipkin", check_installed = "command -v zipkin >/dev/null"}
