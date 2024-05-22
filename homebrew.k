@@ -25,6 +25,7 @@
     {name = "eachdodge", check_installed = "eachdodge version"}
     {name = "gcc", check_installed = "gcc --version"}
     {name = "gh", check_installed = "gh --version"}
+    {name = "fzf", check_installed = "fzf --version"}
     {name = "gofumpt", check_installed = "gofumpt --version"}
     {name = "golang", check_installed = "go version"}
     {name = "golangci/tap/golangci-lint", check_installed = "golangci-lint --version"}
