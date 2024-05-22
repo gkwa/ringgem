@@ -30,6 +30,7 @@
     {name = "golangci/tap/golangci-lint", check_installed = "golangci-lint --version"}
     {name = "goreleaser", check_installed = "goreleaser --version"}
     {name = "hashicorp/tap/packer", check_installed = "packer --version"}
+    {name = "hashicorp/tap/terraform", check_installed = "terraform --version"}
     {name = "helm", check_installed = "helm version"}
     {name = "jc", check_installed = "jc --version"}
     {name = "jj", check_installed = "jj --version"}
@@ -73,7 +74,6 @@
     {name = "taylormonacelli/homebrew-tools/mylime", check_installed = "mylime --help"}
     {name = "taylormonacelli/homebrew-tools/myville", check_installed = "myville version"}
     {name = "tektoncd-cli", check_installed = "tkn version"}
-    {name = "terraform", check_installed = "terraform --version"}
     {name = "terragrunt", check_installed = "terragrunt --version"}
     {name = "tflint", check_installed = "tflint --version"}
     {name = "tilt", check_installed = "tilt version"}
