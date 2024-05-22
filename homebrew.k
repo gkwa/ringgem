@@ -29,8 +29,8 @@
     {name = "golang", check_installed = "go version"}
     {name = "golangci/tap/golangci-lint", check_installed = "golangci-lint --version"}
     {name = "goreleaser", check_installed = "goreleaser --version"}
-    {name = "hashicorp/tap/packer", check_installed = "packer --version"}
-    {name = "hashicorp/tap/terraform", check_installed = "terraform --version"}
+    {name = "hashicorp/tap/packer", check_installed = "packer -version"}
+    {name = "hashicorp/tap/terraform", check_installed = "terraform -version"}
     {name = "helm", check_installed = "helm version"}
     {name = "jc", check_installed = "jc --version"}
     {name = "jj", check_installed = "jj --version"}
