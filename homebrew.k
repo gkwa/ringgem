@@ -26,6 +26,16 @@
     {name = "fzf", check_installed = "fzf --version"}
     {name = "gcc", check_installed = "gcc --version"}
     {name = "gh", check_installed = "gh --version"}
+    {name = "gkwa/homebrew-tools/allbranding", check_installed = "/home/linuxbrew/.linuxbrew/bin/allbranding --help"}
+    {name = "gkwa/homebrew-tools/cakepalm", check_installed = "cakepalm --help"}
+    {name = "gkwa/homebrew-tools/cloudelf", check_installed = "cloudelf --help"}
+    {name = "gkwa/homebrew-tools/eachit", check_installed = "eachit --help"}
+    {name = "gkwa/homebrew-tools/howbob", check_installed = "howbob --help"}
+    {name = "gkwa/homebrew-tools/irisqueen", check_installed = "irisqueen --help"}
+    {name = "gkwa/homebrew-tools/itmetrics", check_installed = "itmetrics --version"}
+    {name = "gkwa/homebrew-tools/mylime", check_installed = "mylime --help"}
+    {name = "gkwa/homebrew-tools/myville", check_installed = "myville version"}
+    {name = "gkwa/homebrew-tools/ourlock", check_installed = "ourlock version"}
     {name = "gofumpt", check_installed = "gofumpt --version"}
     {name = "golang", check_installed = "go version"}
     {name = "golangci/tap/golangci-lint", check_installed = "golangci-lint --version"}
@@ -65,16 +75,6 @@
     {name = "sops", check_installed = "sops --version"}
     {name = "sqlite3", check_installed = "sqlite3 --version"}
     {name = "stefanprodan/tap/timoni", check_installed = "timoni --version"}
-    {name = "taylormonacelli/homebrew-tools/allbranding", check_installed = "/home/linuxbrew/.linuxbrew/bin/allbranding --help"}
-    {name = "taylormonacelli/homebrew-tools/cakepalm", check_installed = "cakepalm --help"}
-    {name = "taylormonacelli/homebrew-tools/cloudelf", check_installed = "cloudelf --help"}
-    {name = "taylormonacelli/homebrew-tools/eachit", check_installed = "eachit --help"}
-    {name = "taylormonacelli/homebrew-tools/howbob", check_installed = "howbob --help"}
-    {name = "gkwa/homebrew-tools/ourlock", check_installed = "ourlock version"}
-    {name = "taylormonacelli/homebrew-tools/irisqueen", check_installed = "irisqueen --help"}
-    {name = "taylormonacelli/homebrew-tools/itmetrics", check_installed = "itmetrics --version"}
-    {name = "taylormonacelli/homebrew-tools/mylime", check_installed = "mylime --help"}
-    {name = "taylormonacelli/homebrew-tools/myville", check_installed = "myville version"}
     {name = "tektoncd-cli", check_installed = "tkn version"}
     {name = "terragrunt", check_installed = "terragrunt --version"}
     {name = "tflint", check_installed = "tflint --version"}
