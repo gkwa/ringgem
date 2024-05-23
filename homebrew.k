@@ -18,6 +18,7 @@
     {name = "cloudeagle", check_installed = "cloudeagle --help"}
     {name = "clusterawsadm", check_installed = "clusterawsadm version"}
     {name = "clusterctl", check_installed = "clusterctl version"}
+    {name = "watchman", check_installed = "watchman --version"}
     {name = "cue", check_installed = "cue version"}
     {name = "dagger", check_installed = "dagger version"}
     {name = "docker-credential-helper", check_installed = "docker-credential-pass version", disabled = True}
