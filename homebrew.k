@@ -70,6 +70,7 @@
     {name = "taylormonacelli/homebrew-tools/cloudelf", check_installed = "cloudelf --help"}
     {name = "taylormonacelli/homebrew-tools/eachit", check_installed = "eachit --help"}
     {name = "taylormonacelli/homebrew-tools/howbob", check_installed = "howbob --help"}
+    {name = "gkwa/homebrew-tools/ourlock", check_installed = "ourlock version"}
     {name = "taylormonacelli/homebrew-tools/irisqueen", check_installed = "irisqueen --help"}
     {name = "taylormonacelli/homebrew-tools/itmetrics", check_installed = "itmetrics --version"}
     {name = "taylormonacelli/homebrew-tools/mylime", check_installed = "mylime --help"}
