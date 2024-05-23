@@ -18,15 +18,14 @@
     {name = "cloudeagle", check_installed = "cloudeagle --help"}
     {name = "clusterawsadm", check_installed = "clusterawsadm version"}
     {name = "clusterctl", check_installed = "clusterctl version"}
-    {name = "watchman", check_installed = "watchman --version"}
     {name = "cue", check_installed = "cue version"}
     {name = "dagger", check_installed = "dagger version"}
     {name = "docker-credential-helper", check_installed = "docker-credential-pass version", disabled = True}
     {name = "dolt", check_installed = "dolt version"}
     {name = "eachdodge", check_installed = "eachdodge version"}
+    {name = "fzf", check_installed = "fzf --version"}
     {name = "gcc", check_installed = "gcc --version"}
     {name = "gh", check_installed = "gh --version"}
-    {name = "fzf", check_installed = "fzf --version"}
     {name = "gofumpt", check_installed = "gofumpt --version"}
     {name = "golang", check_installed = "go version"}
     {name = "golangci/tap/golangci-lint", check_installed = "golangci-lint --version"}
@@ -80,6 +79,7 @@
     {name = "tflint", check_installed = "tflint --version"}
     {name = "tilt", check_installed = "tilt version"}
     {name = "ugrep", check_installed = "ugrep --version"}
+    {name = "watchman", check_installed = "watchman --version"}
     {name = "wget", check_installed = "wget --version"}
     {name = "yq", check_installed = "yq --version"}
     {name = "zipkin", check_installed = "command -v zipkin >/dev/null"}
