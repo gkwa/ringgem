@@ -31,6 +31,7 @@
     {name = "gkwa/homebrew-tools/cakepalm", check_installed = "cakepalm --help"}
     {name = "gkwa/homebrew-tools/cloudelf", check_installed = "cloudelf --help"}
     {name = "gkwa/homebrew-tools/eachit", check_installed = "eachit --help"}
+    {name = "gkwa/homebrew-tools/hercow", check_installed = "hercow version"}
     {name = "gkwa/homebrew-tools/howbob", check_installed = "howbob --help"}
     {name = "gkwa/homebrew-tools/irisqueen", check_installed = "irisqueen --help"}
     {name = "gkwa/homebrew-tools/itmetrics", check_installed = "itmetrics --version"}
