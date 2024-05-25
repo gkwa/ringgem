@@ -23,13 +23,13 @@
     {name = "dagger", check_installed = "dagger version"}
     {name = "docker-credential-helper", check_installed = "docker-credential-pass version", disabled = True}
     {name = "dolt", check_installed = "dolt version"}
-    {name = "eachdodge", check_installed = "eachdodge version"}
     {name = "fzf", check_installed = "fzf --version"}
     {name = "gcc", check_installed = "gcc --version"}
     {name = "gh", check_installed = "gh --version"}
     {name = "gkwa/homebrew-tools/allbranding", check_installed = "/home/linuxbrew/.linuxbrew/bin/allbranding --help"}
     {name = "gkwa/homebrew-tools/cakepalm", check_installed = "cakepalm --help"}
     {name = "gkwa/homebrew-tools/cloudelf", check_installed = "cloudelf --help"}
+    {name = "gkwa/homebrew-tools/eachdodge", check_installed = "eachdodge version"}
     {name = "gkwa/homebrew-tools/eachit", check_installed = "eachit --help"}
     {name = "gkwa/homebrew-tools/hercow", check_installed = "hercow version"}
     {name = "gkwa/homebrew-tools/howbob", check_installed = "howbob --help"}
