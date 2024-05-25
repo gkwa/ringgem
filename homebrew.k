@@ -15,7 +15,6 @@
     {name = "carvel-dev/carvel/ytt", check_installed = "ytt version"}
     {name = "cdk8s", check_installed = "cdk8s --version"}
     {name = "cilium-cli", check_installed = "cilium version"}
-    {name = "cloudeagle", check_installed = "cloudeagle --help"}
     {name = "clusterawsadm", check_installed = "clusterawsadm version"}
     {name = "clusterctl", check_installed = "clusterctl version"}
     {name = "cosign", check_installed = "cosign version"}
@@ -28,6 +27,7 @@
     {name = "gh", check_installed = "gh --version"}
     {name = "gkwa/homebrew-tools/allbranding", check_installed = "/home/linuxbrew/.linuxbrew/bin/allbranding --help"}
     {name = "gkwa/homebrew-tools/cakepalm", check_installed = "cakepalm --help"}
+    {name = "gkwa/homebrew-tools/cloudeagle", check_installed = "cloudeagle --help"}
     {name = "gkwa/homebrew-tools/cloudelf", check_installed = "cloudelf --help"}
     {name = "gkwa/homebrew-tools/eachdodge", check_installed = "eachdodge version"}
     {name = "gkwa/homebrew-tools/eachit", check_installed = "eachit --help"}
