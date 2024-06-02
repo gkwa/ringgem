@@ -38,6 +38,7 @@
     {name = "gkwa/homebrew-tools/mylime", check_installed = "mylime --help"}
     {name = "gkwa/homebrew-tools/myville", check_installed = "myville version"}
     {name = "gkwa/homebrew-tools/ourlock", check_installed = "ourlock version"}
+    {name = "glasskube/tap/glasskube", check_installed = "glasskube --help"}
     {name = "gofumpt", check_installed = "gofumpt --version"}
     {name = "golang", check_installed = "go version"}
     {name = "golangci/tap/golangci-lint", check_installed = "golangci-lint --version"}
