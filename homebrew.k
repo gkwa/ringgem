@@ -48,6 +48,7 @@
     {name = "hashicorp/tap/packer", check_installed = "packer -version"}
     {name = "hashicorp/tap/terraform", check_installed = "terraform -version"}
     {name = "helm", check_installed = "helm version"}
+    {name = "homeport/tap/dyff", check_installed = "dyff version"}
     {name = "jc", check_installed = "jc --version"}
     {name = "jj", check_installed = "jj --version"}
     {name = "jless", check_installed = "jless --version"}
