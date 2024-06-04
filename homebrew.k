@@ -86,6 +86,7 @@
     {name = "tflint", check_installed = "tflint --version"}
     {name = "tilt", check_installed = "tilt version"}
     {name = "ugrep", check_installed = "ugrep --version"}
+    {name = "watchexec", check_installed = "watchexec --version"}
     {name = "watchman", check_installed = "watchman --version"}
     {name = "wget", check_installed = "wget --version"}
     {name = "yq", check_installed = "yq --version"}
