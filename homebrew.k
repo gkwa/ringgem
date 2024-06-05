@@ -22,6 +22,7 @@
     {name = "dagger", check_installed = "dagger version"}
     {name = "docker-credential-helper", check_installed = "docker-credential-pass version", disabled = True}
     {name = "dolt", check_installed = "dolt version"}
+    {name = "duckdb", check_installed = "duckdb -version"}
     {name = "eksctl", check_installed = "eksctl version"}
     {name = "fzf", check_installed = "fzf --version"}
     {name = "gcc", check_installed = "gcc --version"}
