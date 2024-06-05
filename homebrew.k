@@ -91,6 +91,7 @@
     {name = "watchexec", check_installed = "watchexec --version"}
     {name = "watchman", check_installed = "watchman --version"}
     {name = "wget", check_installed = "wget --version"}
+    {name = "xurls", check_installed = "xurls -version"}
     {name = "yq", check_installed = "yq --version"}
     {name = "zipkin", check_installed = "command -v zipkin >/dev/null"}
 ]}
