@@ -19,6 +19,7 @@ tasks:
       - task: install-otel-collector-on-linux
       - task: install-pass-on-linux
       - task: install-kpt-on-linux
+      - task: install-nodejs-on-ubuntu
       - task: install-boilerplate-on-linux-and-macos
       - task: install-sysbox-on-ubuntu
       - task: install-cloudwatch-on-ubuntu
@@ -152,6 +153,14 @@ tasks:
       - install-allbranding-on-linux
     status:
       - command -v toml >/dev/null
+  install-nodejs-on-ubuntu:
+    cmds:
+      - sudo bash -eux install-nodejs-on-ubuntu.sh
+      - mylime touch package-upgrades
+    deps:
+      - apt-yum-update
+    status:
+      - '! mylime newerthan 1h package-upgrades'
   install-package-upgrades-on-ubuntu:
     cmds:
       - sudo bash -eux install-package-upgrades-on-ubuntu.sh
