@@ -46,6 +46,7 @@
     {name = "golangci/tap/golangci-lint", check_installed = "golangci-lint --version"}
     {name = "goose", check_installed = "goose --version"}
     {name = "goreleaser", check_installed = "goreleaser --version"}
+    {name = "hashicorp/tap/nomad", check_installed = "nomad --version"}
     {name = "hashicorp/tap/packer", check_installed = "packer -version"}
     {name = "hashicorp/tap/terraform", check_installed = "terraform -version"}
     {name = "helm", check_installed = "helm version"}
