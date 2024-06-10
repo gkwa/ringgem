@@ -98,19 +98,19 @@
    {name = "zipkin", check_installed = "command -v zipkin >/dev/null"}
    {name = "autossh", check_installed = ""}
    {name = "coreutils", check_installed = ""}
-   {name = "direnv", check_installed = "}
+   {name = "direnv", check_installed = ""}
    {name = "emacs", check_installed = ""}
    {name = "findutils", check_installed = ""}
-   {name = "git", check_installed = "}
+   {name = "git", check_installed = ""}
    {name = "git-lfs", check_installed = ""}
    {name = "gmailctl", check_installed = ""}
    {name = "guilhem/tap/bump", check_installed = ""}
-   {name = "jq", check_installed = "
+   {name = "jq", check_installed = ""}
    {name = "pipx", check_installed = ""}
    {name = "ruff", check_installed = ""}
    {name = "syncthing", check_installed = ""}
    {name = "taylormonacelli/tools/manywest", check_installed = ""}
-   {name = "tmux", check_installed = "}
+   {name = "tmux", check_installed = ""}
    {name = "tree", check_installed = ""}
    {name = "z", check_installed = ""}
 ]}
