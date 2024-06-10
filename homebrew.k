@@ -96,21 +96,56 @@
    {name = "xurls", check_installed = "xurls -version"}
    {name = "yq", check_installed = "yq --version"}
    {name = "zipkin", check_installed = "command -v zipkin >/dev/null"}
-   {name = "autossh", check_installed = ""}
-   {name = "coreutils", check_installed = ""}
-   {name = "direnv", check_installed = ""}
-   {name = "emacs", check_installed = ""}
-   {name = "findutils", check_installed = ""}
-   {name = "git", check_installed = ""}
-   {name = "git-lfs", check_installed = ""}
-   {name = "gmailctl", check_installed = ""}
-   {name = "guilhem/tap/bump", check_installed = ""}
-   {name = "jq", check_installed = ""}
-   {name = "pipx", check_installed = ""}
-   {name = "ruff", check_installed = ""}
-   {name = "syncthing", check_installed = ""}
-   {name = "taylormonacelli/tools/manywest", check_installed = ""}
-   {name = "tmux", check_installed = ""}
-   {name = "tree", check_installed = ""}
-   {name = "z", check_installed = ""}
+   {name = "autossh", check_installed = "autossh -V"}
+   {name = "coreutils", check_installed = "gshuf --version"}
+   {name = "direnv", check_installed = "direnv --version"}
+   {name = "emacs", check_installed = "emacs --version"}
+   {name = "findutils", check_installed = ""
+   disabled=True,
+   note = r"""
+    I don't see a use for findutils by homebrew on linux
+   """
+
+   }
+   {name = "git", check_installed = "git --version"}
+   {name = "git-lfs", check_installed = "git lfs --version"}
+   {name = "gmailctl", check_installed = "gmailctl version"}
+   {name = "guilhem/tap/bump", check_installed = ""
+   disabled=True,
+   note=""""
+   does not run on focal
+
+
+    root@ip-172-31-24-83:~# cat /etc/os-release
+    NAME="Ubuntu"
+    VERSION="20.04.6 LTS (Focal Fossa)"
+    ID=ubuntu
+    ID_LIKE=debian
+    PRETTY_NAME="Ubuntu 20.04.6 LTS"
+    VERSION_ID="20.04"
+    HOME_URL="https://www.ubuntu.com/"
+    SUPPORT_URL="https://help.ubuntu.com/"
+    BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+    PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+    VERSION_CODENAME=focal
+    UBUNTU_CODENAME=focal
+    root@ip-172-31-24-83:~# bump --help
+    bump: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.34' not found (required by bump)
+    bump: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.32' not found (required by bump)
+    root@ip-172-31-24-83:~#
+
+   """
+   }
+   {name = "jq", check_installed = "jq --version"}
+   {name = "pipx", check_installed = "pipx --version"}
+   {name = "ruff", check_installed = "ruff --version"}
+   {name = "syncthing", check_installed = "syncthing --version"}
+   {name = "taylormonacelli/tools/manywest", check_installed = "manywest --version"}
+   {name = "tmux", check_installed = "tmux -V"}
+   {name = "tree", check_installed = "tree --version"}
+   {name = "z", check_installed = "",
+    note = r"""
+    z requires being added to your path or other setetup
+    """
+   }
 ]}
