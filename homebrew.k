@@ -112,7 +112,7 @@
    {name = "gmailctl", check_installed = "gmailctl version"}
    {name = "guilhem/tap/bump", check_installed = ""
    disabled=True,
-   note=""""
+   note=r"""
    does not run on focal
 
 
