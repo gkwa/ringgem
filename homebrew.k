@@ -100,17 +100,24 @@
    {name = "coreutils", check_installed = "gshuf --version"}
    {name = "direnv", check_installed = "direnv --version"}
    {name = "emacs", check_installed = "emacs --version"}
-   {name = "findutils", check_installed = ""
-   disabled=True,
+   {
+    name = "findutils"
+   check_installed = ""
+   disabled=True
    note = r"""
     I don't see a use for findutils by homebrew on linux
    """
+
+
+
+
 
    }
    {name = "git", check_installed = "git --version"}
    {name = "git-lfs", check_installed = "git lfs --version"}
    {name = "gmailctl", check_installed = "gmailctl version"}
-   {name = "guilhem/tap/bump", check_installed = ""
+   {
+    name = "guilhem/tap/bump", check_installed = ""
    disabled=True,
    note=r"""
    does not run on focal
@@ -143,7 +150,8 @@
    {name = "taylormonacelli/tools/manywest", check_installed = "manywest --version"}
    {name = "tmux", check_installed = "tmux -V"}
    {name = "tree", check_installed = "tree --version"}
-   {name = "z", check_installed = "",
+   {
+    name = "z", check_installed = "",
     note = r"""
     z requires being added to your path or other setetup
     """
