@@ -142,6 +142,7 @@
     {name = "jq", check_installed = "jq --version"}
     {name = "pipx", check_installed = "pipx --version"}
     {name = "ruff", check_installed = "ruff --version"}
+    {name = "shellcheck", check_installed = "shellcheck -V"}
     {name = "syncthing", check_installed = "syncthing --version"}
     {name = "taylormonacelli/tools/manywest", check_installed = "manywest --version"}
     {name = "tmux", check_installed = "tmux -V"}
