@@ -30,6 +30,7 @@ tasks:
       - task: install-fullbus-on-linux
       - task: install-goldpuppy-on-ubuntu
       - task: install-incus-on-linux
+      - task: install-quickwit-on-linux
       - task: install-needrestart-on-linux
       - task: install-otel-cli-on-linux
       - task: install-ringgem-testing-on-linux
@@ -46,6 +47,11 @@ tasks:
     deps:
       - install-cilium-on-linux
       - install-kubectl-on-linux
+  install-quickwit-on-linux:
+    cmds:
+      - bash -eux install-quickwit-on-linux.sh
+    status:
+      - command -v quickwit &>/dev/null
   install-kpt-on-linux:
     cmds:
       - bash -eux install-kpt-on-linux.sh
