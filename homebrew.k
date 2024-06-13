@@ -140,6 +140,7 @@
    """
     }
     {name = "jq", check_installed = "jq --version"}
+    {name = "meilisearch", check_installed = "meilisearch --version", note = r"""https://www.meilisearch.com/docs/learn/getting_started/installation"""}
     {name = "pipx", check_installed = "pipx --version"}
     {name = "ruff", check_installed = "ruff --version"}
     {name = "shellcheck", check_installed = "shellcheck -V"}
