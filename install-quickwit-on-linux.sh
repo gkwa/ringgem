@@ -4,7 +4,7 @@
 # https://github.com/quickwit-oss/quickwit/releases
 # https://github.com/quickwit-oss/quickwit?tab=readme-ov-file#cloud-native-search-engine-for-observability-logs-traces-and-soon-metrics-an-open-source-alternative-to-datadog-elasticsearch--loki-and-tempo
 
-tmp=$(mktemp -d quickwit-XXXX)
+tmp=$(mktemp -d /tmp/quickwit-XXXX)
 cd $tmp
 
 rel_url=https://api.github.com/repos/quickwit-oss/quickwit/releases
