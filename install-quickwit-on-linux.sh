@@ -8,11 +8,9 @@ tmp=$(mktemp -d /tmp/quickwit-XXXX)
 cd $tmp
 
 rel_url=https://api.github.com/repos/quickwit-oss/quickwit/releases
-allbranding query --releases-url=$rel_url \
-    --asset-regex='quickwit-v.*-x86_64-unknown-linux-gnu.tar.gz' >manifest.json
-
-url=$(cat manifest.json | jq -r .browser_download_url)
-version=$(cat manifest.json | jq -r .version)
+manifest=$(allbranding query --releases-url=$rel_url --asset-regex='quickwit-v.*-x86_64-unknown-linux-gnu.tar.gz')
+url=$(echo "$manifest" | jq -r .browser_download_url)
+version=$(echo "$manifest" | jq -r .version)
 
 gz=quickwit-${version}-x86_64-unknown-linux-gnu.tar.gz
 
