@@ -31,6 +31,7 @@ tasks:
       - task: install-goldpuppy-on-ubuntu
       - task: install-incus-on-linux
       - task: install-quickwit-on-linux
+      - task: install-restate-on-linux
       - task: install-needrestart-on-linux
       - task: install-otel-cli-on-linux
       - task: install-ringgem-testing-on-linux
@@ -47,6 +48,13 @@ tasks:
     deps:
       - install-cilium-on-linux
       - install-kubectl-on-linux
+  install-restate-on-linux:
+    cmds:
+      - bash -eux install-restate-on-linux.sh
+    status:
+      - command -v restate &>/dev/null
+      - command -v restate-server &>/dev/null
+
   install-quickwit-on-linux:
     cmds:
       - bash -eux install-quickwit-on-linux.sh
