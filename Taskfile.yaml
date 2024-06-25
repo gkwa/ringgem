@@ -174,7 +174,7 @@ tasks:
     deps:
       - apt-yum-update
     status:
-      - '! mylime newerthan 1h package-upgrades'
+      - command -v node >/dev/null
   install-package-upgrades-on-ubuntu:
     cmds:
       - sudo bash -eux install-package-upgrades-on-ubuntu.sh
