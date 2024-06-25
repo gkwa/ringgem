@@ -69,6 +69,7 @@
     {name = "minikube", check_installed = "minikube version"}
     {name = "mysql", check_installed = "mysqld --version"}
     {name = "nginx", check_installed = "nginx -v"}
+    {name = "pnpm", check_installed = "pnpm --version"}
     {name = "nvim", check_installed = "nvim --version"}
     {name = "opentofu", check_installed = "tofu version"}
     {name = "packer-completion", check_installed = ""}
