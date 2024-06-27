@@ -8,6 +8,7 @@
        https://github.com/taylormonacelli/ringgem/blob/master/install-docker-on-linux.sh
        """
     }
+    {name = "aws-sam-cli", check_installed = "sam --version"}
     {name = "age", check_installed = "age --version"}
     {name = "aws-cdk", check_installed = "cdk --version", devbox_name="nodePackages.aws-cdk"}
     {name = "awscli@2", check_installed = "aws --version", devbox_name="awscli2"}
