@@ -9,11 +9,11 @@
        """
     }
     {name = "age", check_installed = "age --version"}
-    {name = "aws-cdk", check_installed = "cdk --version"}
-    {name = "awscli@2", check_installed = "aws --version"}
+    {name = "aws-cdk", check_installed = "cdk --version", devbox_name="nodePackages.aws-cdk"}
+    {name = "awscli@2", check_installed = "aws --version", devbox_name="awscli2"}
     {name = "bash-completion@2", check_installed = ""}
     {name = "carvel-dev/carvel/ytt", check_installed = "ytt version"}
-    {name = "cdk8s", check_installed = "cdk8s --version"}
+    {name = "cdk8s", check_installed = "cdk8s --version", devbox_name="nodePackages.cdk8s-cli"}
     {name = "cilium-cli", check_installed = "cilium version"}
     {name = "clusterawsadm", check_installed = "clusterawsadm version"}
     {name = "clusterctl", check_installed = "clusterctl version"}

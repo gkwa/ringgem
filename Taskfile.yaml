@@ -170,7 +170,7 @@ tasks:
   install-nodejs-on-ubuntu:
     cmds:
       - sudo bash -eux install-nodejs-on-ubuntu.sh
-      - mylime touch package-upgrades
+      - /home/linuxbrew/.linuxbrew/bin/mylime touch nodejs
     deps:
       - apt-yum-update
     status:
