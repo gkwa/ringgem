@@ -60,6 +60,9 @@
     {name = "kcl-lang/tap/kcl", check_installed = "kcl version"}
     {name = "kind", check_installed = "kind --version"}
     {name = "krew", check_installed = "kubectl krew version"}
+    {name = "autossh", check_installed = "autossh -V"}
+    {name = "coreutils", check_installed = "gshuf --version"}
+    {name = "direnv", check_installed = "direnv --version"}
     {name = "kubectl", check_installed = "kubectl version --output=yaml --client"}
     {name = "kumactl", check_installed = "kumactl version"}
     {name = "kustomize", check_installed = "kustomize version"}
@@ -69,12 +72,14 @@
     {name = "mage", check_installed = "mage --version"}
     {name = "minikube", check_installed = "minikube version"}
     {name = "mysql", check_installed = "mysqld --version"}
+    {name = "nats-server", check_installed = "nats-server --version"}
+    {name = "nats-streaming-server", check_installed = "nats-streaming-server --version"}
     {name = "nginx", check_installed = "nginx -v"}
-    {name = "pnpm", check_installed = "pnpm --version"}
     {name = "nvim", check_installed = "nvim --version"}
     {name = "opentofu", check_installed = "tofu version"}
     {name = "packer-completion", check_installed = ""}
     {name = "pass", check_installed = "pass --version"}
+    {name = "pnpm", check_installed = "pnpm --version"}
     {name = "postgresql", check_installed = "postgres --version"}
     {name = "restic", check_installed = "restic version"}
     {name = "ripgrep", check_installed = "rg --version"}
@@ -98,9 +103,6 @@
     {name = "xurls", check_installed = "xurls -version"}
     {name = "yq", check_installed = "yq --version"}
     {name = "zipkin", check_installed = "command -v zipkin >/dev/null"}
-    {name = "autossh", check_installed = "autossh -V"}
-    {name = "coreutils", check_installed = "gshuf --version"}
-    {name = "direnv", check_installed = "direnv --version"}
     {name = "emacs", check_installed = "emacs --version"}
     {
         name = "findutils"
