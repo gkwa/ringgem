@@ -8,9 +8,10 @@
        https://github.com/taylormonacelli/ringgem/blob/master/install-docker-on-linux.sh
        """
     }
-    {name = "aws-sam-cli", check_installed = "sam --version"}
     {name = "age", check_installed = "age --version"}
+    {name = "autossh", check_installed = "autossh -V"}
     {name = "aws-cdk", check_installed = "cdk --version", devbox_name="nodePackages.aws-cdk"}
+    {name = "aws-sam-cli", check_installed = "sam --version"}
     {name = "awscli@2", check_installed = "aws --version", devbox_name="awscli2"}
     {name = "bash-completion@2", check_installed = ""}
     {name = "carvel-dev/carvel/ytt", check_installed = "ytt version"}
@@ -18,13 +19,17 @@
     {name = "cilium-cli", check_installed = "cilium version"}
     {name = "clusterawsadm", check_installed = "clusterawsadm version"}
     {name = "clusterctl", check_installed = "clusterctl version"}
+    {name = "coreutils", check_installed = "gshuf --version"}
     {name = "cosign", check_installed = "cosign version"}
     {name = "cue", check_installed = "cue version"}
     {name = "dagger", check_installed = "dagger version"}
+    {name = "direnv", check_installed = "direnv --version"}
     {name = "docker-credential-helper", check_installed = "docker-credential-pass version", disabled = True}
+    {name = "doggo", check_installed = "doggo --version"}
     {name = "dolt", check_installed = "dolt version"}
     {name = "duckdb", check_installed = "duckdb -version"}
     {name = "eksctl", check_installed = "eksctl version"}
+    {name = "emacs", check_installed = "emacs --version"}
     {name = "fzf", check_installed = "fzf --version"}
     {name = "gcc", check_installed = "gcc --version"}
     {name = "gh", check_installed = "gh --version"}
@@ -60,9 +65,6 @@
     {name = "kcl-lang/tap/kcl", check_installed = "kcl version"}
     {name = "kind", check_installed = "kind --version"}
     {name = "krew", check_installed = "kubectl krew version"}
-    {name = "autossh", check_installed = "autossh -V"}
-    {name = "coreutils", check_installed = "gshuf --version"}
-    {name = "direnv", check_installed = "direnv --version"}
     {name = "kubectl", check_installed = "kubectl version --output=yaml --client"}
     {name = "kumactl", check_installed = "kumactl version"}
     {name = "kustomize", check_installed = "kustomize version"}
@@ -93,6 +95,7 @@
     {name = "sqlite3", check_installed = "sqlite3 --version"}
     {name = "stefanprodan/tap/timoni", check_installed = "timoni --version"}
     {name = "tektoncd-cli", check_installed = "tkn version"}
+    {name = "teller", check_installed = "teller --version"}
     {name = "terragrunt", check_installed = "terragrunt --version"}
     {name = "tflint", check_installed = "tflint --version"}
     {name = "tilt", check_installed = "tilt version"}
@@ -103,7 +106,6 @@
     {name = "xurls", check_installed = "xurls -version"}
     {name = "yq", check_installed = "yq --version"}
     {name = "zipkin", check_installed = "command -v zipkin >/dev/null"}
-    {name = "emacs", check_installed = "emacs --version"}
     {
         name = "findutils"
         check_installed = ""
