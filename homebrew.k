@@ -58,7 +58,7 @@
     {name = "helm", check_installed = "helm version"}
     {name = "homeport/tap/dyff", check_installed = "dyff version"}
     {name = "jc", check_installed = "jc --version"}
-    {name = "jj", check_installed = "jj --version"}
+    {name = "jj", check_installed = "jj --version", disabled = True, note=r"""https://github.com/taylormonacelli/grayfiction/actions/runs/9986491164/job/27614736011#step:7:1677"""}
     {name = "jless", check_installed = "jless --version"}
     {name = "just", check_installed = "just --version"}
     {name = "k9s", check_installed = "k9s version"}
