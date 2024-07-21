@@ -13,6 +13,7 @@
     {name = "aws-cdk", check_installed = "cdk --version", devbox_name="nodePackages.aws-cdk"}
     {name = "aws-sam-cli", check_installed = "sam --version"}
     {name = "awscli@2", check_installed = "aws --version", devbox_name="awscli2"}
+    {name = "atuin", check_installed = "atuin --version"}
     {name = "bash-completion@2", check_installed = ""}
     {name = "carvel-dev/carvel/ytt", check_installed = "ytt version"}
     {name = "cdk8s", check_installed = "cdk8s --version", devbox_name="nodePackages.cdk8s-cli"}
