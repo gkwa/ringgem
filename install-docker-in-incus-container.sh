@@ -5,7 +5,7 @@
 CONTAINER_NAME="demo"
 STORAGE_POOL="docker"
 VOLUME_NAME="demo"
-VOLUME_SIZE="5GB"
+VOLUME_SIZE="10GB"
 UBUNTU_VERSION="24.04"
 
 # Create a new btrfs storage pool for Docker
