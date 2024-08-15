@@ -63,6 +63,7 @@
     {name = "jless", check_installed = "jless --version"}
     {name = "just", check_installed = "just --version"}
     {name = "k9s", check_installed = "k9s version"}
+    {name = "kcl-lang/tap/kcl", check_installed = "kcl version"}
     {name = "kind", check_installed = "kind --version"}
     {name = "krew", check_installed = "kubectl krew version"}
     {name = "kubectl", check_installed = "kubectl version --output=yaml --client"}
