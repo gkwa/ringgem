@@ -155,6 +155,7 @@
     {name = "taylormonacelli/tools/manywest", check_installed = "manywest --version"}
     {name = "tmux", check_installed = "tmux -V"}
     {name = "tree", check_installed = "tree --version"}
+    {name = "uv", check_installed = "uv --version"}
     {
         name = "z"
         check_installed = ""
