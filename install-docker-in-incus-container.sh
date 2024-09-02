@@ -6,7 +6,7 @@ CONTAINER_NAME="demo"
 STORAGE_POOL="docker"
 VOLUME_NAME="demo"
 VOLUME_SIZE="10GB"
-UBUNTU_VERSION="24.04"
+UBUNTU_VERSION="22.04"
 
 # Create a new btrfs storage pool for Docker
 incus storage create $STORAGE_POOL btrfs
