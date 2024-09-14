@@ -79,6 +79,7 @@
     {name = "nats-streaming-server", check_installed = "nats-streaming-server --version"}
     {name = "nginx", check_installed = "nginx -v"}
     {name = "nvim", check_installed = "nvim --version"}
+    {name = "openbao", check_installed = "bao version"}
     {name = "opentofu", check_installed = "tofu version"}
     {name = "packer-completion", check_installed = ""}
     {name = "pass", check_installed = "pass --version"}
