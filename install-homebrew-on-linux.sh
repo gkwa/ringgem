@@ -74,7 +74,7 @@ fi
 # Update /etc/skel/.profile and /etc/skel/.bashrc
 update_skel_file() {
     local file="$1"
-    sudo update_init_file "$file"
+    update_init_file "$file"
 }
 
 # Update /etc/skel/.profile
