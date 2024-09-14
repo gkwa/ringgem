@@ -63,8 +63,10 @@ fi
 brew --version
 EOF
     cd /home/linuxbrew
-    if ! sudo -u linuxbrew brew --version >/dev/null; then
+    if [ ! -f "${HOMEBREW_PREFIX}/bin/brew" ]; then
         sudo --login --user linuxbrew bash -e $script
+    else
+        echo "Homebrew is already installed. Skipping installation."
     fi
     rm -f $script
 }
@@ -75,7 +77,12 @@ setup_linuxbrew_user
 install_homebrew
 
 # Update shell environment
-eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+if [ -f "${HOMEBREW_PREFIX}/bin/brew" ]; then
+    eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+else
+    echo "Homebrew installation seems to have failed. Please check the logs."
+    exit 1
+fi
 
 # Update initialization files
 add_homebrew_shellenv ~/.bashrc
