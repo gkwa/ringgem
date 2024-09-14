@@ -60,3 +60,32 @@ test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/bre
 echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.bashrc
 
 rm -f $script
+
+# Update /etc/skel/.profile and /etc/skel/.bashrc
+update_skel_file() {
+    local file="$1"
+    local backup="${file}.bak"
+
+    # Backup the original file
+    sudo cp "$file" "$backup"
+
+    # Append Homebrew setup to the file
+    echo '
+# Setup Homebrew if it exists
+if [ -d "/home/linuxbrew/.linuxbrew" ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+else
+    echo "Homebrew is not installed in the expected location." >&2
+fi
+' | sudo tee -a "$file" > /dev/null
+
+    echo "Updated $file"
+}
+
+# Update /etc/skel/.profile
+update_skel_file "/etc/skel/.profile"
+
+# Update /etc/skel/.bashrc
+update_skel_file "/etc/skel/.bashrc"
+
+echo "Homebrew installation and skel file updates completed successfully."
