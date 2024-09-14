@@ -84,17 +84,6 @@ else
     exit 1
 fi
 
-sudo -u linuxbrew bash -e -c "
-    if [ -f /home/linuxbrew/.bashrc ]; then
-        $HOMEBREW_SHELLENV_COMMAND >> /home/linuxbrew/.bashrc
-        echo 'export HOMEBREW_AUTO_UPDATE_SECS=\$((24*60*60))' >> /home/linuxbrew/.bashrc
-    fi
-    if [ -f /home/linuxbrew/.profile ]; then
-        $HOMEBREW_SHELLENV_COMMAND >> /home/linuxbrew/.profile
-        echo 'export HOMEBREW_AUTO_UPDATE_SECS=\$((24*60*60))' >> /home/linuxbrew/.profile
-    fi
-"
-
 # Update initialization files
 add_homebrew_shellenv ~/.bashrc
 add_homebrew_shellenv ~/.profile
@@ -102,5 +91,7 @@ add_homebrew_shellenv "/etc/skel/.profile"
 add_homebrew_shellenv "/etc/skel/.bashrc"
 add_homebrew_shellenv "/root/.profile"
 add_homebrew_shellenv "/root/.bashrc"
+add_homebrew_shellenv "/home/linuxbrew/.bashrc"
+add_homebrew_shellenv "/home/linuxbrew/.profile"
 
 echo "Homebrew installation, skel file updates, and root initialization file updates completed successfully."
