@@ -28,17 +28,6 @@ setup_linuxbrew_user() {
     if ! test -f /etc/sudoers.d/linuxbrew; then
         echo "linuxbrew ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/linuxbrew
     fi
-
-    sudo -u linuxbrew bash -c "
-        if [ -f /home/linuxbrew/.bashrc ]; then
-            $HOMEBREW_SHELLENV_COMMAND >> /home/linuxbrew/.bashrc
-            echo 'export HOMEBREW_AUTO_UPDATE_SECS=\$((24*60*60))' >> /home/linuxbrew/.bashrc
-        fi
-        if [ -f /home/linuxbrew/.profile ]; then
-            $HOMEBREW_SHELLENV_COMMAND >> /home/linuxbrew/.profile
-            echo 'export HOMEBREW_AUTO_UPDATE_SECS=\$((24*60*60))' >> /home/linuxbrew/.profile
-        fi
-    "
 }
 
 # Function to add Homebrew shellenv to a file
@@ -94,6 +83,17 @@ else
     echo "Homebrew installation seems to have failed. Please check the logs."
     exit 1
 fi
+
+sudo -u linuxbrew bash -e -c "
+    if [ -f /home/linuxbrew/.bashrc ]; then
+        $HOMEBREW_SHELLENV_COMMAND >> /home/linuxbrew/.bashrc
+        echo 'export HOMEBREW_AUTO_UPDATE_SECS=\$((24*60*60))' >> /home/linuxbrew/.bashrc
+    fi
+    if [ -f /home/linuxbrew/.profile ]; then
+        $HOMEBREW_SHELLENV_COMMAND >> /home/linuxbrew/.profile
+        echo 'export HOMEBREW_AUTO_UPDATE_SECS=\$((24*60*60))' >> /home/linuxbrew/.profile
+    fi
+"
 
 # Update initialization files
 add_homebrew_shellenv ~/.bashrc
