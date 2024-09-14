@@ -71,6 +71,25 @@ EOF
     rm -f $script
 }
 
+# Function to create and install the brew wrapper script
+install_brew_wrapper() {
+    cat > /usr/local/bin/brew <<EOF
+#!/bin/bash
+
+# Check if the script is run as root
+if [ "\$(id -u)" -ne 0 ]; then
+    echo "This script must be run as root" >&2
+    exit 1
+fi
+
+# Run brew command as linuxbrew user
+sudo --user linuxbrew --login brew "\$@"
+EOF
+
+    chmod +x /usr/local/bin/brew
+    echo "Installed brew wrapper script to /usr/local/bin/brew"
+}
+
 # Main execution
 install_packages
 setup_linuxbrew_user
@@ -94,4 +113,7 @@ add_homebrew_shellenv "/root/.bashrc"
 add_homebrew_shellenv "/home/linuxbrew/.bashrc"
 add_homebrew_shellenv "/home/linuxbrew/.profile"
 
-echo "Homebrew installation, skel file updates, and root initialization file updates completed successfully."
+# Install brew wrapper script
+install_brew_wrapper
+
+echo "Homebrew installation, skel file updates, root initialization file updates, and brew wrapper script installation completed successfully."
