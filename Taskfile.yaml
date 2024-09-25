@@ -135,7 +135,7 @@ tasks:
     deps:
       - install-jq-on-linux
     status:
-      - commmand -v otelcol >/dev/null
+      - command -v otelcol >/dev/null
   install-needrestart-on-linux:
     cmds:
       - bash -eux install-needrestart-on-linux.sh
