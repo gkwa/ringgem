@@ -15,6 +15,7 @@ tasks:
       - task: install-docker-on-linux
   northflier:
     cmds:
+      - task: install-sops-on-linux
       - task: install-ansible
       - task: install-otel-collector-on-linux
       - task: install-pass-on-linux
@@ -257,6 +258,13 @@ tasks:
       - install-jq-on-linux
     status:
       - test -x /usr/bin/sysbox-runc >/dev/null
+  install-sops-on-linux:
+    cmds:
+      - sudo bash -eux install-sops-on-linux.sh
+    deps:
+      - install-jq-on-linux
+    status:
+      - command -v sops >/dev/null
   install-lxc-on-ubuntu:
     cmds:
       - sudo bash -eux install-lxc-on-ubuntu.sh
