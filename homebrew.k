@@ -153,7 +153,7 @@
     {name = "ruff", check_installed = "ruff --version"}
     {name = "shellcheck", check_installed = "shellcheck -V"}
     {name = "syncthing", check_installed = "syncthing --version"}
-    {name = "taylormonacelli/tools/manywest", check_installed = "manywest --version"}
+    {name = "gkwa/tools/manywest", check_installed = "manywest --version"}
     {name = "tmux", check_installed = "tmux -V"}
     {name = "tree", check_installed = "tree --version"}
     {name = "uv", check_installed = "uv --version"}
