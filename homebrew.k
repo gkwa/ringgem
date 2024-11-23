@@ -12,6 +12,7 @@
     {name = "autossh", check_installed = "autossh -V"}
     {name = "aws-cdk", check_installed = "cdk --version", devbox_name="nodePackages.aws-cdk"}
     {name = "aws-sam-cli", check_installed = "sam --version"}
+    {name = "aws-vault", check_installed = "aws-vault --version"}
     {name = "awscli@2", check_installed = "aws --version", devbox_name="awscli2"}
     {name = "atuin", check_installed = "atuin --version"}
     {name = "bash-completion@2", check_installed = ""}
