@@ -61,7 +61,7 @@ EOF
 install_brew_wrapper() {
    cat > /usr/local/bin/brew <<'EOF'
 #!/bin/bash
-exec /usr/local/bin/brew "$@"
+exec sudo --user linuxbrew --login ${HOMEBREW_PREFIX}/bin/brew "$@"
 EOF
 
    chmod +x /usr/local/bin/brew
