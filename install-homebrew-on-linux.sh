@@ -5,41 +5,41 @@ HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
 HOMEBREW_SHELLENV_COMMAND='eval "$('${HOMEBREW_PREFIX}'/bin/brew shellenv)"'
 
 install_packages() {
-   if command -v apt-get &>/dev/null || command -v apt &>/dev/null; then
-       apt-get update
-       sudo apt-get install --assume-yes build-essential procps curl file git
-   elif [ -f /etc/fedora-release ] || [ -f /etc/centos-release ] || [ -f /etc/redhat-release ]; then
-       sudo yum -y groupinstall 'Development Tools'
-       sudo yum -y install procps-ng curl file git
-   elif [ -f /etc/arch-release ]; then
-       sudo pacman -S base-devel procps-ng curl file git
-   else
-       echo "Unsupported distribution"
-       exit 1
-   fi
+    if command -v apt-get &>/dev/null || command -v apt &>/dev/null; then
+        apt-get update
+        sudo apt-get install --assume-yes build-essential procps curl file git
+    elif [ -f /etc/fedora-release ] || [ -f /etc/centos-release ] || [ -f /etc/redhat-release ]; then
+        sudo yum -y groupinstall 'Development Tools'
+        sudo yum -y install procps-ng curl file git
+    elif [ -f /etc/arch-release ]; then
+        sudo pacman -S base-devel procps-ng curl file git
+    else
+        echo "Unsupported distribution"
+        exit 1
+    fi
 }
 
 setup_linuxbrew_user() {
-   if ! id -u linuxbrew &>/dev/null; then
-       sudo useradd --create-home linuxbrew --shell /bin/bash
-   fi
-   if ! test -f /etc/sudoers.d/linuxbrew; then
-       echo "linuxbrew ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/linuxbrew
-   fi
+    if ! id -u linuxbrew &>/dev/null; then
+        sudo useradd --create-home linuxbrew --shell /bin/bash
+    fi
+    if ! test -f /etc/sudoers.d/linuxbrew; then
+        echo "linuxbrew ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/linuxbrew
+    fi
 }
 
 add_homebrew_shellenv() {
-   local file="$1"
-   if ! grep -q "export PATH=\"/usr/local/bin:\$PATH\"" "$file"; then
-       echo 'export PATH="/usr/local/bin:$PATH"' >> "$file"
-       echo "Updated $file with PATH priority"
-   fi
+    local file="$1"
+    if ! grep -q 'export PATH="/usr/local/bin:$PATH"' "$file"; then
+        echo 'export PATH="/usr/local/bin:$PATH"' >>"$file"
+        echo "Updated $file with PATH priority"
+    fi
 }
 
 install_homebrew() {
-   local script=$(mktemp /tmp/homebrew-XXXXX.sh)
-   chmod a+rx $script
-   cat >$script <<EOF
+    local script=$(mktemp /tmp/homebrew-XXXXX.sh)
+    chmod a+rx $script
+    cat >$script <<EOF
 timeout 30s curl --retry 9999 --connect-timeout 1 -sSf https://www.google.com >/dev/null
 export PATH=${HOMEBREW_PREFIX}/bin:\$PATH
 NONINTERACTIVE=1 /bin/bash -c "\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -49,23 +49,23 @@ if ! grep HOMEBREW_AUTO_UPDATE_SECS ~/.profile; then
 fi
 brew --version
 EOF
-   cd /home/linuxbrew
-   if [ ! -f "${HOMEBREW_PREFIX}/bin/brew" ]; then
-       sudo --login --user linuxbrew bash -e $script
-   else
-       echo "Homebrew is already installed. Skipping installation."
-   fi
-   rm -f $script
+    cd /home/linuxbrew
+    if [ ! -f "${HOMEBREW_PREFIX}/bin/brew" ]; then
+        sudo --login --user linuxbrew bash -e $script
+    else
+        echo "Homebrew is already installed. Skipping installation."
+    fi
+    rm -f $script
 }
 
 install_brew_wrapper() {
-   cat > /usr/local/bin/brew <<'EOF'
+    cat >/usr/local/bin/brew <<'EOF'
 #!/bin/bash
 exec sudo --user linuxbrew --login /home/linuxbrew/.linuxbrew/bin/brew "$@"
 EOF
 
-   chmod +x /usr/local/bin/brew
-   echo "Installed brew wrapper script to /usr/local/bin/brew"
+    chmod +x /usr/local/bin/brew
+    echo "Installed brew wrapper script to /usr/local/bin/brew"
 }
 
 install_packages
@@ -73,10 +73,10 @@ setup_linuxbrew_user
 install_homebrew
 
 if [ -f "${HOMEBREW_PREFIX}/bin/brew" ]; then
-   eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+    eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 else
-   echo "Homebrew installation seems to have failed. Please check the logs."
-   exit 1
+    echo "Homebrew installation seems to have failed. Please check the logs."
+    exit 1
 fi
 
 add_homebrew_shellenv ~/.bashrc
