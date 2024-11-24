@@ -301,6 +301,13 @@ tasks:
       - sudo bash -eux install-cobra-cli-using-go.sh
     status:
       - cobra-cli help &>/dev/null
+  configure-homebrew-on-linux:
+    cmds:
+      - sudo bash -eux configure-homebrew-on-linux.sh
+    deps:
+      - install-homebrew-on-linux
+    status:
+      - command -v brew &>/dev/null
   install-homebrew-on-linux:
     cmds:
       - sudo bash -eux install-homebrew-on-linux.sh
