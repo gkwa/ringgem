@@ -9,12 +9,12 @@
        """
     }
     {name = "age", check_installed = "age --version"}
+    {name = "atuin", check_installed = "atuin --version"}
     {name = "autossh", check_installed = "autossh -V"}
     {name = "aws-cdk", check_installed = "cdk --version", devbox_name="nodePackages.aws-cdk"}
     {name = "aws-sam-cli", check_installed = "sam --version"}
     {name = "aws-vault", check_installed = "aws-vault --version"}
     {name = "awscli@2", check_installed = "aws --version", devbox_name="awscli2"}
-    {name = "atuin", check_installed = "atuin --version"}
     {name = "bash-completion@2", check_installed = ""}
     {name = "carvel-dev/carvel/ytt", check_installed = "ytt version"}
     {name = "cdk8s", check_installed = "cdk8s --version", devbox_name="nodePackages.cdk8s-cli"}
@@ -53,6 +53,7 @@
     {name = "gofumpt", check_installed = "gofumpt --version"}
     {name = "golang", check_installed = "go version"}
     {name = "golangci/tap/golangci-lint", check_installed = "golangci-lint --version"}
+    {name = "gomplate", check_installed = "gomplate --version"}
     {name = "goose", check_installed = "goose --version"}
     {name = "goreleaser", check_installed = "goreleaser --version"}
     {name = "hashicorp/tap/nomad", check_installed = "nomad --version"}
