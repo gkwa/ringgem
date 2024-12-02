@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
-curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-sudo apt-get install --assume-yes nodejs
+curl -fsSL https://deb.nodesource.com/setup_23.x -o /tmp/nodesource_setup.sh
+sudo -E bash /tmp/nodesource_setup.sh
+sudo apt-get install -y nodejs
 node -v
+rm /tmp/nodesource_setup.sh
