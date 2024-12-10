@@ -50,6 +50,7 @@
     {name = "gkwa/homebrew-tools/myville", check_installed = "myville version"}
     {name = "gkwa/homebrew-tools/ourlock", check_installed = "ourlock version"}
     {name = "glasskube/tap/glasskube", check_installed = "glasskube --help"}
+    {name = "gnu-units", check_installed = "units --version"}
     {name = "gofumpt", check_installed = "gofumpt --version"}
     {name = "golang", check_installed = "go version"}
     {name = "golangci/tap/golangci-lint", check_installed = "golangci-lint --version"}
