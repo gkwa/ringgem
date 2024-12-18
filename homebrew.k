@@ -19,6 +19,7 @@
     {name = "carvel-dev/carvel/ytt", check_installed = "ytt version"}
     {name = "cdk8s", check_installed = "cdk8s --version", devbox_name="nodePackages.cdk8s-cli"}
     {name = "chamber", check_installed = "chamber version"}
+    {name = "chezmoi", check_installed = "chezmoi --version"}
     {name = "cilium-cli", check_installed = "cilium version"}
     {name = "clusterawsadm", check_installed = "clusterawsadm version"}
     {name = "clusterctl", check_installed = "clusterctl version"}
