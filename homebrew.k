@@ -32,6 +32,7 @@
     {name = "doggo", check_installed = "doggo --version"}
     {name = "dolt", check_installed = "dolt version"}
     {name = "duckdb", check_installed = "duckdb -version"}
+    {name = "dust", check_installed = "dust --version"}
     {name = "eksctl", check_installed = "eksctl version"}
     {name = "emacs", check_installed = "emacs --version"}
     {name = "fzf", check_installed = "fzf --version"}
@@ -50,6 +51,7 @@
     {name = "gkwa/homebrew-tools/mylime", check_installed = "mylime --help"}
     {name = "gkwa/homebrew-tools/myville", check_installed = "myville version"}
     {name = "gkwa/homebrew-tools/ourlock", check_installed = "ourlock version"}
+    {name = "glab", check_installed = "glab --version"}
     {name = "glasskube/tap/glasskube", check_installed = "glasskube --help"}
     {name = "gnu-units", check_installed = "units --version"}
     {name = "gofumpt", check_installed = "gofumpt --version"}
