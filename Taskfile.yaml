@@ -301,6 +301,11 @@ tasks:
       - sudo bash -eux install-cobra-cli-using-go.sh
     status:
       - cobra-cli help &>/dev/null
+  install-blesh-on-linux:
+    cmds:
+      - sudo bash -eux install-blesh-on-linux.sh
+    status:
+      - command -v ble-update &>/dev/null
   configure-homebrew-on-linux:
     cmds:
       - sudo bash -eux configure-homebrew-on-linux.sh
