@@ -64,7 +64,7 @@
     {name = "hashicorp/tap/nomad", check_installed = "nomad --version"}
     {name = "hashicorp/tap/packer", check_installed = "packer -version"}
     {name = "helm", check_installed = "helm version"}
-    {name = "homeport/tap/dyff", check_installed = "dyff version", disabled = True, note = r"""this fails in ci but not from cli, not sure why"""}
+    {name = "homeport/tap/dyff", check_installed = "dyff version"}
     {name = "hurl", check_installed = "hurl --version"}
     {name = "jc", check_installed = "jc --version"}
     {name = "jj", check_installed = "jj --version"}
