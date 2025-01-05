@@ -96,7 +96,6 @@
     {name = "restic", check_installed = "restic version"}
     {name = "ripgrep", check_installed = "rg --version"}
     {name = "rqlite", check_installed = "rqlite --version"}
-    {name = "rye", check_installed = "rye --version"}
     {name = "shellcheck", check_installed = "shellcheck --version"}
     {name = "shfmt", check_installed = "shfmt --version"}
     {name = "skopeo", check_installed = "skopeo --version"}
