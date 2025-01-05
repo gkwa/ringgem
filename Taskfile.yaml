@@ -42,6 +42,7 @@ tasks:
       - task: install-txtar-on-linux
       - task: northflier-with-dep-order
       - task: upgrade-bash-completion-on-linux
+      - task: deploy-dotfiles-on-linux
       - task: install-mlocate-on-linux
       - task: install-hey-on-linux
       - task: lxc-configure-on-ubuntu
@@ -62,6 +63,11 @@ tasks:
       - bash -eux install-quickwit-on-linux.sh
     status:
       - command -v quickwit &>/dev/null
+  deploy-dotfiles-on-linux:
+    cmds:
+      - bash -eux deploy-dotfiles-on-linux.sh
+    status:
+      - command -v kpt &>/dev/null
   install-kpt-on-linux:
     cmds:
       - bash -eux install-kpt-on-linux.sh
