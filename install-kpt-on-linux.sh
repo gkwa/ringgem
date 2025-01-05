@@ -7,7 +7,7 @@ releases_url=https://api.github.com/repos/GoogleContainerTools/kpt/releases
 binary=kpt_linux_amd64
 
 url=$(
-    /home/linuxbrew/.linuxbrew/bin/allbranding query \
+    allbranding query \
         --releases-url=$releases_url \
         --asset-regex=$binary | jq -r .browser_download_url
 )

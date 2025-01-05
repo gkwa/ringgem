@@ -17,5 +17,5 @@ bashrc="$HOME/.bashrc"
 init_line='if [[ $- == *i* ]]; then source ~/.local/share/blesh/ble.sh --attach=none; fi'
 attach_line='if [[ ${BLE_VERSION-} ]]; then ble-attach; fi'
 
-grep -qF "$init_line" "$bashrc" || echo "$init_line" >> "$bashrc"
-grep -qF "$attach_line" "$bashrc" || echo "$attach_line" >> "$bashrc"
+grep -qF "$init_line" "$bashrc" || echo "$init_line" >>"$bashrc"
+grep -qF "$attach_line" "$bashrc" || echo "$attach_line" >>"$bashrc"

@@ -22,7 +22,7 @@ else
 fi
 
 package_url=$(
-    /home/linuxbrew/.linuxbrew/bin/allbranding query \
+    allbranding query \
         --releases-url=$releases_url \
         --asset-regex=$regex | jq -r .browser_download_url
 )

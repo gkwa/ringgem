@@ -6,7 +6,7 @@ orig_dir=$(pwd)
 tmp=$(mktemp -d ./sops-XXXX)
 cd $tmp
 
-/home/linuxbrew/.linuxbrew/bin/allbranding query --releases-url=https://api.github.com/repos/getsops/sops/releases --asset-regex='sops.*.linux.amd64' >manifest.json
+allbranding query --releases-url=https://api.github.com/repos/getsops/sops/releases --asset-regex='sops.*.linux.amd64' >manifest.json
 url=$(cat manifest.json | jq -r .browser_download_url)
 version=$(cat manifest.json | jq -r .version)
 checksums_url=https://github.com/getsops/sops/releases/download/$version/sops-$version.checksums.txt

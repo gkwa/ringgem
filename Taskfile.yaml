@@ -51,19 +51,19 @@ tasks:
       - install-kubectl-on-linux
   install-restate-on-linux:
     cmds:
-      - bash -eux install-restate-on-linux.sh
+      - bash -l -eux install-restate-on-linux.sh
     status:
       - command -v restate &>/dev/null
       - command -v restate-server &>/dev/null
 
   install-quickwit-on-linux:
     cmds:
-      - bash -eux install-quickwit-on-linux.sh
+      - bash -l -eux install-quickwit-on-linux.sh
     status:
       - command -v quickwit &>/dev/null
   install-kpt-on-linux:
     cmds:
-      - bash -eux install-kpt-on-linux.sh
+      - bash -l -eux install-kpt-on-linux.sh
     status:
       - command -v kpt &>/dev/null
   install-ringgem-testing-on-linux:
@@ -74,7 +74,7 @@ tasks:
       - python3 --version >/dev/null
   install-docker-on-linux:
     cmds:
-      - bash -eux install-docker-on-linux.sh
+      - bash -l -eux install-docker-on-linux.sh
     status:
       - command -v docker &>/dev/null
   install-mythai-on-linux:
@@ -86,59 +86,59 @@ tasks:
       - command -v mythai &>/dev/null
   install-nix-on-linux:
     cmds:
-      - bash -eux install-nix-on-linux.sh
+      - bash -l -eux install-nix-on-linux.sh
     deps:
       - install-jq-on-linux
     status:
       - test -d /nix/var/nix/profiles/default/etc
   wait-for-cloud-init:
     cmds:
-      - bash -eux wait-for-cloud-init.sh
+      - bash -l -eux wait-for-cloud-init.sh
   install-docker-in-incus-container:
     run: once
     cmds:
-      - bash -eux install-docker-in-incus-container.sh
+      - bash -l -eux install-docker-in-incus-container.sh
     deps:
       - install-incus-on-linux
   install-devbox-on-linux:
     cmds:
-      - bash -eux install-devbox-on-linux.sh
+      - bash -l -eux install-devbox-on-linux.sh
     deps:
       - install-nix-on-linux
     status:
       - command -v devbox >/dev/null
   install-cargo-binstall-on-linux-using-cargo:
     cmds:
-      - bash -eux install-cargo-binstall-on-linux-using-cargo.sh
+      - bash -l -eux install-cargo-binstall-on-linux-using-cargo.sh
     deps:
       - install-cargo-on-linux
     status:
       - cargo binstall --help >/dev/null
   install-cargo-on-linux:
     cmds:
-      - bash -eux install-cargo-on-linux.sh
+      - bash -l -eux install-cargo-on-linux.sh
     status:
       - command -v cargo >/dev/null
   install-gpg-on-linux:
     cmds:
-      - bash -eux install-gpg-on-linux.sh
+      - bash -l -eux install-gpg-on-linux.sh
     status:
       - command -v gpg >/dev/null
   install-golangci-lint-on-linux-using-go:
     cmds:
-      - bash -eux install-golangci-lint-on-linux-using-go.sh
+      - bash -l -eux install-golangci-lint-on-linux-using-go.sh
     status:
       - command -v golangci-lint &>/dev/null
   install-otel-collector-on-linux:
     cmds:
-      - bash -eux install-otel-collector-on-linux.sh
+      - bash -l -eux install-otel-collector-on-linux.sh
     deps:
       - install-jq-on-linux
     status:
       - command -v otelcol >/dev/null
   install-needrestart-on-linux:
     cmds:
-      - bash -eux install-needrestart-on-linux.sh
+      - bash -l -eux install-needrestart-on-linux.sh
     status:
       - command -v needrestart &>/dev/null
   install-incus-on-linux:
@@ -482,7 +482,7 @@ tasks:
       - command -v updatedb >/dev/null
   install-pass-on-linux:
     cmds:
-      - bash -eux install-pass-on-linux.sh
+      - bash -l -eux install-pass-on-linux.sh
     status:
       - command -v pass >/dev/null
   install-silverdelay-on-linux:
