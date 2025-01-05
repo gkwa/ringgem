@@ -1,5 +1,5 @@
-import re
 import pathlib
+import re
 
 
 def process_install_script(file_path):

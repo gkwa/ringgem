@@ -1,5 +1,6 @@
-import re
 import pathlib
+import re
+
 import ruamel.yaml
 
 
