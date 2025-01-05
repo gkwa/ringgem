@@ -9,15 +9,23 @@
        """
     }
     {name = "age", check_installed = "age --version"}
-    {name = "atuin", check_installed = "atuin --version"}
+    {
+        name = "atuin"
+        check_installed = "atuin --version"
+        disabled = True
+        note = r"""
+        use curl installer instead since it will deploy the correct ~/.bash-preexc.sh that atuin wants
+        bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
+        """
+    }
     {name = "autossh", check_installed = "autossh -V"}
-    {name = "aws-cdk", check_installed = "cdk --version", devbox_name="nodePackages.aws-cdk"}
+    {name = "aws-cdk", check_installed = "cdk --version", devbox_name = "nodePackages.aws-cdk"}
     {name = "aws-sam-cli", check_installed = "sam --version"}
     {name = "aws-vault", check_installed = "aws-vault --version"}
-    {name = "awscli@2", check_installed = "aws --version", devbox_name="awscli2"}
+    {name = "awscli@2", check_installed = "aws --version", devbox_name = "awscli2"}
     {name = "bash-completion@2", check_installed = ""}
     {name = "carvel-dev/carvel/ytt", check_installed = "ytt version"}
-    {name = "cdk8s", check_installed = "cdk8s --version", devbox_name="nodePackages.cdk8s-cli"}
+    {name = "cdk8s", check_installed = "cdk8s --version", devbox_name = "nodePackages.cdk8s-cli"}
     {name = "chamber", check_installed = "chamber version"}
     {name = "chezmoi", check_installed = "chezmoi --version"}
     {name = "cilium-cli", check_installed = "cilium version"}

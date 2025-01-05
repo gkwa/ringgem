@@ -25,6 +25,7 @@ tasks:
       - task: install-sysbox-on-ubuntu
       - task: install-cloudwatch-on-ubuntu
       - task: install-devbox-on-linux
+      - task: install-atuin-on-linux
       - task: install-elasticsearch-on-ubuntu
       - task: install-kibana-on-ubuntu
       - task: install-fluentd-on-ubuntu
@@ -72,6 +73,11 @@ tasks:
   check-for-python:
     cmds:
       - python3 --version >/dev/null
+  install-atuin-on-linux:
+    cmds:
+      - bash -l -eux install-atuin-on-linux.sh
+    status:
+      - command -v atuin &>/dev/null
   install-docker-on-linux:
     cmds:
       - bash -l -eux install-docker-on-linux.sh
