@@ -168,7 +168,7 @@ tasks:
       - command -v txtar-x >/dev/null
   install-allbranding-on-linux:
     cmds:
-      - sudo --login --user linuxbrew brew install taylormonacelli/homebrew-tools/allbranding
+      - sudo --login --user linuxbrew bash -l -c 'brew install gkwa/homebrew-tools/allbranding'
     status:
       - command -v allbranding >/dev/null
   install-toml-cli-on-linux:
