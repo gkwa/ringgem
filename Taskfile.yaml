@@ -67,7 +67,7 @@ tasks:
     cmds:
       - bash -l -eux deploy-dotfiles-on-linux.sh
     status:
-      - command -v kpt &>/dev/null
+      - chezmoi status &>/dev/null
   install-kpt-on-linux:
     cmds:
       - bash -l -eux install-kpt-on-linux.sh
