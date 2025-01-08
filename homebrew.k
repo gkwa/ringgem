@@ -47,7 +47,7 @@
     {name = "gcc", check_installed = "gcc --version"}
     {name = "gh", check_installed = "gh --version"}
     {name = "git-delta", check_installed = "delta --version"}
-    {name = "gkwa/homebrew-tools/allbranding", check_installed = "/home/linuxbrew/.linuxbrew/bin/allbranding --help"}
+    {name = "gkwa/homebrew-tools/allbranding", check_installed = "allbranding --help"}
     {name = "gkwa/homebrew-tools/cakepalm", check_installed = "cakepalm --help"}
     {name = "gkwa/homebrew-tools/cloudeagle", check_installed = "cloudeagle --help"}
     {name = "gkwa/homebrew-tools/cloudelf", check_installed = "cloudelf --help"}
