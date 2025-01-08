@@ -6,7 +6,7 @@ export PATH=/home/linuxbrew/.linuxbrew/bin:"$PATH"
 
 git clone https://github.com/taylormonacelli/mythai.git /opt/mythai
 
-rye sync --pyproject=/opt/mythai/pyproject.toml
+uv sync --project=/opt/mythai/pyproject.toml
 
 . /opt/mythai/.venv/bin/activate
 mythai --help
