@@ -1,5 +1,8 @@
 #!/bin/bash
 
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh 
+
+
 if command -v apt-get &>/dev/null; then
     sudo apt-get install -y pass
 elif command -v yum &>/dev/null; then

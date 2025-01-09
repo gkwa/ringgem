@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh 
+
 function install_jq_without_pm {
     version=$(curl -s https://api.github.com/repos/jqlang/jq/releases/latest | grep tag_name | cut -d'"' -f4)
     kernel=$(uname)

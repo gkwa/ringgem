@@ -171,7 +171,7 @@ tasks:
     cmds:
       - |
         sudo --login --user linuxbrew bash -c '
-          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          [ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
           brew install taylormonacelli/homebrew-tools/allbranding
         '
     status:
@@ -188,7 +188,7 @@ tasks:
     cmds:
       - sudo bash -eux install-nodejs-on-ubuntu.sh
       - |
-        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        [ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
         mylime touch nodejs
     deps:
       - apt-yum-update
