@@ -169,7 +169,11 @@ tasks:
       - command -v txtar-x >/dev/null
   install-allbranding-on-linux:
     cmds:
-      - sudo --login --user linuxbrew brew install taylormonacelli/homebrew-tools/allbranding
+      - |
+        sudo --login --user linuxbrew bash -c '
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          brew install taylormonacelli/homebrew-tools/allbranding
+        '
     status:
       - command -v allbranding >/dev/null
   install-toml-cli-on-linux:
@@ -183,7 +187,9 @@ tasks:
   install-nodejs-on-ubuntu:
     cmds:
       - sudo bash -eux install-nodejs-on-ubuntu.sh
-      - /home/linuxbrew/.linuxbrew/bin/mylime touch nodejs
+      - |
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        mylime touch nodejs
     deps:
       - apt-yum-update
     status:
