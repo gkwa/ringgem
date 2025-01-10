@@ -473,12 +473,12 @@ tasks:
       - parallel-ssh --version >/dev/null
   install-python-on-linux:
     cmds:
-      - sudo bash install-python-on-linux.sh
+      - sudo bash -e install-python-on-linux.sh
     status:
       - python3 --version >/dev/null
   install-python-pip-on-linux:
     cmds:
-      - sudo bash install-python-pip-on-linux.sh
+      - sudo bash -e install-python-pip-on-linux.sh
     status:
       - pip3 --version >/dev/null
   run-kindsealion-on-linux:
