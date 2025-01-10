@@ -5,6 +5,8 @@
 set -e
 set -u
 
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
+
 package_name="otelcol_.*_linux_amd64"
 releases_url=https://api.github.com/repos/open-telemetry/opentelemetry-collector-releases/releases
 

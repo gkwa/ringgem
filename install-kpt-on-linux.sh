@@ -3,6 +3,8 @@
 # https://kpt.dev/installation/kpt-cli
 # https://github.com/kptdev/kpt/blob/main/Formula/kpt.rb
 
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
+
 releases_url=https://api.github.com/repos/GoogleContainerTools/kpt/releases
 binary=kpt_linux_amd64
 

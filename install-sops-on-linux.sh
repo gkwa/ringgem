@@ -2,6 +2,8 @@
 
 # https://github.com/getsops/sops/releases
 
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
+
 orig_dir=$(pwd)
 tmp=$(mktemp -d ./sops-XXXX)
 cd $tmp

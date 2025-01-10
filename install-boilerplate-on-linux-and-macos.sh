@@ -3,6 +3,8 @@
 # https://github.com/gruntwork-io/boilerplate/releases
 # https://github.com/gruntwork-io/boilerplate?tab=readme-ov-file#install
 
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
+
 kernel=$(uname)
 if [[ $kernel == Darwin ]]; then
     binary=boilerplate_darwin_amd64

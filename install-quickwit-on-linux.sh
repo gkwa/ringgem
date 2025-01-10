@@ -4,6 +4,8 @@
 # https://github.com/quickwit-oss/quickwit/releases
 # https://github.com/quickwit-oss/quickwit?tab=readme-ov-file#cloud-native-search-engine-for-observability-logs-traces-and-soon-metrics-an-open-source-alternative-to-datadog-elasticsearch--loki-and-tempo
 
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
+
 tmp=$(mktemp -d /tmp/quickwit-XXXX)
 cd $tmp
 
