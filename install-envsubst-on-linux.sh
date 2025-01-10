@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
 
 rm -f /tmp/envsubst
 curl -o /tmp/envsubst -L https://github.com/a8m/envsubst/releases/latest/download/envsubst-$(uname -s)-$(uname -m)

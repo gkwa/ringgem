@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
 
 upgrade_package() {
     if [[ -x "$(command -v $1)" ]]; then

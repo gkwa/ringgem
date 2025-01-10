@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
 
 source /etc/os-release
 if [[ $VERSION_ID == "20.04" || $VERSION_ID < "20.04" ]]; then

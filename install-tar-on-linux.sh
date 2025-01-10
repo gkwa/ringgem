@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
 
 if command -v apt-get >/dev/null 2>&1; then
     DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes tar

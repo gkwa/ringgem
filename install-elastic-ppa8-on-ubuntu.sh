@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
 
 curl -sSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --batch --yes --dearmor -o /usr/share/keyrings/elastic-keyring.gpg
 apt-get --assume-yes install apt-transport-https

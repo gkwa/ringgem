@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
 
 url=https://github.com/taylormonacelli/dulltrader/releases/latest/download/dulltrader_Linux_x86_64.tar.gz
 checksums_url=https://github.com/taylormonacelli/dulltrader/releases/latest/download/checksums.txt

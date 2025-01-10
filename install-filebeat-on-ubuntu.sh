@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
 
 curl -o /tmp/filebeat-installation-configuration.html https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html
 version=$(cat /tmp/filebeat-installation-configuration.html | grep -oP 'filebeat-\K[\d.]+(?=-amd64\.deb)' | head -n 1)

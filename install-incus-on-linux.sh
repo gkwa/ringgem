@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
 
 # https://linuxcontainers.org/incus/docs/main/installing/#installing-from-package
 

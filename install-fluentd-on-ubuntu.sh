@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
 
 if grep 'VERSION=.*Jammy' /etc/os-release; then
     url=https://toolbelt.treasuredata.com/sh/install-ubuntu-jammy-fluent-package5.sh

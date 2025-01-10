@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
 
 # https://github.com/nestybox/sysbox/blob/master/docs/user-guide/install-package.md#installing-sysbox
 # https://github.com/nestybox/sysbox/releases

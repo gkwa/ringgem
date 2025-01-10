@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
 
 # https://ubuntu.com/tutorials/how-to-run-docker-inside-lxd-containers
 
