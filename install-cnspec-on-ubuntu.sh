@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 url=$(allbranding query --releases-url=https://api.github.com/repos/mondoohq/cnquery/releases --asset-regex='cnquery_.*_linux_amd64.deb' | jq -r .browser_download_url)
 curl -LO $url
 deb=$(basename $url)

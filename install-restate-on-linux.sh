@@ -3,6 +3,8 @@
 # https://github.com/restatedev/restate/releases
 # https://github.com/restatedev/restate
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 tmp=$(mktemp -d /tmp/restate-XXXX)
 cd $tmp
 

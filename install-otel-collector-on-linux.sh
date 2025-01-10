@@ -2,6 +2,8 @@
 
 # https://opentelemetry.io/docs/collector/installation/#manual-linux-installation
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 set -e
 set -u
 
