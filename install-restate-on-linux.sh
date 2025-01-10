@@ -3,6 +3,8 @@
 # https://github.com/restatedev/restate/releases
 # https://github.com/restatedev/restate
 
+[ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
+
 tmp=$(mktemp -d /tmp/restate-XXXX)
 cd $tmp
 
