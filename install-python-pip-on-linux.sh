@@ -7,4 +7,8 @@ python3 /tmp/get-pip.py
 python3 --version
 pip3 --version
 
+type -a pip3
+
+realpath /usr/local/bin/pip3
+
 rm -f /tmp/get-pip.py

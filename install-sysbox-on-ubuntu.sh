@@ -14,6 +14,6 @@ deb_name="sysbox-ce_${version}-0.linux_amd64.deb"
 download_url="https://downloads.nestybox.com/sysbox/releases/${tag_name}/${deb_name}"
 
 curl -LO $download_url
-sudo apt-get install ./$deb_name
+sudo apt-get install --assume-yes ./$deb_name
 
 rm -f ./$deb_name
