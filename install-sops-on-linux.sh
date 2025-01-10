@@ -2,8 +2,6 @@
 
 # https://github.com/getsops/sops/releases
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 orig_dir=$(pwd)
 tmp=$(mktemp -d ./sops-XXXX)
 cd $tmp

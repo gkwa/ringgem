@@ -3,8 +3,6 @@
 # https://kpt.dev/installation/kpt-cli
 # https://github.com/kptdev/kpt/blob/main/Formula/kpt.rb
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 releases_url=https://api.github.com/repos/GoogleContainerTools/kpt/releases
 binary=kpt_linux_amd64
 

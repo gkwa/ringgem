@@ -32,6 +32,7 @@ incus exec $CONTAINER_NAME -- df -h /var/lib/docker
 
 incus storage info $STORAGE_POOL
 
+
 echo "Setup complete. Container '$CONTAINER_NAME' is ready with a $VOLUME_SIZE Docker storage volume."
 cat >install-docker.sh <<'EOF'
 # Update the package list and install necessary packages

@@ -3,8 +3,6 @@
 # https://github.com/gruntwork-io/boilerplate/releases
 # https://github.com/gruntwork-io/boilerplate?tab=readme-ov-file#install
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 kernel=$(uname)
 if [[ $kernel == Darwin ]]; then
     binary=boilerplate_darwin_amd64
