@@ -9,7 +9,7 @@ tmp=$(mktemp -d /tmp/restate-XXXX)
 cd $tmp
 
 rel_url=https://api.github.com/repos/restatedev/restate/releases
-manifest=$(allbranding query --releases-url=$rel_url --asset-regex='restate.x86_64-unknown-linux-musl.tar.gz')
+manifest=$(/home/linuxbrew/.linuxbrew/bin/allbranding query --releases-url=$rel_url --asset-regex='restate.x86_64-unknown-linux-musl.tar.gz')
 url=$(echo "$manifest" | jq -r .browser_download_url)
 version=$(echo "$manifest" | jq -r .version)
 

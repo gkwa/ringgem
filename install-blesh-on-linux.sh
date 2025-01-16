@@ -5,7 +5,7 @@
 [ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
 
 # Get latest version/url using allbranding
-release_info=$(allbranding query --releases-url=https://api.github.com/repos/akinomyoga/ble.sh/releases --asset-regex='ble-\d+\.\d+(\.\d+)?\.tar\.xz' 2>/dev/null)
+release_info=$(/home/linuxbrew/.linuxbrew/bin/allbranding query --releases-url=https://api.github.com/repos/akinomyoga/ble.sh/releases --asset-regex='ble-\d+\.\d+(\.\d+)?\.tar\.xz' 2>/dev/null)
 url=$(echo "$release_info" | jq -r .browser_download_url)
 version=$(echo "$release_info" | jq -r .version)
 
