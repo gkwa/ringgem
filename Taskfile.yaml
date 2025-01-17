@@ -64,9 +64,7 @@ tasks:
       - command -v quickwit &>/dev/null
   deploy-dotfiles-on-linux:
     cmds:
-      - bash -eux deploy-dotfiles-on-linux.sh
-    status:
-      - chezmoi status &>/dev/null
+      - sudo bash -eux deploy-dotfiles-on-linux.sh
   install-kpt-on-linux:
     cmds:
       - bash -eux install-kpt-on-linux.sh
