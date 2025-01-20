@@ -90,6 +90,7 @@
     {name = "lua", check_installed = "lua -v"}
     {name = "mage", check_installed = "mage --version"}
     {name = "minikube", check_installed = "minikube version"}
+    {name = "moreutils", check_installed = "sponge -h"}
     {name = "mysql", check_installed = "mysqld --version"}
     {name = "nats-server", check_installed = "nats-server --version"}
     {name = "nats-streaming-server", check_installed = "nats-streaming-server --version"}
