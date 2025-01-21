@@ -45,6 +45,7 @@ tasks:
       - task: deploy-dotfiles-on-linux
       - task: install-mlocate-on-linux
       - task: install-hey-on-linux
+      - task: lxc-configure-on-ubuntu
       - task: install-package-upgrades-on-ubuntu
   follow-cilium-gateway-tutorial:
     deps:
