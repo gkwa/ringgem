@@ -42,6 +42,7 @@ tasks:
       - task: install-txtar-on-linux
       - task: northflier-with-dep-order
       - task: upgrade-bash-completion-on-linux
+      - task: deploy-dotfiles-on-linux
       - task: install-mlocate-on-linux
       - task: install-hey-on-linux
       - task: lxc-configure-on-ubuntu
