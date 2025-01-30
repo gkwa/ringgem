@@ -11,7 +11,6 @@ tasks:
       - install-onejuly-on-linux
   northflier-with-dep-order:
     cmds:
-      - task: run-kindsealion-on-linux
       - task: install-docker-on-linux
   northflier:
     cmds:
