@@ -22,7 +22,6 @@ tasks:
       - task: install-kpt-on-linux
       - task: install-nodejs-on-ubuntu
       - task: install-boilerplate-on-linux-and-macos
-      - task: install-sysbox-on-ubuntu
       - task: install-cloudwatch-on-ubuntu
       - task: install-devbox-on-linux
       - task: install-atuin-on-linux
