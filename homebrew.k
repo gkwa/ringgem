@@ -43,6 +43,7 @@
     {name = "dust", check_installed = "dust --version"}
     {name = "eksctl", check_installed = "eksctl version"}
     {name = "emacs", check_installed = "emacs --version"}
+    {name = "fx", check_installed = "fx --version"}
     {name = "fzf", check_installed = "fzf --version"}
     {name = "gcc", check_installed = "gcc --version"}
     {name = "gh", check_installed = "gh --version"}
