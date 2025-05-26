@@ -18,6 +18,7 @@ tasks:
       - task: install-sops-on-linux
       - task: install-ansible
       - task: install-otel-collector-on-linux
+      - task: install-httptap-on-linux
       - task: install-pass-on-linux
       - task: install-kpt-on-linux
       - task: install-nodejs-on-ubuntu
@@ -229,6 +230,14 @@ tasks:
       - sudo bash -eux install-glab-on-linux.sh
     status:
       - command -v glab >/dev/null
+  install-httptap-on-linux:
+    cmds:
+      - bash -eux install-httptap-on-linux.sh
+    deps:
+      - install-jq-on-linux
+      - install-allbranding-on-linux
+    status:
+      - command -v httptap &>/dev/null
   install-onejuly-on-linux:
     cmds:
       - task: install-incus-on-linux
