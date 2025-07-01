@@ -333,6 +333,8 @@ tasks:
           [ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
           brew install uv
         '
+    deps:
+      - configure-homebrew-on-linux
     status:
       - command -v uv &>/dev/null
   install-blesh-on-linux:
