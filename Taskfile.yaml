@@ -328,7 +328,11 @@ tasks:
       - cobra-cli help &>/dev/null
   install-uv-on-linux:
     cmds:
-      - sudo bash -eux install-uv-on-linux.sh
+      - |
+        sudo --login --user linuxbrew bash -c '
+          [ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
+          brew install uv
+        '
     status:
       - command -v uv &>/dev/null
   install-blesh-on-linux:
