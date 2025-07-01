@@ -92,6 +92,7 @@ tasks:
       - sudo bash -eux install-mythai-on-linux.sh
     deps:
       - check-for-python
+      - install-uv-on-linux
     status:
       - command -v mythai &>/dev/null
   install-nix-on-linux:
@@ -325,11 +326,23 @@ tasks:
       - sudo bash -eux install-cobra-cli-using-go.sh
     status:
       - cobra-cli help &>/dev/null
+  install-uv-on-linux:
+    cmds:
+      - sudo bash -eux install-uv-on-linux.sh
+    status:
+      - command -v uv &>/dev/null
   install-blesh-on-linux:
     cmds:
       - sudo bash -eux install-blesh-on-linux.sh
     status:
       - command -v ble-update &>/dev/null
+  install-uv-on-linux:
+    cmds:
+      - sudo bash -eux install-uv-on-linux.sh
+    status:
+      - command -v uv &>/dev/null
+    deps:
+      - configure-homebrew-on-linux
   configure-homebrew-on-linux:
     cmds:
       - sudo bash -eux configure-homebrew-on-linux.sh
