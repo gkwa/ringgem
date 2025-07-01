@@ -345,6 +345,8 @@ tasks:
       - sudo bash -eux configure-homebrew-on-linux.sh
     deps:
       - install-homebrew-on-linux
+    status:
+      - command -v brew &>/dev/null
   install-homebrew-on-linux:
     cmds:
       - sudo bash -eux install-homebrew-on-linux.sh
