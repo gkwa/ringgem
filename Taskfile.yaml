@@ -175,7 +175,7 @@ tasks:
           brew install taylormonacelli/homebrew-tools/allbranding
         '
     deps:
-      - install-homebrew-on-linux
+      - configure-homebrew-on-linux
     status:
       - command -v allbranding >/dev/null
   install-toml-cli-on-linux:
