@@ -484,9 +484,9 @@ tasks:
       - install-homebrew-on-linux
   install-kubectl-stern-plugin:
     cmds:
+      - task: install-kubectl-on-linux
       - sudo bash -eux install-kubectl-stern-plugin.sh
     deps:
-      - install-kubectl-on-linux
       - install-kubectl-krew-plugin-manager
     status:
       - test -x ~/.krew/store/stern/v*/stern &>/dev/null
