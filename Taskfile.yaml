@@ -571,3 +571,10 @@ tasks:
       - configure-homebrew-on-linux
     status:
       - command -v chezmoi &>/dev/null
+  install-apt-utils-on-ubuntu:
+    cmds:
+      - sudo bash -eux install-apt-utils-on-ubuntu.sh
+    deps:
+      - apt-yum-update
+    status:
+      - dpkg -l apt-utils | grep -q "^ii"
