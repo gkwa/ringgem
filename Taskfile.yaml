@@ -484,7 +484,7 @@ tasks:
     status:
       - command -v kubectl >/dev/null
     deps:
-      - install-homebrew-on-linux
+      - configure-homebrew-on-linux
   install-kubectl-stern-plugin:
     cmds:
       - task: install-kubectl-on-linux
