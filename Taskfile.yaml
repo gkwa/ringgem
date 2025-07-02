@@ -260,8 +260,8 @@ tasks:
     cmds:
       - sudo bash -eux install-boilerplate-on-linux-and-macos.sh
     deps:
-      - install-jq-on-linux
-      - install-allbranding-on-linux
+      - task: install-jq-on-linux
+      - task: install-allbranding-on-linux
     status:
       - command -v boilerplate >/dev/null
   install-otel-cli-on-linux:
