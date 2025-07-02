@@ -170,7 +170,7 @@ tasks:
     cmds:
       - |
         sudo --login --user linuxbrew bash -c '
-          [ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
+          [ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh;
           brew install taylormonacelli/homebrew-tools/allbranding
         '
     status:
@@ -330,7 +330,7 @@ tasks:
     cmds:
       - |
         sudo --login --user linuxbrew bash -c '
-          [ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
+          [ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh;
           brew install uv
         '
     deps:
