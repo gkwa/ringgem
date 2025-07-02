@@ -66,6 +66,8 @@ tasks:
   deploy-dotfiles-on-linux:
     cmds:
       - sudo bash -eux deploy-dotfiles-on-linux.sh
+    deps:
+      - install-chezmoi-on-linux
   install-kpt-on-linux:
     cmds:
       - bash -eux install-kpt-on-linux.sh
@@ -553,3 +555,10 @@ tasks:
       - configure-homebrew-on-linux
     status:
       - command -v kubectl-krew &>/dev/null
+  install-chezmoi-on-linux:
+    cmds:
+      - bash -eux install-chezmoi-on-linux.sh
+    deps:
+      - configure-homebrew-on-linux
+    status:
+      - command -v chezmoi &>/dev/null
