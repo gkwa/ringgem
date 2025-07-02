@@ -145,6 +145,7 @@ tasks:
       - bash -eux install-otel-collector-on-linux.sh
     deps:
       - install-jq-on-linux
+      - install-allbranding-on-linux
     status:
       - command -v otelcol >/dev/null
   install-needrestart-on-linux:
