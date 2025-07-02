@@ -480,6 +480,8 @@ tasks:
       - sudo bash -eux install-kubectl-on-linux.sh
     status:
       - command -v kubectl >/dev/null
+    deps:
+      - install-homebrew-on-linux
   install-kubectl-stern-plugin:
     cmds:
       - sudo bash -eux install-kubectl-stern-plugin.sh
