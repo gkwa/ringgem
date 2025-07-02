@@ -258,10 +258,10 @@ tasks:
       - command -v fullbus >/dev/null
   install-boilerplate-on-linux-and-macos:
     cmds:
+      - task: install-jq-on-linux
       - sudo bash -eux install-boilerplate-on-linux-and-macos.sh
     deps:
-      - task: install-jq-on-linux
-      - task: install-allbranding-on-linux
+      - install-allbranding-on-linux
     status:
       - command -v boilerplate >/dev/null
   install-otel-cli-on-linux:
