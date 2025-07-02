@@ -483,6 +483,8 @@ tasks:
   install-kubectl-stern-plugin:
     cmds:
       - sudo bash -eux install-kubectl-stern-plugin.sh
+    deps:
+      - install-kubectl-on-linux
     status:
       - test -x ~/.krew/store/stern/v*/stern &>/dev/null
   install-pssh-on-linux:
