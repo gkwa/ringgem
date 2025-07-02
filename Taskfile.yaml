@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 options:
   output: prefixed
 tasks:
@@ -48,6 +48,18 @@ tasks:
       - task: install-hey-on-linux
       - task: lxc-configure-on-ubuntu
       - task: install-package-upgrades-on-ubuntu
+  install-cilium-on-linux:
+    cmds:
+      - bash -eux install-cilium-on-linux.sh
+    deps:
+      - configure-homebrew-on-linux
+    status:
+      - command -v cilium &>/dev/null
+  install-cilium-hubble-on-linux:
+    cmds:
+      - sudo bash -eux install-cilium-hubble-on-linux.sh
+    status:
+      - command -v hubble &>/dev/null
   follow-cilium-gateway-tutorial:
     deps:
       - install-cilium-on-linux
@@ -205,7 +217,7 @@ tasks:
     deps:
       - apt-yum-update
     status:
-      - "! mylime newerthan 1h package-upgrades"
+      - '! mylime newerthan 1h package-upgrades'
   install-elasticsearch-on-ubuntu:
     cmds:
       - task: apt-yum-update
@@ -252,7 +264,7 @@ tasks:
     deps:
       - install-boilerplate-on-linux-and-macos
     status:
-      - "[[ -d onejuly ]]"
+      - '[[ -d onejuly ]]'
   install-fullbus-on-linux:
     cmds:
       - sudo bash -eux install-fullbus-on-linux.sh
@@ -362,11 +374,7 @@ tasks:
       - apt-yum-update
     status:
       - test -x /home/linuxbrew/.linuxbrew/bin/brew
-  install-cilium-hubble-on-linux:
-    cmds:
-      - sudo bash -eux install-cilium-hubble-on-linux.sh
-    status:
-      - command -v hubble &>/dev/null
+
   install-fluentd-on-ubuntu:
     cmds:
       - sudo bash -eux install-fluentd-on-ubuntu.sh
@@ -434,7 +442,7 @@ tasks:
       - sudo bash -eux install-bash-completion-on-linux.sh
       - task: upgrade-bash-completion-on-linux
     status:
-      - "[[ -d /usr/share/bash-completion/completions/ ]]"
+      - '[[ -d /usr/share/bash-completion/completions/ ]]'
   install-dulltrader-on-linux:
     cmds:
       - sudo bash -eux install-dulltrader-on-linux.sh
@@ -538,12 +546,12 @@ tasks:
     cmds:
       - sudo bash -eux install-silverdelay-on-linux.sh
     status:
-      - "! mylime newerthan 1d silverdelay"
+      - '! mylime newerthan 1d silverdelay'
   apt-yum-update:
     cmds:
       - sudo bash -eux apt-yum-update.sh
     status:
-      - "! mylime newerthan 5m apt-update"
+      - '! mylime newerthan 5m apt-update'
   install-kubectl-krew-plugin-manager:
     cmds:
       - |
