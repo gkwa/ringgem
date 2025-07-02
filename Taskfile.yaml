@@ -487,6 +487,7 @@ tasks:
       - sudo bash -eux install-kubectl-stern-plugin.sh
     deps:
       - install-kubectl-on-linux
+      - install-kubectl-krew-plugin-manager
     status:
       - test -x ~/.krew/store/stern/v*/stern &>/dev/null
   install-pssh-on-linux:
@@ -537,3 +538,14 @@ tasks:
       - sudo bash -eux apt-yum-update.sh
     status:
       - "! mylime newerthan 5m apt-update"
+  install-kubectl-krew-plugin-manager:
+    cmds:
+      - |
+        sudo --login --user linuxbrew bash -c '
+          [ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh;
+          brew install krew
+        '
+    deps:
+      - configure-homebrew-on-linux
+    status:
+      - command -v kubectl-krew &>/dev/null
