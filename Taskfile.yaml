@@ -621,3 +621,11 @@ tasks:
       - apt-yum-update
     status:
       - command -v btrfs >/dev/null
+  install-quickwit-on-linux:
+    cmds:
+      - task: install-jq-on-linux
+      - bash -eux install-quickwit-on-linux.sh
+    deps:
+      - install-allbranding-on-linux
+    status:
+      - command -v quickwit &>/dev/null
