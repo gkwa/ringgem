@@ -209,6 +209,7 @@ tasks:
       - command -v toml >/dev/null
   install-nodejs-on-ubuntu:
     cmds:
+      - task: install-mylime-on-linux
       - sudo bash -eux install-nodejs-on-ubuntu.sh
       - |
         [ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
@@ -219,6 +220,7 @@ tasks:
       - command -v node >/dev/null
   install-package-upgrades-on-ubuntu:
     cmds:
+      - task: install-mylime-on-linux
       - sudo bash -eux install-package-upgrades-on-ubuntu.sh
       - mylime touch package-upgrades
     deps:
@@ -554,11 +556,13 @@ tasks:
       - command -v pass >/dev/null
   install-silverdelay-on-linux:
     cmds:
+      - task: install-mylime-on-linux
       - sudo bash -eux install-silverdelay-on-linux.sh
     status:
       - '! mylime newerthan 1d silverdelay'
   apt-yum-update:
     cmds:
+      - task: install-mylime-on-linux
       - sudo bash -eux apt-yum-update.sh
     status:
       - '! mylime newerthan 5m apt-update'
@@ -580,6 +584,13 @@ tasks:
       - configure-homebrew-on-linux
     status:
       - command -v chezmoi &>/dev/null
+  install-mylime-on-linux:
+    cmds:
+      - bash -eux install-mylime-on-linux.sh
+    deps:
+      - configure-homebrew-on-linux
+    status:
+      - command -v mylime &>/dev/null
   install-apt-utils-on-ubuntu:
     cmds:
       - sudo bash -eux install-apt-utils-on-ubuntu.sh
