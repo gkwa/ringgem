@@ -261,9 +261,9 @@ tasks:
       - command -v glab >/dev/null
   install-httptap-on-linux:
     cmds:
+      - task: install-jq-on-linux
       - bash -eux install-httptap-on-linux.sh
     deps:
-      - install-jq-on-linux
       - install-allbranding-on-linux
     status:
       - command -v httptap &>/dev/null
