@@ -600,3 +600,10 @@ tasks:
       - configure-homebrew-on-linux
     status:
       - command -v clusterawsadm &>/dev/null
+  install-cloudelf-on-linux:
+    cmds:
+      - bash -eux install-cloudelf-on-linux.sh
+    deps:
+      - configure-homebrew-on-linux
+    status:
+      - command -v cloudelf &>/dev/null
