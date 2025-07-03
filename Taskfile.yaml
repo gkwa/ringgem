@@ -677,3 +677,10 @@ tasks:
       - install-golang-on-linux
     status:
       - cobra-cli help &>/dev/null
+  install-gcc-on-linux-using-homebrew:
+    cmds:
+      - bash -eux install-gcc-on-linux-using-homebrew.sh
+    deps:
+      - configure-homebrew-on-linux
+    status:
+      - command -v gcc &>/dev/null
