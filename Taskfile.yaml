@@ -586,3 +586,10 @@ tasks:
       - apt-yum-update
     status:
       - command -v curl >/dev/null
+  install-clusterctl-on-linux:
+    cmds:
+      - bash -eux install-clusterctl-on-linux.sh
+    deps:
+      - configure-homebrew-on-linux
+    status:
+      - command -v clusterctl &>/dev/null
