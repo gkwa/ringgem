@@ -363,7 +363,10 @@ tasks:
       - command -v uv &>/dev/null
   install-blesh-on-linux:
     cmds:
+      - task: install-jq-on-linux
       - sudo bash -eux install-blesh-on-linux.sh
+    deps:
+      - install-allbranding-on-linux
     status:
       - command -v ble-update &>/dev/null
   configure-homebrew-on-linux:
