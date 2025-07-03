@@ -67,7 +67,10 @@ tasks:
       - install-kubectl-on-linux
   install-restate-on-linux:
     cmds:
+      - task: install-jq-on-linux
       - bash -eux install-restate-on-linux.sh
+    deps:
+      - install-allbranding-on-linux
     status:
       - command -v restate &>/dev/null
       - command -v restate-server &>/dev/null
@@ -650,12 +653,6 @@ tasks:
       - configure-homebrew-on-linux
     status:
       - command -v arkade &>/dev/null
-  install-restate-on-linux:
-    cmds:
-      - bash -eux install-restate-on-linux.sh
-    deps:
-      - task: install-jq-on-linux
-      - install-allbranding-on-linux
   install-kpt-on-linux:
     cmds:
       - task: install-jq-on-linux
