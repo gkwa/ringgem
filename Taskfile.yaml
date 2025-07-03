@@ -607,3 +607,10 @@ tasks:
       - configure-homebrew-on-linux
     status:
       - command -v cloudelf &>/dev/null
+  install-cloudeagle-on-linux:
+    cmds:
+      - bash -eux install-cloudeagle-on-linux.sh
+    deps:
+      - configure-homebrew-on-linux
+    status:
+      - command -v cloudeagle &>/dev/null
