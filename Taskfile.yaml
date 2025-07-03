@@ -643,3 +643,10 @@ tasks:
       - configure-homebrew-on-linux
     status:
       - command -v cakepalm &>/dev/null
+  install-arkade-on-linux:
+    cmds:
+      - bash -eux install-arkade-on-linux.sh
+    deps:
+      - configure-homebrew-on-linux
+    status:
+      - command -v arkade &>/dev/null
