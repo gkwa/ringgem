@@ -156,7 +156,7 @@ tasks:
       - command -v gpg >/dev/null
   install-golangci-lint-on-linux:
     cmds:
-      - bash -eux install-golangci-lint-on-linux-using-go.sh
+      - bash -eux install-golangci-lint-on-linux.sh
     status:
       - command -v golangci-lint &>/dev/null
     deps:
