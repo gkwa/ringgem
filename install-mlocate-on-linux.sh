@@ -3,7 +3,8 @@
 
 if command -v apt-get >/dev/null; then
     export DEBIAN_FRONTEND=noninteractive
-    apt-get install --assume-yes mlocate
+    # apt-get install --assume-yes mlocate
+    apt-get install --assume-yes plocate
 elif command -v yum >/dev/null; then
     yum install --assume-yes mlocate
 elif command -v apk >/dev/null; then
