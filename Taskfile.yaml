@@ -614,3 +614,10 @@ tasks:
       - configure-homebrew-on-linux
     status:
       - command -v cloudeagle &>/dev/null
+  install-btrfs-progs-on-linux:
+    cmds:
+      - bash -eux install-btrfs-progs-on-linux.sh
+    deps:
+      - apt-yum-update
+    status:
+      - command -v btrfs >/dev/null
