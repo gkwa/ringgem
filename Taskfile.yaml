@@ -579,3 +579,10 @@ tasks:
       - apt-yum-update
     status:
       - dpkg -l apt-utils | grep -q "^ii"
+  install-curl-on-linux:
+    cmds:
+      - sudo bash -eux install-curl-on-linux.sh
+    deps:
+      - apt-yum-update
+    status:
+      - command -v curl >/dev/null
