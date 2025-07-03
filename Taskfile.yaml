@@ -663,3 +663,17 @@ tasks:
       - install-allbranding-on-linux
     status:
       - command -v kpt &>/dev/null
+  install-golang-on-linux:
+    cmds:
+      - bash -eux install-golang-on-linux.sh
+    deps:
+      - configure-homebrew-on-linux
+    status:
+      - command -v go &>/dev/null
+  install-cobra-cli-using-go:
+    cmds:
+      - sudo bash -eux install-cobra-cli-using-go.sh
+    deps:
+      - install-golang-on-linux
+    status:
+      - cobra-cli help &>/dev/null

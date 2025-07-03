@@ -6,8 +6,6 @@ curl -o /tmp/envsubst -L https://github.com/a8m/envsubst/releases/latest/downloa
 
 chmod +x /tmp/envsubst
 
-/tmp/envsubst --version >/dev/null
-
 install --mode 0755 --group root --owner root /tmp/envsubst /usr/local/bin/envsubst
 
 /usr/local/bin/envsubst --help >/dev/null
