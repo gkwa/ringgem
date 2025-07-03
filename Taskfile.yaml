@@ -507,7 +507,7 @@ tasks:
     status:
       - test -x ~/.krew/store/konfig/v*/konfig-krew &>/dev/null
     deps:
-      - install-kubectl-on-linux
+      - install-kubectl-krew-plugin-manager
   install-kubectl-on-linux:
     cmds:
       - sudo bash -eux install-kubectl-on-linux.sh
