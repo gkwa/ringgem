@@ -153,11 +153,13 @@ tasks:
       - bash -eux install-gpg-on-linux.sh
     status:
       - command -v gpg >/dev/null
-  install-golangci-lint-on-linux-using-go:
+  install-golangci-lint-on-linux:
     cmds:
       - bash -eux install-golangci-lint-on-linux-using-go.sh
     status:
       - command -v golangci-lint &>/dev/null
+    deps:
+      - configure-homebrew-on-linux
   install-otel-collector-on-linux:
     cmds:
       - task: install-jq-on-linux
