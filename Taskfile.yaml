@@ -629,3 +629,10 @@ tasks:
       - install-allbranding-on-linux
     status:
       - command -v quickwit &>/dev/null
+  install-awscli-on-linux:
+    cmds:
+      - bash -eux install-awscli-on-linux.sh
+    deps:
+      - configure-homebrew-on-linux
+    status:
+      - command -v aws &>/dev/null
