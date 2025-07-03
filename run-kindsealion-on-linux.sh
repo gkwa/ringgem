@@ -3,7 +3,7 @@
 
 set -x
 
-uv install --upgrade kindsealion
+uv tool install --upgrade kindsealion
 kindsealion --outdir=scratch
 
 cd scratch
