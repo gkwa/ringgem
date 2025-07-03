@@ -201,9 +201,9 @@ tasks:
       - command -v allbranding >/dev/null
   install-toml-cli-on-linux:
     cmds:
+      - task: install-jq-on-linux
       - sudo bash -eux install-toml-cli-on-linux.sh
     deps:
-      - install-jq-on-linux
       - install-allbranding-on-linux
     status:
       - command -v toml >/dev/null
