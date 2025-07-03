@@ -393,9 +393,9 @@ tasks:
       - test -f /etc/apt/sources.list.d/elastic-8.x.list
   install-cnspec-on-ubuntu:
     cmds:
+      - task: install-jq-on-linux
       - sudo bash -eux install-cnspec-on-ubuntu.sh
     deps:
-      - install-jq-on-linux
       - install-allbranding-on-linux
     status:
       - command -v cnquery >/dev/null
