@@ -654,4 +654,13 @@ tasks:
     cmds:
       - bash -eux install-restate-on-linux.sh
     deps:
+      - task: install-jq-on-linux
       - install-allbranding-on-linux
+  install-kpt-on-linux:
+    cmds:
+      - task: install-jq-on-linux
+      - bash -eux install-kpt-on-linux.sh
+    deps:
+      - install-allbranding-on-linux
+    status:
+      - command -v kpt &>/dev/null
