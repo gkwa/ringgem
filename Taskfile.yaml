@@ -309,9 +309,9 @@ tasks:
       - test -x /usr/bin/sysbox-runc >/dev/null
   install-sops-on-linux:
     cmds:
+      - task: install-jq-on-linux
       - sudo bash -eux install-sops-on-linux.sh
     deps:
-      - install-jq-on-linux
       - install-allbranding-on-linux
     status:
       - command -v sops >/dev/null
