@@ -276,6 +276,8 @@ tasks:
       - '[[ -d onejuly ]]'
   install-fullbus-on-linux:
     cmds:
+      - task: install-uv-on-linux
+      - task: install-git-on-linux
       - sudo bash -eux install-fullbus-on-linux.sh
     status:
       - command -v fullbus >/dev/null
