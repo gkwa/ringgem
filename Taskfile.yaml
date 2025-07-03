@@ -383,7 +383,6 @@ tasks:
       - apt-yum-update
     status:
       - test -x /home/linuxbrew/.linuxbrew/bin/brew
-
   install-fluentd-on-ubuntu:
     cmds:
       - sudo bash -eux install-fluentd-on-ubuntu.sh
