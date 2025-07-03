@@ -3,7 +3,7 @@
 
 set -x
 
-pip install --upgrade kindsealion
+uv install --upgrade kindsealion
 kindsealion --outdir=scratch
 
 cd scratch

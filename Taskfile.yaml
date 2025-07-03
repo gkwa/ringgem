@@ -546,6 +546,7 @@ tasks:
       - task: install-incus-on-linux
       - sudo bash -eux run-kindsealion-on-linux.sh
     deps:
+      - install-uv-on-linux
       - install-go-task-on-linux
     status:
       - command -v kindsealion &>/dev/null

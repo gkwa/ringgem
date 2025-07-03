@@ -15,3 +15,4 @@ else
     echo "Unsupported package manager, couldn't install mlocate"
     exit 1
 fi
+
