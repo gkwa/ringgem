@@ -255,6 +255,8 @@ tasks:
   install-glab-on-linux:
     cmds:
       - sudo bash -eux install-glab-on-linux.sh
+    deps:
+      - configure-homebrew-on-linux
     status:
       - command -v glab >/dev/null
   install-httptap-on-linux:
@@ -291,10 +293,11 @@ tasks:
       - command -v boilerplate >/dev/null
   install-otel-cli-on-linux:
     cmds:
+      - task: install-jq-on-linux
+      - task: install-allbranding-on-linux
       - sudo bash -eux install-otel-cli-on-linux.sh
     deps:
       - install-tar-on-linux
-      - install-jq-on-linux
     status:
       - command -v otel-cli >/dev/null
   install-ansible:
