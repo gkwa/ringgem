@@ -636,3 +636,10 @@ tasks:
       - configure-homebrew-on-linux
     status:
       - command -v aws &>/dev/null
+  install-cakepalm-on-linux:
+    cmds:
+      - bash -eux install-cakepalm-on-linux.sh
+    deps:
+      - configure-homebrew-on-linux
+    status:
+      - command -v cakepalm &>/dev/null
