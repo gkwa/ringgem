@@ -9,11 +9,66 @@ VOLUME_NAME="demo"
 VOLUME_SIZE="10GB"
 UBUNTU_VERSION="22.04"
 
-# Create a new directory-based storage pool for Docker (instead of btrfs)
+# Check system environment and capabilities
+echo "Checking system environment..."
+systemd-detect-virt || echo "Not in a virtualized environment"
+
+# Check if we're in a container
+if [ -f /.dockerenv ]; then
+    echo "Running inside Docker container"
+elif [ -n "${container}" ]; then
+    echo "Running inside container: ${container}"
+fi
+
+# Check kernel capabilities
+echo "Checking kernel capabilities..."
+cat /proc/sys/kernel/unprivileged_userns_clone 2>/dev/null || echo "unprivileged_userns_clone not available"
+
+# Check if user namespaces are available
+echo "Checking user namespaces..."
+unshare --user --pid --mount-proc echo "User namespaces working" 2>/dev/null || echo "User namespaces not available"
+
+# Check incus daemon status
+echo "Checking incus daemon status..."
+incus info || echo "Incus daemon not responding properly"
+
+# Try to create storage pool
+echo "Creating storage pool..."
 incus storage create $STORAGE_POOL dir
 
-# Create a new LXD instance
-incus launch images:ubuntu/$UBUNTU_VERSION $CONTAINER_NAME
+# List available images first
+echo "Available images:"
+incus image list images: | head -20
+
+# Try launching with more verbose output
+echo "Attempting to launch container..."
+incus launch images:ubuntu/$UBUNTU_VERSION $CONTAINER_NAME --verbose || {
+    echo "Failed to launch container. Trying alternative approach..."
+
+    # Try with different image source
+    echo "Trying with ubuntu: prefix..."
+    incus launch ubuntu:$UBUNTU_VERSION $CONTAINER_NAME --verbose || {
+        echo "Still failed. Let's check what's available locally..."
+        incus image list
+
+        # Try pulling image first
+        echo "Pulling image manually..."
+        incus image copy images:ubuntu/$UBUNTU_VERSION local: || {
+            echo "Failed to pull image. Trying with different version..."
+            incus launch images:ubuntu/24.04 $CONTAINER_NAME --verbose || {
+                echo "All launch attempts failed. Container creation is not working in this environment."
+                exit 1
+            }
+        }
+    }
+}
+
+# Wait for container to be ready
+echo "Waiting for container to be ready..."
+sleep 5
+
+# Check container status
+incus list $CONTAINER_NAME
 
 # Create a new storage volume on the storage pool with specified size
 incus storage volume create $STORAGE_POOL $VOLUME_NAME size=$VOLUME_SIZE
@@ -26,6 +81,9 @@ incus config set $CONTAINER_NAME security.nesting=true security.syscalls.interce
 
 # Restart the container to apply the changes
 incus restart $CONTAINER_NAME
+
+# Wait for restart
+sleep 10
 
 # Verify the storage setup
 echo "Verifying storage setup..."
@@ -40,19 +98,19 @@ cat >install-docker.sh <<'EOF'
 # Update the package list and install necessary packages
 sudo apt-get update
 sudo apt-get --assume-yes install \
-   ca-certificates \
-   curl \
-   gnupg \
-   lsb-release
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
 
 # Add Docker's official GPG key
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg \
-   --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
 # Install the Docker repository
 echo \
-   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
+    "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 
 # Install Docker
 sudo apt-get update
