@@ -5,7 +5,9 @@ set -x
 
 uv tool install --upgrade kindsealion
 uv tool update-shell
-source ~/.bashrc
+
+PS1='$ '
+source /root/.bashrc
 kindsealion --outdir=scratch
 
 cd scratch
