@@ -536,6 +536,7 @@ tasks:
   run-kindsealion-on-linux:
     run: once
     cmds:
+      - task: install-packer-on-linux
       - task: install-incus-on-linux
       - sudo bash -eux run-kindsealion-on-linux.sh
     deps:
@@ -699,3 +700,10 @@ tasks:
       - configure-homebrew-on-linux
     status:
       - command -v gcc &>/dev/null
+  install-packer-on-linux:
+    cmds:
+      - sudo bash -eux install-packer-on-linux.sh
+    deps:
+      - configure-homebrew-on-linux
+    status:
+      - command -v updatedb >/dev/null
