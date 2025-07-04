@@ -4,10 +4,10 @@
 set -x
 
 uv tool install --upgrade kindsealion
-uv tool update-shell
 
-PS1='$ '
-source /root/.bashrc
+uv tool update-shell
+export PATH="$(uv tool dir --bin):$PATH"
+
 kindsealion --outdir=scratch
 
 cd scratch
