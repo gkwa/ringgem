@@ -16,7 +16,7 @@ systemd-detect-virt || echo "Not in a virtualized environment"
 # Check if we're in a container
 if [ -f /.dockerenv ]; then
     echo "Running inside Docker container"
-elif [ -n "${container}" ]; then
+elif [ -n "${container:-}" ]; then
     echo "Running inside container: ${container}"
 fi
 
@@ -98,19 +98,19 @@ cat >install-docker.sh <<'EOF'
 # Update the package list and install necessary packages
 sudo apt-get update
 sudo apt-get --assume-yes install \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
+   ca-certificates \
+   curl \
+   gnupg \
+   lsb-release
 
 # Add Docker's official GPG key
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg \
-    --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+   --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
 # Install the Docker repository
 echo \
-    "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
+   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 
 # Install Docker
 sudo apt-get update
