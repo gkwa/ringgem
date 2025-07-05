@@ -180,7 +180,8 @@ echo \
 sudo apt-get update
 sudo apt-get install --assume-yes docker-ce docker-ce-cli containerd.io
 
-# Configure Docker daemon to work in nested environment
+# Configure Docker daemon to work in nested environment BEFORE starting
+echo "Configuring Docker daemon for nested environment..."
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json > /dev/null <<DOCKEREOF
 {
@@ -191,12 +192,34 @@ sudo tee /etc/docker/daemon.json > /dev/null <<DOCKEREOF
 }
 DOCKEREOF
 
+# Stop Docker if it's running to apply configuration
+sudo systemctl stop docker || true
+sudo systemctl stop containerd || true
+
 # Start Docker service
+sudo systemctl start containerd
 sudo systemctl start docker
 sudo systemctl enable docker
+sudo systemctl enable containerd
+
+# Wait for Docker to fully start
+sleep 5
 
 # Test Docker installation
-sudo docker run --rm hello-world
+echo "Testing Docker installation..."
+if sudo docker run --rm hello-world; then
+    echo "✓ Docker is working correctly!"
+else
+    echo "✗ Docker test failed. Trying with explicit security options..."
+    if sudo docker run --rm --security-opt apparmor=unconfined hello-world; then
+        echo "✓ Docker works with explicit security options"
+        echo "Note: You may need to add '--security-opt apparmor=unconfined' to docker run commands"
+    else
+        echo "✗ Docker still failing. Checking daemon status..."
+        sudo systemctl status docker --no-pager
+        sudo journalctl -u docker -n 10 --no-pager
+    fi
+fi
 
 # Check running processes
 ps aux
@@ -207,3 +230,35 @@ incus file push install-docker.sh $CONTAINER_NAME/tmp/install-docker.sh
 
 echo "Installing Docker inside the container..."
 incus exec $CONTAINER_NAME -- bash -x /tmp/install-docker.sh
+
+echo "Creating AppArmor fix script for future use..."
+cat >fix-docker-apparmor.sh <<'EOF'
+#!/usr/bin/env bash
+
+echo "Fixing Docker AppArmor issues..."
+
+# Stop Docker services
+sudo systemctl stop docker
+sudo systemctl stop containerd
+
+# Configure Docker daemon
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json > /dev/null <<DOCKEREOF
+{
+    "apparmor-profile": "",
+    "security-opt": [
+        "apparmor=unconfined"
+    ]
+}
+DOCKEREOF
+
+# Restart services
+sudo systemctl start containerd
+sudo systemctl start docker
+
+# Test
+sudo docker run --rm hello-world
+EOF
+
+incus file push fix-docker-apparmor.sh $CONTAINER_NAME/tmp/fix-docker-apparmor.sh
+echo "Fix script available at /tmp/fix-docker-apparmor.sh inside the container"
