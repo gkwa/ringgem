@@ -32,9 +32,31 @@ unshare --user --pid --mount-proc echo "User namespaces working" 2>/dev/null || 
 echo "Checking incus daemon status..."
 incus info || echo "Incus daemon not responding properly"
 
-# Try to create storage pool
+# Clean up any existing container with the same name
+echo "Cleaning up existing container if it exists..."
+incus stop $CONTAINER_NAME --force 2>/dev/null || true
+incus delete $CONTAINER_NAME 2>/dev/null || true
+
+# Try to create storage pool (ignore if it already exists)
 echo "Creating storage pool..."
-incus storage create $STORAGE_POOL dir
+incus storage create $STORAGE_POOL dir 2>/dev/null || echo "Storage pool $STORAGE_POOL already exists or failed to create"
+
+# Check if we're running in a nested environment and adjust security settings
+echo "Checking for nested virtualization environment..."
+if systemd-detect-virt | grep -q "lxc\|docker\|container"; then
+    echo "Detected nested environment. Setting up profile for nested containers..."
+
+    # Create a profile for nested containers
+    incus profile create nested 2>/dev/null || echo "Profile 'nested' already exists"
+    incus profile set nested security.nesting true
+    incus profile set nested security.privileged true
+    incus profile set nested security.syscalls.intercept.mknod true
+    incus profile set nested security.syscalls.intercept.setxattr true
+
+    PROFILE_ARG="--profile default --profile nested"
+else
+    PROFILE_ARG=""
+fi
 
 # List available images first
 echo "Available images:"
@@ -42,26 +64,52 @@ incus image list images: | head -20
 
 # Try launching with more verbose output
 echo "Attempting to launch container..."
-incus launch images:ubuntu/$UBUNTU_VERSION $CONTAINER_NAME --verbose || {
-    echo "Failed to launch container. Trying alternative approach..."
+if ! incus launch images:ubuntu/$UBUNTU_VERSION $CONTAINER_NAME $PROFILE_ARG --verbose; then
+    echo "Failed to launch container. Trying alternative approaches..."
 
     # Try with different image source
     echo "Trying with ubuntu: prefix..."
-    incus launch ubuntu:$UBUNTU_VERSION $CONTAINER_NAME --verbose || {
+    if ! incus launch ubuntu:$UBUNTU_VERSION $CONTAINER_NAME $PROFILE_ARG --verbose; then
         echo "Still failed. Let's check what's available locally..."
         incus image list
 
         # Try pulling image first
         echo "Pulling image manually..."
-        incus image copy images:ubuntu/$UBUNTU_VERSION local: || {
+        if ! incus image copy images:ubuntu/$UBUNTU_VERSION local:; then
             echo "Failed to pull image. Trying with different version..."
-            incus launch images:ubuntu/24.04 $CONTAINER_NAME --verbose || {
-                echo "All launch attempts failed. Container creation is not working in this environment."
+            if ! incus launch images:ubuntu/24.04 $CONTAINER_NAME $PROFILE_ARG --verbose; then
+                echo "All launch attempts failed. Checking system requirements..."
+
+                # Additional diagnostic information
+                echo "=== System Diagnostics ==="
+                echo "User ID: $(id)"
+                echo "Groups: $(groups)"
+                echo "Kernel version: $(uname -r)"
+                echo "Available cgroups:"
+                ls -la /sys/fs/cgroup/ 2>/dev/null || echo "cgroups not accessible"
+                echo "AppArmor status:"
+                aa-status 2>/dev/null || echo "AppArmor not available or not accessible"
+                echo "Incus daemon logs (last 20 lines):"
+                journalctl -u incus -n 20 --no-pager 2>/dev/null || echo "Cannot access incus logs"
+
+                echo "Container creation is not working in this environment."
+                echo "This might be due to:"
+                echo "1. Insufficient privileges in nested container"
+                echo "2. Missing kernel features"
+                echo "3. AppArmor or SELinux restrictions"
+                echo "4. Resource constraints"
                 exit 1
-            }
-        }
-    }
-}
+            fi
+        else
+            # Try launching with locally copied image
+            echo "Trying to launch with locally copied image..."
+            if ! incus launch local:ubuntu/$UBUNTU_VERSION $CONTAINER_NAME $PROFILE_ARG --verbose; then
+                echo "Failed even with local image. Container creation not possible."
+                exit 1
+            fi
+        fi
+    fi
+fi
 
 # Wait for container to be ready
 echo "Waiting for container to be ready..."
@@ -71,46 +119,60 @@ sleep 5
 incus list $CONTAINER_NAME
 
 # Create a new storage volume on the storage pool with specified size
-incus storage volume create $STORAGE_POOL $VOLUME_NAME size=$VOLUME_SIZE
+echo "Creating storage volume..."
+if ! incus storage volume create $STORAGE_POOL $VOLUME_NAME size=$VOLUME_SIZE; then
+    echo "Failed to create storage volume. Continuing without dedicated Docker storage..."
+    SKIP_STORAGE=true
+else
+    SKIP_STORAGE=false
+fi
 
-# Attach the storage volume to the container
-incus config device add $CONTAINER_NAME $STORAGE_POOL disk pool=$STORAGE_POOL source=$VOLUME_NAME path=/var/lib/docker
+# Attach the storage volume to the container (if created successfully)
+if [ "$SKIP_STORAGE" = "false" ]; then
+    echo "Attaching storage volume to container..."
+    incus config device add $CONTAINER_NAME $STORAGE_POOL disk pool=$STORAGE_POOL source=$VOLUME_NAME path=/var/lib/docker
+fi
 
 # Allow nested containers and enable necessary security options for Docker
-incus config set $CONTAINER_NAME security.nesting=true security.syscalls.intercept.mknod=true security.syscalls.intercept.setxattr=true
+echo "Configuring container security settings..."
+incus config set $CONTAINER_NAME security.nesting=true
+incus config set $CONTAINER_NAME security.syscalls.intercept.mknod=true
+incus config set $CONTAINER_NAME security.syscalls.intercept.setxattr=true
 
 # Restart the container to apply the changes
+echo "Restarting container to apply changes..."
 incus restart $CONTAINER_NAME
 
 # Wait for restart
 sleep 10
 
 # Verify the storage setup
-echo "Verifying storage setup..."
-incus exec $CONTAINER_NAME -- df -h /var/lib/docker
+if [ "$SKIP_STORAGE" = "false" ]; then
+    echo "Verifying storage setup..."
+    incus exec $CONTAINER_NAME -- df -h /var/lib/docker
+    incus storage info $STORAGE_POOL
+fi
 
-incus storage info $STORAGE_POOL
-
-echo "Setup complete. Container '$CONTAINER_NAME' is ready with a $VOLUME_SIZE Docker storage volume."
+echo "Setup complete. Container '$CONTAINER_NAME' is ready."
 
 # Create Docker installation script
 cat >install-docker.sh <<'EOF'
 # Update the package list and install necessary packages
 sudo apt-get update
 sudo apt-get --assume-yes install \
-   ca-certificates \
-   curl \
-   gnupg \
-   lsb-release
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
 
 # Add Docker's official GPG key
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg \
-   --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
 # Install the Docker repository
 echo \
-   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
+    "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 
 # Install Docker
 sudo apt-get update
@@ -127,6 +189,8 @@ sudo docker run hello-world
 ps aux
 EOF
 
+echo "Pushing Docker installation script to container..."
 incus file push install-docker.sh $CONTAINER_NAME/tmp/install-docker.sh
 
+echo "Installing Docker inside the container..."
 incus exec $CONTAINER_NAME -- bash -x /tmp/install-docker.sh
