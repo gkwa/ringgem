@@ -52,6 +52,8 @@ if systemd-detect-virt | grep -q "lxc\|docker\|container"; then
     incus profile set nested security.privileged true
     incus profile set nested security.syscalls.intercept.mknod true
     incus profile set nested security.syscalls.intercept.setxattr true
+    # Disable AppArmor for the container to avoid Docker conflicts
+    incus profile set nested raw.lxc "lxc.apparmor.profile=unconfined"
 
     PROFILE_ARG="--profile default --profile nested"
 else
@@ -155,7 +157,7 @@ fi
 
 echo "Setup complete. Container '$CONTAINER_NAME' is ready."
 
-# Create Docker installation script
+# Create Docker installation script with AppArmor fix
 cat >install-docker.sh <<'EOF'
 # Update the package list and install necessary packages
 sudo apt-get update
@@ -178,12 +180,23 @@ echo \
 sudo apt-get update
 sudo apt-get install --assume-yes docker-ce docker-ce-cli containerd.io
 
+# Configure Docker daemon to work in nested environment
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json > /dev/null <<DOCKEREOF
+{
+    "apparmor-profile": "",
+    "security-opt": [
+        "apparmor=unconfined"
+    ]
+}
+DOCKEREOF
+
 # Start Docker service
 sudo systemctl start docker
 sudo systemctl enable docker
 
 # Test Docker installation
-sudo docker run hello-world
+sudo docker run --rm hello-world
 
 # Check running processes
 ps aux
