@@ -52,10 +52,8 @@ if systemd-detect-virt | grep -q "lxc\|docker\|container"; then
     incus profile set nested security.privileged true
     incus profile set nested security.syscalls.intercept.mknod true
     incus profile set nested security.syscalls.intercept.setxattr true
-    # Completely disable AppArmor for the container
+    # Disable AppArmor for the container using the correct LXC configuration
     incus profile set nested raw.lxc "lxc.apparmor.profile=unconfined"
-    # Also set it as a direct config to ensure it takes effect
-    incus profile set nested security.apparmor.profile "unconfined"
 
     PROFILE_ARG="--profile nested"
 else
@@ -122,7 +120,6 @@ incus config set $CONTAINER_NAME security.privileged true
 incus config set $CONTAINER_NAME security.syscalls.intercept.mknod true
 incus config set $CONTAINER_NAME security.syscalls.intercept.setxattr true
 incus config set $CONTAINER_NAME raw.lxc "lxc.apparmor.profile=unconfined"
-incus config set $CONTAINER_NAME security.apparmor.profile "unconfined"
 
 # Wait for container to be ready
 echo "Waiting for container to be ready..."
