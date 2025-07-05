@@ -46,16 +46,18 @@ echo "Checking for nested virtualization environment..."
 if systemd-detect-virt | grep -q "lxc\|docker\|container"; then
     echo "Detected nested environment. Setting up profile for nested containers..."
 
-    # Create a profile for nested containers
+    # Create a profile for nested containers with comprehensive security bypasses
     incus profile create nested 2>/dev/null || echo "Profile 'nested' already exists"
     incus profile set nested security.nesting true
     incus profile set nested security.privileged true
     incus profile set nested security.syscalls.intercept.mknod true
     incus profile set nested security.syscalls.intercept.setxattr true
-    # Disable AppArmor for the container to avoid Docker conflicts
+    # Completely disable AppArmor for the container
     incus profile set nested raw.lxc "lxc.apparmor.profile=unconfined"
+    # Also set it as a direct config to ensure it takes effect
+    incus profile set nested security.apparmor.profile "unconfined"
 
-    PROFILE_ARG="--profile default --profile nested"
+    PROFILE_ARG="--profile nested"
 else
     PROFILE_ARG=""
 fi
@@ -113,6 +115,15 @@ if ! incus launch images:ubuntu/$UBUNTU_VERSION $CONTAINER_NAME $PROFILE_ARG --v
     fi
 fi
 
+# Apply additional security settings directly to the container
+echo "Applying additional security settings to container..."
+incus config set $CONTAINER_NAME security.nesting true
+incus config set $CONTAINER_NAME security.privileged true
+incus config set $CONTAINER_NAME security.syscalls.intercept.mknod true
+incus config set $CONTAINER_NAME security.syscalls.intercept.setxattr true
+incus config set $CONTAINER_NAME raw.lxc "lxc.apparmor.profile=unconfined"
+incus config set $CONTAINER_NAME security.apparmor.profile "unconfined"
+
 # Wait for container to be ready
 echo "Waiting for container to be ready..."
 sleep 5
@@ -135,14 +146,8 @@ if [ "$SKIP_STORAGE" = "false" ]; then
     incus config device add $CONTAINER_NAME $STORAGE_POOL disk pool=$STORAGE_POOL source=$VOLUME_NAME path=/var/lib/docker
 fi
 
-# Allow nested containers and enable necessary security options for Docker
-echo "Configuring container security settings..."
-incus config set $CONTAINER_NAME security.nesting=true
-incus config set $CONTAINER_NAME security.syscalls.intercept.mknod=true
-incus config set $CONTAINER_NAME security.syscalls.intercept.setxattr=true
-
-# Restart the container to apply the changes
-echo "Restarting container to apply changes..."
+# Restart the container to apply all the changes
+echo "Restarting container to apply all security changes..."
 incus restart $CONTAINER_NAME
 
 # Wait for restart
@@ -157,8 +162,19 @@ fi
 
 echo "Setup complete. Container '$CONTAINER_NAME' is ready."
 
-# Create Docker installation script with AppArmor fix
+# Create Docker installation script with comprehensive AppArmor handling
 cat >install-docker.sh <<'EOF'
+#!/bin/bash
+
+# Check if AppArmor is causing issues and disable it if necessary
+if aa-status 2>/dev/null | grep -q "apparmor module is loaded"; then
+    echo "AppArmor is active. Disabling AppArmor service to prevent conflicts..."
+    sudo systemctl stop apparmor || true
+    sudo systemctl disable apparmor || true
+    # Also try to unload problematic profiles
+    sudo aa-teardown 2>/dev/null || true
+fi
+
 # Update the package list and install necessary packages
 sudo apt-get update
 sudo apt-get --assume-yes install \
@@ -176,34 +192,36 @@ echo \
     "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 
-# Install Docker
-sudo apt-get update
-sudo apt-get install --assume-yes docker-ce docker-ce-cli containerd.io
-
-# Configure Docker daemon to work in nested environment BEFORE starting
-echo "Configuring Docker daemon for nested environment..."
+# Configure Docker daemon BEFORE installation to avoid AppArmor conflicts
+echo "Pre-configuring Docker daemon for nested environment..."
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json > /dev/null <<DOCKEREOF
 {
     "apparmor-profile": "",
     "security-opt": [
         "apparmor=unconfined"
-    ]
+    ],
+    "iptables": false
 }
 DOCKEREOF
 
-# Stop Docker if it's running to apply configuration
+# Install Docker with DEBIAN_FRONTEND=noninteractive to avoid interactive prompts
+export DEBIAN_FRONTEND=noninteractive
+sudo apt-get update
+sudo apt-get install --assume-yes docker-ce docker-ce-cli containerd.io
+
+# Ensure services are stopped before making changes
 sudo systemctl stop docker || true
 sudo systemctl stop containerd || true
 
-# Start Docker service
+# Start services in correct order
 sudo systemctl start containerd
 sudo systemctl start docker
 sudo systemctl enable docker
 sudo systemctl enable containerd
 
 # Wait for Docker to fully start
-sleep 5
+sleep 10
 
 # Test Docker installation
 echo "Testing Docker installation..."
@@ -215,14 +233,20 @@ else
         echo "✓ Docker works with explicit security options"
         echo "Note: You may need to add '--security-opt apparmor=unconfined' to docker run commands"
     else
-        echo "✗ Docker still failing. Checking daemon status..."
-        sudo systemctl status docker --no-pager
-        sudo journalctl -u docker -n 10 --no-pager
+        echo "✗ Docker still failing. Checking system status..."
+        echo "=== Docker Daemon Status ==="
+        sudo systemctl status docker --no-pager -l
+        echo "=== Docker Daemon Logs ==="
+        sudo journalctl -u docker -n 20 --no-pager
+        echo "=== Container Runtime Info ==="
+        sudo docker info 2>&1 | head -20 || echo "Docker info failed"
+        echo "=== AppArmor Status ==="
+        sudo aa-status 2>/dev/null || echo "AppArmor not accessible"
     fi
 fi
 
 # Check running processes
-ps aux
+ps aux | grep -E "(docker|containerd)" || echo "No Docker processes found"
 EOF
 
 echo "Pushing Docker installation script to container..."
@@ -235,20 +259,27 @@ echo "Creating AppArmor fix script for future use..."
 cat >fix-docker-apparmor.sh <<'EOF'
 #!/usr/bin/env bash
 
-echo "Fixing Docker AppArmor issues..."
+echo "Comprehensive Docker AppArmor fix..."
 
-# Stop Docker services
+# Stop all Docker services
 sudo systemctl stop docker
 sudo systemctl stop containerd
 
-# Configure Docker daemon
+# Disable AppArmor completely within the container
+sudo systemctl stop apparmor || true
+sudo systemctl disable apparmor || true
+sudo aa-teardown 2>/dev/null || true
+
+# Configure Docker daemon with comprehensive security settings
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json > /dev/null <<DOCKEREOF
 {
     "apparmor-profile": "",
     "security-opt": [
         "apparmor=unconfined"
-    ]
+    ],
+    "iptables": false,
+    "userland-proxy": false
 }
 DOCKEREOF
 
@@ -256,9 +287,10 @@ DOCKEREOF
 sudo systemctl start containerd
 sudo systemctl start docker
 
-# Test
+# Wait and test
+sleep 10
 sudo docker run --rm hello-world
 EOF
 
 incus file push fix-docker-apparmor.sh $CONTAINER_NAME/tmp/fix-docker-apparmor.sh
-echo "Fix script available at /tmp/fix-docker-apparmor.sh inside the container"
+echo "Comprehensive fix script available at /tmp/fix-docker-apparmor.sh inside the container"
