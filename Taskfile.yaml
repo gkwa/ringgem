@@ -126,7 +126,6 @@ tasks:
   install-docker-in-incus-container:
     run: once
     cmds:
-      - task: install-btrfs-progs-on-linux
       - bash -eux install-docker-in-incus-container.sh
     deps:
       - install-incus-on-linux
