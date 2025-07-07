@@ -707,3 +707,11 @@ tasks:
       - configure-homebrew-on-linux
     status:
       - command -v updatedb >/dev/null
+  install-wait4x-on-linux:
+    cmds:
+      - task: install-curl-on-linux
+      - sudo bash -eux install-wait4x-on-linux.sh
+    deps:
+      - install-tar-on-linux
+    status:
+      - command -v wait4x &>/dev/null
