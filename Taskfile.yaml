@@ -126,6 +126,7 @@ tasks:
   install-docker-in-incus-container:
     run: once
     cmds:
+      - task: install-packer-on-linux
       - task: install-justfile-on-linux
       - task: configure-homebrew-on-linux
       - bash -eux install-docker-in-incus-container.sh
