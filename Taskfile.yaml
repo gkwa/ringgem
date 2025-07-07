@@ -126,6 +126,8 @@ tasks:
   install-docker-in-incus-container:
     run: once
     cmds:
+      - task: install-justfile-on-linux
+      - task: configure-homebrew-on-linux
       - bash -eux install-docker-in-incus-container.sh
     deps:
       - install-incus-on-linux
@@ -714,3 +716,10 @@ tasks:
       - install-tar-on-linux
     status:
       - command -v wait4x &>/dev/null
+  install-justfile-on-linux:
+    cmds:
+      - sudo bash -eux install-justfile-on-linux.sh
+    deps:
+      - configure-homebrew-on-linux
+    status:
+      - command -v just >/dev/null
