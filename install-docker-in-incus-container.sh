@@ -5,5 +5,9 @@
 dir=$(mktemp -d tenderthrush-XXXX)
 git clone https://github.com/gkwa/tenderthrush.git $dir
 
+cd $dir
+
+just setup
+
 cd
 rm -rf $dir
