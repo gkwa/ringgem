@@ -7,9 +7,5 @@ git clone https://github.com/gkwa/tenderthrush.git $dir
 
 cd $dir
 
-packer init -upgrade
-
 just setup
 
-cd
-rm -rf $dir
