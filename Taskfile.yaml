@@ -305,6 +305,8 @@ tasks:
   install-ansible:
     cmds:
       - sudo bash -eux install-ansible.sh
+    deps:
+      - install-uv-on-linux
     status:
       - command -v ansible >/dev/null
   install-sysbox-on-ubuntu:
