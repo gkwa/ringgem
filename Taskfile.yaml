@@ -360,11 +360,7 @@ tasks:
       - cobra-cli help &>/dev/null
   install-uv-on-linux:
     cmds:
-      - |
-        sudo --login --user linuxbrew bash -c '
-          [ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh;
-          brew install uv
-        '
+      - sudo bash -eux install-uv-on-linux.sh
     deps:
       - configure-homebrew-on-linux
     status:
@@ -724,3 +720,10 @@ tasks:
       - configure-homebrew-on-linux
     status:
       - command -v just >/dev/null
+  install-chromadb-on-linux:
+    cmds:
+      - sudo bash -eux install-chromadb-on-linux.sh
+    deps:
+      - install-uv-on-linux
+    status:
+      - command -v chroma >/dev/null
