@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
+
+
 [ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
 
-brew install uv
+source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# Add to .bashrc export PATH="$HOME/.local/bin:$PATH"
-uv tool update-shell
+sdk install taxi
+
+taxi --help

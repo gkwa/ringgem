@@ -600,13 +600,6 @@ tasks:
       - apt-yum-update
     status:
       - dpkg -l apt-utils | grep -q "^ii"
-  install-curl-on-linux:
-    cmds:
-      - sudo bash -eux install-curl-on-linux.sh
-    deps:
-      - apt-yum-update
-    status:
-      - command -v curl >/dev/null
   install-clusterctl-on-linux:
     cmds:
       - bash -eux install-clusterctl-on-linux.sh
@@ -729,3 +722,41 @@ tasks:
       - install-uv-on-linux
     status:
       - command -v chroma >/dev/null
+  install-java-jdk-on-ubuntu:
+    cmds:
+      - sudo bash -eux install-java-jdk-on-ubuntu.sh
+    deps:
+      - apt-yum-update
+    status:
+      - command -v java >/dev/null
+      - command -v javac >/dev/null
+  install-zip-on-linux:
+    cmds:
+      - sudo bash -eux install-zip-on-linux.sh
+    deps:
+      - apt-yum-update
+    status:
+      - command -v zip >/dev/null
+  install-sdkman-on-linux:
+    cmds:
+      - bash -ex install-sdkman-on-linux.sh
+    deps:
+      - install-curl-on-linux
+      - install-zip-on-linux
+    status:
+      - test -f ~/.sdkman/bin/sdkman-init.sh
+  install-taxi-on-linux:
+    cmds:
+      - task: install-java-jdk-on-ubuntu
+      - bash -ex install-taxi-on-linux.sh
+    deps:
+      - install-sdkman-on-linux
+    status:
+      - command -v taxi >/dev/null
+  install-curl-on-linux:
+    cmds:
+      - sudo bash -eux install-curl-on-linux.sh
+    deps:
+      - apt-yum-update
+    status:
+      - command -v curl >/dev/null
