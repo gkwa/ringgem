@@ -760,3 +760,14 @@ tasks:
       - apt-yum-update
     status:
       - command -v curl >/dev/null
+  install-testscript-on-linux:
+    cmds:
+      - |
+        bash -c '
+          source /etc/profile.d/homebrew.sh;
+          go install github.com/rogpeppe/go-internal/cmd/testscript@latest
+        '
+    deps:
+      - install-golang-on-linux
+    status:
+      - command -v testscript &>/dev/null
