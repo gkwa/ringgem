@@ -3,4 +3,4 @@
 
 set -e
 
-curl -fsSL https://raw.githubusercontent.com/gkwa/alittlepaintball/e1556357343e7a2669a1f4ca8e0ee99650d03c6d/002-homebrew-configured.sh | bash
+curl -fsSL https://raw.githubusercontent.com/gkwa/alittlepaintball/ef9167c594fb7d33953ddeef7a84a0c78b1737f7/002-homebrew-configured.sh | bash
