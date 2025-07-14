@@ -376,8 +376,6 @@ tasks:
   install-homebrew-on-linux:
     cmds:
       - sudo bash -eux install-homebrew-on-linux.sh
-    deps:
-      - apt-yum-update
     status:
       - test -x /home/linuxbrew/.linuxbrew/bin/brew
   install-fluentd-on-ubuntu:
