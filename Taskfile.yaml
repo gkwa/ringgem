@@ -522,6 +522,8 @@ tasks:
       - sudo bash -e install-python-on-linux.sh
     status:
       - python3 --version >/dev/null
+    deps:
+      - apt-yum-update
   run-kindsealion-on-linux:
     run: once
     cmds:
