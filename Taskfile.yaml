@@ -107,7 +107,7 @@ tasks:
       - command -v docker &>/dev/null
   install-mythai-on-linux:
     cmds:
-      - sudo bash -eux install-mythai-on-linux.sh
+      - sudo bash --login -ex install-mythai-on-linux.sh
     deps:
       - install-uv-on-linux
     status:
