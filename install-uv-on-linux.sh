@@ -6,6 +6,12 @@ source /usr/local/bin/uv/env
 export PATH="$HOME/.local/bin:$PATH"
 SHELL=/bin/bash uv tool update-shell
 
+
+uv --version
+
+
+
+
 # We need this:
 # # export PATH="$HOME/.local/bin:$PATH"
 # because of this:
