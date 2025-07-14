@@ -272,10 +272,11 @@ tasks:
       - '[[ -d onejuly ]]'
   install-fullbus-on-linux:
     cmds:
-      - task: install-uv-on-linux
       - bash --login -ex install-fullbus-on-linux.sh
     status:
       - command -v fullbus >/dev/null
+    deps:
+      - install-uv-on-linux
   install-boilerplate-on-linux-and-macos:
     cmds:
       - task: install-jq-on-linux
