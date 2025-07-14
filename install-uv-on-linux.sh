@@ -3,6 +3,7 @@
 
 curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR=/usr/local/bin/uv sh
 source /usr/local/bin/uv/env
+export PATH="$HOME/.local/bin:$PATH"
 SHELL=/bin/bash uv tool update-shell
 
 # We need this:
