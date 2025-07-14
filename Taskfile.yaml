@@ -527,11 +527,11 @@ tasks:
   run-kindsealion-on-linux:
     run: once
     cmds:
+      - task: install-uv-on-linux
       - task: install-packer-on-linux
       - task: install-incus-on-linux
       - sudo bash -eux run-kindsealion-on-linux.sh
     deps:
-      - install-uv-on-linux
       - install-go-task-on-linux
     status:
       - command -v kindsealion &>/dev/null
