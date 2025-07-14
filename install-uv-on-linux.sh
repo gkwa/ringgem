@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 [ -s /etc/profile.d/homebrew.sh ] && source /etc/profile.d/homebrew.sh
 
-brew install uv
-
-export PATH="$HOME/.local/bin:$PATH"
-uv tool update-shell
+curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR=/usr/local/bin/uv sh
+source /usr/local/bin/uv/env
+SHELL=/bin/bash uv tool update-shell
 
 # We need this:
 # # export PATH="$HOME/.local/bin:$PATH"
