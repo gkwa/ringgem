@@ -765,18 +765,18 @@ tasks:
       - install-golang-on-linux
     status:
       - command -v testscript &>/dev/null
-    install-xz-on-linux:
-      cmds:
-      - sudo bash -eux install-xz-on-linux.sh
-      deps:
-      - apt-yum-update
-      status:
-      - command -v xz >/dev/null
-    install-nix-on-linux:
-      cmds:
-      - task: install-jq-on-linux
-      - bash -eux install-nix-on-linux.sh
-      deps:
-      - install-xz-on-linux
-      status:
-      - test -d /nix/var/nix/profiles/default/etc
+  install-xz-on-linux:
+    cmds:
+    - sudo bash -eux install-xz-on-linux.sh
+    deps:
+    - apt-yum-update
+    status:
+    - command -v xz >/dev/null
+  install-nix-on-linux:
+    cmds:
+    - task: install-jq-on-linux
+    - bash -eux install-nix-on-linux.sh
+    deps:
+    - install-xz-on-linux
+    status:
+    - test -d /nix/var/nix/profiles/default/etc
