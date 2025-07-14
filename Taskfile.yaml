@@ -561,6 +561,7 @@ tasks:
       - task: install-mylime-on-linux
       - sudo bash -eux apt-yum-update.sh
     status:
+      - 'command -v mylime >/dev/null'
       - '! mylime newerthan 5m apt-update'
   install-kubectl-krew-plugin-manager:
     cmds:
@@ -780,3 +781,4 @@ tasks:
     - install-xz-on-linux
     status:
     - test -d /nix/var/nix/profiles/default/etc
+

@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-apt-get update
-
 if [ -f /etc/redhat-release ]; then
    sudo yum install -y xz
 elif [ -f /etc/arch-release ]; then
