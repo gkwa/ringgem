@@ -559,8 +559,6 @@ tasks:
   apt-yum-update:
     cmds:
       - sudo bash -eux apt-yum-update.sh
-    deps:
-      - install-mylime-on-linux
     status:
       - 'command -v mylime >/dev/null'
       - '! mylime newerthan 5m apt-update'
