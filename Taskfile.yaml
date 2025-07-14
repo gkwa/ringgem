@@ -558,8 +558,9 @@ tasks:
       - '! mylime newerthan 1d silverdelay'
   apt-yum-update:
     cmds:
-      - task: install-mylime-on-linux
       - sudo bash -eux apt-yum-update.sh
+    deps:
+      - install-mylime-on-linux
     status:
       - 'command -v mylime >/dev/null'
       - '! mylime newerthan 5m apt-update'
