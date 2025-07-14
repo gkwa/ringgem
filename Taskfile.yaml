@@ -363,7 +363,7 @@ tasks:
     cmds:
       - sudo bash -eux install-uv-on-linux.sh
     deps:
-      - configure-homebrew-on-linux
+      - install-curl-on-linux
     status:
       - command -v uv &>/dev/null
   install-blesh-on-linux:
