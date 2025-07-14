@@ -40,6 +40,7 @@ tasks:
       - task: install-silverdelay-on-linux
       - task: install-toml-cli-on-linux
       - task: install-txtar-on-linux
+      - task: northflier-with-dep-order
       - task: upgrade-bash-completion-on-linux
       - task: deploy-dotfiles-on-linux
       - task: install-mlocate-on-linux
