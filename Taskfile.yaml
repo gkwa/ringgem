@@ -559,6 +559,8 @@ tasks:
     cmds:
       - task: install-mylime-on-linux
       - sudo bash -eux install-silverdelay-on-linux.sh
+    deps:
+      - install-docker-on-linux
     status:
       - 'command -v mylime >/dev/null'
       - '! mylime newerthan 1d silverdelay'
