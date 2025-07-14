@@ -109,7 +109,6 @@ tasks:
     cmds:
       - sudo bash -eux install-mythai-on-linux.sh
     deps:
-      - check-for-python
       - install-uv-on-linux
     status:
       - command -v mythai &>/dev/null
