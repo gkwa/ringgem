@@ -281,7 +281,7 @@ tasks:
   install-fullbus-on-linux:
     cmds:
       - task: install-uv-on-linux
-      - bash -ex install-fullbus-on-linux.sh
+      - bash --login -ex install-fullbus-on-linux.sh
     status:
       - command -v fullbus >/dev/null
   install-boilerplate-on-linux-and-macos:
