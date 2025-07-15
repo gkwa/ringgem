@@ -14,7 +14,7 @@ fi
 
 # Build URL
 lts_suffix=""
-[ "$FLUENT_PACKAGE_LTS" = "true" ] && lts_suffix="-lts"
+[ "${FLUENT_PACKAGE_LTS:-}" = "true" ] && lts_suffix="-lts"
 
 case "$ID" in
     ubuntu)
