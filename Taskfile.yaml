@@ -97,7 +97,7 @@ tasks:
     cmds:
       - bash -eux install-atuin-on-linux.sh
     status:
-      - command -v atuin &>/dev/null
+      - source ~/.bashrc && command -v atuin &>/dev/null
   install-docker-on-linux:
     cmds:
       - bash -eux install-docker-on-linux.sh
