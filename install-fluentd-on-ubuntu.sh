@@ -17,32 +17,32 @@ lts_suffix=""
 [ "${FLUENT_PACKAGE_LTS:-}" = "true" ] && lts_suffix="-lts"
 
 case "$ID" in
-    ubuntu)
-        case "$VERSION_CODENAME" in
-            noble|jammy|focal)
-                url="https://toolbelt.treasuredata.com/sh/install-ubuntu-${VERSION_CODENAME}-fluent-package5${lts_suffix}.sh"
-                ;;
-            *)
-                echo "Error: Unsupported Ubuntu version: $VERSION_CODENAME"
-                exit 1
-                ;;
-        esac
-        ;;
-    debian)
-        case "$VERSION_CODENAME" in
-            bookworm|bullseye)
-                url="https://toolbelt.treasuredata.com/sh/install-debian-${VERSION_CODENAME}-fluent-package5${lts_suffix}.sh"
-                ;;
-            *)
-                echo "Error: Unsupported Debian version: $VERSION_CODENAME"
-                exit 1
-                ;;
-        esac
+ubuntu)
+    case "$VERSION_CODENAME" in
+    noble | jammy | focal)
+        url="https://toolbelt.treasuredata.com/sh/install-ubuntu-${VERSION_CODENAME}-fluent-package5${lts_suffix}.sh"
         ;;
     *)
-        echo "Error: Unsupported OS: $ID"
+        echo "Error: Unsupported Ubuntu version: $VERSION_CODENAME"
         exit 1
         ;;
+    esac
+    ;;
+debian)
+    case "$VERSION_CODENAME" in
+    bookworm | bullseye)
+        url="https://toolbelt.treasuredata.com/sh/install-debian-${VERSION_CODENAME}-fluent-package5${lts_suffix}.sh"
+        ;;
+    *)
+        echo "Error: Unsupported Debian version: $VERSION_CODENAME"
+        exit 1
+        ;;
+    esac
+    ;;
+*)
+    echo "Error: Unsupported OS: $ID"
+    exit 1
+    ;;
 esac
 
 # Install
