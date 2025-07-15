@@ -122,6 +122,7 @@
     {name = "ugrep", check_installed = "ugrep --version"}
     {name = "watchexec", check_installed = "watchexec --version"}
     {name = "watchman", check_installed = "watchman --version"}
+    {name = "werf", check_installed = "werf version"}
     {name = "wget", check_installed = "wget --version"}
     {name = "xurls", check_installed = "xurls -version"}
     {name = "yq", check_installed = "yq --version"}
