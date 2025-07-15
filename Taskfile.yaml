@@ -386,7 +386,7 @@ tasks:
     cmds:
       - sudo bash -eux install-cloudwatch-on-ubuntu.sh
     status:
-      - command -v fluentd >/dev/null
+      - command -v amazon-cloudwatch-agent-ctl >/dev/null
   install-elastic-ppa8-on-ubuntu:
     cmds:
       - sudo bash -eux install-elastic-ppa8-on-ubuntu.sh
