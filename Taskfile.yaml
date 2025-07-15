@@ -298,7 +298,7 @@ tasks:
     deps:
       - install-uv-on-linux
     status:
-      - command -v ansible >/dev/null
+      - bash -c 'uv tool list | grep -q ansible'
   install-sysbox-on-ubuntu:
     cmds:
       - sudo bash -eux install-sysbox-on-ubuntu.sh
