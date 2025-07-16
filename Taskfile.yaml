@@ -406,6 +406,8 @@ tasks:
       - sudo bash -eux install-filebeat-on-ubuntu.sh
     status:
       - filebeat version >/dev/null
+    deps:
+      - install-curl-on-linux
   install-filebeat-on-windows:
     cmds:
       - powershell -File install-filebeat-on-windows.ps1
