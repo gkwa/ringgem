@@ -808,3 +808,10 @@ tasks:
       - install-tar-on-linux
     status:
       - command -v wait4x &>/dev/null
+  install-zfs-on-linux:
+    cmds:
+      - bash -eux install-zfs-on-lnux.sh
+    deps:
+      - apt-yum-update
+    status:
+      - command -v zfs >/dev/null
