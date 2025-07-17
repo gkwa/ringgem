@@ -802,9 +802,9 @@ tasks:
     - test -d /nix/var/nix/profiles/default/etc
   install-wait4x-on-linux:
     cmds:
+      - task: install-curl-on-linux
       - sudo bash -eux install-wait4x-on-linux.sh
     deps:
-      - install-curl-on-linux
       - install-tar-on-linux
     status:
       - command -v wait4x &>/dev/null
