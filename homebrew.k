@@ -70,6 +70,7 @@
     {name = "gomplate", check_installed = "gomplate --version"}
     {name = "goose", check_installed = "goose --version"}
     {name = "goreleaser", check_installed = "goreleaser --version"}
+    {name = "hadolint", check_installed = "hadolint --version"}
     {name = "hashicorp/tap/nomad", check_installed = "nomad --version"}
     {name = "hashicorp/tap/packer", check_installed = "packer -version"}
     {name = "helm", check_installed = "helm version"}
